@@ -1,5 +1,11 @@
 <?php
-use modules\blog\models\utilisateurModel;
+namespace controllers;
+use blog\models\utilisateurModel;
+use blog\views\utilisateurView;
+require_once  "../views/utilisateurView.php";
+
+
+
     class utilisateurController{
 
 
@@ -35,5 +41,8 @@ use modules\blog\models\utilisateurModel;
             header('Location: index.php');
         }
 
+
     }
+    $utilisateurView  = new utilisateurView();
+    $utilisateurView->afficher();
     ?>
