@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi des Performances</title>
+    <link rel="stylesheet" href="../../../assets/styles/performance.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<header id="main-header">
+    <div class="container">
+        <h1 id="header-title">Suivi des Performances</h1>
+    </div>
+</header>
+
+<main id="main-content" class="container">
+    <section id="performance-overview">
+        <h2 class="section-title">Résumé des Performances</h2>
+        <div id="stats-summary">
+            <div class="stat-item">
+                <h3 class="stat-title">Temps de jeu total</h3>
+                <p class="stat-value">35h 25m</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="stat-title">Meilleur score</h3>
+                <p class="stat-value">98 points</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="stat-title">Sports pratiqués</h3>
+                <p class="stat-value">Basketball, Tennis, Football</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="detailed-performance">
+        <h2 class="section-title">Détails des Performances</h2>
+        <table id="performance-table">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Sport</th>
+                <th>Temps de jeu</th>
+                <th>Score</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>02/10/2024</td>
+                <td>Basketball</td>
+                <td>1h 15m</td>
+                <td>87</td>
+            </tr>
+            <tr>
+                <td>30/09/2024</td>
+                <td>Tennis</td>
+                <td>1h 30m</td>
+                <td>6-3, 7-5</td>
+            </tr>
+            <tr>
+                <td>28/09/2024</td>
+                <td>Football</td>
+                <td>2h</td>
+                <td>2-1</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="button-container">
+            <button id="add-performance-btn" onclick="formAjt()">Ajouter une performance</button>
+        </div>
+    </section>
+
+    <section id="performance-charts">
+        <h2 class="section-title">Statistiques Visualisées</h2>
+        <div class="chart">
+            <canvas id="performanceChart"></canvas>
+        </div>
+    </section>
+</main>
+
+<footer id="main-footer">
+    <div class="container">
+        <p>&copy; 2024 Salle Multi-Sport - Suivi des Performances</p>
+    </div>
+</footer>
+
+<div class="overlayForm" id="formOverlayAddPerf">
+    <div class="form-container">
+        <h1 class="form-title">Ajouter une performance</h1>
+        <form class="event-form" action="/?page=performance&form=formAjt" method="POST">
+            <span class="close-btn" onclick="closeForm()">&times;</span>
+            <label class="form-label" for="Date_">Date</label>
+            <input class="form-input" type="DATE" id="Date_" name="Date_" required>
+
+            <label class="form-label" for="Sport">Sport</label>
+            <input class="form-input" type="text" id="Sport" name="Sport" required>
+
+            <label class="form-label" for="TmpJeu">Temps de jeu</label>
+            <textarea class="form-input" type="text" id="TmpJeu" name="Durée" required></textarea>
+
+            <input class="form-submit" type="submit" name="submit" id="submit" value="Ajouter la performance">
+        </form>
+    </div>
+</div>
+<!-- Chart.js script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Script pour initialiser le graphique -->
+<script>
+    window.onload = function() {
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        const performanceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Septembre', 'Octobre', 'Novembre', 'Décembre', 'Janvier'],
+                datasets: [{
+                    label: 'Score',
+                    data: [85, 92, 78, 88, 95],
+                    borderColor: 'rgba(0, 123, 255, 1)',
+                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Évolution des Performances'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    };
+</script>
+<script>
+    function formAjt() {
+        document.getElementById("formOverlayAddPerf").style.display = "flex";
+    }
+    function closeForm() {
+        document.getElementById("formOverlayAddPerf").style.display = "none";
+    }
+</script>
+</body>
+
+</html>
