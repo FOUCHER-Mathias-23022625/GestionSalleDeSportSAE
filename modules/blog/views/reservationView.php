@@ -9,27 +9,31 @@
         <h1>Réserver un terrain de sport</h1>
         
         <div class="icons">
-            <div class="icon" onclick="showForm('football')">
-                <img src="https://img.icons8.com/ios-filled/50/000000/soccer-ball.png" alt="Football">
+
+            <div class="icon" onclick="showForm('tennis', this)" id="tennis">
+                <img src="../../../assets/images/icons-sport/tennis.png" alt="Tennis Image" />
             </div>
-            <div class="icon" onclick="showForm('basketball')">
-                <img src="https://img.icons8.com/ios-filled/50/000000/basketball.png" alt="Basketball">
+            <div class="icon" onclick="showForm('football', this)" id="football">
+                <img src="../../../assets/images/icons-sport/football.png" alt="Football Image" />
             </div>
-            <div class="icon" onclick="showForm('tennis')">
-                <img src="https://img.icons8.com/ios-filled/50/000000/tennis-ball.png" alt="Tennis">
+            <div class="icon" onclick="showForm('basket', this)" id="basket">
+                <img src="../../../assets/images/icons-sport/basket.png" alt="Basket Image">
             </div>
-            <div class="icon" onclick="showForm('volleyball')">
-                <img src="https://img.icons8.com/ios-filled/50/000000/volleyball.png" alt="Volleyball">
+            <div class="icon" onclick="showForm('volley-ball', this)" id="volley-ball">
+                <img src="../../../assets/images/icons-sport/volley-ball.png" alt="Volley-ball Image">
             </div>
-            <div class="icon" onclick="showForm('badminton')">
-                <img src="https://img.icons8.com/ios-filled/50/000000/badminton.png" alt="Badminton">
+            <div class="icon" onclick="showForm('badminton', this)" id="badminton">
+                <img src="../../../assets/images/icons-sport/badminton.png" alt="badminton Image">
+            </div>
+            <div class="icon" onclick="showForm('ping-pong', this)" id="ping-pong">
+                <img id="sport-image" src="../../../assets/images/icons-sport/ping-pong.png" alt="ping-pong Image" />
             </div>
         </div>
     
         <div id="form-container">
             <form>
                 <label for="sport">Sport sélectionné :</label>
-                <input type="text" id="selected-sport" name="sport" readonly>
+                <input type="text" id="selected-sport" name="sport" aria-label="textAutoChange" readonly>
 
                 <label for="creneaux">Créneaux horaires disponibles :</label>
                 <select id="creneaux">
