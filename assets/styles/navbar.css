@@ -1,0 +1,164 @@
+.navBar {
+    position: sticky;
+    top: 0px;
+    background: #242424;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+    box-shadow: 3px 3px 5px black;
+    z-index: 1;
+  }
+  
+  .navBar a{
+    text-decoration: none;
+    color: white;
+    font-family: roboto;
+    text-transform: uppercase;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  
+  .HeadTitle {
+    font-size: 24px;
+    padding: 10px 15px;
+    border: solid white 3px;
+  }
+  
+  .mainNav {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+  }
+  
+  .menuNavBar li a {
+    color: white;
+    display: block;
+    padding: 30px 20px;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .menuNavBar li{
+    padding: 0px 5px;
+  
+  }
+  
+  .menuNavBar li a:hover {
+    background-color: #5c5c5c;
+  }
+  
+  .deroulant {
+    position: relative;
+    z-index: 999;
+  
+  
+  }
+  
+  .deroulant:hover .menu-link-sousnav {
+    display: block;
+    visibility: visible;
+  }
+  
+  .menu-link-sousnav {
+    display: none;
+    transition: all 0.4s ease-in-out;
+    position: absolute;
+    width: max-content;
+    top: 80px;
+    right: 0;
+    background: #242424;
+    padding: 10px 20px;
+    text-align: center;
+    
+  }
+  
+  .sidebar{
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 250px;
+    height: 100vh;
+    margin: 0;
+    background-color: rgba(28, 28, 28, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px black;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .menu-link-sousnav li a {
+    margin: 0px;
+    padding: 20px;
+    padding-left: 25px;
+    color: white; /* Ensure the submenu links are white */
+  }
+  .sidebarBtnA{
+    padding-bottom: 100px !important;
+  }
+  
+  
+  .menu_btn_close{
+    display: none;
+    position: absolute;
+    visibility: visible;
+    top: 50px;
+    right: 50px;
+    width: 35px;
+  }
+  
+  .menu_btn_open{
+    display: none;
+    position: absolute;
+    visibility: visible;
+    top: 50px;
+    
+    margin-left: 90px;
+    right: 50px;
+  
+    width: 35px;
+    margin-bottom: 100px;
+  }
+  
+  .menu_btn:hover{
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width:900px){
+  
+    body{
+      font-size: 14px;
+      line-height: 24px;
+    }
+    .hideOnMobile{
+      visibility: hidden !important;
+    } 
+    .menu_btn_open{
+      display: block;
+      z-index: 999;
+      cursor: pointer !important;
+  
+    }
+    .sidebarBtnA{
+      background: none !important;
+      cursor: default !important;
+    }
+  
+    .menu_btn_close{
+      display: block;
+      z-index: 999;
+      cursor: pointer !important;
+      
+    }
+  } 
+  
+  
+  @media screen and (max-width:700px){
+  
+  }
+  

@@ -1,5 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
+.reservationChoice {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +7,9 @@ body {
     margin: 0;
     background-color: #f7f7f7;
 }
-h1 {
+
+
+.reservationChoice h1 {
     margin-bottom: 20px;
 }
 .icons {
@@ -37,27 +38,27 @@ h1 {
     display: none;
     margin-top: 20px;
 }
-form {
+.reservationChoice form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
 }
-label {
+.reservationChoice label {
     font-weight: bold;
 }
-select, button {
+.reservationChoice select, button {
     padding: 10px;
     font-size: 16px;
     width: 200px;
 }
-button {
+.reservationChoice button {
     background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
 }
-button:hover {
+.reservationChoice button:hover {
     background-color: #45a049;
 }
 

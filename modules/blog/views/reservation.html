@@ -4,50 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../assets/styles/reservation.css">
+    <link rel="stylesheet" href="../../../assets/styles/footer.css">
+    <link rel="stylesheet" href="../../../assets/styles/styles.css">
+    <link rel="stylesheet" href="../../../assets/styles/navbar.css">
     <title>Réservation de Terrain</title>
 </head>
 <body>
+    <header>
+        <div class="navBar">
+            <a href="index.html" class="HeadTitle">...</a>
+            <nav class="menuNavBar">
+                <ul class="sidebar">
+                    <li><a class="sidebarBtnA"><img src="../../../assets/images/croix-blanche.png" alt="bouton menu burger"  onclick="hideSidebar()" class="menu_btn_open"></a></li>
+                    <li><a href="index.html#APropos" class="menu-link">❔ A propos</a></li>
+                    <li class="deroulant"><a href="index.html#Soltuions" class="menu-link">💡 Nos solutions ▼</a></li>
+                    
+                    <li><a href="index.html#nosrealisations" class="menu-link">🔨 Nos réalisations</a></li>
+                    <li><a href="index.html#AvisClients" class="menu-link">⭐ Avis</a></li>
+                    <li><a href="index.html#ContactezNous" class="menu-link">📩 Contact</a></li>
+                    
+                </ul>
+                <ul class="mainNav">
+                    <li><a href="index.html#ContactezNous" class="hideOnMobile">📩 Contact</a></li>
+                    <li><a href="index.html#AvisClients" class="hideOnMobile">⭐ Avis</a></li>
+                    <li><a href="index.html#nosrealisations" class="hideOnMobile">🔨 Nos réalisation</a></li>
+                    <li class="deroulant"><a href="index.html#Soltuions" class="hideOnMobile">💡 Nos solutions ▼</a></li>
+                    <li><a href="index.html#APropos" class="hideOnMobile">❔ A propos</a></li>
+                    <li><img src="../../../assets/images/burger-white.png" alt="bouton menu burger" onclick="showSidebar()" class="menu_btn_close"></li>
+                    
+                </ul>
+        
+            </nav>
+        </div>
+    </header>
 
-    <h1>Réserver un terrain de sport</h1>
+
+
+    <div class="reservationChoice">
+        <h1>Réserver un terrain de sport</h1>
+        
+        <div class="icons">
+            <div class="icon" onclick="showForm('football')">
+                <img src="https://img.icons8.com/ios-filled/50/000000/soccer-ball.png" alt="Football">
+            </div>
+            <div class="icon" onclick="showForm('basketball')">
+                <img src="https://img.icons8.com/ios-filled/50/000000/basketball.png" alt="Basketball">
+            </div>
+            <div class="icon" onclick="showForm('tennis')">
+                <img src="https://img.icons8.com/ios-filled/50/000000/tennis-ball.png" alt="Tennis">
+            </div>
+            <div class="icon" onclick="showForm('volleyball')">
+                <img src="https://img.icons8.com/ios-filled/50/000000/volleyball.png" alt="Volleyball">
+            </div>
+            <div class="icon" onclick="showForm('badminton')">
+                <img src="https://img.icons8.com/ios-filled/50/000000/badminton.png" alt="Badminton">
+            </div>
+        </div>
     
-    <div class="icons">
-        <div class="icon" onclick="showForm('football')">
-            <img src="https://img.icons8.com/ios-filled/50/000000/soccer-ball.png" alt="Football">
+        <div id="form-container">
+            <form>
+                <label for="sport">Sport sélectionné :</label>
+                <input type="text" id="selected-sport" name="sport" readonly>
+
+                <label for="creneaux">Créneaux horaires disponibles :</label>
+                <select id="creneaux">
+                    <option value="09:00-10:00">09:00 - 10:00</option>
+                    <option value="10:00-11:00">10:00 - 11:00</option>
+                    <option value="11:00-12:00">11:00 - 12:00</option>
+                    <option value="13:00-14:00">13:00 - 14:00</option>
+                    <option value="14:00-15:00">14:00 - 15:00</option>
+                    <option value="15:00-16:00">15:00 - 16:00</option>
+                </select>
+
+                <button type="submit">Réserver</button>
+            </form>
         </div>
-        <div class="icon" onclick="showForm('basketball')">
-            <img src="https://img.icons8.com/ios-filled/50/000000/basketball.png" alt="Basketball">
-        </div>
-        <div class="icon" onclick="showForm('tennis')">
-            <img src="https://img.icons8.com/ios-filled/50/000000/tennis-ball.png" alt="Tennis">
-        </div>
-        <div class="icon" onclick="showForm('volleyball')">
-            <img src="https://img.icons8.com/ios-filled/50/000000/volleyball.png" alt="Volleyball">
-        </div>
-        <div class="icon" onclick="showForm('badminton')">
-            <img src="https://img.icons8.com/ios-filled/50/000000/badminton.png" alt="Badminton">
-        </div>
+
     </div>
 
-    <div id="form-container">
-        <form>
-            <label for="sport">Sport sélectionné :</label>
-            <input type="text" id="selected-sport" name="sport" readonly>
+    <footer class="footerArea">
+        <!-- Top Footer Area Start -->
+    
+        <div class="containerFooter">
+            <div class="titreFooter">
+                <h3>...</h3>
+            </div>
+            <div class="contactFooter">
 
-            <label for="creneaux">Créneaux horaires disponibles :</label>
-            <select id="creneaux">
-                <option value="09:00-10:00">09:00 - 10:00</option>
-                <option value="10:00-11:00">10:00 - 11:00</option>
-                <option value="11:00-12:00">11:00 - 12:00</option>
-                <option value="13:00-14:00">13:00 - 14:00</option>
-                <option value="14:00-15:00">14:00 - 15:00</option>
-                <option value="15:00-16:00">15:00 - 16:00</option>
-            </select>
+                    <div class="leftandrightInfoFooter">
+                        <div class="leftInfoFooter">
+                            <h5>Téléphone :</h5>
+                            <p>+33 7 77 77 77 77</p>
+                        </div>
+                        <div class="rightInfoFooter">
+                            <h5>Email :</h5>
+                            <p>...@orange.fr</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="AProposFooter">
+                <h4>À propos de notre site</h4>
+                <div class="textAProposFooter">
+                    <br>
+                    <p>Bienvenue sur notre plateforme de gestion de salle de sports, votre solution tout-en-un pour la gestion 
+                    et la réservation de vos activités sportives.</p>
+                    <p>Nous avons conçu ce service pour faciliter l'organisation, la planification et le suivi de vos séances dans 
+                    nos espaces de fitness, terrains et équipements de pointe.</p>
+                    <p> Que vous soyez un coach, un athlète ou un amateur de sport, nous sommes là pour vous aider à atteindre vos objectifs de manière simple et efficace.</p>
+                </div>
+            </div>
+        </div>
+        <div class="Copyrights">
+            <p>© All Rights Reserved by <a href="#">...</a></p>
+        </div>
+    </footer>
 
-            <button type="submit">Réserver</button>
-        </form>
-    </div>
-
-    <script type="text/javascript" src="../../../assets/scripts/"></script>
+    <script type="text/javascript" src="../../../assets/scripts/reservation.js"></script>
+    <script type="text/javascript" src="../../../assets/scripts/nav.js"></script>
 
 </body>
 </html>
