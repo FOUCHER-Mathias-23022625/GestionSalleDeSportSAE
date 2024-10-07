@@ -14,10 +14,10 @@ namespace modules\blog\models;
             $requete->execute();
         }
         public function connexion()
-        {   if(isset($_POST[connexionButton])){
+        {
             $mail =$_POST["mail"];
             $mdp =$_POST["mdp"];
-        }
+
             $requeteConnexion = $this->connexionBD->pdo->prepare("SELECT * FROM utilisateur WHERE mail = :mail AND mdp = :mdp");
             $requeteConnexion->bindParam(':mail', $mail);
             $requeteConnexion->bindParam(':mdp', $mdp);
