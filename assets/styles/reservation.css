@@ -60,3 +60,49 @@ button {
 button:hover {
     background-color: #45a049;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 500px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.menu-item svg {
+  fill: #333;
+  width: 24px;
+  height: 24px;
+}
+
+.menu-item:hover {
+  background-color: #e0e0e0;
+}
+
+.menu-item input[type="radio"] {
+  display: none;
+}
+
+.menu-item input[type="radio"]:checked + svg {
+  fill: #007bff;
+}
