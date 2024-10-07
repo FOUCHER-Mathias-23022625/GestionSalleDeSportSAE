@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    font-family: "Verdana-light", sans-serif !important ;
+    text-align: center;
+}
+
+.evenement{
+    display: flex;
+    flex-direction: row;
+    background-color: #38444c;
+    color: white;
+    border-radius: 4px;
+    width: 900px;
+    margin: 50px auto;
+}
+
+
+
+#sinscrire{
+    background-color: #38444c;
+    color: white;
+    border: 2px solid #a7c957;
+    border-radius: 5px;
+    outline: none;
+    transform: none;
+    transition: background-color 0.3s ease;
+    width: 100px;
+    margin-left: 400px;
+}
+
+#sinscrire:hover,
+#sinscrire:focus {
+    background-color: #a7c957;
+    color: white;
+}
+
+
+#foot{
+    width: 300px;
+    border-radius: 4px;
+    opacity: 0.9;
+}
+
+#basket{
+    width: 300px;
+    border-radius: 4px;
+    opacity: 0.9;
+}
+
+#badminton{
+    height: 200px;
+    border-radius: 4px;
+    opacity: 0.9;
+}
+
+.txt{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 10px 20px;
+    margin: 10px auto;
+}
+
+.inscription_footer{
+    background-color: #38444c;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.txt_inscription{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    justify-content: space-around;
+    width: 305px;
+}
+
+.form_inscription{
+    display: flex;
+    flex-direction: column;
+    margin: 30px  auto;
+    justify-content: space-around;
+    width: 300px;
+}
+
+#arrow{
+    width: 75px;
+    margin: 50px auto;
+}
+
+.btnInscription{
+    border-radius: 5px;
+    outline: none;
+    transform: none;
+    height: 40px;
+    background-color: #a7c957;
+    color: #38444c;
+}
