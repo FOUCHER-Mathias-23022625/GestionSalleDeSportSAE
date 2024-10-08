@@ -26,7 +26,7 @@ h1{
 
 
 
-#sinscrire{
+.sinscrire{
     background-color: #38444c;
     color: white;
     border: 2px solid #a7c957;
@@ -38,8 +38,8 @@ h1{
     margin-left: 400px;
 }
 
-#sinscrire:hover,
-#sinscrire:focus {
+.sinscrire:hover,
+.sinscrire:focus {
     background-color: #a7c957;
     color: white;
 }
