@@ -1,9 +1,4 @@
 /* Réinitialisation du style pour tous les éléments */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 /* Styles pour le body */
 body {
@@ -12,7 +7,6 @@ body {
     color: #333;
 }
 
-/* Conteneur générique */
 .container {
     width: 80%;
     margin: 0 auto;
@@ -20,36 +14,29 @@ body {
 }
 
 /* Styles pour le header */
-#main-header {
+header {
     background-color: #282c34;
     padding: 20px 0;
     color: #fff;
     text-align: center;
 }
 
-#header-title {
+.header-title {
     font-size: 2.5rem;
     margin-bottom: 10px;
 }
 
-/* Styles pour le contenu principal */
-#main-content {
-    margin-top: 20px;
-}
-
-/* Titre des sections */
 .section-title {
     padding-top: 20px;
     font-size: 1.8rem;
     margin-bottom: 20px;
 }
 
-/* Styles pour la section performance overview */
 #performance-overview {
     margin-bottom: 40px;
 }
 
-#stats-summary {
+.stats {
     display: flex;
     justify-content: space-around;
     margin-bottom: 30px;
@@ -98,7 +85,7 @@ body {
 }
 
 /* Styles pour la section des graphiques */
-#performance-charts {
+#performance-graphe {
     text-align: center;
 }
 
@@ -113,6 +100,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 /* Styles pour le footer */
