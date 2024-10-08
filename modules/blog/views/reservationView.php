@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="../../../assets/styles/reservation.css">
+    <title>Réservation de Terrain</title>
+    <?php include 'naveBar.php'?>
+
+    <div class="reservationChoice">
+        <h1>Réserver un terrain de sport</h1>
+        
+        <div class="icons">
+
+            <div class="icon" onclick="showForm('tennis', this)" id="tennis">
+                <img src="../../../assets/images/icons-sport/tennis.png" alt="Tennis Image" />
+            </div>
+            <div class="icon" onclick="showForm('football', this)" id="football">
+                <img src="../../../assets/images/icons-sport/football.png" alt="Football Image" />
+            </div>
+            <div class="icon" onclick="showForm('basket', this)" id="basket">
+                <img src="../../../assets/images/icons-sport/basket.png" alt="Basket Image">
+            </div>
+            <div class="icon" onclick="showForm('volley-ball', this)" id="volley-ball">
+                <img src="../../../assets/images/icons-sport/volley-ball.png" alt="Volley-ball Image">
+            </div>
+            <div class="icon" onclick="showForm('badminton', this)" id="badminton">
+                <img src="../../../assets/images/icons-sport/badminton.png" alt="badminton Image">
+            </div>
+            <div class="icon" onclick="showForm('ping-pong', this)" id="ping-pong">
+                <img id="sport-image" src="../../../assets/images/icons-sport/ping-pong.png" alt="ping-pong Image" />
+            </div>
+        </div>
+    
+        <div id="form-container">
+            <form>
+                <label for="sport">Sport sélectionné :</label>
+                <input type="text" id="selected-sport" name="sport" aria-label="textAutoChange" readonly>
+
+                <label for="creneaux">Créneaux horaires disponibles :</label>
+                <select id="creneaux">
+                    <option value="09:00-10:00">09:00 - 10:00</option>
+                    <option value="10:00-11:00">10:00 - 11:00</option>
+                    <option value="11:00-12:00">11:00 - 12:00</option>
+                    <option value="13:00-14:00">13:00 - 14:00</option>
+                    <option value="14:00-15:00">14:00 - 15:00</option>
+                    <option value="15:00-16:00">15:00 - 16:00</option>
+                </select>
+
+                <button type="submit">Réserver</button>
+            </form>
+        </div>
+
+    </div>
+<?php include 'footer.php'?>
+    <script type="text/javascript" src="../../../assets/scripts/reservation.js"></script>
+
+</body>
+</html>
