@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <link rel="stylesheet" href="../../../assets/styles/reservation.css">
-        <title>Réservation de Terrain</title>
-    </head>
-        <?php include 'naveBar.php'?>
-    <body>
+<?php
+
+namespace blog\views;
+use navebar;
+require_once "navebar.php";
+require_once "Layout.php";
+class reservationTerrainView
+{
+    public function afficher()
+    {
+        $navebar = new navebar();
+        $navebar->afficher();
+        ob_start();?>
         <div class="reservationChoice">
             <h1>Réserver un terrain de sport</h1>
             <p>Sélectionnez un sport pour voir les créneaux disponibles et réservez votre terrain !</p>
@@ -55,9 +60,11 @@
                 </form>
             </div>
         </div>
-
-        <?php include 'footer.php'?>
-        <script type="text/javascript" src="../../../assets/scripts/reservation.js"></script>
-
-    </body>
-</html>
+    
+            <?php include 'footer.php' ?>
+            <script type="text/javascript" src="../../../assets/scripts/reservation.js"></script>
+        <?php
+        (new \Blog\Views\Layout('Le meilleur blog', ob_get_clean()))->afficher();
+    }
+}
+?>
