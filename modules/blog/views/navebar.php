@@ -29,7 +29,7 @@
                         <li><a href="index.html#AvisClients" class="hideOnMobile">⭐ Avis</a></li>
                         <li><a href="index.html#nosrealisations" class="hideOnMobile">🔨 Nos réalisation</a></li>
                         <li class="deroulant"><a href="index.html#Soltuions" class="hideOnMobile">💡 Nos solutions ▼</a></li>
-                        <li><a href="http://'.$_SERVER['HTTP_HOST'].'GestionSalleDeSportSAE/modules/blog/views/reservation.html" class="hideOnMobile">❔ A propos</a></li>';
+                        <li><a href="http://'.$_SERVER['HTTP_HOST'].'GestionSalleDeSportSAE/modules/blog/views/reservation.html" class="hideOnMobile">❔ A propos</a></li>
                 <?php if(isset($_SESSION['id'])){
                     echo'<li><a type="submit" name="deconnexion" class="hideOnMobile">🔨 Deconnexion</a></li>';} ?>
 
