@@ -6,12 +6,21 @@
     height: 100vh;
     margin: 0;
     background-color: #f7f7f7;
+    font-family: 'Arial', sans-serif;
 }
-
 
 .reservationChoice h1 {
+    margin-bottom: 10px;
+    font-size: 32px;
+    color: #333;
+}
+
+.reservationChoice p {
+    font-size: 18px;
+    color: #666;
     margin-bottom: 20px;
 }
+
 .icons {
     display: flex;
     gap: 30px;
@@ -52,32 +61,41 @@
 }
 
 
-#form-container {
-    display: none;
-    margin-top: 20px;
-}
+/*#form-container {*/
+/*    display: none;*/
+/*    margin-top: 20px;*/
+/*    opacity: 0;*/
+/*    transition: opacity 0.5s ease;*/
+/*}*/
+
 .reservationChoice form {
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: center;
 }
+
 .reservationChoice label {
     font-weight: bold;
 }
+
 .reservationChoice select, button {
     padding: 10px;
     font-size: 16px;
     width: 200px;
 }
+
 .reservationChoice button {
     background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
 .reservationChoice button:hover {
     background-color: #45a049;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .container {
