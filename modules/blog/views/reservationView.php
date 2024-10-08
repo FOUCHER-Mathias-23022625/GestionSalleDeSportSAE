@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -52,6 +55,6 @@
     </div>
 <?php include 'footer.php'?>
     <script type="text/javascript" src="../../../assets/scripts/reservation.js"></script>
-
+</head>
 </body>
 </html>

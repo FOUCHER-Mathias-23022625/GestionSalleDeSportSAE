@@ -2,17 +2,25 @@
 namespace blog\models;
     class UtilisateurModel{
         private $connexionBD;
+
+
         public function __construct(){
             $this->connexionBD=new bdModel();
         }
+        
+
         public function utilisateurInformation($idUtilisateur){
             return $this->connexionBD->pdo->prepare("SELECT * FROM utilisateur WHERE idUtilisateur=:idUtilisateur");
         }
+
+
         public function edit_utilisateur($idUtilisateur,$nom,$prenom,$dateNaissance,$mdp){
             $requete = $this->connexionBD->pdo->prepare("UPDATE utilisateur set idUtilisateur = $idUtilisateur
             , nom = $nom,prenom = $prenom,dateNaissance = $dateNaissance,mdp = $mdp");
             $requete->execute();
         }
+
+
         public function add_utilisateur($nom,$prenom,$dateNaissance,$mdp){
             $requete = $this->connexionBD->pdo->prepare("INSERT INTO utilisateur VALUES (nom =:nom,prenom =:prenom,dateNaissance =:dateNaissance,mdp =:mdp )");
             $requete->bindParam(":nom",$nom);
@@ -21,11 +29,14 @@ namespace blog\models;
             $requete->bindParam(":mdp",$mdp);
             $requete->execute();
         }
+
+
         public function delete_utilisateur($idUtilisateur){
             $requete = $this->connexionBD->pdo->prepare("DELETE FROM utilisateur WHERE idUtilisateur=:idUtilisateur");
             $requete->bindParam(":idUtilisateur",$idUtilisateur);
             $requete->execute();
         }
+
 
         public function connexion()
         {
