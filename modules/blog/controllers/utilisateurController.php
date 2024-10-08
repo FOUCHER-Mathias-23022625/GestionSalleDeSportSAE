@@ -37,7 +37,7 @@ require_once  "../views/utilisateurView.php";
             $prenom = $_POST['prenom'];
             $dateNaiss = $_POST['dateNaiss'];
             $mdp = $_POST['mdp'];
-            $this->model->modification($id, $mail, $nom, $prenom, $dateNaiss, $mdp);
+            $this->$model->edit_utilisateur($id, $mail, $nom, $prenom, $dateNaiss, $mdp);
             header('Location: index.php');
         }
 
