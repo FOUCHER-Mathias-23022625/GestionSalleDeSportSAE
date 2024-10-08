@@ -1,5 +1,5 @@
 <?php
-namespace modules\blog\models;
+namespace blog\models;
     class UtilisateurModel{
         private $connexionBD;
         public function __construct(){
