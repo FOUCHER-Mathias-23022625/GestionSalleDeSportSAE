@@ -19,7 +19,7 @@
 <main id="main-content" class="container">
     <section id="performance-overview">
         <h2 class="section-title">Résumé des Performances</h2>
-        <div id="stats-summary">
+        <div class="stats">
             <div class="stat-item">
                 <h3 class="stat-title">Temps de jeu total</h3>
                 <p class="stat-value">35h 25m</p>
@@ -35,7 +35,7 @@
         </div>
     </section>
 
-    <section id="detailed-performance">
+    <section id="detail-performance">
         <h2 class="section-title">Détails des Performances</h2>
         <table id="performance-table">
             <thead>
@@ -72,10 +72,10 @@
         </div>
     </section>
 
-    <section id="performance-charts">
+    <section id="performance-graphe">
         <h2 class="section-title">Statistiques Visualisées</h2>
         <div class="chart">
-            <canvas id="performanceChart"></canvas>
+            <canvas id="performanceGraphe"></canvas>
         </div>
     </section>
 </main>
@@ -106,53 +106,8 @@
 </div>
 <!-- Chart.js script -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<!-- Script pour initialiser le graphique -->
-<script>
-    window.onload = function() {
-        const ctx = document.getElementById('performanceChart').getContext('2d');
-        const performanceChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Septembre', 'Octobre', 'Novembre', 'Décembre', 'Janvier'],
-                datasets: [{
-                    label: 'Score',
-                    data: [85, 92, 78, 88, 95],
-                    borderColor: 'rgba(0, 123, 255, 1)',
-                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
-                    fill: true,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Évolution des Performances'
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    };
-</script>
-<script>
-    function formAjt() {
-        document.getElementById("formOverlayAddPerf").style.display = "flex";
-    }
-    function closeForm() {
-        document.getElementById("formOverlayAddPerf").style.display = "none";
-    }
-</script>
+<script src="../../../assets/scripts/graphe.js"></script>
+<script src="../../../assets/scripts/performance_form.js"></script>
 </body>
 
 </html>
