@@ -4,17 +4,16 @@
   <meta charset="UTF-8">
   <title>Salle de sport</title>
   <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/evenement.css"/>
-</head>
-<body>
+  <?php include 'naveBar.php'?>
+
 <h1>Les évènements à venir</h1>
 <div class = "evenement">
-  <img id="foot" src="/GestionSalleDeSportSAE/assets/images/istockphoto-1406854849-612x612.jpg">
+    <img id="foot" src="/GestionSalleDeSportSAE/assets/images/istockphoto-1406854849-612x612.jpg">
   <div class="txt">
     <h3>Tournoi de football</h3>
     <p>Vous souhaitez passer un bon moment avec d'autres adhérents ? Inscrivez-vous direct !</p>
     <button class="sinscrire">Je participe</button>
   </div>
-
 </div>
 <div class = "evenement">
   <img id="basket" src="/GestionSalleDeSportSAE/assets/images/22336935-basketball-contexte-illustration-ai-generatif-gratuit-photo.jpg">
@@ -23,7 +22,6 @@
     <p>Vous souhaitez passer un bon moment avec d'autres adhérents ? Inscrivez-vous direct !</p>
     <button class="sinscrire">Je participe</button>
   </div>
-
 </div>
 <div class = "evenement">
   <img id="badminton" src="/GestionSalleDeSportSAE/assets/images/raquette-volant-de-badminton.jpg">
@@ -33,7 +31,6 @@
     <button class="sinscrire">Je participe</button>
   </div>
 </div>
-<footer>
   <div class="inscription_footer">
     <div class="txt_inscription">
       <p>Envie de vous surpasser ou simplement de vous remettre en forme ?</p>
@@ -44,10 +41,10 @@
     </div>
     <div class="form_inscription">
       <input type="text" placeholder="Votre adresse mail">
-      <button class="btnInscription">Je m'inscris</button>
+        <button class="btnInscription">Je m'inscris</button>
     </div>
   </div>
-</footer>
+    <?php include 'footer.php'?>
 
 </body>
 
