@@ -56,7 +56,7 @@ class reservationTerrainView
                         <option value="15:00-16:00">15:00 - 16:00</option>
                     </select>
 
-                    <button type="submit">Réserver</button>
+                    <button class="btnVoirResa" type="submit"><span>Voir les terrains disponibles :</span><i></i></button>
                 </form>
             </div>
         </div>
