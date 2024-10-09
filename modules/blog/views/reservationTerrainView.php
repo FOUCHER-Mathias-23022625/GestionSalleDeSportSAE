@@ -42,7 +42,7 @@ class reservationTerrainView
             </div>
 
             <div id="form-container">
-                <form>
+                <form class="event-form" action="/?page=struture&form=modifForm" method="POST">
                     <label for="sport">Sport sélectionné :</label>
                     <input type="text" id="selected-sport" name="sport" aria-label="textAutoChange" readonly>
 
@@ -59,6 +59,14 @@ class reservationTerrainView
                     <button class="btnVoirResa" type="submit"><span>Voir les terrains disponibles :</span><i></i></button>
                 </form>
             </div>
+        </div>
+        <div class="Reservation">
+            <?php foreach ($request_res as $row): ?>
+            <p><?php echo $row["sport"] ?></p>
+            <p><?php echo $row["date"] ?></p>
+            <p><?php echo $row["heure"] ?></p>
+            <?php endforeach; ?>
+
         </div>
     
             <?php include 'footer.php' ?>
