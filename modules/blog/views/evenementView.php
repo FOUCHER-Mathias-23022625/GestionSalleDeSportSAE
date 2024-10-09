@@ -5,13 +5,14 @@
   <title>Salle de sport</title>
   <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/evenement.css"/>
   <?php include 'naveBar.php'?>
-
+</head>
+<body>
 <h1>Les évènements à venir</h1>
 <div class = "evenement">
     <img id="foot" src="/GestionSalleDeSportSAE/assets/images/istockphoto-1406854849-612x612.jpg">
   <div class="txt">
-    <h3>Tournoi de football</h3>
-    <p>Vous souhaitez passer un bon moment avec d'autres adhérents ? Inscrivez-vous direct !</p>
+    <h3>Tournoi de foot salle</h3>
+      <p>Vous souhaitez passer un bon moment avec d'autres adhérents avec à la clé 2 séance de sport gratuite ? Inscrivez-vous direct ! Il reste encore n places</p>
     <button class="sinscrire">Je participe</button>
   </div>
 </div>
@@ -30,6 +31,10 @@
     <p>Vous souhaitez passer un bon moment avec d'autres adhérents ? Inscrivez-vous direct !</p>
     <button class="sinscrire">Je participe</button>
   </div>
+</div>
+<div class="popup_inscription">
+    <h3>Inscription</h3>
+    <p>Entrez votre nom</p>
 </div>
   <div class="inscription_footer">
     <div class="txt_inscription">
