@@ -6,7 +6,7 @@ require_once "navebar.php";
 require_once "Layout.php";
 class reservationTerrainView
 {
-    public function afficher()
+    public function afficher($request_res)
     {
         $navebar = new navebar();
         $navebar->afficher();
@@ -62,13 +62,13 @@ class reservationTerrainView
         </div>
         <div class="Reservation">
             <?php foreach ($request_res as $row): ?>
-            <p><?php echo $row["sport"] ?></p>
-            <p><?php echo $row["date"] ?></p>
-            <p><?php echo $row["heure"] ?></p>
+            <div class="card">
+                <h2><?php echo $row["sport"]?></h2>
+                <p><?php echo $row["date"] ?></p>
+                <div class="time-slot"><?php echo $row["heure"] ?></div>
+            </div>
             <?php endforeach; ?>
-
         </div>
-    
             <?php include 'footer.php' ?>
             <script type="text/javascript" src="../../../assets/scripts/reservation.js"></script>
         <?php

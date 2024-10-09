@@ -3,6 +3,7 @@
 namespace blog\controllers;
 
 use blog\models\reservationTerrainModele;
+use blog\views\reservationTerrainView;
 
 require_once 'modules/blog/models/reservationTerrainModele.php';
 class reservationTerrainController
@@ -21,7 +22,8 @@ class reservationTerrainController
     public function displayReservationTerrain()
     {
         $reservation = $this ->reservationTerrainModele ->getReservationTerrain();
-        include '../views/reservationTerrainView.php';
+        $view = new ReservationTerrainView();
+        $view->afficher($reservation);
     }
 
 }

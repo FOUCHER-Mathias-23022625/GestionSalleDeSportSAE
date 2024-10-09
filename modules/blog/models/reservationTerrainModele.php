@@ -12,7 +12,12 @@ class reservationTerrainModele
     }
 
     public function getReservationTerrain(){
-        $request_res = "SELECT * FROM reservation_terrain ORDER BY heure";
+        $request_res = "SELECT * FROM reservationTerrain ORDER BY heure";
         return $this->connexion->query($request_res)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getReservationTerrainOccuped()
+    {
+
     }
 }
