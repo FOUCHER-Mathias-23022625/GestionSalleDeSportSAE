@@ -6,7 +6,7 @@ require_once "navebar.php";
 require_once "Layout.php";
 class reservationTerrainView
 {
-    public function afficher()
+    public function afficher($request_res)
     {
         $navebar = new navebar();
         $navebar->afficher();
@@ -42,7 +42,7 @@ class reservationTerrainView
             </div>
 
             <div id="form-container">
-                <form>
+                <form class="event-form" action="/?page=struture&form=modifForm" method="POST">
                     <label for="sport">Sport sélectionné :</label>
                     <input type="text" id="selected-sport" name="sport" aria-label="textAutoChange" readonly>
 
@@ -56,11 +56,19 @@ class reservationTerrainView
                         <option value="15:00-16:00">15:00 - 16:00</option>
                     </select>
 
-                    <button type="submit">Réserver</button>
+                    <button class="btnVoirResa" type="submit"><span>Voir les terrains disponibles :</span><i></i></button>
                 </form>
             </div>
         </div>
-    
+        <div class="Reservation">
+            <?php foreach ($request_res as $row): ?>
+            <div class="card">
+                <h2><?php echo $row["sport"]?></h2>
+                <p><?php echo $row["date"] ?></p>
+                <div class="time-slot"><?php echo $row["heure"] ?></div>
+            </div>
+            <?php endforeach; ?>
+        </div>
             <?php include 'footer.php' ?>
             <script type="text/javascript" src="../../../assets/scripts/reservation.js"></script>
         <?php

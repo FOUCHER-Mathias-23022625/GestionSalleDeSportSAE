@@ -1,7 +1,9 @@
 <?php
 namespace blog\views;
+use index;
 use navebar;
 require_once "navebar.php";
+//require_once "../../../index.php";
 
 class UtilisateurView
 {
@@ -12,6 +14,7 @@ class UtilisateurView
     public function afficher()
     {
         $navebar = new navebar();
+        //$index = new index();
         echo '<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -26,9 +29,10 @@ class UtilisateurView
 </head>
 <body>
     <header>
-        ' . $navebar->afficher() . '
+        ' . $navebar->afficher() .//$index->url(). '
+        '
     </header>
-    <main>
+  
         <div class="login-container">
             <h2>Connexion</h2>
             <form action="login.php" method="POST" class="login-form">
@@ -43,7 +47,7 @@ class UtilisateurView
                 <button type="submit" class="login-btn">Se connecter</button>
             </form>
         </div>
-    </main>
+  
 </body>
 </html>';
     }

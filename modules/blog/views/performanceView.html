@@ -47,24 +47,20 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>02/10/2024</td>
-                <td>Basketball</td>
-                <td>1h 15m</td>
-                <td>87</td>
-            </tr>
-            <tr>
-                <td>30/09/2024</td>
-                <td>Tennis</td>
-                <td>1h 30m</td>
-                <td>6-3, 7-5</td>
-            </tr>
-            <tr>
-                <td>28/09/2024</td>
-                <td>Football</td>
-                <td>2h</td>
-                <td>2-1</td>
-            </tr>
+                <?php if (!empty($performances)): ?>
+                    <?php foreach ($performances as $performance): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($performance['date']); ?></td>
+                            <td><?php echo htmlspecialchars($performance['sport']); ?></td>
+                            <td><?php echo htmlspecialchars($performance['temps_de_jeu']); ?></td>
+                            <td><?php echo htmlspecialchars($performance['score']); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="4">Aucune performance enregistrée.</td>
+                    </tr>
+                <?php endif; ?>
             </tbody>
         </table>
         <div class="button-container">
@@ -99,6 +95,9 @@
 
             <label class="form-label" for="TmpJeu">Temps de jeu</label>
             <input class="form-input" type="text" id="TmpJeu" name="Durée" required></input>
+
+            <label class="form-label" for="Score">Score</label>
+            <input class="form-input" type="text" id="Score" name="Score" ></input>
 
             <input class="form-submit" type="submit" name="submit" id="submit" value="Ajouter la performance">
         </form>
