@@ -5,7 +5,16 @@ class performanceModel {
     private $connexion;
 
     public function __construct($host_name, $user_name, $password, $database_name) {
-        $this->connexion = new \PDO("mysql:host=$host_name;dbname=$database_name", $user_name, $password);
+        try {
+            // Tentative de connexion à la base de données
+            $this->connexion = new \PDO("mysql:host=$host_name;dbname=$database_name", $user_name, $password);
+            // Activer les exceptions PDO pour afficher les erreurs
+            $this->connexion->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        } catch (\PDOException $e) {
+            // En cas d'erreur, afficher le message et arrêter l'exécution
+            echo "Erreur de connexion à la base de données : " . $e->getMessage();
+            exit; // Stoppe l'exécution en cas de problème de connexion
+        }
     }
 
     public function getPerformances() {
