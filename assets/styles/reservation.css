@@ -87,7 +87,7 @@
 
 .reservationChoice button {
     background-color: #4CAF50;
-    color: #45a049;
+    color: white;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -147,8 +147,8 @@
 
 .btnVoirResa {
     position: relative;
-    background: #ffffff;
-    color: #4CAF50;
+    background: grey;
+    color: white;
     text-decoration: none;
     text-transform: uppercase;
     border: none;
@@ -156,6 +156,7 @@
     font-size: 1rem;
     padding: 1rem 3rem;
     transition: 0.2s;
+    width: 250px;
 }
 
 .btnVoirResa:hover {
@@ -169,7 +170,7 @@
     content: "";
     position: absolute;
     inset: 2px;
-    background: white;
+    background: grey;
 }
 
 .btnVoirResa span {
@@ -240,4 +241,32 @@
     100% {
         box-shadow-color: #27272c;
     }
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card h2 {
+    color: #1a3c78;
+    margin-bottom: 20px;
+}
+
+.time-slots {
+    display: flex;
+    justify-content: space-around;
+}
+
+.time-slot {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
 }

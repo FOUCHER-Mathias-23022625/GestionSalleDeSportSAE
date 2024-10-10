@@ -11,8 +11,39 @@ class reservationTerrainModele
         $this->connexion = new PDO("mysql:host=$host_name;dbname=$database_name", $user_name, $password);
     }
 
-    public function getReservationTerrain(){
-        $request_res = "SELECT * FROM reservation_terrain ORDER BY heure";
+    /*public function getReservationTerrain($date, $sport){
+        if (empty($date) || empty($sport)) {
+            return []; // Retournez un tableau vide si l'un des paramètres est manquant
+        }
+        $request_res = "SELECT * FROM reservationTerrain Where sport =$sport and date= $date ORDER BY heure";
         return $this->connexion->query($request_res)->fetchAll(PDO::FETCH_ASSOC);
+    } */
+
+    public function getReservationTerrain($date, $sport) {
+        // Vérifiez que les paramètres $date et $sport ne sont pas vides
+        if (empty($date) || empty($sport)) {
+            return []; // Retournez un tableau vide si l'un des paramètres est manquant
+        }
+
+        // Requête SQL avec des placeholders
+        $query = "SELECT * FROM reservationTerrain WHERE sport = :sport AND date = :date ORDER BY heure";
+
+        // Préparation de la requête
+        $stmt = $this->connexion->prepare($query);
+
+        // Liaison des paramètres sécurisée
+        $stmt->bindParam(':sport', $sport);
+        $stmt->bindParam(':date', $date);
+
+        // Exécution de la requête
+        $stmt->execute();
+
+        // Retour des résultats
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getReservationTerrainOccuped()
+    {
+
     }
 }

@@ -6,7 +6,7 @@ require_once "navebar.php";
 require_once "Layout.php";
 class reservationTerrainView
 {
-    public function afficher()
+    public function afficher($request_res,$selected_date,$selected_sport)
     {
         $navebar = new navebar();
         $navebar->afficher();
@@ -45,32 +45,36 @@ class reservationTerrainView
                 <form class="event-form" action="/?page=struture&form=modifForm" method="POST">
                     <label for="sport">Sport sélectionné :</label>
                     <input type="text" id="selected-sport" name="sport" aria-label="textAutoChange" readonly>
-
-                    <label for="creneaux">Créneaux horaires disponibles :</label>
-                    <select id="creneaux">
-                        <option value="09:00-10:00">09:00 - 10:00</option>
-                        <option value="10:00-11:00">10:00 - 11:00</option>
-                        <option value="11:00-12:00">11:00 - 12:00</option>
-                        <option value="13:00-14:00">13:00 - 14:00</option>
-                        <option value="14:00-15:00">14:00 - 15:00</option>
-                        <option value="15:00-16:00">15:00 - 16:00</option>
-                    </select>
+                    <label for="date">Sélectionnez une date :</label>
+                    <input type="date" id="date" name="date">
 
                     <button class="btnVoirResa" type="submit"><span>Voir les terrains disponibles :</span><i></i></button>
                 </form>
             </div>
         </div>
         <div class="Reservation">
-            <?php foreach ($request_res as $row): ?>
-            <p><?php echo $row["sport"] ?></p>
-            <p><?php echo $row["date"] ?></p>
-            <p><?php echo $row["heure"] ?></p>
-            <?php endforeach; ?>
+            <div class="card">
+                <?php if ($selected_sport && $selected_date): ?>
+                    <h2><?php echo htmlspecialchars($selected_sport); ?></h2>
+                    <p><?php echo htmlspecialchars($selected_date); ?></p>
 
+                    <?php if (!empty($request_res)): ?>
+                        <!-- Affichage des créneaux horaires -->
+                        <?php foreach ($request_res as $row): ?>
+                            <div class="time-slot"><?php echo htmlspecialchars($row["heure"]); ?>:00 H</div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <!-- Message si aucun créneau n'est disponible -->
+                        <p>Aucun Crenaux de <?php echo htmlspecialchars($selected_sport); ?> disponible pour ce jour.</p>
+                    <?php endif; ?>
+
+                <?php else: ?>
+                    <p>Aucun sport ou date sélectionné.</p>
+                <?php endif; ?>
+            </div>
         </div>
-    
-            <?php include 'footer.php' ?>
-            <script type="text/javascript" src="../../../assets/scripts/reservation.js"></script>
+        <?php include 'footer.php' ?>
+        <script type="text/javascript" src="../../../assets/scripts/reservation.js"></script>
         <?php
         (new \Blog\Views\Layout('Le meilleur blog', ob_get_clean()))->afficher();
     }
