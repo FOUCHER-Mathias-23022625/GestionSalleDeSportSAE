@@ -266,6 +266,7 @@ h1{
     background: #a7c957;
     color: white;
     border: white;
+    cursor: pointer;
 }
 
 .popup_inscription .close {
@@ -282,8 +283,14 @@ h1{
 }
 
 #addParticipant{
-    background-color: #ced4da;
-    color: #38444c;
+    background-color: #ffffff;
+    color: black;
     margin-top: 10px;
     margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#addParticipant:hover{
+    background-color: #bababa;
 }
