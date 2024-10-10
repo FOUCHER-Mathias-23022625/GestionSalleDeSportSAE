@@ -2,8 +2,8 @@
 namespace controllers;
 use blog\models\performanceModel;
 use blog\views\performanceView;
-require_once "../views/performanceView.php";
-require_once "./Index";
+require_once "modules/blog/views/performanceView.php";
+require_once "./index.php";
 
 
 

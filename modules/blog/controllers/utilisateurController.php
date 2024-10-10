@@ -6,7 +6,7 @@ use Index;
 
 require_once  "modules/blog/views/utilisateurView.php";
 require_once  "./index.php";
-
+require_once "./index.php";
 
 
     class utilisateurController

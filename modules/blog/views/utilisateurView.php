@@ -7,7 +7,8 @@ require_once "navebar.php";
 
 class UtilisateurView
 {
-    public function __construct(){
+    public function __construct()
+    {
 
     }
 
@@ -30,7 +31,7 @@ class UtilisateurView
 <body>
     <header>
         ' . $navebar->afficher() .
-        '
+            '
     </header>
   
         <div class="login-container">
