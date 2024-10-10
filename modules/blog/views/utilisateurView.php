@@ -14,8 +14,10 @@ class utilisateurView
     public function afficher($message='')
     {
         $navebar = new navebar();
+
         $navebar->afficher();
   ?>
+
         <div class="login-container">
             <h2>Connexion</h2>
             <form method="POST" action="connexion" class="login-form">
@@ -31,6 +33,8 @@ class utilisateurView
             </form> <?php echo $message?>
         </div>
         <?php include 'footer.php';
+
+
 
 }
 

@@ -1,7 +1,7 @@
 .navBar {
     position: sticky;
     top: 0px;
-    background: #242424;
+    background: #38444c;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,7 +47,7 @@
   }
   
   .menuNavBar li a:hover {
-    background-color: #5c5c5c;
+    background-color: #5e7280;
   }
   
   .deroulant {
