@@ -1,6 +1,22 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
+namespace blog\views;
+use navebar;
+require_once "navebar.php";
+use controllers\performanceController; // Assurez-vous de bien importer ce namespace
 
+class performanceView
+{
+    public function __construct(){
+
+    }
+
+    public function afficher($performances)
+    {
+        $navebar = new navebar();
+        $controller = new PerformanceController();
+        $performancesTableHtml = $controller->afficherTableauPerformances($performances);
+        echo '<!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +26,10 @@
 </head>
 
 <body>
-<header id="main-header">
-    <div class="container">
-        <h1 id="header-title">Suivi des Performances</h1>
-    </div>
-</header>
+    <header>
+        ' . $navebar->afficher() .//$index->url(). '
+            '
+    </header>
 
 <main id="main-content" class="container">
     <section id="performance-overview">
@@ -47,20 +62,7 @@
             </tr>
             </thead>
             <tbody>
-                <?php if (!empty($performances)): ?>
-                    <?php foreach ($performances as $performance): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($performance['date']); ?></td>
-                            <td><?php echo htmlspecialchars($performance['sport']); ?></td>
-                            <td><?php echo htmlspecialchars($performance['temps_de_jeu']); ?></td>
-                            <td><?php echo htmlspecialchars($performance['score']); ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="4">Aucune performance enregistrée.</td>
-                    </tr>
-                <?php endif; ?>
+                ' . $performancesTableHtml . '
             </tbody>
         </table>
         <div class="button-container">
@@ -109,4 +111,6 @@
 <script src="../../../assets/scripts/performance_form.js"></script>
 </body>
 
-</html>
+</html>';
+    }
+}
