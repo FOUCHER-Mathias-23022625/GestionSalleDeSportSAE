@@ -30,3 +30,37 @@ function showForm(sport, element) {
     // Mettre à jour l'élément précédent pour la prochaine sélection
     previousElement = element;
 }
+
+let selectedTime = '';
+let selectedDate = '<?php echo $selected_date; ?>'; // Récupérer la date sélectionnée
+let selectedSport = '<?php echo $selected_sport; ?>'; // Récupérer le sport sélectionné
+
+function openModal(time) {
+    selectedTime = time;
+    document.getElementById('selectedTime').innerText = time + ":00";
+    document.getElementById('selectedSport').innerText = selectedSport;
+    document.getElementById('selectedDate').innerText = selectedDate;
+    document.getElementById('reservationModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('reservationModal').style.display = 'none';
+}
+
+function confirmReservation() {
+    // Appel AJAX pour insérer la réservation
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "index.php?action=inserer_reservation", true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    // Envoyer la requête avec l'heure, la date et le sport
+    xhr.send("time=" + selectedTime + "&date=" + selectedDate + "&sport=" + selectedSport);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            alert('Réservation confirmée avec succès!');
+            closeModal(); // Fermer la modal après confirmation
+            // Vous pouvez également mettre à jour l'interface utilisateur ici si nécessaire
+        }
+    };
+}

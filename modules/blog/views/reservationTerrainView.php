@@ -1,7 +1,7 @@
 <?php
 
 namespace blog\views;
-use navebar;
+use controllers\reservationTerrainController;use navebar;
 require_once "navebar.php";
 require_once "Layout.php";
 class reservationTerrainView
@@ -54,23 +54,18 @@ class reservationTerrainView
         </div>
         <div class="Reservation">
             <div class="card">
-                <?php if ($selected_sport && $selected_date): ?>
-                    <h2><?php echo htmlspecialchars($selected_sport); ?></h2>
-                    <p><?php echo htmlspecialchars($selected_date); ?></p>
+                <?php $afficherResDispo = new reservationTerrainController();
+                $afficherResDispo->afficheRes($selected_date,$selected_sport,$request_res); ?>
+            </div>
+        </div>
 
-                    <?php if (!empty($request_res)): ?>
-                        <!-- Affichage des créneaux horaires -->
-                        <?php foreach ($request_res as $row): ?>
-                            <div class="time-slot"><?php echo htmlspecialchars($row["heure"]); ?>:00 H</div>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <!-- Message si aucun créneau n'est disponible -->
-                        <p>Aucun Crenaux de <?php echo htmlspecialchars($selected_sport); ?> disponible pour ce jour.</p>
-                    <?php endif; ?>
-
-                <?php else: ?>
-                    <p>Aucun sport ou date sélectionné.</p>
-                <?php endif; ?>
+        <div id="reservationModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h2>Confirmer la réservation</h2>
+                <p id="reservationDetails">Vous avez sélectionné le créneau horaire <span id="selectedTime"></span> pour le sport <span id="selectedSport"></span> à la date <span id="selectedDate"></span>.</p>
+                <button onclick="confirmReservation()">Confirmer</button>
+                <button onclick="closeModal()">Annuler</button>
             </div>
         </div>
         <?php include 'footer.php' ?>
