@@ -245,9 +245,6 @@ h1{
     font-size: 1.2em;
 }
 
-.popup_inscription .inputbox:last-child {
-    margin-bottom: 0;
-}
 .popup_inscription .inputbox span {
     position: absolute;
     top: 14px;
@@ -261,11 +258,18 @@ h1{
     transform: translateX(-13px) translateY(-35px);
     font-size: 1em;
 }
+
 #submitButton {
     width: 50%;
     background: #a7c957;
     color: white;
     border: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#submitButton:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 36px 0px, rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
 }
 
 .popup_inscription .close {
@@ -278,12 +282,17 @@ h1{
 }
 
 .popup_inscription .close:hover {
-    color: #ff0000; /* Change la couleur au survol */
+    color: #ff0000;
 }
 
 #addParticipant{
-    background-color: #ced4da;
-    color: #38444c;
-    margin-top: 10px;
+    background-color: #ffffff;
+    color: black;
     margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#addParticipant:hover{
+    background-color: #bababa;
 }

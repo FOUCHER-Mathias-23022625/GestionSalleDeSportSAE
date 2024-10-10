@@ -1,6 +1,7 @@
 <?php
 namespace blog\models;
-    class UtilisateurModel{
+require_once  "modules/blog/models/bdModel.php";
+    class utilisateurModel{
         private $connexionBD;
 
 

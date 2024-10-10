@@ -1,6 +1,7 @@
 <?php
-use PDO;
 
+namespace blog\models;
+use PDO;
  class bdModel
  {
      private $estConnecte;
@@ -13,11 +14,11 @@ use PDO;
 
      public function __construct()
      {
-         $this->host = "";
-         $this->username = "";
-         $this->mdp = "";
-         $this->nomBD = "";
-         $this->connectBD();
+//         $this->host = "";
+//         $this->username = "";
+//         $this->mdp = "";
+//         $this->nomBD = "";
+//         $this->connectBD();
      }
 
      private function connectBD()

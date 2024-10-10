@@ -1,12 +1,15 @@
 <?php
 namespace controllers;
 use blog\models\utilisateurModel;
+use blog\views\Layout;
 use blog\views\utilisateurView;
 use Index;
 
 require_once  "modules/blog/views/utilisateurView.php";
+require_once  "modules/blog/models/utilisateurModel.php";
 require_once  "./index.php";
-require_once "./index.php";
+require_once "modules/blog/views/Layout.php";
+
 
 
     class utilisateurController
@@ -14,8 +17,12 @@ require_once "./index.php";
 
 
         public function connexion(){
-            $model = new utilisateurModel();
-            $model ->connexion();
+                $message = "connecteeee";
+                $this->afficheFormConnexion($message);
+                //$model = new utilisateurModel();
+                //$model->connexion();
+
+
 
         }
 
@@ -39,10 +46,15 @@ require_once "./index.php";
             header('Location: index.php');
         }
 
-        public function afficheFormConnexion()
+        public function afficheFormConnexion($message='')
         {
             $utilisateurView = new utilisateurView();
-            $utilisateurView->afficher();
+            ob_start();
+            $utilisateurView->afficher($message);
+            $contenu=ob_get_clean();
+            echo $contenu;
+            $layout = new Layout("Utilisateur", $contenu);
+            $layout->afficher();
 
         }
 
