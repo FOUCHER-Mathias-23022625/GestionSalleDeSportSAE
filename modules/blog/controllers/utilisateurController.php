@@ -2,34 +2,32 @@
 namespace controllers;
 use blog\models\utilisateurModel;
 use blog\views\utilisateurView;
-require_once  "../views/utilisateurView.php";
+use Index;
+
+require_once  "modules/blog/views/utilisateurView.php";
+require_once  "./index.php";
 
 
 
-    class utilisateurController{
+    class utilisateurController
+    {
 
 
-        public function index()
-        {
+        public function connexion(){
             $model = new utilisateurModel();
-            if (isset($_POST['connexion'])) {
-                $this->$model->connecte();
-            }
-            if (isset($_POST['deconnexion'])) {
-                $this->deconnecte();
-            }
-            if (isset($_POST['modif'])) {
-                $this->modification;
-        }}
+            $model ->connexion();
+
+        }
 
         public function deconnecte()
         {
-                session_start();
-                session_destroy();
-                header("Location: index.php");
+            session_start();
+            session_destroy();
+            header("Location: index.php");
         }
 
-        public function modification(){
+        public function modification()
+        {
             $model = new utilisateurModel();
             $id = $_SESSION['id'];
             $mail = $_POST['mail'];
@@ -41,8 +39,17 @@ require_once  "../views/utilisateurView.php";
             header('Location: index.php');
         }
 
+        public function afficheFormConnexion()
+        {
+            $utilisateurView = new utilisateurView();
+            $utilisateurView->afficher();
+
+        }
+
+        public function test($val1,$val2){
+            echo $val1." et la valeur 2 est : ".$val2;
+        }
 
     }
-    $utilisateurView  = new utilisateurView();
-    $utilisateurView->afficher();
+
     ?>
