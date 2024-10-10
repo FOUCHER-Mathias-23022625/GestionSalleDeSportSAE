@@ -1,9 +1,12 @@
 <?php
 
-namespace blog\controllers;
+namespace controllers;
 use blog\models\evenementModel;
 use blog\views\evenementView;
-require_once  "../views/evenementView.php";
+use Index;
+
+require_once  "modules/blog/views/evenementView.php";
+require_once  "./index.php";
 
 class evenementController{
 
