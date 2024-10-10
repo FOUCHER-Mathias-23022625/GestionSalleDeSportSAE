@@ -5,6 +5,7 @@ use blog\views\utilisateurView;
 use Index;
 
 require_once  "modules/blog/views/utilisateurView.php";
+require_once  "modules/blog/models/utilisateurModel.php";
 require_once  "./index.php";
 
 
@@ -14,8 +15,11 @@ require_once  "./index.php";
 
 
         public function connexion(){
-            $model = new utilisateurModel();
-            $model ->connexion();
+            if(isset($_POST['inscription'])) {
+                echo "cihcichcihc";
+                $model = new utilisateurModel();
+                $model->connexion();
+            }
 
         }
 

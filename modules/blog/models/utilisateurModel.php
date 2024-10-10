@@ -1,6 +1,7 @@
 <?php
 namespace blog\models;
-    class UtilisateurModel{
+require_once  "modules/blog/models/bdModel.php";
+    class utilisateurModel{
         private $connexionBD;
 
 
@@ -40,20 +41,22 @@ namespace blog\models;
 
         public function connexion()
         {
-            $mail =$_POST["mail"];
-            $mdp =$_POST["mdp"];
-
-            $requeteConnexion = $this->connexionBD->pdo->prepare("SELECT * FROM utilisateur WHERE mail = :mail AND mdp = :mdp");
-            $requeteConnexion->bindParam(':mail', $mail);
-            $requeteConnexion->bindParam(':mdp', $mdp);
-
-            if ($requeteConnexion->execute()) {
-                session_start();
-                $donnees = $requeteConnexion->fetch();
-                $_SESSION['id'] = $donnees['idUtilisateur'];
-                header('Location:index.php');
-            }
+            echo'COUCOU';
         }
+//            $mail =$_POST["mail"];
+//            $mdp =$_POST["mdp"];
+//
+//            $requeteConnexion = $this->connexionBD->pdo->prepare("SELECT * FROM utilisateur WHERE mail = :mail AND mdp = :mdp");
+//            $requeteConnexion->bindParam(':mail', $mail);
+//            $requeteConnexion->bindParam(':mdp', $mdp);
+//
+//            if ($requeteConnexion->execute()) {
+//                session_start();
+//                $donnees = $requeteConnexion->fetch();
+//                $_SESSION['id'] = $donnees['idUtilisateur'];
+//                header('Location:index.php');
+//            }
+//        }
 
     }
     ?>
