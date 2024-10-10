@@ -8,7 +8,11 @@ require_once  "../views/evenementView.php";
 class evenementController{
 
 
+    public function afficheEvenement()
+    {
+        $evenementView = new evenementView();
+        $evenementView->afficher();
+
+    }
 }
-$evenementView  = new evenementView();
-$evenementView->afficher();
 ?>
