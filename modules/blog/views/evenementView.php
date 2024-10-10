@@ -22,7 +22,7 @@ class evenementView{
   <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/evenement.css"/>
   <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/footer.css"/>
   <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/navbar.css"/>
-  <link >
+  <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/styles.css">
 </head>
 <body>
     <header>

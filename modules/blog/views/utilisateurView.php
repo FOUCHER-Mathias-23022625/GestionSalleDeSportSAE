@@ -15,7 +15,7 @@ class utilisateurView
     {
         $navebar = new navebar();
         echo '<!DOCTYPE html>
-<html lang="fr">
+<html lang="fr">    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +31,8 @@ class utilisateurView
         ' . $navebar->afficher() .
         '
     </header>
-  
+    <div class="login-page">
+        <img src="/GestionSalleDeSportSae/assets/images/istockphoto-500284607-612x612.jpg" alt="login_img">
         <div class="login-container">
             <h2>Connexion</h2>
             <form method="POST" action="#" class="login-form">
@@ -46,7 +47,7 @@ class utilisateurView
                 <button type="submit" name="inscription" id="inscription" class="login-btn">Se connecter</button>
             </form>
         </div>
-  
+    </div>
 </body>
 </html>';
     }
