@@ -5,37 +5,22 @@ use navebar;
 require_once "navebar.php";
 //require_once "../../../index.php";
 
-class UtilisateurView
+class utilisateurView
 {
     public function __construct(){
 
     }
 
-    public function afficher()
+    public function afficher($message='')
     {
         $navebar = new navebar();
-        //$index = new index();
-        echo '<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/reservation.css">
-    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/footer.css">
-    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/styles.css">
-    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/navbar.css">
-    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/login.css"> 
-    <title>Réservation de Terrain</title>
-</head>
-<body>
-    <header>
-        ' . $navebar->afficher() .
-        '
-    </header>
-  
+
+        $navebar->afficher();
+  ?>
+
         <div class="login-container">
             <h2>Connexion</h2>
-            <form action="login.php" method="POST" class="login-form">
+            <form method="POST" action="connexion" class="login-form">
                 <div class="input-group">
                     <label for="email">Adresse email</label>
                     <input type="email" id="email" name="mail" required>
@@ -44,11 +29,15 @@ class UtilisateurView
                     <label for="password">Mot de passe</label>
                     <input type="password" id="password" name="mdp" required>
                 </div>
-                <button type="submit" class="login-btn">Se connecter</button>
-            </form>
+                <button type="submit" name="inscription" id="inscription" class="login-btn">Se connecter</button>
+            </form> <?php echo $message?>
         </div>
-  
-</body>
-</html>';
-    }
+        <?php include 'footer.php';
+
+
+
 }
+
+}
+?>
+

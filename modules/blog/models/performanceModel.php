@@ -18,7 +18,7 @@ class performanceModel {
     }
 
     public function getPerformances() {
-        $sql = "SELECT date, sport, temps_de_jeu, score FROM performance";
+        $sql = "SELECT date, sport, temps_de_jeu, score FROM performances";
         $stmt = $this->connexion->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif

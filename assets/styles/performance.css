@@ -13,19 +13,6 @@ body {
     padding: 20px;
 }
 
-/* Styles pour le header */
-header {
-    background-color: #282c34;
-    padding: 20px 0;
-    color: #fff;
-    text-align: center;
-}
-
-.header-title {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
 .section-title {
     padding-top: 20px;
     font-size: 1.8rem;
@@ -58,7 +45,7 @@ header {
 
 .stat-value {
     font-size: 1.5rem;
-    color: #007bff;
+    color: #a7c957;
 }
 
 /* Styles pour le tableau de performance */
@@ -76,7 +63,7 @@ header {
 }
 
 #performance-table th {
-    background-color: #007bff;
+    background-color: #a7c957;
     color: white;
 }
 
@@ -105,7 +92,7 @@ header {
 
 /* Styles pour le footer */
 #main-footer {
-    background-color: #282c34;
+    background-color: #38444c;
     padding: 10px 0;
     color: #fff;
     text-align: center;
@@ -120,7 +107,7 @@ header {
 
 /* Styles pour le bouton */
 #add-performance-btn {
-    background-color: #007bff;
+    background-color: #a7c957;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -131,12 +118,12 @@ header {
 }
 
 #add-performance-btn:hover {
-    background-color: #0056b3;
+    background-color: #a7c957;
 }
 
 #add-performance-btn:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 0 3px #a7c957;
 }
 
 .overlayForm {
@@ -164,7 +151,7 @@ header {
 
 .form-submit {
     padding: 0.75rem;
-    background-color: #007bff;
+    background-color: #a7c957;
     color: white;
     border: none;
     border-radius: 5px;
@@ -191,5 +178,5 @@ header {
 }
 
 .close-btn:hover {
-    color: #007bff;
+    color: #a7c957;
 }

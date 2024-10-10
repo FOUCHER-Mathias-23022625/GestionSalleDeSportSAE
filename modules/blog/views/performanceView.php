@@ -1,20 +1,37 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
+namespace blog\views;
+use navebar;
+require_once "navebar.php";
+use controllers\performanceController;
 
+class performanceView
+{
+    public function __construct(){
+
+    }
+
+    public function afficher($performances)
+    {
+        $navebar = new navebar();
+        $controller = new PerformanceController();
+        $performancesTableHtml = $controller->afficherTableauPerformances($performances);
+        echo '<!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suivi des Performances</title>
-    <link rel="stylesheet" href="../../../assets/styles/performance.css">
+    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/performance.css">
+    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/navbar.css">
+    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-<header id="main-header">
-    <div class="container">
-        <h1 id="header-title">Suivi des Performances</h1>
-    </div>
-</header>
+    <header>
+        ' . $navebar->afficher() .//$index->url(). '
+            '
+    </header>
 
 <main id="main-content" class="container">
     <section id="performance-overview">
@@ -25,8 +42,8 @@
                 <p class="stat-value">35h 25m</p>
             </div>
             <div class="stat-item">
-                <h3 class="stat-title">Meilleur score</h3>
-                <p class="stat-value">98 points</p>
+                <h3 class="stat-title">Nombre de victoire</h3>
+                <p class="stat-value">6</p>
             </div>
             <div class="stat-item">
                 <h3 class="stat-title">Sports pratiqués</h3>
@@ -47,20 +64,7 @@
             </tr>
             </thead>
             <tbody>
-                <?php if (!empty($performances)): ?>
-                    <?php foreach ($performances as $performance): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($performance['date']); ?></td>
-                            <td><?php echo htmlspecialchars($performance['sport']); ?></td>
-                            <td><?php echo htmlspecialchars($performance['temps_de_jeu']); ?></td>
-                            <td><?php echo htmlspecialchars($performance['score']); ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="4">Aucune performance enregistrée.</td>
-                    </tr>
-                <?php endif; ?>
+                ' . $performancesTableHtml . '
             </tbody>
         </table>
         <div class="button-container">
@@ -85,7 +89,7 @@
 <div class="overlayForm" id="formOverlayAddPerf">
     <div class="form-container">
         <h1 class="form-title">Ajouter une performance</h1>
-        <form class="event-form" action="/?page=performance&form=formAjt" method="POST">
+        <form class="event-form" action="ajouter" method="POST">
             <span class="close-btn" onclick="closeForm()">&times;</span>
             <label class="form-label" for="Date_">Date</label>
             <input class="form-input" type="DATE" id="Date_" name="Date_" required>
@@ -105,8 +109,10 @@
 </div>
 <!-- Chart.js script -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../../../assets/scripts/graphe.js"></script>
-<script src="../../../assets/scripts/performance_form.js"></script>
+<script src="GestionSalleDeSportSAE/assets/scripts/graphe.js"></script>
+<script src="GestionSalleDeSportSAE/assets/scripts/performance_form.js"></script>
 </body>
 
-</html>
+</html>';
+    }
+}

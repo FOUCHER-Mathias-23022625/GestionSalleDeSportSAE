@@ -22,15 +22,9 @@ class reservationTerrainController
 
     public function displayReservationTerrain()
     {
-        $selected_sport = isset($_POST['sport']) ? $_POST['sport'] : null;
-        $selected_date = isset($_POST['date']) ? $_POST['date'] : null;
-        if ($selected_sport && $selected_date) {
-            $reservation = $this->reservationTerrainModele->getReservationTerrain($selected_date, $selected_sport);
-        } else {
-            $reservation = [];
-        }
+        $reservation = $this ->reservationTerrainModele ->getReservationTerrain();
         $view = new ReservationTerrainView();
-        $view->afficher($reservation,$selected_date,$selected_sport);
+        $view->afficher($reservation);
     }
 
     public function afficheRes($selected_sport, $selected_date,$request_res)
