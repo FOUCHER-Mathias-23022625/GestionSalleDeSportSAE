@@ -2,7 +2,7 @@
 namespace blog\views;
 use navebar;
 require_once "navebar.php";
-use controllers\performanceController; // Assurez-vous de bien importer ce namespace
+use controllers\performanceController;
 
 class performanceView
 {
@@ -21,7 +21,9 @@ class performanceView
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suivi des Performances</title>
-    <link rel="stylesheet" href="../../../assets/styles/performance.css">
+    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/performance.css">
+    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/navbar.css">
+    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -40,8 +42,8 @@ class performanceView
                 <p class="stat-value">35h 25m</p>
             </div>
             <div class="stat-item">
-                <h3 class="stat-title">Meilleur score</h3>
-                <p class="stat-value">98 points</p>
+                <h3 class="stat-title">Nombre de victoire</h3>
+                <p class="stat-value">6</p>
             </div>
             <div class="stat-item">
                 <h3 class="stat-title">Sports pratiqués</h3>
@@ -87,7 +89,7 @@ class performanceView
 <div class="overlayForm" id="formOverlayAddPerf">
     <div class="form-container">
         <h1 class="form-title">Ajouter une performance</h1>
-        <form class="event-form" action="/?page=performance&form=formAjt" method="POST">
+        <form class="event-form" action="ajouter" method="POST">
             <span class="close-btn" onclick="closeForm()">&times;</span>
             <label class="form-label" for="Date_">Date</label>
             <input class="form-input" type="DATE" id="Date_" name="Date_" required>
@@ -107,8 +109,8 @@ class performanceView
 </div>
 <!-- Chart.js script -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../../../assets/scripts/graphe.js"></script>
-<script src="../../../assets/scripts/performance_form.js"></script>
+<script src="GestionSalleDeSportSAE/assets/scripts/graphe.js"></script>
+<script src="GestionSalleDeSportSAE/assets/scripts/performance_form.js"></script>
 </body>
 
 </html>';

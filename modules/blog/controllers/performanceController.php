@@ -3,6 +3,7 @@ namespace controllers;
 use blog\models\performanceModel;
 use blog\views\performanceView;
 require_once "modules/blog/views/performanceView.php";
+require_once "modules/blog/models/performanceModel.php";
 require_once "./index.php";
 
 
@@ -56,6 +57,12 @@ class performanceController {
             $html = '<tr><td colspan="4">Aucune performance enregistrée.</td></tr>';
         }
 
+
         return $html; // Retourne le code HTML pour l'affichage dans la vue
+    }
+    public function afficherView(){
+        $model = new performanceModel('127.0.0.1','root','','saetest');
+        $view = new performanceView();
+        $view->afficher($model->getPerformances());
     }
 }
