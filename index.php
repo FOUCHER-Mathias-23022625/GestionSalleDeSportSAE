@@ -2,6 +2,7 @@
 require_once 'modules/blog/controllers/utilisateurController.php';
 require_once 'modules/blog/controllers/evenementController.php';
 require_once 'modules/blog/controllers/reservationTerrainController.php';
+require_once 'modules/blog/controllers/performanceController.php';
 
 class Index {
     public function url() {
