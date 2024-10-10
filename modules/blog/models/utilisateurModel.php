@@ -41,22 +41,20 @@ require_once  "modules/blog/models/bdModel.php";
 
         public function connexion()
         {
-            echo'COUCOU';
+            $mail =$_POST["mail"];
+            $mdp =$_POST["mdp"];
+
+            $requeteConnexion = $this->connexionBD->pdo->prepare("SELECT * FROM utilisateur WHERE mail = :mail AND mdp = :mdp");
+            $requeteConnexion->bindParam(':mail', $mail);
+            $requeteConnexion->bindParam(':mdp', $mdp);
+
+            if ($requeteConnexion->execute()) {
+                session_start();
+                $donnees = $requeteConnexion->fetch();
+                $_SESSION['id'] = $donnees['idUtilisateur'];
+                header('Location:index.php');
+            }
         }
-//            $mail =$_POST["mail"];
-//            $mdp =$_POST["mdp"];
-//
-//            $requeteConnexion = $this->connexionBD->pdo->prepare("SELECT * FROM utilisateur WHERE mail = :mail AND mdp = :mdp");
-//            $requeteConnexion->bindParam(':mail', $mail);
-//            $requeteConnexion->bindParam(':mdp', $mdp);
-//
-//            if ($requeteConnexion->execute()) {
-//                session_start();
-//                $donnees = $requeteConnexion->fetch();
-//                $_SESSION['id'] = $donnees['idUtilisateur'];
-//                header('Location:index.php');
-//            }
-//        }
 
     }
     ?>

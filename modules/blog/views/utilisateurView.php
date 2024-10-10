@@ -11,30 +11,14 @@ class utilisateurView
 
     }
 
-    public function afficher()
+    public function afficher($message='')
     {
         $navebar = new navebar();
-        echo '<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/reservation.css">
-    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/footer.css">
-    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/styles.css">
-    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/navbar.css">
-    <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/login.css"> 
-    <title>Réservation de Terrain</title>
-</head>
-<body>
-    <header>
-        ' . $navebar->afficher() .
-        '
-    </header>
-  
+        $navebar->afficher();
+  ?>
         <div class="login-container">
             <h2>Connexion</h2>
-            <form method="POST" action="#" class="login-form">
+            <form method="POST" action="connexion" class="login-form">
                 <div class="input-group">
                     <label for="email">Adresse email</label>
                     <input type="email" id="email" name="mail" required>
@@ -44,10 +28,12 @@ class utilisateurView
                     <input type="password" id="password" name="mdp" required>
                 </div>
                 <button type="submit" name="inscription" id="inscription" class="login-btn">Se connecter</button>
-            </form>
+            </form> <?php echo $message?>
         </div>
-  
-</body>
-</html>';
-    }
+        <?php include 'footer.php';
+
 }
+
+}
+?>
+
