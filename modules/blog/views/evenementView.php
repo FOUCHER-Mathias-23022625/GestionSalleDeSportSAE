@@ -1,7 +1,8 @@
 <?php
 namespace blog\views;
 use navebar;
-require_once 'naveBar.php';
+use index;
+require_once 'navebar.php';
 
 class evenementView{
 
@@ -19,9 +20,9 @@ class evenementView{
   <meta charset="UTF-8">
   <title>Salle de sport</title>
   <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/evenement.css"/>
-  <link rel="stylesheet" href="../../../assets/styles/footer.css">
-  <link rel="stylesheet" href="../../../assets/styles/styles.css">
-  <link rel="stylesheet" href="../../../assets/styles/navbar.css">
+  <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/footer.css"/>
+  <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/navbar.css"/>
+  <link >
 </head>
 <body>
     <header>
@@ -52,9 +53,23 @@ class evenementView{
             <button class="sinscrire">Je participe</button>
         </div>
     </div>
-    <div class="popup_inscription">
-        <h3>Inscription</h3>
-        <p>Entrez votre nom</p>
+    <div class="popup_inscription" id="popup_event">
+    <span class="close" id="closePopup">&times;</span>
+        <h3>Participer</h3>
+        <form>
+            <div id="participantsList">
+                <div class="inputbox">
+                    <input type="text" required="required" name="participantName[]">
+                    <span>Nom</span>
+                </div>
+            </div>
+            <div class="inputbox">
+                <input type="button" value="Ajouter un participant" id="addParticipant">
+            </div>
+            <div class="inputbox">
+                <input id="submitButton" type="button" value="Valider">
+            </div>
+        </form>
     </div>
     <div class="inscription_footer">
         <div class="txt_inscription">
@@ -69,6 +84,7 @@ class evenementView{
             <button class="btnInscription">Je m\'inscris</button>
         </div>
   </div>
+  <script src="/GestionSalleDeSportSAE/assets/scripts/evenement.js"></script
 
 </body>
 

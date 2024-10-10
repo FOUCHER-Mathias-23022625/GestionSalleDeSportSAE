@@ -6,7 +6,6 @@ use blog\models\reservationTerrainModele;
 use blog\views\reservationTerrainView;
 use Index;
 require_once  "./index.php";
-
 require_once 'modules/blog/models/reservationTerrainModele.php';
 require_once 'modules/blog/views/reservationTerrainView.php';
 class reservationTerrainController
