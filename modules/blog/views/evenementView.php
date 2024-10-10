@@ -25,7 +25,7 @@ class evenementView{
 </head>
 <body>
     <header>
-        ' . navebar->afficher() .'
+        ' . $navebar->afficher() .'
     </header>
     <h1>Les évènements à venir</h1>
     <div class = "evenement">
