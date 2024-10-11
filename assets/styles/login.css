@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    text-align: unset !important;
+}
+
+.login-container{
+    margin: 0 auto;
+    width: 700px;
+}
+
+.connexion_box {
+    position: relative;
+    margin: 20px auto;
+    background-color: white;
+    padding: 50px 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border-color: black;
+    text-align: center;
+    height: 500px;
+}
+
+.connexion_box h2 {
+    font-family: "Oswald", sans-serif;
+    font-size: 2em;
+    padding: 5px 0 30px 0px;
+    color: black;
+    margin-bottom: 50px;
+    font-weight: bold;
+    border-bottom: 2px solid #a7c957;;
+}
+
+.connexion_box .input-group {
+    position: relative;
+    margin: 0 auto;
+    width: 400px;
+    height: 50px;
+    margin-bottom: 25px;
+}
+.connexion_box .input-group input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 2px solid #000;
+    outline: none;
+    background: none;
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 1.2em;
+}
+
+.connexion_box label{
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px 110px;
+    font-size: 20px;
+
+}.connexion_box .input-group input::placeholder{
+     font-size: 15px;
+ }
+
+#inscription {
+    width: 400px;
+    background: #a7c957;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    margin: 20px 0 20px 0;
+}
+
+#inscription:hover {
+    background: #2a872e;
+}
+
+#creer-compte {
+    width: 400px;
+    background: none;
+    color: #38444c;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+#creer-compte:hover {
+    background: #cdcdcd;
+}
