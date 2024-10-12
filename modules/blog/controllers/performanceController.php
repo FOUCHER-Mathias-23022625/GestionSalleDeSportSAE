@@ -12,7 +12,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-class performanceController {
+class performanceController
+{
     private $model;
     private $view;
 
@@ -27,7 +28,8 @@ class performanceController {
         $this->view = new performanceView();
     }
 
-    public function showPerformance() {
+    /*public function showPerformance()
+    {
         $performances = $this->model->getPerformances(); // Récupère les données de la base
         // Inclure la vue et passer les données
         if (file_exists(__DIR__ . '/../views/performanceView.php')) {
@@ -37,8 +39,8 @@ class performanceController {
             echo "Vue non trouvée";
         }
     }
-
-    public function afficherTableauPerformances($performances)
+*/
+    public function afficherTableauPerformances($performances): string
     {
         // Vérifie si des performances sont disponibles
         if (!empty($performances)) {
@@ -50,6 +52,7 @@ class performanceController {
                 $html .= '<td>' . htmlspecialchars($performance['sport']) . '</td>';
                 $html .= '<td>' . htmlspecialchars($performance['temps_de_jeu']) . '</td>';
                 $html .= '<td>' . htmlspecialchars($performance['score']) . '</td>';
+
                 $html .= '</tr>';
             }
         } else {
@@ -60,9 +63,68 @@ class performanceController {
 
         return $html; // Retourne le code HTML pour l'affichage dans la vue
     }
-    public function afficherView(){
-        $model = new performanceModel('127.0.0.1','root','','saetest');
+
+    public function affichePerf(): void
+    {
+        $model = new performanceModel('127.0.0.1', 'root', '', 'saetest');
         $view = new performanceView();
         $view->afficher($model->getPerformances());
+    }
+
+    public function afficheSport($performances): string
+    {
+        // Vérifie si des performances sont disponibles
+        if (!empty($performances)) {
+            $sports = [];
+            foreach ($performances as $performance) {
+                $sport = htmlspecialchars($performance['sport']);
+                // Ajoute le sport s'il n'est pas déjà dans le tableau
+                if (!in_array($sport, $sports)) {
+                    $sports[] = $sport;
+                }
+            }
+            // Génère une chaîne de sports séparée par des virgules
+            $html = implode(', ', $sports);
+        } else {
+            // Si aucun sport pratiqué
+            $html = '<p>Aucun sport pratiqué.</p>';
+        }
+        return $html; // Retourne le code HTML pour l'affichage dans la vue
+    }
+
+    function afficheTmps($performances): string
+    {
+        $tempsTotal = 0;
+        // Vérifie si des performances sont disponibles
+        if (!empty($performances)) {
+            foreach ($performances as $performance) {
+                // Additionne la durée en minutes pour chaque performance
+                $tempsTotal += (int)$performance['temps_de_jeu'];
+            }
+        }
+        // Convertit le temps total en heures et minutes
+        $heures = floor($tempsTotal / 60);
+        $minutes = $tempsTotal % 60;
+
+        // Génère une chaîne pour afficher le temps sous forme "X heures et Y minutes"
+        $resultat = $heures . ' heure' . ($heures > 1 ? 's' : '') .
+            ' et ' . $minutes . ' minute' . ($minutes > 1 ? 's' : '');
+
+        return $resultat;
+    }
+
+    function afficheTotVictoire($performances): int
+    {
+        $totalVictoire = 0;
+
+        // Vérifie si des performances sont disponibles
+        if (!empty($performances)) {
+            foreach ($performances as $performance) {
+                if ($performance['resultat']) {
+                    $totalVictoire += 1;
+                }
+            }
+        }
+        return $totalVictoire;
     }
 }
