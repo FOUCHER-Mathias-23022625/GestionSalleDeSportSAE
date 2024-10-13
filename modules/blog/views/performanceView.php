@@ -15,6 +15,9 @@ class performanceView
         $navebar = new navebar();
         $controller = new PerformanceController();
         $performancesTableHtml = $controller->afficherTableauPerformances($performances);
+        $sports = $controller->afficheSport($performances);
+        $tempsJeu= $controller->afficheTmps($performances);
+        $victoire= $controller->afficheTotVictoire($performances);
         echo '<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -39,15 +42,15 @@ class performanceView
         <div class="stats">
             <div class="stat-item">
                 <h3 class="stat-title">Temps de jeu total</h3>
-                <p class="stat-value">35h 25m</p>
+                <p class="stat-value">' . $tempsJeu . '</p>
             </div>
             <div class="stat-item">
                 <h3 class="stat-title">Nombre de victoire</h3>
-                <p class="stat-value">6</p>
+                <p class="stat-value">' . $victoire . '</p>
             </div>
             <div class="stat-item">
                 <h3 class="stat-title">Sports pratiqués</h3>
-                <p class="stat-value">Basketball, Tennis, Football</p>
+                <p class="stat-value">' . $sports . '</p>
             </div>
         </div>
     </section>
