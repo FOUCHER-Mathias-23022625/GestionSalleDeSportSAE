@@ -61,12 +61,49 @@
 }
 
 
-/*#form-container {*/
-/*    display: none;*/
-/*    margin-top: 20px;*/
-/*    opacity: 0;*/
-/*    transition: opacity 0.5s ease;*/
-/*}*/
+/* Conteneur du formulaire */
+.event-form {
+    background-color: #f7f7f7; /* Fond légèrement gris */
+    padding: 20px;
+    border-radius: 15px; /* Coins arrondis */
+    width: 500px;
+    margin: 20px auto; /* Centré horizontalement */
+    text-align: center;
+}
+
+/* Titre principal */
+.event-form h3 {
+    font-size: 1.4em;
+    color: #333; /* Couleur du texte */
+    margin-bottom: 20px; /* Espacement en dessous */
+    font-weight: bold;
+}
+
+/* Labels */
+.event-form label {
+    display: block;
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Inputs */
+.event-form input[type="text"],
+.event-form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.event-form input:focus {
+    border-color: #25D366;
+    outline: none;
+    box-shadow: 0 0 5px rgba(37, 211, 102, 0.4);
+}
 
 .reservationChoice form {
     display: flex;
@@ -146,77 +183,35 @@
 }
 
 .btnVoirResa {
-    position: relative;
-    background: grey;
+    background-color: #25D366;
     color: white;
-    text-decoration: none;
-    text-transform: uppercase;
     border: none;
-    letter-spacing: 0.1rem;
-    font-size: 1rem;
-    padding: 1rem 3rem;
-    transition: 0.2s;
-    width: 250px;
-}
-
-.btnVoirResa:hover {
-    background: #4CAF50;
-    color: #4CAF50;
-    box-shadow: 0 0 35px #4CAF50;
-    animation: box 3s infinite;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    position: relative;
+    border-radius: 20px; /* Coins ronds */
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
 }
 
 .btnVoirResa::before {
-    content: "";
+    content: '';
     position: absolute;
-    inset: 2px;
-    background: grey;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #20c35e; /* Une nuance de vert légèrement plus claire */
+    transition: left 0.4s ease-in-out;
 }
 
-.btnVoirResa span {
-    position: relative;
-    z-index: 1;
-}
-.btnVoirResa i {
-    position: absolute;
-    inset: 0;
-    display: block;
+.btnVoirResa:hover::before {
+    left: 0; /* Transition de gauche à droite */
 }
 
-.btnVoirResa i::before {
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 2px;
-    left: 80%;
-    top: -2px;
-    border: 2px solid #4CAF50;
-    background: #272822;
-    transition: 0.2s;
-}
-
-.btnVoirResa:hover i::before {
-    width: 15px;
-    left: 20%;
-    animation: move 3s infinite;
-}
-
-.btnVoirResa i::after {
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 2px;
-    left: 20%;
-    bottom: -2px;
-    border: 2px solid #4CAF50;
-    background: #272822;
-    transition: 0.2s;
-}
-
-.btnVoirResa:hover i::after {
-    width: 15px;
-    left: 80%;
-    animation: move 3s infinite;
+.btnVoirResa:hover {
+    color: #38444c; /* Change le texte en blanc lors du survol */
 }
 
 @keyframes move {
@@ -269,34 +264,83 @@
     border-radius: 5px;
     font-size: 16px;
     font-weight: bold;
-    width: 75px;
-    display: inline-block;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px 0px;
 }
 
-/* Modal Styles */
-.modal {
+.time-slot:hover {
+    background-color: #218838;
+    border: #28a745 1px solid;
+}
+
+.time-slot span{
+    z-index: 5;
+}
+
+
+
+.modal{
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px); /* Flou de l'arrière-plan */
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content {
-    background-color: white;
-    margin: 15% auto;
-    padding: 20px;
-    width: 30%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    text-align: center;
+.modal form{
+    margin: 25%;
+    background: white;
+    padding: 50px 20px;
+    border-radius: 10px;
+    position: relative;
 }
+
+
 
 .close-btn {
-    float: right;
-    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    color: #38444c;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
 }
+
+/* Agrandir et changer la couleur au survol */
+.close-btn:hover {
+    transform: scale(1.2); /* Augmente légèrement la taille */
+    color: #000000; /* Change la couleur au survol */
+}
+
+
+.validerResa{
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 20px; /* Coins ronds */
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+}
+
+.annulerResa{
+    background-color: #ff0016;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 20px; /* Coins ronds */
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+}
+
