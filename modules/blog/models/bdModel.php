@@ -14,11 +14,11 @@ use PDO;
 
      public function __construct()
      {
-//         $this->host = "";
-//         $this->username = "";
-//         $this->mdp = "";
-//         $this->nomBD = "";
-//         $this->connectBD();
+         $this->host = "localhost:3306";
+         $this->username = "root";
+         $this->mdp = "";
+         $this->nomBD = "test";
+         $this->connectBD();
      }
 
      private function connectBD()

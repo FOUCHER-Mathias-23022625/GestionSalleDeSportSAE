@@ -17,11 +17,11 @@ require_once "modules/blog/views/Layout.php";
 
 
         public function connexion(){
-                $message = "connecteeee";
-                $this->afficheFormConnexion($message);
-                //$model = new utilisateurModel();
-                //$model->connexion();
-
+                $mail =$_POST['mail'];
+                $mdp =$_POST['mdp'];
+                $model = new utilisateurModel();
+                $model->connexion($mail,$mdp);
+                header('location:afficheFormConnexion');
 
 
         }
@@ -30,7 +30,17 @@ require_once "modules/blog/views/Layout.php";
         {
             session_start();
             session_destroy();
-            header("Location: index.php");
+            header("Location:afficheFormConnexion");
+        }
+
+        public function inscription()
+        {
+                $mail =$_POST['mail'];
+                $mdp =$_POST['mdp'];
+                $model = new utilisateurModel();
+                $model->ajouteUtilisateur($mail,$mdp);
+                header('location:afficheFormConnexion');
+
         }
 
         public function modification()
