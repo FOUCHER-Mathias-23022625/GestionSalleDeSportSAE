@@ -38,11 +38,11 @@ class reservationTerrainView
 
             <div id="sport-preview">
                 <h2 id="preview-title">Sélectionnez un sport pour le prévisualiser</h2>
-                <img id="sport-image-preview" src="" alt="Aperçu du sport sélectionné" />
+
             </div>
 
             <div id="form-container">
-                <form class="event-form" action="/?page=struture&form=modifForm" method="POST">
+                <form class="event-form" action="#" method="POST">
                     <label for="sport">Sport sélectionné :</label>
                     <input type="text" id="selected-sport" name="sport" aria-label="textAutoChange" readonly>
                     <label for="date">Sélectionnez une date :</label>
@@ -60,13 +60,18 @@ class reservationTerrainView
         </div>
 
         <div id="reservationModal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn" onclick="closeModal()">&times;</span>
-                <h2>Confirmer la réservation</h2>
-                <p id="reservationDetails">Vous avez sélectionné le créneau horaire <span id="selectedTime"></span> pour le sport <span id="selectedSport"></span> à la date <span id="selectedDate"></span>.</p>
-                <button onclick="confirmReservation()">Confirmer</button>
-                <button onclick="closeModal()">Annuler</button>
-            </div>
+            <form action="../../../index.php?action=addReservationTerrain" method="POST">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeModal()">&times;</span>
+                    <h2>Confirmer la réservation :</h2>
+                    <p id="reservationDetails">Vous avez sélectionné le créneau horaire <span id="selectedTime"> </span>:00 H <br>pour le sport <?php echo $selected_sport ?> <br>à la date <?php echo $selected_date?>.</p>
+                    <input type="hidden" name="sport" id="sport" value="<?php echo $selected_sport ?>">
+                    <input type="hidden" name="date" id="date" value="<?php echo $selected_date ?>">
+                    <input type="hidden" name="heure" id="inputSelectedTime">
+                    <button type="submit" class="validerResa">Confirmer</button>
+                    <button onclick="closeModal()" class="annulerResa">Annuler</button>
+                </div>
+            </form>
         </div>
         <?php include 'footer.php' ?>
         <script type="text/javascript" src="../../../assets/scripts/reservation.js"></script>

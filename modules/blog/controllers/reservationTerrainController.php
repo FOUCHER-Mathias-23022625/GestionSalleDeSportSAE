@@ -22,16 +22,24 @@ class reservationTerrainController
 
     public function displayReservationTerrain()
     {
-        $reservation = $this ->reservationTerrainModele ->getReservationTerrain();
+
+        $selected_sport = isset($_POST['sport']) ? $_POST['sport'] : null;
+        $selected_date = isset($_POST['date']) ? $_POST['date'] : null;
+        $reservation = $this ->reservationTerrainModele ->getReservationTerrain($selected_sport,$selected_date);
+        if ($selected_sport && $selected_date) {
+            $reservation = $this->reservationTerrainModele->getReservationTerrain($selected_date, $selected_sport);
+        } else {
+            $reservation = [];
+        }
         $view = new ReservationTerrainView();
-        $view->afficher($reservation);
+        $view->afficher($reservation,$selected_date,$selected_sport);
     }
 
     public function afficheRes($selected_sport, $selected_date,$request_res)
     {
         if ($selected_sport && $selected_date): ?>
-            <h2><?php echo htmlspecialchars($selected_sport); ?></h2>
-            <p><?php echo htmlspecialchars($selected_date); ?></p>
+            <h2><?php echo htmlspecialchars($selected_date); ?></h2>
+            <p><?php echo htmlspecialchars($selected_sport); ?></p>
 
             <?php
             // Liste complète des créneaux horaires (par exemple de 8h à 20h)

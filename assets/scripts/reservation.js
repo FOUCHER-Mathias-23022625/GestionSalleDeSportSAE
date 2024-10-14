@@ -31,15 +31,9 @@ function showForm(sport, element) {
     previousElement = element;
 }
 
-let selectedTime = '';
-let selectedDate = '<?php echo $selected_date; ?>'; // Récupérer la date sélectionnée
-let selectedSport = '<?php echo $selected_sport; ?>'; // Récupérer le sport sélectionné
-
 function openModal(time) {
-    selectedTime = time;
-    document.getElementById('selectedTime').innerText = time + ":00";
-    document.getElementById('selectedSport').innerText = selectedSport;
-    document.getElementById('selectedDate').innerText = selectedDate;
+    document.getElementById("selectedTime").innerText = time;
+    document.getElementById("inputSelectedTime").value = time;
     document.getElementById('reservationModal').style.display = 'block';
 }
 
