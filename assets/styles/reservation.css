@@ -210,6 +210,11 @@
     left: 0; /* Transition de gauche à droite */
 }
 
+.btnVoirResa span{
+    position: relative;
+    z-index: 5;
+}
+
 .btnVoirResa:hover {
     color: #38444c; /* Change le texte en blanc lors du survol */
 }

@@ -62,7 +62,6 @@ require_once "modules/blog/views/Layout.php";
             ob_start();
             $utilisateurView->afficher($message);
             $contenu=ob_get_clean();
-            echo $contenu;
             $layout = new Layout("Utilisateur", $contenu);
             $layout->afficher();
 
