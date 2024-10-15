@@ -6,11 +6,18 @@ require_once "navebar.php";
 require_once "Layout.php";
 class reservationTerrainView
 {
-    public function afficher($request_res,$selected_date,$selected_sport)
+    public function afficher($selected_date,$selected_sport,$reservation_status)
     {
-        $navebar = new navebar();
-        $navebar->afficher();
         ob_start();?>
+        <?php if ($reservation_status === 'success'): ?>
+        <script type="text/javascript">
+            alert("Votre réservation a été confirmée avec succès !");
+        </script>
+        <?php elseif ($reservation_status === 'fail'): ?>
+            <script type="text/javascript">
+                alert("Échec de la réservation. Veuillez réessayer.");
+            </script>
+        <?php endif; ?>
         <div class="reservationChoice">
             <h1>Réserver un terrain de sport</h1>
             <p>Sélectionnez un sport pour voir les créneaux disponibles et réservez votre terrain !</p>
@@ -52,22 +59,22 @@ class reservationTerrainView
                 </form>
             </div>
         </div>
-        <div class="Reservation">
-            <div class="card">
-                <?php $afficherResDispo = new reservationTerrainController();
-                $afficherResDispo->afficheRes($selected_date,$selected_sport,$request_res); ?>
-            </div>
-        </div>
+        <?php $afficherResDispo = new reservationTerrainController();
+        $afficherResDispo->afficheRes($selected_date,$selected_sport); ?>
 
         <div id="reservationModal" class="modal">
-            <form action="addReservationTerrain" method="POST">
+            <form action="/GestionSalleDeSportSAE/reservationTerrain/addReservationTerrain" method="POST">
                 <div class="modal-content">
                     <span class="close-btn" onclick="closeModal()">&times;</span>
                     <h2>Confirmer la réservation :</h2>
-                    <p id="reservationDetails">Vous avez sélectionné le créneau horaire <span id="selectedTime"> </span>:00 H <br>pour le sport <?php echo $selected_sport ?> <br>à la date <?php echo $selected_date?>.</p>
+                    <p id="reservationDetails">Vous avez sélectionné le créneau horaire <span id="selectedTime"></span>:00 H <br>
+                        pour le sport <?php echo $selected_sport ?><br
+                        >Sur le terrain <span id="selectedTerrain"> </span>
+                        <br>à la date <?php echo $selected_date?>.</p>
                     <input type="hidden" name="sport" id="sport" value="<?php echo $selected_sport ?>">
                     <input type="hidden" name="date" id="date" value="<?php echo $selected_date ?>">
                     <input type="hidden" name="heure" id="inputSelectedTime">
+                    <input type="hidden" name="terrain" id="inputSelectedTerrain">
                     <button type="submit" class="validerResa">Confirmer</button>
                     <button onclick="closeModal()" class="annulerResa">Annuler</button>
                 </div>

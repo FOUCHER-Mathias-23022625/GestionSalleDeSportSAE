@@ -22,7 +22,7 @@ session_start();
                 <a href="index.html" class="HeadTitle">...</a>
                 <nav class="menuNavBar">
                     <ul class="sidebar">
-                        <li><a class="sidebarBtnA"><img src="../../../assets/images/croix-blanche.png" alt="bouton menu burger"  onclick="hideSidebar()" class="menu_btn_open"></a></li>
+                        <li><a class="sidebarBtnA"><img src="/GestionSalleDeSportSAE/assets/images/croix-blanche.png" alt="bouton menu burger"  onclick="hideSidebar()" class="menu_btn_open"></a></li>
                         <li><a href="index.html#APropos" class="menu-link">❔ A propos</a></li>
                         <li class="deroulant"><a href="index.html#Solutions" class="menu-link">💡 Nos solutions ▼</a></li>
                         
@@ -45,7 +45,7 @@ session_start();
                         <li><a href="../performance/affichePerf" class="hideOnMobile">💪 Mes Performances</a></li>
 
 
-                        <li><img   src="../../../assets/images/burger-white.png" alt="bouton menu burger" onclick="showSidebar()" class="menu_btn_close"></li>
+                        <li><img   src="/GestionSalleDeSportSAE/assets/images/burger-white.png" alt="bouton menu burger" onclick="showSidebar()" class="menu_btn_close"></li>
                         
                     </ul>
             
