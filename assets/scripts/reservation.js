@@ -8,12 +8,12 @@ function showForm(sport, element) {
     if (previousElement && previousElement !== element) {
         var previousSport = previousElement.id; // Obtenir l'ID du sport précédent
         var previousImage = previousElement.querySelector('img');
-        previousImage.src = `../../../assets/images/icons-sport/${previousSport}.png`; // Remettre l'image d'origine
+        previousImage.src = `/GestionSalleDeSportSAE/assets/images/icons-sport/${previousSport}.png`; // Remettre l'image d'origine
     }
 
     // Sélectionner l'image dans l'élément cliqué
     var imageElement = element.querySelector('img');
-    var imagePath = `../../../assets/images/icons-sport/${sport}(1).png`;
+    var imagePath = `/GestionSalleDeSportSAE/assets/images/icons-sport/${sport}(1).png`;
 
     // Appliquer la transition pour changer d'image en douceur
     imageElement.style.opacity = 0; // D'abord on fait disparaître l'image en douceur

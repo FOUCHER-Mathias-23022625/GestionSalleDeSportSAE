@@ -80,6 +80,7 @@ class reservationTerrainController
         $date = htmlspecialchars($_POST['date']);
         $heure = htmlspecialchars($_POST['heure']);
         $this->reservationTerrainModele->insererReservation($sport, $date, $heure);
+        header('location:displayReservationTerrain');
     }
 
 }

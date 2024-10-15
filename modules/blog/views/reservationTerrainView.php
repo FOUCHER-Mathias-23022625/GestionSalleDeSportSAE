@@ -17,22 +17,22 @@ class reservationTerrainView
 
             <div class="icons">
                 <div class="icon" onclick="showForm('tennis', this)" id="tennis">
-                    <img src="../../../assets/images/icons-sport/tennis.png" alt="Tennis Image" />
+                    <img src="/GestionSalleDeSportSAE/assets/images/icons-sport/tennis.png" alt="Tennis Image" />
                 </div>
                 <div class="icon" onclick="showForm('football', this)" id="football">
-                    <img src="../../../assets/images/icons-sport/football.png" alt="Football Image" />
+                    <img src="/GestionSalleDeSportSAE/assets/images/icons-sport/football.png" alt="Football Image" />
                 </div>
                 <div class="icon" onclick="showForm('basket', this)" id="basket">
-                    <img src="../../../assets/images/icons-sport/basket.png" alt="Basket Image" />
+                    <img src="/GestionSalleDeSportSAE/assets/images/icons-sport/basket.png" alt="Basket Image" />
                 </div>
                 <div class="icon" onclick="showForm('volley-ball', this)" id="volley-ball">
-                    <img src="../../../assets/images/icons-sport/volley-ball.png" alt="Volley-ball Image" />
+                    <img src="/GestionSalleDeSportSAE/assets/images/icons-sport/volley-ball.png" alt="Volley-ball Image" />
                 </div>
                 <div class="icon" onclick="showForm('badminton', this)" id="badminton">
-                    <img src="../../../assets/images/icons-sport/badminton.png" alt="badminton Image" />
+                    <img src="/GestionSalleDeSportSAE/assets/images/icons-sport/badminton.png" alt="badminton Image" />
                 </div>
                 <div class="icon" onclick="showForm('ping-pong', this)" id="ping-pong">
-                    <img src="../../../assets/images/icons-sport/ping-pong.png" alt="ping-pong Image" />
+                    <img src="/GestionSalleDeSportSAE/assets/images/icons-sport/ping-pong.png" alt="ping-pong Image" />
                 </div>
             </div>
 
@@ -60,7 +60,7 @@ class reservationTerrainView
         </div>
 
         <div id="reservationModal" class="modal">
-            <form action="../../../index.php?action=addReservationTerrain" method="POST">
+            <form action="addReservationTerrain" method="POST">
                 <div class="modal-content">
                     <span class="close-btn" onclick="closeModal()">&times;</span>
                     <h2>Confirmer la réservation :</h2>
@@ -74,7 +74,7 @@ class reservationTerrainView
             </form>
         </div>
         <?php include 'footer.php' ?>
-        <script type="text/javascript" src="../../../assets/scripts/reservation.js"></script>
+        <script type="text/javascript" src="/GestionSalleDeSportSAE/assets/scripts/reservation.js"></script>
         <?php
         (new \Blog\Views\Layout('Le meilleur blog', ob_get_clean()))->afficher();
     }
