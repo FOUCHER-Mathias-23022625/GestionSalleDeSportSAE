@@ -12,9 +12,6 @@ class utilisateurView
 
     public function afficher($message='')
     {
-        $navebar = new navebar();
-
-        $navebar->afficher();
   ?>
 
         <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/login.css">
