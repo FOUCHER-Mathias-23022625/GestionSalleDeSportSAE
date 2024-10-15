@@ -8,8 +8,6 @@ class reservationTerrainView
 {
     public function afficher($request_res,$selected_date,$selected_sport)
     {
-        $navebar = new navebar();
-        $navebar->afficher();
         ob_start();?>
         <div class="reservationChoice">
             <h1>Réserver un terrain de sport</h1>

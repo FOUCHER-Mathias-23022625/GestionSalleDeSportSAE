@@ -34,4 +34,3 @@
         <p>© All Rights Reserved by <a href="#">...</a></p>
     </div>
 </footer>
-<script type="text/javascript" src="../../../assets/scripts/nav.js"></script>
