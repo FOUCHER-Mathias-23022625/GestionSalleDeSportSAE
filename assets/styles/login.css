@@ -67,7 +67,7 @@ body{
      font-size: 15px;
  }
 
-#inscription {
+#btn-connexion {
     width: 400px;
     background: #a7c957;
     color: white;
@@ -78,11 +78,11 @@ body{
     margin: 20px 0 20px 0;
 }
 
-#inscription:hover {
+#btn-connexion:hover {
     background: #2a872e;
 }
 
-#creer-compte {
+#btn-inscription {
     width: 400px;
     background: none;
     color: #38444c;
@@ -92,6 +92,6 @@ body{
     transition: 0.4s ease;
 }
 
-#creer-compte:hover {
+#btn-inscription:hover {
     background: #cdcdcd;
 }
