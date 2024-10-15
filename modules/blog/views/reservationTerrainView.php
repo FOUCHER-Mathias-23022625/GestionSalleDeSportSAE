@@ -42,7 +42,7 @@ class reservationTerrainView
             </div>
 
             <div id="form-container">
-                <form class="event-form" action="#" method="POST">
+                <form class="event-form" action="" method="POST">
                     <label for="sport">Sport sélectionné :</label>
                     <input type="text" id="selected-sport" name="sport" aria-label="textAutoChange" readonly>
                     <label for="date">Sélectionnez une date :</label>
