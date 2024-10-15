@@ -19,14 +19,14 @@ class reservationTerrainModele
         return $this->connexion->query($request_res)->fetchAll(PDO::FETCH_ASSOC);
     } */
 
-    public function getReservationTerrain($date, $sport) {
+    public function getReservationTerrain($date, $sport, $terrain) {
         // Vérifiez que les paramètres $date et $sport ne sont pas vides
-        if (empty($date) || empty($sport)) {
+        if (empty($date) || empty($sport) || empty($terrain)) {
             return []; // Retournez un tableau vide si l'un des paramètres est manquant
         }
 
         // Requête SQL avec des placeholders
-        $query = "SELECT * FROM reservationTerrain WHERE sport = :sport AND date = :date ORDER BY heure";
+        $query = "SELECT * FROM reservationTerrain WHERE sport = :sport AND date = :date AND terrain = :terrain ORDER BY heure";
 
         // Préparation de la requête
         $stmt = $this->connexion->prepare($query);
@@ -34,6 +34,7 @@ class reservationTerrainModele
         // Liaison des paramètres sécurisée
         $stmt->bindParam(':sport', $sport);
         $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':terrain', $terrain);
 
         // Exécution de la requête
         $stmt->execute();
@@ -42,13 +43,13 @@ class reservationTerrainModele
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function insererReservation($sport, $date, $heure)
+    public function insererReservation($sport, $date, $heure, $terrain)
     {
         // Connexion à la base de données
         // Requête pour insérer la réservation dans la base de données
-        $stmt = $this->connexion->prepare("INSERT INTO reservationTerrain (sport, date, heure) VALUES (?, ?, ?)");
+        $stmt = $this->connexion->prepare("INSERT INTO reservationTerrain (sport, date, heure, terrain) VALUES (?, ?, ?, ?)");
 
-        if ($stmt->execute([$sport, $date, $heure])) {
+        if ($stmt->execute([$sport, $date, $heure, $terrain])) {
             return json_encode(['status' => 'success', 'message' => 'Réservation réussie']);
         } else {
             return json_encode(['status' => 'error', 'message' => 'Erreur lors de la réservation']);
