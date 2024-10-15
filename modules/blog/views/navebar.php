@@ -39,7 +39,7 @@ session_start();
                         <li><a href="../utilisateur/afficheFormConnexion" class="hideOnMobile">🔨 Connexion</a></li>
                         <li class="deroulant"><a href="../evenement/afficheEvenement" class="hideOnMobile">💡 Evenement ▼</a></li>
                         <li><a href="http://'.$_SERVER['HTTP_HOST'].'GestionSalleDeSportSAE/modules/blog/views/reservation.html" class="hideOnMobile">❔ A propos</a></li>
-
+                        <li><a href="../performance/affichePerf" class="hideOnMobile">💪 Mes Performances</a></li>
 
 
                         <li><img   src="../../../assets/images/burger-white.png" alt="bouton menu burger" onclick="showSidebar()" class="menu_btn_close"></li>
