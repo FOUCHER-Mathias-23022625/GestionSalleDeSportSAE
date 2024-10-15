@@ -56,11 +56,11 @@ require_once "modules/blog/views/Layout.php";
             header('Location: index.php');
         }
 
-        public function afficheFormConnexion($message='')
+        public function afficheFormConnexion()
         {
             $utilisateurView = new utilisateurView();
             ob_start();
-            $utilisateurView->afficher($message);
+            $utilisateurView->afficher();
             $contenu=ob_get_clean();
             $layout = new Layout("Utilisateur", $contenu);
             $layout->afficher();
