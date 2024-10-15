@@ -127,4 +127,32 @@ class performanceController
         }
         return $totalVictoire;
     }
+
+    public function getPerformanceJson() {
+        $model = new performanceModel('host_name', 'user_name', 'password', 'database_name');
+        $performances = $model->getPerformances();
+
+        header('Content-Type: application/json');
+        echo json_encode($performances);
+    }
+
+    public function getPerformanceDataForGraph(): array
+    {
+        $performances = $this->model->getPerformances();
+
+        $dates = [];
+        $tempsjeu = [];
+
+        foreach ($performances as $performance) {
+            $dates[] = $performance['date'];
+            $tempsjeu[] = (int)$performance['temps_de_jeu'];
+        }
+
+        // Retourner un tableau associatif avec les données nécessaires pour le graphe
+        return [
+            'dates' => $dates,
+            'temps_de_jeu' => $tempsjeu
+        ];
+    }
+
 }

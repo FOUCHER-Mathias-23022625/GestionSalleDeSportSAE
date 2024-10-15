@@ -18,6 +18,12 @@ class performanceView
         $sports = $controller->afficheSport($performances);
         $tempsJeu= $controller->afficheTmps($performances);
         $victoire= $controller->afficheTotVictoire($performances);
+
+        // Récupérer les données pour le graphique
+        $graphData = $controller->getPerformanceDataForGraph();
+        $datesJson = json_encode($graphData['dates']);
+        $tempsjeuJson = json_encode($graphData['temps_de_jeu']);
+
         echo '<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -111,9 +117,18 @@ class performanceView
     </div>
 </div>
 <!-- Chart.js script -->
+<script>
+    // Données du graphe
+    const dates = ' . $datesJson . ';
+    const tempsjeu = ' . $tempsjeuJson . ';
+
+    console.log(dates);
+    console.log(tempsjeu);
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="GestionSalleDeSportSAE/assets/scripts/graphe.js"></script>
-<script src="GestionSalleDeSportSAE/assets/scripts/performance_form.js"></script>
+<script src="/GestionSalleDeSportSAE/assets/scripts/graphe.js"></script>
+<script src="/GestionSalleDeSportSAE/assets/scripts/performance_form.js"></script>
 </body>
 
 </html>';
