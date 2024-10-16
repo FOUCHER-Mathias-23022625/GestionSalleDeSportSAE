@@ -1,7 +1,8 @@
 <?php
 namespace blog\views;
-use controllers\reservationTerrainController;use navebar;
+use controllers\reservationTerrainController;use footer;use navebar;
 require_once "navebar.php";
+require_once "footer.php";
 class Layout { // PSR-12: opening brace next line
     public function __construct(private string $title, private string $content) {}
     public function afficher(): void { // PSR-12: opening brace next line
@@ -24,6 +25,8 @@ class Layout { // PSR-12: opening brace next line
             $navebar->afficher();?>
             <?= $this->content; ?>
             <script type="text/javascript" src="/GestionSalleDeSportSAE/assets/scripts/nav.js"></script>
+            <?php $footer = new footer();
+            $footer->afficher();?>
             </body>
             </html>
 <?php
