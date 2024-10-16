@@ -14,6 +14,8 @@ class Layout { // PSR-12: opening brace next line
                 <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/styles.css">
                 <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/navbar.css">
                 <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/reservation.css">
+                <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/homepage.css">
+                <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/evenement.css">
                 <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/performance.css">
                 <title><?= $this->title; ?></title>
             </head>

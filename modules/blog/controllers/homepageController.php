@@ -12,6 +12,7 @@ class homepageController
 {
     public function displayHome()
     {
+
         $homepageView = new homepageView();
         $homepageView->afficher();
 

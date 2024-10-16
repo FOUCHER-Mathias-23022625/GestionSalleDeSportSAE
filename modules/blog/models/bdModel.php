@@ -17,7 +17,7 @@ use PDO;
          $this->host = "localhost:3306";
          $this->username = "root";
          $this->mdp = "";
-         $this->nomBD = "test";
+         $this->nomBD = "bdSAE";
          $this->connectBD();
      }
 

@@ -10,11 +10,11 @@ class utilisateurView
 
     }
 
-    public function afficher($message='')
+    public function afficher()
     {
   ?>
 
-        <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/login.css">
+        <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/login.css">
 
 
         <div class="login-container">
@@ -31,7 +31,7 @@ class utilisateurView
                     </div>
                     <button type="submit" name="btn-connexion" id="btn-connexion" class="login-btn">Se connecter</button>
                     <button type="submit" name="btn-inscription" id="btn-inscription" class="create-btn">Créer un compte</button>
-                </form> <?php echo $message?>
+                </form>
             </div>
         </div>
         <script src="/GestionSalleDeSportSae/assets/scripts/utilisateur.js"></script>
