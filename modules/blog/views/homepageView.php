@@ -13,12 +13,12 @@ class homepageView{
         ob_start();
 
         ?>
-    <div class="homepage">
+    <main class="homepage">
         <section class="video-section">
             <img class="background-video" src="/GestionSalleDeSportSAE/assets/images/homeVideo.gif">
             <div class="content">
                 <h1 id="jouer">JOUER</h1>
-                <p>Réserve ton terrain dès maintenant !</p>
+                <p>Pratique ton sport dès maintenant !</p>
                 <div class="contacts">
                     <a href="../reservationTerrain/displayReservationTerrain" class="button1">RÉSERVER</a>
                 </div>
@@ -47,11 +47,11 @@ class homepageView{
             <div class="performance-text">
                 <h2>Accéder à vos performances</h2>
                 <p>Accédez à l'évolution de vos performances sportives. Consultez vos progrès, vos statistiques d'entraînement et vos records personnels. Notre outil de suivi vous permet d'analyser vos séances passées et de fixer de nouveaux objectifs pour vous surpasser.</p>
-                <a href="../reservationTerrain/displayReservationTerrain" class="button-link">Voir vos performances</a>
+                    <a href="../performance/affichePerf" class="button-link">Voir vos performances</a>
             </div>
             <img src="/GestionSalleDeSportSAE/assets/images/performancee.jpg" alt="performance-img" class="performance-img">
         </section>
-    </div>
+    </main>
 
     <?php
         (new \Blog\Views\Layout('Page d\'accueil', ob_get_clean()))->afficher();

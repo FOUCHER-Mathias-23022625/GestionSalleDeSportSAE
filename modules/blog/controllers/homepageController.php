@@ -10,7 +10,7 @@ require_once  "./index.php";
 
 class homepageController
 {
-    public function displayHome()
+    public function accueil()
     {
 
         $homepageView = new homepageView();

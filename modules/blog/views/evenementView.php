@@ -11,7 +11,7 @@ class evenementView{
 
         ob_start();
         ?>
-    <div class="page-event">
+    <main class="page-event">
         <h1 class="h1-event">Les évènements à venir</h1>
         <div class = "evenement">
             <img id="foot" src="/GestionSalleDeSportSAE/assets/images/istockphoto-1406854849-612x612.jpg">
@@ -22,7 +22,7 @@ class evenementView{
             </div>
         </div>
         <div class = "evenement">
-            <img id="basket" src="/GestionSalleDeSportSAE/assets/images/22336935-basketball-contexte-illustration-ai-generatif-gratuit-photo.jpg">
+            <img id="basket-event" src="/GestionSalleDeSportSAE/assets/images/22336935-basketball-contexte-illustration-ai-generatif-gratuit-photo.jpg">
             <div class="txt">
                 <h3>Tournoi de basketball</h3>
                 <p>Vous souhaitez passer un bon moment avec d'autres adhérents ? Inscrivez-vous direct !</p>
@@ -30,7 +30,7 @@ class evenementView{
             </div>
         </div>
         <div class = "evenement">
-            <img id="badminton" src="/GestionSalleDeSportSAE/assets/images/raquette-volant-de-badminton.jpg">
+            <img id="badminton-event" src="/GestionSalleDeSportSAE/assets/images/raquette-volant-de-badminton.jpg">
             <div class="txt">
                 <h3>Tournoi de badminton</h3>
                 <p>Vous souhaitez passer un bon moment avec d'autres adhérents ? Inscrivez-vous direct !</p>
@@ -69,7 +69,7 @@ class evenementView{
             </div>
         </div>
         <script src="/GestionSalleDeSportSAE/assets/scripts/evenement.js"></script>
-    </div>
+    </main>
 
     <?php
         (new \Blog\Views\Layout('Évenement', ob_get_clean()))->afficher();

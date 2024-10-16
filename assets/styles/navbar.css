@@ -37,28 +37,38 @@
   .mainNav {
     display: flex;
     flex-direction: row-reverse;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding-left: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
   }
-  
-  .menuNavBar li a {
-    color: white;
-    display: block;
-    padding: 30px 20px;
-    transition: all 0.4s ease-in-out;
-  }
-  
-  .menuNavBar li{
-    padding: 0px 5px;
-  
-  }
-  
-  .menuNavBar li a:hover {
-    background-color: #5e7280;
-  }
-  
-  .deroulant {
+
+.menuNavBar li a {
+  color: white;
+  display: inline-block;
+  padding: 5px 5px;
+  margin: 25px 25px;
+  position: relative;
+  text-decoration: none;
+}
+
+.menuNavBar li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  height: 1.5px;
+  background-color: white;
+  transition: left 0.3s ease, right 0.3s ease;
+}
+
+.menuNavBar li a:hover::after {
+  left: 8px;
+  right: 8px;
+}
+
+
+.deroulant {
     position: relative;
     z-index: 999;
   
@@ -101,10 +111,9 @@
   }
   
   .menu-link-sousnav li a {
-    margin: 0px;
-    padding: 20px;
-    padding-left: 25px;
-    color: white; /* Ensure the submenu links are white */
+    margin: 0;
+    padding: 20px 0 0 25px;
+    color: white;
   }
   .sidebarBtnA{
     padding-bottom: 100px !important;
