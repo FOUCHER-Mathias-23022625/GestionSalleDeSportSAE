@@ -111,6 +111,18 @@ class performanceView
 
             <label class="form-label" for="Score">Score</label>
             <input class="form-input" type="text" id="Score" name="Score" ></input>
+            
+            <label class="form-label">Résultat</label>
+            <div class="form-radio-group">
+                <label class="form-radio">
+                    <input type="radio" name="resultat" value="Victoire" required> 
+                    <span class="custom-radio"></span> Victoire
+                </label>
+                <label class="form-radio">
+                    <input type="radio" name="resultat" value="Défaite" required>
+                    <span class="custom-radio"></span> Défaite
+                </label>
+            </div>
 
             <input class="form-submit" type="submit" name="submit" id="submit" value="Ajouter la performance">
         </form>
