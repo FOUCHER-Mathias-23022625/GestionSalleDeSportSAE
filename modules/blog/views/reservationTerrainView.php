@@ -1,8 +1,7 @@
 <?php
 
 namespace blog\views;
-use controllers\reservationTerrainController;use navebar;
-require_once "navebar.php";
+use controllers\reservationTerrainController;
 require_once "Layout.php";
 class reservationTerrainView
 {
@@ -80,7 +79,7 @@ class reservationTerrainView
                 </div>
             </form>
         </div>
-        <?php include 'footer.php' ?>
+        <?php include 'footercaca.php' ?>
         <script type="text/javascript" src="/GestionSalleDeSportSAE/assets/scripts/reservation.js"></script>
         <?php
         (new \Blog\Views\Layout('Le meilleur blog', ob_get_clean()))->afficher();
