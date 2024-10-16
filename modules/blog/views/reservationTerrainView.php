@@ -79,7 +79,6 @@ class reservationTerrainView
                 </div>
             </form>
         </div>
-        <?php include 'footercaca.php' ?>
         <script type="text/javascript" src="/GestionSalleDeSportSAE/assets/scripts/reservation.js"></script>
         <?php
         (new \Blog\Views\Layout('Le meilleur blog', ob_get_clean()))->afficher();
