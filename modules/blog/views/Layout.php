@@ -10,10 +10,10 @@ class Layout { // PSR-12: opening brace next line
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/footer.css">
-                <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/styles.css">
-                <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/navbar.css">
-                <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/reservation.css">
+                <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/footer.css">
+                <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/styles.css">
+                <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/navbar.css">
+                <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/reservation.css">
                 <title><?= $this->title; ?></title>
             </head>
             <body>
