@@ -34,7 +34,7 @@ session_start();
                     <ul class="mainNav">
                         <?php if($this->estConnecte()){
                             echo'<li><a href="../utilisateur/deconnecte" name="deconnecte" class="hideOnMobile">🔨 Deconnexion</a></li>
-                             <li><img src="../../../assets/images/icons-sport/badminton(1).png" alt="Photo de Profil" class="photoProfil"></li>';} ?>
+                             <li><a class="hideOnMobile" href="../evenement/afficheEvenement" ><img src="/GestionSalleDeSportSAE/assets/images/pp.png" alt="Photo de Profil" class="photoProfil"></a></li>';} ?>
                         <li><a href="index.html#ContactezNous" class="hideOnMobile">📩 Contact</a></li>
                         <li><a href="../reservationTerrain/displayReservationTerrain" class="hideOnMobile">⭐ Reservation</a></li>
                         <?php if(!$this->estConnecte()){echo'

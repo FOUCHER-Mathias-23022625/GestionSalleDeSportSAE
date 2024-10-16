@@ -15,19 +15,16 @@ require_once  "modules/blog/models/bdModel.php";
         }
 
 
-        public function edit_utilisateur($idUtilisateur,$nom,$prenom,$dateNaissance,$mdp){
-            $requete = $this->connexionBD->pdo->prepare("UPDATE utilisateur set idUtilisateur = $idUtilisateur
-            , nom = $nom,prenom = $prenom,dateNaissance = $dateNaissance,mdp = $mdp");
-            $requete->execute();
-        }
+
 
         public function ajouteUtilisateur($mail,$mdp){
 
-            $requete = $this->connexionBD->pdo->prepare("INSERT INTO utilisateur (mail, mdp) VALUES (:mail, :mdp)");
+            $requete = $this->connexionBD->pdo->prepare("INSERT INTO utilisateur (EMail, mdp) VALUES (:mail, :mdp)");
             $hashedMdp = password_hash($mdp, PASSWORD_DEFAULT);
             $requete->bindParam(":mail", $mail);
             $requete->bindParam(":mdp", $hashedMdp);
             $requete->execute();
+            //$jointure = $this->connexionBD->pdo->prepare("INSERT INTO abonnement,utilisateur (abonnement)");
             $_SESSION['id'] = $mail;
         }
 
@@ -53,14 +50,14 @@ require_once  "modules/blog/models/bdModel.php";
         public function connexion($mail,$mdp)
         {
 
-            $requeteConnexion = $this->connexionBD->pdo->prepare("SELECT * FROM utilisateur WHERE mail = :mail AND mdp = :mdp");
+            $requeteConnexion = $this->connexionBD->pdo->prepare("SELECT * FROM utilisateur WHERE EMail = :mail AND mdp = :mdp");
             $requeteConnexion->bindParam(':mail', $mail);
             $requeteConnexion->bindParam(':mdp', $mdp);
 
             if ($requeteConnexion->execute()) {
                 $donnees = $requeteConnexion->fetch();
                 $_SESSION['id'] = $donnees['mail'];
-                header('Location:afficheFormConnexion/'.$_SESSION['id']);
+                header('Location:afficheFormConnexion/');
             }
             else{
                 header('Location:eee');
