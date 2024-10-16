@@ -31,7 +31,7 @@ body {
 
 .stat-item {
     background-color: #fff;
-    padding: 20px;
+    padding: 0 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -162,6 +162,63 @@ body {
     color: #333;
     box-sizing: border-box;
 }
+
+.form-radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form-radio {
+    position: relative;
+    cursor: pointer;
+    padding-left: 30px;
+    font-size: 1rem;
+}
+
+.form-radio input {
+    position: absolute;
+    cursor: pointer;
+    appearance: none;
+}
+
+.custom-radio {
+    position: absolute;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid #a7c957;
+    transition: background-color 0.3s ease;
+}
+
+
+.form-radio input:checked + .custom-radio {
+    background-color: #a7c957;
+    border-color: #a7c957;
+}
+
+
+.form-radio input:checked + .custom-radio::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+
+.form-radio:hover input:not(:checked) + .custom-radio {
+    background-color: #eaeaea;
+}
+
 
 .close-btn {
     position: absolute;
