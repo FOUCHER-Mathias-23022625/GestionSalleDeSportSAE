@@ -1,0 +1,82 @@
+create table abonnement
+(
+    "IdAbonnement" serial
+        primary key,
+    "DateDeb"      date not null,
+    "DateExp"      date not null,
+    "IdUtilisateur" int unique not null,
+    constraint idutilisateur_fk
+        foreign key ("IdUtilisateur") references utilisateur ("IdUtilisateur")
+);
+
+create table utilisateur
+(
+    "NomU"          varchar not null,
+    "PrenomU"       varchar not null,
+    "EMail"         varchar not null
+        unique,
+    "IdUtilisateur" serial
+        primary key,
+    constraint "EMail_correct"
+        check (regexp_like("EMail", '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$'))
+);
+
+create table sport
+(
+    "NomSport"  varchar
+        primary key,
+    "NbJoueurs" int
+);
+
+create table terrain
+(
+    "IdTerrain" serial
+        primary key,
+    "TypeTerrain" varchar,
+    constraint "Terrain_Sport_fk"
+        foreign key ("TypeTerrain") references sport ("NomSport")
+);
+
+
+create table reservation
+(
+    "IdReservation" serial
+        primary key,
+    "DateRes"       date not null,
+    "HDeb"          time not null,
+    "HFin"          time not null,
+    "IdUtilisateur" serial not null,
+    "IdTerrain"     serial not null,
+
+    constraint reservation_utilisateur_utilisateur_fk
+        foreign key ("IdUtilisateur") references utilisateur ("IdUtilisateur"),
+    constraint reservation_terrain_terrain_fk
+        foreign key ("IdTerrain") references terrain ("IdTerrain")
+);
+
+
+create table evenement
+(
+    "IdEvenement" serial
+        primary key,
+    "NomEven"     varchar not null,
+    "DateEven"    date    not null,
+    "NomSport"    varchar,
+    constraint evenement_sport_nomsport_fk
+        foreign key ("NomSport") references sport ("NomSport")
+);
+
+create table performances
+(
+    "IdUtilisateur" int not null
+        primary key,
+    "DatePerf"    date not null
+        primary key,
+    "Distance"    decimal(9, 2),
+    "Temps"       decimal(6, 2),
+    "Repetitions" int,
+    "Score"       varchar(7),
+    "Resultat"    boolean,
+    constraint utilisateur_fk
+        foreign key ("IdUtilisateur") references utilisateur ("IdUtilisateur")
+);
