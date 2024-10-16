@@ -19,7 +19,7 @@ session_start();
             ?>
             <header>
             <div class="navBar">
-                <a href="index.html" class="HeadTitle">...</a>
+                <a href="/GestionSalleDeSportSAE/homepage/displayHome" class="HeadTitle">Sport Hub</a>
                 <nav class="menuNavBar">
                     <ul class="sidebar">
                         <li><a class="sidebarBtnA"><img src="/GestionSalleDeSportSAE/assets/images/croix-blanche.png" alt="bouton menu burger"  onclick="hideSidebar()" class="menu_btn_open"></a></li>

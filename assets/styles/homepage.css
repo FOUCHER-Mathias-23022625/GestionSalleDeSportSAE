@@ -1,3 +1,7 @@
+.homepage{
+    text-align: center !important;
+}
+
 .video-section {
     position: relative;
     overflow: hidden;
@@ -25,10 +29,12 @@
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
+    justify-content: space-between;
 }
 
-.video-section h1 {
+.video-section #jouer {
     font-size: 4rem;
+    color: white;
 }
 
 .video-section p {
@@ -112,6 +118,7 @@
 }
 
 .button-link {
+    margin-top: 10px;
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
@@ -127,3 +134,6 @@
     border-color: #4CAF50;
 }
 
+.homepage h2{
+    margin-bottom: 10px;
+}
