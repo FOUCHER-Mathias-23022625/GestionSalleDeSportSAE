@@ -84,7 +84,14 @@ class performanceView
             <input class="form-inputPerf" type="DATE" id="Date" name="Date" required>
 
             <label class="form-labelPerf" for="Sport">Sport</label>
-            <input class="form-inputPerf" type="text" id="Sport" name="Sport" required>
+            <select class="form-selectPerf" id="Sport" name="Sport" required>
+                <option value=""> Sélectionnez un sport </option>
+                <option value="Volley">Volley</option>
+                <option value="Football">Football</option>
+                <option value="Tennis">Tennis</option>
+                <option value="Ping-Pong">Ping-Pong</option>
+                <option value="Badminton">Badminton</option>
+            </select>
 
             <label class="form-labelPerf" for="TmpJeu">Temps de jeu</label>
             <input class="form-inputPerf" type="text" id="TmpJeu" name="Durée" required>
