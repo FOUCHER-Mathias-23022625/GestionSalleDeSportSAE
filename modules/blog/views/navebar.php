@@ -15,11 +15,16 @@ session_start();
         }
 
         public function afficher(){
-           // $deco = new utilisateurController();
             ?>
             <header>
             <div class="navBar">
-                    <a href="/GestionSalleDeSportSAE/homepage/accueil   " class="HeadTitle">Sport Hub</a>
+                <a href="/GestionSalleDeSportSae/homepage/accueil">
+                    <img src="/GestionSalleDeSportSae/assets/images/logo-img.png" alt="Logo" id="logo">
+                </a>
+                <div class="nom-site" onclick="window.location.href='/GestionSalleDeSportSae/homepage/accueil';">
+                    Sport
+                    <span class="hub">hub</span>
+                </div>
                 <nav class="menuNavBar">
                     <ul class="sidebar">
                         <li><a class="sidebarBtnA"><img src="/GestionSalleDeSportSAE/assets/images/croix-blanche.png" alt="bouton menu burger"  onclick="hideSidebar()" class="menu_btn_open"></a></li>
@@ -38,7 +43,7 @@ session_start();
                         <?php if(!$this->estConnecte()){echo'
                         <li><a href="../utilisateur/afficheFormConnexion" class="hideOnMobile">Connexion</a></li>';
                         }?>
-                        <li><a href="../performance/affichePerf" class="hideOnMobile">Mes Performances</a></li>
+                        <li><a href="../performance/affichePerf" class="hideOnMobile">Performances</a></li>
                         <li class="deroulant"><a href="../evenement/afficheEvenement" class="hideOnMobile">Évenement</a></li>
                         <li><a href="../reservationTerrain/displayReservationTerrain" class="hideOnMobile">Réservation</a></li>
 

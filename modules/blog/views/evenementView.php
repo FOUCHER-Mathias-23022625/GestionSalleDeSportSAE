@@ -18,7 +18,7 @@ class evenementView{
     <main class="page-event">
         <h1 class="h1-event">Les évènements à venir</h1>
         <div class = "evenement">
-            <img id="foot" src="/GestionSalleDeSportSAE/assets/images/istockphoto-1406854849-612x612.jpg">
+            <img id="foot-event" src="/GestionSalleDeSportSAE/assets/images/istockphoto-1406854849-612x612.jpg">
             <div class="txt">
                 <h3>Tournoi de foot salle</h3>
                 <p>Vous souhaitez passer un bon moment avec d'autres adhérents avec à la clé 2 séances de sport gratuites ? Inscrivez-vous direct ! Il reste encore n places</p>

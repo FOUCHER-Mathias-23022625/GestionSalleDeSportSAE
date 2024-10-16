@@ -11,6 +11,7 @@ class Layout { // PSR-12: opening brace next line
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="icon" type="image/ico" href="/GestionSalleDeSportSae/assets/images/logo-ico.ico" sizes="100x100">
                 <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/footer.css">
                 <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/styles.css">
                 <link rel="stylesheet" href="/GestionSalleDeSportSae/assets/styles/navbar.css">
