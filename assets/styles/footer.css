@@ -1,7 +1,7 @@
 .footerArea{
     position: relative;
     z-index: 1;
-    background-color: #1f1f1f;
+    background-color: #38444c;
     color: #fff;
 }
 
@@ -61,7 +61,8 @@
 
 .Copyrights{
     padding: 50px 0;
-    background-color: #111;
+    background-color: #293238;
+
 }
 
 .Copyrights p{
