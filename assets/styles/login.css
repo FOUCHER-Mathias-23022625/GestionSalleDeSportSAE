@@ -76,6 +76,8 @@ body{
     cursor: pointer;
     transition: 0.4s ease;
     margin: 20px 0 20px 0;
+    padding: 10px;
+
 }
 
 #btn-connexion:hover {
@@ -90,6 +92,7 @@ body{
     border: none;
     cursor: pointer;
     transition: 0.4s ease;
+    padding: 10px;
 }
 
 #btn-inscription:hover {
