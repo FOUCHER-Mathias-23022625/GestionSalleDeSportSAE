@@ -84,15 +84,21 @@ class performanceView
             <input class="form-inputPerf" type="DATE" id="Date" name="Date" required>
 
             <label class="form-labelPerf" for="Sport">Sport</label>
-            <input class="form-inputPerf" type="text" id="Sport" name="Sport" required>
+            <select class="form-selectPerf" id="Sport" name="Sport" required>
+                <option value=""> Sélectionnez un sport </option>
+                <option value="Volley">Volley</option>
+                <option value="Football">Football</option>
+                <option value="Tennis">Tennis</option>
+                <option value="Ping-Pong">Ping-Pong</option>
+                <option value="Badminton">Badminton</option>
+            </select>
 
             <label class="form-labelPerf" for="TmpJeu">Temps de jeu</label>
-            <input class="form-inputPerf" type="text" id="TmpJeu" name="Durée" required></input>
+            <input class="form-inputPerf" type="text" id="TmpJeu" name="Durée" required>
 
             <label class="form-labelPerf" for="Score">Score</label>
-            <input class="form-inputPerf" type="text" id="Score" name="Score" ></input>
-            
-            <label class="form-labelPerf">Résultat</label>
+            <input class="form-inputPerf" type="text" id="Score" name="Score" required>
+
             <div class="form-radio-groupPerf">
                 <label class="form-radioPerf">
                     <input type="radio" name="resultat" value="Victoire" required> 
@@ -105,6 +111,7 @@ class performanceView
             </div>
 
             <input class="form-submitPerf" type="submit" name="submit" id="submit" value="Ajouter la performance">
+
         </form>
     </div>
 </div>
