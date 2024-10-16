@@ -54,7 +54,7 @@ class homepageView{
     </main>
 
     <?php
-        (new \Blog\Views\Layout('Page d\'accueil', ob_get_clean()))->afficher();
+        (new \Blog\Views\Layout('Sport hub', ob_get_clean()))->afficher();
  }
 }
 ?>
