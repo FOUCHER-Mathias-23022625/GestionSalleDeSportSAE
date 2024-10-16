@@ -6,7 +6,9 @@ create table abonnement
     "DateExp"      date not null,
     "IdUtilisateur" int unique not null,
     constraint idutilisateur_fk
-        foreign key ("IdUtilisateur") references utilisateur ("IdUtilisateur")
+        foreign key ("IdUtilisateur") references utilisateur ("IdUtilisateur"),
+    constraint date_valide
+        check("DateExp" > "DateDeb")
 );
 
 create table utilisateur
