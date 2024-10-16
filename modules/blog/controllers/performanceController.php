@@ -155,9 +155,7 @@ class performanceController
         if ($date && $sport && $tempsJeu && $score && $resultat !== null) {
             // Ajouter la performance à la base de données
             $this->model->insertPerformance($date, $sport, $tempsJeu, $score, $resultat);
-
-            // Rediriger ou afficher un message de succès
-            header('Location:affichePerf'); // Remplacer par l'URL de redirection après l'ajout
+            header('Location:affichePerf');
             exit();
         } else {
             echo "Veuillez remplir tous les champs obligatoires.";
