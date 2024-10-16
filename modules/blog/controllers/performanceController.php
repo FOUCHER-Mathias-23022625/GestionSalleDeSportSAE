@@ -28,18 +28,6 @@ class performanceController
         $this->view = new performanceView();
     }
 
-    /*public function showPerformance()
-    {
-        $performances = $this->model->getPerformances(); // Récupère les données de la base
-        // Inclure la vue et passer les données
-        if (file_exists(__DIR__ . '/../views/performanceView.php')) {
-            // On passe $performances à la vue
-            include __DIR__ . '/../views/performanceView.php';
-        } else {
-            echo "Vue non trouvée";
-        }
-    }
-*/
     public function afficherTableauPerformances($performances): string
     {
         // Vérifie si des performances sont disponibles
@@ -154,6 +142,28 @@ class performanceController
             'temps_de_jeu' => $tempsjeu
         ];
     }
+    public function addPerformance(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Récupère les données du formulaire
+            $date = $_POST['Date'];
+            $sport = $_POST['Sport'];
+            $tempsJeu = $_POST['Durée'];
+            $score = $_POST['Score'];
+            $resultat = ($_POST['resultat'] === 'Victoire') ? 1 : 0;
 
+            // Vérifie que toutes les données obligatoires sont présentes
+            if ($date && $sport && $tempsJeu && $resultat) {
+                // Ajouter la performance à la base de données
+                $this->model->insertPerformance($date, $sport, $tempsJeu, $score, $resultat);
+
+                // Rediriger ou afficher un message de succès
+                header('Location:affichePerf'); // Remplacer par l'URL de redirection après l'ajout
+                exit();
+            } else {
+                echo "Veuillez remplir tous les champs obligatoires.";
+            }
+        }
+    }
 
 }

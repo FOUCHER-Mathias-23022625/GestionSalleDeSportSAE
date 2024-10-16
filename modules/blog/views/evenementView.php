@@ -7,6 +7,10 @@ require_once 'Layout.php';
 
 class evenementView{
 
+    public function __construct(){
+
+    }
+
     public function afficher(){
 
         ob_start();

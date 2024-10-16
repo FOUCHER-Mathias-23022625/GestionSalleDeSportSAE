@@ -40,7 +40,7 @@ class Index {
                 return "Contrôleur non trouvé : " . $controllerName;
             }
         } else {
-            return "URL mal formée ou vide";
+            header('location:homepage/displayHome') ;
         }
     }
 
