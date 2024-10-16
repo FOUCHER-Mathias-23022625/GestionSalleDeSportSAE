@@ -64,8 +64,7 @@ class reservationTerrainController
                 <!-- Afficher les créneaux disponibles pour le terrain 1 -->
                 <h3>Terrain 1</h3>
                 <div class="card">
-                    <?php if (!empty($available_time_slots)): ?>
-                        <?php foreach ($available_time_slots as $time): ?>
+                    <?php if (!empty($available_time_slots)): ?>                        <?php foreach ($available_time_slots as $time): ?>
                             <button class="time-slot" onclick="openModal('<?php echo htmlspecialchars($time); ?>', 1)">
                                 <?php echo htmlspecialchars($time); ?>:00 H
                             </button>
@@ -81,7 +80,7 @@ class reservationTerrainController
                     <?php if (!empty($available_time_slotsBis)): ?>
                         <?php foreach ($available_time_slotsBis as $time2): ?>
                             <button class="time-slot" onclick="openModal('<?php echo htmlspecialchars($time2); ?>', 2)">
-                                <?php echo htmlspecialchars($time2); ?>:00 H
+                                <?php echo htmlspecialchars($time2); ?>
                             </button>
                         <?php endforeach; ?>
                     <?php else: ?>
