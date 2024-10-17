@@ -180,13 +180,24 @@ class performanceController
         $score = $_POST['Score'];
         $resultat = ($_POST['resultat'] === 'Victoire') ? 1 : 0;
 
+        // Récupérer la date du jour
+        $currentDate = date('Y-m-d');
+
+        // Vérifier si la date de la performance n'est pas supérieure à la date du jour
+        if ($date > $currentDate) {
+            $_SESSION['error_message'] = "La date de la performance ne peut pas être supérieure à la date du jour.";
+            echo "La date de la performance ne peut pas être supérieure à la date du jour.";
+            header('Location:affichePerf');
+            exit();
+        }
         // Vérifie que toutes les données obligatoires sont présentes
         if ($date && $sport && $tempsJeu && $score && $resultat !== null) {
             // Ajouter la performance à la base de données
             $this->model->insertPerformance($date, $sport, $tempsJeu, $score, $resultat);
             header('Location:affichePerf');
             exit();
-        } else {
+        }
+        else {
             echo "Veuillez remplir tous les champs obligatoires.";
         }
     }
