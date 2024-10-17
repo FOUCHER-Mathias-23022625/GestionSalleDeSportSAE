@@ -19,9 +19,9 @@ session_start();
             <header>
             <div class="navBar">
                 <a href="/GestionSalleDeSportSae/homepage/accueil">
-                    <img src="/GestionSalleDeSportSae/assets/images/logo-img.png" alt="Logo" id="logo">
+                    <img src="/GestionSalleDeSportSAE/assets/images/logo-img.png" alt="Logo" id="logo">
                 </a>
-                <div class="nom-site" onclick="window.location.href='/GestionSalleDeSportSae/homepage/accueil';">
+                <div class="nom-site" onclick="window.location.href='/GestionSalleDeSportSAE/homepage/accueil';">
                     Sport
                     <span class="hub">hub</span>
                 </div>
