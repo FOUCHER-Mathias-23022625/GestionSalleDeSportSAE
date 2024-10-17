@@ -227,3 +227,16 @@
 .close-btnPerf:hover {
     color: #a7c957;
 }
+
+.delete-btnPerf {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btnPerf:hover {
+    background-color: #c0392b;
+}

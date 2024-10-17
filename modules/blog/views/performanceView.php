@@ -50,6 +50,7 @@ class performanceView
                 <th>Sport</th>
                 <th>Temps de jeu</th>
                 <th>Score</th>
+                <th>Suppression</th>
             </tr>
             </thead>
             <tbody>

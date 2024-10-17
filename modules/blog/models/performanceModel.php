@@ -41,4 +41,12 @@ class performanceModel {
             ':resultat' => $resultat
         ]);
     }
+    public function deletePerformance($date,$sport): void
+    {
+        // Préparer la requête pour supprimer la performance
+        $sql = "DELETE FROM performances WHERE date = :date AND sport = :sport";
+        $stmt = $this->connexion->prepare($sql);
+
+        $stmt->execute([':date' => $date, ':sport' => $sport]);
+    }
 }
