@@ -41,6 +41,14 @@ class performanceController
                 $html .= '<td>' . htmlspecialchars($performance['temps_de_jeu']) . '</td>';
                 $html .= '<td>' . htmlspecialchars($performance['score']) . '</td>';
 
+                // Ajout d'un bouton de suppression à chaque ligne
+                $html .= '<td>';
+                $html .= '<form method="POST" action="deletePerformance">';
+                $html .= '<input type="hidden" name="performance_id" value="' . htmlspecialchars($performance['id']) . '">';
+                $html .= '<button type="submit" class="delete-btnPerf">Supprimer</button>';
+                $html .= '</form>';
+                $html .= '</td>';
+
                 $html .= '</tr>';
             }
         } else {
@@ -159,6 +167,21 @@ class performanceController
             exit();
         } else {
             echo "Veuillez remplir tous les champs obligatoires.";
+        }
+    }
+
+    public function deletePerformance(): void{
+        $date = $_POST['Date'];
+        $sport = $_POST['Sport'];
+        // Vérifie que la cle primaire est bien fourni
+        if ($date && $sport) {
+            $this->model->deletePerformance($date,$sport);
+
+            // Redirection après la suppression
+            header('Location: affichePerf');
+            exit();
+        } else {
+            echo "Primary key de la performance non valide.";
         }
     }
 }
