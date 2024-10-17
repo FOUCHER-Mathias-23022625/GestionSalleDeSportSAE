@@ -44,18 +44,7 @@ class performanceView
     <section id="detail-performancePerf">
         <h2 class="section-titlePerf">Détails des Performances</h2>
         <table id="performance-tablePerf">
-            <thead>
-            <tr>
-                <th>Date</th>
-                <th>Sport</th>
-                <th>Temps de jeu</th>
-                <th>Score</th>
-                <th>Suppression</th>
-            </tr>
-            </thead>
-            <tbody>
-                <?php echo $performancesTableHtml ?>
-            </tbody>
+            <?php echo $performancesTableHtml ?>
         </table>
         <div class="button-containerPerf">
             <button id="add-performance-btnPerf" onclick="formAjt()">Ajouter une performance</button>
