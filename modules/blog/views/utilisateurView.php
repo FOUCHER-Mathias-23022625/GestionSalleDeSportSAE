@@ -1,6 +1,8 @@
 <?php
 namespace blog\views;
 use index;
+use navebar;
+require_once "navebar.php";
 //require_once "../../../index.php";
 class utilisateurView
 {
@@ -33,7 +35,7 @@ class utilisateurView
             </div>
         </div>
         <script src="/GestionSalleDeSportSae/assets/scripts/utilisateur.js"></script>
-        <?php
+        <?php include 'footer.php';
 }
 
 }
