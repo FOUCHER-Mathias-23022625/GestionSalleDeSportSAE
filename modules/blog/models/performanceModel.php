@@ -23,4 +23,30 @@ class performanceModel {
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif
     }
+
+    public function insertPerformance($date, $sport, $tempsJeu, $score, $resultat): void
+    {
+        // Préparation de la requête SQL pour insérer les données dans la base
+        $sql = "INSERT INTO performances (date, sport, temps_de_jeu, score, resultat)
+            VALUES (:date, :sport, :temps_de_jeu, :score, :resultat)";
+
+        $stmt = $this->connexion->prepare($sql);
+
+        // Exécution de la requête avec les valeurs fournies
+        $stmt->execute([
+            ':date' => $date,
+            ':sport' => $sport,
+            ':temps_de_jeu' => $tempsJeu,
+            ':score' => $score,
+            ':resultat' => $resultat
+        ]);
+    }
+    public function deletePerformance($date,$sport): void
+    {
+        // Préparer la requête pour supprimer la performance
+        $sql = "DELETE FROM performances WHERE date = :date AND sport = :sport";
+        $stmt = $this->connexion->prepare($sql);
+
+        $stmt->execute([':date' => $date, ':sport' => $sport]);
+    }
 }

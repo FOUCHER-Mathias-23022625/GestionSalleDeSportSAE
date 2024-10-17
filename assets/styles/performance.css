@@ -1,35 +1,28 @@
-/* Réinitialisation du style pour tous les éléments */
 
-/* Styles pour le body */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
 
-.container {
+.containerPerf {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
 }
 
-.section-title {
+.section-titlePerf {
     padding-top: 20px;
     font-size: 1.8rem;
     margin-bottom: 20px;
 }
 
-#performance-overview {
+#performance-overviewPerf {
     margin-bottom: 40px;
 }
 
-.stats {
+.statsPerf {
     display: flex;
     justify-content: space-around;
     margin-bottom: 30px;
 }
 
-.stat-item {
+.stat-itemPerf {
     background-color: #fff;
     padding: 0 20px;
     border-radius: 8px;
@@ -38,45 +31,45 @@ body {
     width: 30%;
 }
 
-.stat-title {
+.stat-titlePerf {
     font-size: 1.2rem;
     margin-bottom: 10px;
 }
 
-.stat-value {
+.stat-valuePerf {
     font-size: 1.5rem;
     color: #a7c957;
 }
 
 /* Styles pour le tableau de performance */
-#performance-table {
+#performance-tablePerf {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 40px;
 }
 
-#performance-table th,
-#performance-table td {
+#performance-tablePerf th,
+#performance-tablePerf td {
     padding: 15px;
     text-align: center;
     border: 1px solid #ddd;
 }
 
-#performance-table th {
+#performance-tablePerf th {
     background-color: #a7c957;
     color: white;
 }
 
-#performance-table tr:nth-child(even) {
+#performance-tablePerf tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
 /* Styles pour la section des graphiques */
-#performance-graphe {
+#performance-graphePerf {
     text-align: center;
     align-content: center;
 }
-.chart canvas {
+.chartPerf canvas {
     width: 100%;
     height: auto;
     align-content: center;
@@ -87,7 +80,7 @@ body {
 }
 
 /* Styles pour le footer */
-#main-footer {
+#main-footerPerf {
     background-color: #38444c;
     padding: 10px 0;
     color: #fff;
@@ -96,13 +89,13 @@ body {
 }
 
 /* Styles pour le conteneur du bouton */
-.button-container {
+.button-containerPerf {
     text-align: center;
     margin-top: 20px;
 }
 
 /* Styles pour le bouton */
-#add-performance-btn {
+#add-performance-btnPerf {
     background-color: #a7c957;
     color: white;
     border: none;
@@ -113,16 +106,16 @@ body {
     transition: background-color 0.3s ease;
 }
 
-#add-performance-btn:hover {
+#add-performance-btnPerf:hover {
     background-color: #a7c957;
 }
 
-#add-performance-btn:focus {
+#add-performance-btnPerf:focus {
     outline: none;
     box-shadow: 0 0 0 3px #a7c957;
 }
 
-.overlayForm {
+.overlayFormPerf {
     display: none;
     position: fixed;
     top: 0;
@@ -135,7 +128,7 @@ body {
     z-index: 1000;
 }
 
-.form-container {
+.form-containerPerf {
     background-color: #fff;
     padding: 2rem;
     text-align: center;
@@ -145,7 +138,7 @@ body {
     z-index: 1001;
 }
 
-.form-submit {
+.form-submitPerf {
     padding: 0.75rem;
     background-color: #a7c957;
     color: white;
@@ -155,7 +148,8 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.form-input{
+.form-inputPerf,
+.form-selectPerf{
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -163,7 +157,7 @@ body {
     box-sizing: border-box;
 }
 
-.form-radio-group {
+.form-radio-groupPerf {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -171,20 +165,20 @@ body {
     padding-bottom: 10px;
 }
 
-.form-radio {
+.form-radioPerf {
     position: relative;
     cursor: pointer;
     padding-left: 30px;
     font-size: 1rem;
 }
 
-.form-radio input {
+.form-radioPerf input {
     position: absolute;
     cursor: pointer;
     appearance: none;
 }
 
-.custom-radio {
+.custom-radioPerf {
     position: absolute;
     left: 0;
     height: 20px;
@@ -195,13 +189,13 @@ body {
 }
 
 
-.form-radio input:checked + .custom-radio {
+.form-radioPerf input:checked + .custom-radioPerf {
     background-color: #a7c957;
     border-color: #a7c957;
 }
 
 
-.form-radio input:checked + .custom-radio::after {
+.form-radioPerf input:checked + .custom-radioPerf::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -215,12 +209,12 @@ body {
 }
 
 
-.form-radio:hover input:not(:checked) + .custom-radio {
+.form-radioPerf:hover input:not(:checked) + .custom-radioPerf {
     background-color: #eaeaea;
 }
 
 
-.close-btn {
+.close-btnPerf {
     position: absolute;
     top: 10px;
     right: 20px;
@@ -230,6 +224,25 @@ body {
     transition: color 0.2s ease;
 }
 
-.close-btn:hover {
+.close-btnPerf:hover {
     color: #a7c957;
+}
+
+.delete-btnPerf {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btnPerf:hover {
+    background-color: #c0392b;
+}
+
+.error-messagePerf {
+    padding: 10px;
+    color: black;
+    background: #e74c3c;
 }

@@ -63,7 +63,7 @@
 }
 
 
-#foot{
+#foot-event{
     --m:
             radial-gradient(circle ,#000 99%,#0000)
             0 100%/46% 92% no-repeat,
@@ -78,7 +78,7 @@
     opacity: 1;
 }
 
-#basket{
+#basket-event{
     --m:
             radial-gradient(circle ,#000 99%,#0000)
             0 100%/46% 92% no-repeat,
@@ -95,7 +95,7 @@
 
 
 
-#badminton {
+#badminton-event {
     --m:
             radial-gradient(circle ,#000 99%,#0000)
             0 100%/46% 92% no-repeat,
@@ -114,19 +114,19 @@
     --_p: 75%;
 }
 
-.evenement:hover #foot {
+.evenement:hover #foot-event {
     webkit-mask-position: 7.5% 50%,92.5% 50%;
     mask-position: 7.5% 50%,92.5% 50%;
     filter: grayscale(0);
 }
 
-.evenement:hover #basket {
+.evenement:hover #basket-event {
     webkit-mask-position: 7.5% 50%,92.5% 50%;
     mask-position: 7.5% 50%,92.5% 50%;
     filter: grayscale(0);
 }
 
-.evenement:hover #badminton {
+.evenement:hover #badminton-event {
     webkit-mask-position: 7.5% 50%,92.5% 50%;
     mask-position: 7.5% 50%,92.5% 50%;
     filter: grayscale(0);

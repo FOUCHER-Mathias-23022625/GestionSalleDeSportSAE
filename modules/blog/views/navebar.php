@@ -15,11 +15,16 @@ session_start();
         }
 
         public function afficher(){
-           // $deco = new utilisateurController();
             ?>
             <header>
             <div class="navBar">
-                <a href="/GestionSalleDeSportSAE/homepage/displayHome" class="HeadTitle">Sport Hub</a>
+                <a href="/GestionSalleDeSportSae/homepage/accueil">
+                    <img src="/GestionSalleDeSportSAE/assets/images/logo-img.png" alt="Logo" id="logo">
+                </a>
+                <div class="nom-site" onclick="window.location.href='/GestionSalleDeSportSAE/homepage/accueil';">
+                    Sport
+                    <span class="hub">hub</span>
+                </div>
                 <nav class="menuNavBar">
                     <ul class="sidebar">
                         <li><a class="sidebarBtnA"><img src="/GestionSalleDeSportSAE/assets/images/croix-blanche.png" alt="bouton menu burger"  onclick="hideSidebar()" class="menu_btn_open"></a></li>
@@ -33,16 +38,15 @@ session_start();
                     </ul>
                     <ul class="mainNav">
                         <?php if($this->estConnecte()){
-                            echo'<li><a href="../utilisateur/deconnecte" name="deconnecte" class="hideOnMobile">🔨 Deconnexion</a></li>
-                             <li><a class="hideOnMobile" href="../evenement/afficheEvenement" ><img src="/GestionSalleDeSportSAE/assets/images/pp.png" alt="Photo de Profil" class="photoProfil"></a></li>';} ?>
-                        <li><a href="index.html#ContactezNous" class="hideOnMobile">📩 Contact</a></li>
-                        <li><a href="../reservationTerrain/displayReservationTerrain" class="hideOnMobile">⭐ Reservation</a></li>
+                            echo'<li><a href="../utilisateur/deconnecte" name="deconnecte" class="hideOnMobile">Déconnexion</a></li>
+                             <li><img src="../../../assets/images/icons-sport/badminton(1).png" alt="Photo de Profil" class="photoProfil"></li>';} ?>
                         <?php if(!$this->estConnecte()){echo'
-                        <li><a href="../utilisateur/afficheFormConnexion" class="hideOnMobile">🔨 Connexion</a></li>';
+                        <li><a href="../utilisateur/afficheFormConnexion" class="hideOnMobile">Connexion</a></li>';
                         }?>
-                        <li class="deroulant"><a href="../evenement/afficheEvenement" class="hideOnMobile">💡 Evenement ▼</a></li>
-                        <li><a href="http://'.$_SERVER['HTTP_HOST'].'GestionSalleDeSportSAE/modules/blog/views/reservation.html" class="hideOnMobile">❔ A propos</a></li>
-                        <li><a href="../performance/affichePerf" class="hideOnMobile">💪 Mes Performances</a></li>
+                        <li><a href="../performance/affichePerf" class="hideOnMobile">Performances</a></li>
+                        <li class="deroulant"><a href="../evenement/afficheEvenement" class="hideOnMobile">Évenement</a></li>
+                        <li><a href="../reservationTerrain/displayReservationTerrain" class="hideOnMobile">Réservation</a></li>
+
 
 
                         <li><img   src="/GestionSalleDeSportSAE/assets/images/burger-white.png" alt="bouton menu burger" onclick="showSidebar()" class="menu_btn_close"></li>

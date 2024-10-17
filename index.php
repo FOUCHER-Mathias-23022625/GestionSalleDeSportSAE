@@ -4,6 +4,7 @@ require_once 'modules/blog/controllers/evenementController.php';
 require_once 'modules/blog/controllers/reservationTerrainController.php';
 require_once 'modules/blog/controllers/performanceController.php';
 require_once  'modules/blog/controllers/homepageController.php';
+require_once 'modules/blog/controllers/reservationUtilisateurController.php';
 
 
 class Index {
@@ -40,7 +41,7 @@ class Index {
                 return "Contrôleur non trouvé : " . $controllerName;
             }
         } else {
-             header('location:homepage/displayHome') ;
+            header('location:homepage/displayHome') ;
         }
     }
 

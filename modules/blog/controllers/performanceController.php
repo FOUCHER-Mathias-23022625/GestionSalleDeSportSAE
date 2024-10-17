@@ -28,23 +28,22 @@ class performanceController
         $this->view = new performanceView();
     }
 
-    /*public function showPerformance()
-    {
-        $performances = $this->model->getPerformances(); // Récupère les données de la base
-        // Inclure la vue et passer les données
-        if (file_exists(__DIR__ . '/../views/performanceView.php')) {
-            // On passe $performances à la vue
-            include __DIR__ . '/../views/performanceView.php';
-        } else {
-            echo "Vue non trouvée";
-        }
-    }
-*/
     public function afficherTableauPerformances($performances): string
     {
+        $html = '';
         // Vérifie si des performances sont disponibles
         if (!empty($performances)) {
-            $html = '';
+            // Si des performances existent, on affiche le tableau avec toutes les colonnes
+            $html .= '<thead>';
+            $html .= '<tr>';
+            $html .= '<th>Date</th>';
+            $html .= '<th>Sport</th>';
+            $html .= '<th>Temps de jeu</th>';
+            $html .= '<th>Score</th>';
+            $html .= '<th>Suppression</th>';
+            $html .= '</tr>';
+            $html .= '</thead>';
+            $html .= '<tbody>';
             // Parcourt chaque performance et génère les lignes du tableau
             foreach ($performances as $performance) {
                 $html .= '<tr>';
@@ -53,10 +52,28 @@ class performanceController
                 $html .= '<td>' . htmlspecialchars($performance['temps_de_jeu']) . '</td>';
                 $html .= '<td>' . htmlspecialchars($performance['score']) . '</td>';
 
+                // Ajout de bouton de suppression à chaque ligne
+                $html .= '<td>';
+                $html .= '<form method="POST" action="deletePerformance" onsubmit="return confirmDelete();">'; // Appel de la fonction
+                $html .= '<input type="hidden" name="Date" value="' . htmlspecialchars($performance['date']) . '">';
+                $html .= '<input type="hidden" name="Sport" value="' . htmlspecialchars($performance['sport']) . '">';
+                $html .= '<button type="submit" class="delete-btnPerf">Supprimer</button>';
+                $html .= '</form>';
+                $html .= '</td>';
+
+
                 $html .= '</tr>';
             }
         } else {
-            // Si aucune performance n'est disponible
+            // Si aucune performance n'est disponible, on affiche un message sans la colonne Suppression/Modification
+            $html .= '<thead>';
+            $html .= '<tr>';
+            $html .= '<th>Date</th>';
+            $html .= '<th>Sport</th>';
+            $html .= '<th>Temps de jeu</th>';
+            $html .= '<th>Score</th>';
+            $html .= '</tr>';
+            $html .= '</thead>';
             $html = '<tr><td colspan="4">Aucune performance enregistrée.</td></tr>';
         }
 
@@ -154,6 +171,50 @@ class performanceController
             'temps_de_jeu' => $tempsjeu
         ];
     }
+    public function addPerformance(): void
+    {
+        // Récupère les données du formulaire
+        $date = $_POST['Date'];
+        $sport = $_POST['Sport'];
+        $tempsJeu = $_POST['TempsJeu'];
+        $score = $_POST['Score'];
+        $resultat = ($_POST['resultat'] === 'Victoire') ? 1 : 0;
 
+        // Récupérer la date du jour
+        $currentDate = date('Y-m-d');
 
+        // Vérifier si la date de la performance n'est pas supérieure à la date du jour
+        if ($date > $currentDate) {
+            $_SESSION['error_message'] = "La date de la performance ne peut pas être supérieure à la date du jour.";
+            echo "La date de la performance ne peut pas être supérieure à la date du jour.";
+            header('Location:affichePerf');
+            exit();
+        }
+        // Vérifie que toutes les données obligatoires sont présentes
+        if ($date && $sport && $tempsJeu && $score && $resultat !== null) {
+            // Ajouter la performance à la base de données
+            $this->model->insertPerformance($date, $sport, $tempsJeu, $score, $resultat);
+            header('Location:affichePerf');
+            exit();
+        }
+        else {
+            echo "Veuillez remplir tous les champs obligatoires.";
+        }
+    }
+
+    public function deletePerformance(): void
+    {
+        $date = $_POST['Date'];
+        $sport = $_POST['Sport'];
+        // Vérifie que la cle primaire est bien fourni
+        if ($date && $sport) {
+            $this->model->deletePerformance($date, $sport);
+
+            // Redirection après la suppression
+            header('Location: affichePerf');
+            exit();
+        } else {
+            echo "Primary key de la performance non valide.";
+        }
+    }
 }
