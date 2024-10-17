@@ -34,7 +34,7 @@ class utilisateurView
                 </form>
             </div>
         </div>
-        <script src="/GestionSalleDeSportSae/assets/scripts/utilisateur.js"></script>
+        <script src="/GestionSalleDeSportSAE/assets/scripts/utilisateur.js"></script>
         <?php include 'footer.php';
 }
 

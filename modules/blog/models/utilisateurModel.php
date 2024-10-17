@@ -24,21 +24,27 @@ require_once  "modules/blog/models/bdModel.php";
             $requete->bindParam(":mail", $mail);
             $requete->bindParam(":mdp", $hashedMdp);
             $requete->execute();
-            //$jointure = $this->connexionBD->pdo->prepare("INSERT INTO abonnement,utilisateur (abonnement)");
-            $_SESSION['id'] = $mail;
+
+            $requete2 = $this->connexionBD->pdo->prepare("Select idUtilisateur from utilisateur where EMail =:mail");
+            $requete2->bindParam(":mail", $mail);
+            $requete2->execute();
+            $donnees = $requete2->fetch();
+            $_SESSION['id'] = $donnees['idUtilisateur'];
+
+            $abo = $this->connexionBD->pdo->prepare("INSERT INTO abonnement (idUtilisateur, DateDeb, DateExp) VALUES (:idUtilisateur, :dateDeb, :dateExp)");
+            $abo->bindParam(":idUtilisateur", $_SESSION['id']);
+
+            $dateDeb = new \DateTime();  // date actuelle
+            $dateDebFormatted = $dateDeb->format('Y-m-d H:i:s');
+            $dateExp = clone $dateDeb;  // Clonage de l'objet DateTime
+            $dateExp->modify('+1 year');
+            $dateExpFormatted = $dateExp->format('Y-m-d H:i:s');
+
+            $abo->bindParam(":dateDeb", $dateDebFormatted);
+            $abo->bindParam(":dateExp", $dateExpFormatted);
+            $abo->execute();
+
         }
-
-
-        public function add_utilisateur($nom,$prenom,$dateNaissance,$mdp){
-            $requete = $this->connexionBD->pdo->prepare("INSERT INTO utilisateur VALUES (mail =:mail,nom =:nom,prenom =:prenom,dateNaissance =:dateNaissance,mdp =:mdp )");
-            $requete->bindParam(":nom",$nom);
-            $requete->bindParam(":prenom",$prenom);
-            $requete->bindParam(":dateNaissance",$dateNaissance);
-            $requete->bindParam(":mdp",$mdp);
-            $requete->bindParam(":mail",$mail);
-            $requete->execute();
-        }
-
 
         public function delete_utilisateur($idUtilisateur){
             $requete = $this->connexionBD->pdo->prepare("DELETE FROM utilisateur WHERE idUtilisateur=:idUtilisateur");
@@ -49,14 +55,13 @@ require_once  "modules/blog/models/bdModel.php";
 
         public function connexion($mail,$mdp)
         {
-
-            $requeteConnexion = $this->connexionBD->pdo->prepare("SELECT * FROM utilisateur WHERE EMail = :mail AND mdp = :mdp");
+            $requeteConnexion = $this->connexionBD->pdo->prepare("SELECT idUtilisateur, EMail, mdp FROM utilisateur WHERE EMail = :mail");
             $requeteConnexion->bindParam(':mail', $mail);
-            $requeteConnexion->bindParam(':mdp', $mdp);
 
             if ($requeteConnexion->execute()) {
                 $donnees = $requeteConnexion->fetch();
-                $_SESSION['id'] = $donnees['mail'];
+                if ($donnees && password_verify($mdp, $donnees['mdp'])) {
+                    $_SESSION['id'] = $donnees['idUtilisateur'];
                 header('Location:afficheFormConnexion/');
             }
             else{
@@ -64,5 +69,5 @@ require_once  "modules/blog/models/bdModel.php";
             }
         }
 
-    }
+    }}
     ?>
