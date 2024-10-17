@@ -95,7 +95,7 @@ class performanceView
             </select>
 
             <label class="form-labelPerf" for="TmpJeu">Temps de jeu</label>
-            <input class="form-inputPerf" type="text" id="TmpJeu" name="Durée" required>
+            <input class="form-inputPerf" type="text" id="TmpJeu" name="TempsJeu" required>
 
             <label class="form-labelPerf" for="Score">Score</label>
             <input class="form-inputPerf" type="text" id="Score" name="Score" required>
@@ -129,6 +129,7 @@ class performanceView
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/GestionSalleDeSportSAE/assets/scripts/graphe.js"></script>
 <script src="/GestionSalleDeSportSAE/assets/scripts/performance_form.js"></script>
+<script src="/GestionSalleDeSportSAE/assets/scripts/confirmSupprPerformance.js"></script>
 
 <?php
         (new \blog\views\Layout('Mes Performances',ob_get_clean()))->afficher();
