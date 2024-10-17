@@ -10,6 +10,11 @@ class performanceView
     public function afficher($performances)
     {
         ob_start();
+        // Affichage du message d'erreur, s'il existe
+        if (isset($_SESSION['error_message'])) {
+            echo '<div class="error-messagePerf">' . $_SESSION['error_message'] . '</div>';
+            unset($_SESSION['error_message']); // Supprimer le message après l'affichage
+        }
         $controller = new PerformanceController();
         $performancesTableHtml = $controller->afficherTableauPerformances($performances);
         $sports = $controller->afficheSport($performances);
@@ -51,12 +56,14 @@ class performanceView
         </div>
     </section>
 
-    <section id="performance-graphePerf">
-        <h2 class="section-titlePerf">Statistiques Visualisées</h2>
-        <div class="chartPerf">
-            <canvas id="performanceGraphe"></canvas>
-        </div>
-    </section>
+    <?php if (count($performances) >= 2) : ?>
+        <section id="performance-graphePerf">
+            <h2 class="section-titlePerf">Statistiques Visualisées</h2>
+            <div class="chartPerf">
+                <canvas id="performanceGraphe"></canvas>
+            </div>
+        </section>
+    <?php endif; ?>
 </main>
 
 <footer id="main-footerPerf">

@@ -240,3 +240,9 @@
 .delete-btnPerf:hover {
     background-color: #c0392b;
 }
+
+.error-messagePerf {
+    padding: 10px;
+    color: black;
+    background: #e74c3c;
+}
