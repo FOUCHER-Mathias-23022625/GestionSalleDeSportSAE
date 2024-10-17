@@ -9,7 +9,7 @@ require_once 'modules/blog/models/reservationUtilisateurModele.php';
 require_once 'modules/blog/views/reservationUtilisateurView.php';
 class reservationUtilisateurController
 {
-    private $reservationModel;
+    private $reservationsUtilisateurModele;
 
     public function __construct() {
         $host_name = "mysql-gestionsaetest.alwaysdata.net";
@@ -21,12 +21,12 @@ class reservationUtilisateurController
     }
 
     // Méthode pour afficher les réservations de l'utilisateur
-    public function afficherReservationsUtilisateur($userId)
+    public function afficherReservationsUtilisateur($userId = 0)
     {
         // Récupérer les réservations futures et passées
-        $reservationsFutures = $this->ReservationsUtilisateurModele->getReservationsFutures($userId);
-        $reservationsPassees = $this->ReservationsUtilisateurModele->getReservationsPassees($userId);
+        $reservationsFutures = $this->reservationsUtilisateurModele->getReservationsFutures($userId);
+        $reservationsPassees = $this->reservationsUtilisateurModele->getReservationsPassees($userId);
         $view = new ReservationUtilisateurView();
-        $view->afficher();
+        $view->afficher($reservationsFutures, $reservationsPassees);
     }
 }

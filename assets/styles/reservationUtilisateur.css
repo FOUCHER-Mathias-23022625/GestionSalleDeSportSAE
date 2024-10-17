@@ -1,0 +1,90 @@
+.containerUtilisateurReservation {
+    font-family: Arial, sans-serif;
+    max-width: 1200px; /* Increased max-width to fit two lists side by side */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.containerUtilisateurReservation h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.containerUtilisateurReservation h2 {
+    font-size: 1.5rem;
+    text-align: left;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #333;
+}
+
+/* Flexbox container for lists */
+.lists-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Space between the two lists */
+}
+
+.containerUtilisateurReservation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px; /* Set a fixed height for the list */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    width: 100%; /* Each list takes about half the container's width */
+    overflow-x: hidden;
+}
+
+.containerUtilisateurReservation ul li {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerUtilisateurReservation ul li:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+.containerUtilisateurReservation ul li:hover {
+    background-color: #c8e6c9;
+    transition: background-color 0.3s ease;
+}
+
+/* Align reservation details horizontally */
+.containerUtilisateurReservation ul li, .reservation-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Ensure the elements take full width */
+    font-size: 1rem;
+}
+
+.containerUtilisateurReservation ul li, .reservation-info div {
+    flex-basis: 33%; /* Each part (Sport, Date, Heure) gets one-third of the space */
+    text-align: center; /* Center-align the text inside each section */
+}
+
+.containerUtilisateurReservation p {
+    text-align: center;
+    font-style: italic;
+}
+
+/* For smaller screens, stack the lists vertically */
+@media (max-width: 768px) {
+    .containerUtilisateurReservation .lists-container {
+        flex-direction: column;
+    }
+
+    .containerUtilisateurReservation ul {
+        width: 100%;
+    }
+}
