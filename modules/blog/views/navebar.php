@@ -39,7 +39,7 @@ session_start();
                     <ul class="mainNav">
                         <?php if($this->estConnecte()){
                             echo'<li><a href="../utilisateur/deconnecte" name="deconnecte" class="hideOnMobile">Déconnexion</a></li>
-                             <li><img src="../../../assets/images/icons-sport/badminton(1).png" alt="Photo de Profil" class="photoProfil"></li>';} ?>
+                             <li><a href="../compte/afficheCompte"<img src="../../../assets/images/icons-sport/badminton(1).png" alt="Photo de Profil" class="photoProfil"> </a></li>';} ?>
                         <?php if(!$this->estConnecte()){echo'
                         <li><a href="../utilisateur/afficheFormConnexion" class="hideOnMobile">Connexion</a></li>';
                         }?>

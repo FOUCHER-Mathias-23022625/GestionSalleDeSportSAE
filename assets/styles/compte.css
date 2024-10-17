@@ -1,0 +1,81 @@
+/* Formulaire utilisateur - style */
+.user-form {
+    background-color: #2e2e2e;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%; /* Changer à 100% pour s'adapter à l'écran */
+    max-width: 400px; /* Limiter la largeur maximale */
+    margin: 0 auto; /* Centrer le formulaire */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-title {
+    text-align: center;
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    color: #b0b0b0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-input {
+    width: calc(100% - 20px); /* Ajuster la largeur pour laisser de l'espace pour le padding */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #4c4c4c;
+    border-radius: 5px;
+    background-color: #38444c;
+    color: #ffffff;
+}
+
+.form-input:focus {
+    border-color: #a7c957;
+    outline: none;
+}
+
+.form-static {
+    color: #b0b0b0;
+    font-size: 14px;
+}
+
+.form-submit {
+    width: 100%;
+    padding: 10px;
+    background-color:#109b71;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-submit:hover {
+    background-color: #a7c957;
+}
+
+.profile-picture-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture-label {
+    cursor: pointer; /* Indique que l'image est cliquable */
+}
+
+.profile-picture {
+    width: 100px;  /* Taille de l'image */
+    height: 100px; /* Taille de l'image */
+    border-radius: 50%; /* Pour rendre l'image circulaire */
+    object-fit: cover; /* Pour que l'image remplisse le cercle */
+    border: 2px solid #64dd17; /* Bordure verte */
+}
+
+.file-input {
+    display: none; /* Cacher le champ d'entrée de fichier */
+}

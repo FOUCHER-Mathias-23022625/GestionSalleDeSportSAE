@@ -5,6 +5,7 @@ require_once 'modules/blog/controllers/reservationTerrainController.php';
 require_once 'modules/blog/controllers/performanceController.php';
 require_once  'modules/blog/controllers/homepageController.php';
 require_once 'modules/blog/controllers/reservationUtilisateurController.php';
+require_once 'modules/blog/controllers/compteController.php';
 
 
 class Index {
@@ -35,13 +36,13 @@ class Index {
                     // Appeler la méthode avec les paramètres
                     return call_user_func_array([$controller, $methodName], $params);
                 } else {
-                    return "Méthode non trouvée : " . $url[2];
+                    header('location:/GestionSalleDeSportSAE/homepage/accueil') ;
                 }
             } else {
-                return "Contrôleur non trouvé : " . $controllerName;
+                header('location:homepage/accueil') ;
             }
         } else {
-            header('location:homepage/displayHome') ;
+            header('location:homepage/accueil') ;
         }
     }
 
