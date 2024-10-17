@@ -43,8 +43,9 @@ class performanceController
 
                 // Ajout d'un bouton de suppression à chaque ligne
                 $html .= '<td>';
-                $html .= '<form method="POST" action="deletePerformance">';
-                $html .= '<input type="hidden" name="performance_id" value="' . htmlspecialchars($performance['id']) . '">';
+                $html .= '<form method="POST" action="deletePerformance" onsubmit="return confirmDelete();">'; // Appel de la fonction JS confirmDeletion
+                $html .= '<input type="hidden" name="Date" value="' . htmlspecialchars($performance['date']) . '">';
+                $html .= '<input type="hidden" name="Sport" value="' . htmlspecialchars($performance['sport']) . '">';
                 $html .= '<button type="submit" class="delete-btnPerf">Supprimer</button>';
                 $html .= '</form>';
                 $html .= '</td>';
@@ -155,7 +156,7 @@ class performanceController
         // Récupère les données du formulaire
         $date = $_POST['Date'];
         $sport = $_POST['Sport'];
-        $tempsJeu = $_POST['Durée'];
+        $tempsJeu = $_POST['TempsJeu'];
         $score = $_POST['Score'];
         $resultat = ($_POST['resultat'] === 'Victoire') ? 1 : 0;
 
