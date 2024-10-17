@@ -10,9 +10,7 @@ require_once  "modules/blog/models/bdModel.php";
         }
         
 
-        public function utilisateurInformation($idUtilisateur){
-            return $this->connexionBD->pdo->prepare("SELECT * FROM utilisateur WHERE idUtilisateur=:idUtilisateur");
-        }
+
 
 
 
