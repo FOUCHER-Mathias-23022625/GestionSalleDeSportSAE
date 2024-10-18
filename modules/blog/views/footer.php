@@ -9,19 +9,19 @@ class footer
         <footer class="footerArea">
     <!-- Top Footer Area Start -->
             <div class="containerFooter">
-                <div class="titreFooter">
-                    <h3>...</h3>
-                </div>
+                    <div class="titreFooter">
+                        <h3>SportHub</h3>
+                    </div>
                 <div class="contactFooter">
 
                     <div class="leftandrightInfoFooter">
                         <div class="leftInfoFooter">
                             <h5>Téléphone :</h5>
-                            <p>+33 7 77 77 77 77</p>
+                            <p>+33 4 39 45 18 14</p>
                         </div>
                         <div class="rightInfoFooter">
                             <h5>Email :</h5>
-                            <p>...@orange.fr</p>
+                            <p>sporthubcontact@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@ class footer
                 </div>
             </div>
             <div class="Copyrights">
-                <p>© All Rights Reserved by <a href="#">...</a></p>
+                <p>© All Rights Reserved by <a href="#">SportHub</a></p>
             </div>
         </footer>
 

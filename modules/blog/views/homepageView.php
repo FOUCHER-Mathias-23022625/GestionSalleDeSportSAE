@@ -12,6 +12,8 @@ class homepageView{
 
         ob_start();
 
+        $isUserConnected = isset($_SESSION['user_id']);
+
         ?>
     <main class="homepage">
         <section class="video-section">
@@ -20,7 +22,7 @@ class homepageView{
                 <h1 id="jouer">JOUER</h1>
                 <p>Pratique ton sport dès maintenant !</p>
                 <div class="contacts">
-                    <a href="../reservationTerrain/displayReservationTerrain" class="button1">RÉSERVER</a>
+                    <a href="#" class="button1" onclick="handleReservationClick(<?= json_encode($isUserConnected) ?>)">RÉSERVER</a>
                 </div>
             </div>
         </section>
@@ -51,6 +53,7 @@ class homepageView{
             </div>
             <img src="/GestionSalleDeSportSAE/assets/images/performancee.jpg" alt="performance-img" class="performance-img">
         </section>
+        <script src="/GestionSalleDeSportSAE/assets/scripts/homepage.js"></script>
     </main>
 
     <?php
