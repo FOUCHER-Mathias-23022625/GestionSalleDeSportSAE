@@ -14,6 +14,7 @@ require_once "modules/blog/views/Layout.php";
 
     class utilisateurController
     {
+        private $utilisateurModel;
         public function __construct() {
             $host_name = "mysql-gestionsaetest.alwaysdata.net";
             $user_name = "379076";
