@@ -4,16 +4,9 @@ require_once  "modules/blog/models/bdModel.php";
     class utilisateurModel{
         private $connexionBD;
 
-
-        public function __construct(){
-            $this->connexionBD=new bdModel();
+        public function __construct($host_name, $user_name, $password, $database_name) {
+            $this->connexionBD = new PDO("mysql:host=$host_name;dbname=$database_name", $user_name, $password);
         }
-        
-
-
-
-
-
 
         public function ajouteUtilisateur($mail,$mdp){
 

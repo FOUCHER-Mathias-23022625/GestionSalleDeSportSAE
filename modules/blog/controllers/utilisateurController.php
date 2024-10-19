@@ -14,7 +14,14 @@ require_once "modules/blog/views/Layout.php";
 
     class utilisateurController
     {
+        public function __construct() {
+            $host_name = "mysql-gestionsaetest.alwaysdata.net";
+            $user_name = "379076";
+            $password  = "gestionSae";
+            $database_name = "gestionsaetest_bd";
 
+            $this->utilisateurModel = new utilisateurModel($host_name, $user_name, $password, $database_name);
+        }
 
         public function connexion(){
                 $mail =$_POST['mail'];
