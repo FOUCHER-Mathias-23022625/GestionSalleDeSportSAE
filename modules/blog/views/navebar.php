@@ -26,7 +26,7 @@ session_start();
                 </a>
                 <div class="nom-site" onclick="window.location.href='/GestionSalleDeSportSAE/homepage/accueil';">
                     Sport
-                    <span class="hub">hub</span>
+                    <span class="hub">Hub</span>
                 </div>
                 <nav class="menuNavBar">
                     <ul class="sidebar">
