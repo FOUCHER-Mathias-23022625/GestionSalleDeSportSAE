@@ -83,7 +83,7 @@ class performanceController
 
     public function affichePerf(): void
     {
-        $model = new performanceModel('127.0.0.1', 'root', '', 'saetest');
+        $model = new performanceModel('mysql-gestionsaetest.alwaysdata.net', '379076', 'gestionSae', 'gestionsaetest_bd');
         $view = new performanceView();
         $view->afficher($model->getPerformances());
     }
