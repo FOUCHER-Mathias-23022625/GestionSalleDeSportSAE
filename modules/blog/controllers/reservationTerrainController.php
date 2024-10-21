@@ -98,12 +98,13 @@ class reservationTerrainController
 
     public function addReservationTerrain()
     {
+        $id_user = $_SESSION['id'];
         $sport = htmlspecialchars($_POST['sport']);
         $date = htmlspecialchars($_POST['date']);
         $heure = htmlspecialchars($_POST['heure']);
         $terrain = htmlspecialchars($_POST['terrain']);
         if ($sport && $date && $heure && $terrain) {
-            $this->reservationTerrainModele->insererReservation($sport, $date, $heure, $terrain);
+            $this->reservationTerrainModele->insererReservation($sport, $date, $heure, $terrain, $id_user);
             $_SESSION['reservation_status'] = 'success';
         } else {
             $_SESSION['reservation_status'] = 'fail';

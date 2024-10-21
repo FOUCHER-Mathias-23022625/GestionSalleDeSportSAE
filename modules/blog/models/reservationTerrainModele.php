@@ -43,13 +43,13 @@ class reservationTerrainModele
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function insererReservation($sport, $date, $heure, $terrain)
+    public function insererReservation($sport, $date, $heure, $terrain, $userId)
     {
         // Connexion à la base de données
         // Requête pour insérer la réservation dans la base de données
-        $stmt = $this->connexion->prepare("INSERT INTO reservationTerrain (sport, date, heure, terrain) VALUES (?, ?, ?, ?)");
+        $stmt = $this->connexion->prepare("INSERT INTO reservationTerrain (sport, date, heure, terrain, user_id) VALUES (?, ?, ?, ?,?)");
 
-        if ($stmt->execute([$sport, $date, $heure, $terrain])) {
+        if ($stmt->execute([$sport, $date, $heure, $terrain, $userId])) {
             return json_encode(['status' => 'success', 'message' => 'Réservation réussie']);
         } else {
             return json_encode(['status' => 'error', 'message' => 'Erreur lors de la réservation']);
