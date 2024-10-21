@@ -8,29 +8,28 @@ require_once "modules/blog/models/bdModel.php";
 class utilisateurModel {
     private $connexionBD;
 
-    public function __construct($host_name, $user_name, $password, $database_name) {
+    public function __construct() {
         try {
-            $this->connexionBD = new PDO("mysql:host=$host_name;dbname=$database_name", $user_name, $password);
-            $this->connexionBD->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->connexionBD = new bdModel();
         } catch (PDOException $e) {
             die("Erreur de connexion à la base de données : " . $e->getMessage());
         }
     }
 
     public function ajouteUtilisateur($mail, $mdp) {
-        $requete = $this->connexionBD->prepare("INSERT INTO utilisateur (EMail, mdp) VALUES (:mail, :mdp)");
+        $requete = $this->connexionBD->pdo->prepare("INSERT INTO utilisateur (EMail, mdp) VALUES (:mail, :mdp)");
         $hashedMdp = password_hash($mdp, PASSWORD_DEFAULT);
         $requete->bindParam(":mail", $mail);
         $requete->bindParam(":mdp", $hashedMdp);
         $requete->execute();
 
-        $requete2 = $this->connexionBD->prepare("SELECT idUtilisateur FROM utilisateur WHERE EMail = :mail");
+        $requete2 = $this->connexionBD->pdo->prepare("SELECT idUtilisateur FROM utilisateur WHERE EMail = :mail");
         $requete2->bindParam(":mail", $mail);
         $requete2->execute();
         $donnees = $requete2->fetch();
         $_SESSION['id'] = $donnees['idUtilisateur'];
 
-        $abo = $this->connexionBD->prepare("INSERT INTO abonnement (idUtilisateur, DateDeb, DateExp) VALUES (:idUtilisateur, :dateDeb, :dateExp)");
+        $abo = $this->connexionBD->pdo->prepare("INSERT INTO abonnement (idUtilisateur, DateDeb, DateExp) VALUES (:idUtilisateur, :dateDeb, :dateExp)");
         $abo->bindParam(":idUtilisateur", $_SESSION['id']);
 
         $dateDeb = new \DateTime();  // date actuelle
@@ -45,13 +44,13 @@ class utilisateurModel {
     }
 
     public function delete_utilisateur($idUtilisateur) {
-        $requete = $this->connexionBD->prepare("DELETE FROM utilisateur WHERE idUtilisateur = :idUtilisateur");
+        $requete = $this->connexionBD->pdo->prepare("DELETE FROM utilisateur WHERE idUtilisateur = :idUtilisateur");
         $requete->bindParam(":idUtilisateur", $idUtilisateur);
         $requete->execute();
     }
 
     public function connexion($mail, $mdp) {
-        $requeteConnexion = $this->connexionBD->prepare("SELECT idUtilisateur, EMail, mdp FROM utilisateur WHERE EMail = :mail");
+        $requeteConnexion = $this->connexionBD->pdo->prepare("SELECT idUtilisateur, EMail, mdp FROM utilisateur WHERE EMail = :mail");
         $requeteConnexion->bindParam(':mail', $mail);
 
         if ($requeteConnexion->execute()) {

@@ -14,16 +14,18 @@ use PDO;
 
      public function __construct()
      {
-         $this->host = "localhost:3306";
-         $this->username = "root";
-         $this->mdp = "";
-         $this->nomBD = "bdsae";
-         $this->connectBD();
+         $this->host= "mysql-gestionsaetest.alwaysdata.net";
+         $this->username = "379076";
+         $this->mdp  = "gestionSae";
+         $this->nomBD = "gestionsaetest_bd";
+         $this->connectBD($this->host, $this->username, $this->mdp, $this->nomBD);
+
      }
 
-     private function connectBD()
+     private function connectBD($host, $username, $mdp, $nomBD)
      {
-         $this->pdo = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->nomBD, $this->username, $this->mdp);
+
+         $this->pdo = new PDO("mysql:host=$host;dbname=$nomBD", $username, $mdp);
          return $this->pdo;
      }
 
