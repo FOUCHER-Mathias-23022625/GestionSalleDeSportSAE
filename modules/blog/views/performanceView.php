@@ -90,7 +90,7 @@ class performanceView
                 <option value="Badminton">Badminton</option>
             </select>
 
-            <label class="form-labelPerf" for="TmpJeu">Temps de jeu</label>
+            <label class="form-labelPerf" for="TmpJeu">Temps de jeu (en minutes)</label>
             <input class="form-inputPerf" type="text" id="TmpJeu" name="TempsJeu" required>
 
             <label class="form-labelPerf" for="Score">Score</label>

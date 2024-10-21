@@ -6,10 +6,8 @@ class performanceModel {
 
     public function __construct($host_name, $user_name, $password, $database_name) {
         try {
-            // Tentative de connexion à la base de données
-            $this->connexion = new \PDO("mysql:host=$host_name;dbname=$database_name", $user_name, $password);
-            // Activer les exceptions PDO pour afficher les erreurs
-            $this->connexion->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            $bd = new bdModel();
+            $this->connexion = $bd->getConnexion();
         } catch (\PDOException $e) {
             // En cas d'erreur, afficher le message et arrêter l'exécution
             echo "Erreur de connexion à la base de données : " . $e->getMessage();
@@ -17,7 +15,8 @@ class performanceModel {
         }
     }
 
-    public function getPerformances() {
+    public function getPerformances(): bool|array
+    {
         $sql = "SELECT date, sport, temps_de_jeu, score, resultat FROM performances";
         $stmt = $this->connexion->prepare($sql);
         $stmt->execute();
