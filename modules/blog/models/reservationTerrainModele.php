@@ -30,7 +30,7 @@ class reservationTerrainModele
         $query = "SELECT * FROM reservationTerrain WHERE sport = :sport AND date = :date AND terrain = :terrain ORDER BY heure";
 
         // Préparation de la requête
-        $stmt = $this->connexion->prepare($query);
+        $stmt = $this->connexion->pdo->prepare($query);
 
         // Liaison des paramètres sécurisée
         $stmt->bindParam(':sport', $sport);
@@ -48,7 +48,7 @@ class reservationTerrainModele
     {
         // Connexion à la base de données
         // Requête pour insérer la réservation dans la base de données
-        $stmt = $this->connexion->prepare("INSERT INTO reservationTerrain (sport, date, heure, terrain, user_id) VALUES (?, ?, ?, ?,?)");
+        $stmt = $this->connexion->pdo->prepare("INSERT INTO reservationTerrain (sport, date, heure, terrain, user_id) VALUES (?, ?, ?, ?,?)");
 
         if ($stmt->execute([$sport, $date, $heure, $terrain, $userId])) {
             return json_encode(['status' => 'success', 'message' => 'Réservation réussie']);
