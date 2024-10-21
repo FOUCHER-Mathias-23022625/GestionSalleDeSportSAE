@@ -10,9 +10,11 @@
 }
 
 .reservationChoice h1 {
-    margin-bottom: 10px;
-    font-size: 32px;
-    color: #333;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    color: #38444c;
+    font-size: 2em;
+    margin-top: 100px;
 }
 
 .reservationChoice p {

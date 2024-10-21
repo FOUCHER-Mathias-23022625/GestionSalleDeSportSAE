@@ -53,7 +53,21 @@ class homepageView{
             </div>
             <img src="/GestionSalleDeSportSAE/assets/images/performancee.jpg" alt="performance-img" class="performance-img">
         </section>
+        <div class="inscription_footer">
+            <div class="txt_inscription">
+                <p>Envie de vous surpasser ou simplement de vous remettre en forme ?</p>
+                <p>Rejoignez-nous dès maintenant en vous inscrivant !</p>
+            </div>
+            <div class="arrow">
+                <img id="arrow" src="/GestionSalleDeSportSAE/assets/images/arrow-removebg-preview.png">
+            </div>
+            <div class="form_inscription">
+                <input type="text" placeholder="Votre adresse mail">
+                <button class="btnInscription">Je m\'inscris</button>
+            </div>
+        </div>
         <script src="/GestionSalleDeSportSAE/assets/scripts/homepage.js"></script>
+
     </main>
 
     <?php
