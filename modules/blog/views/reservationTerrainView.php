@@ -12,6 +12,10 @@ class reservationTerrainView
         <script type="text/javascript">
             alert("Votre réservation a été confirmée avec succès !");
         </script>
+        <?php elseif ($reservation_status === 'error'): ?>
+            <script type="text/javascript">
+                alert("<?php echo $_SESSION['reservation_message']; ?>");
+            </script>
         <?php elseif ($reservation_status === 'fail'): ?>
             <script type="text/javascript">
                 alert("Échec de la réservation. Veuillez réessayer.");
