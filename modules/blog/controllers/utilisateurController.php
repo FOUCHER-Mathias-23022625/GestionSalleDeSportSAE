@@ -12,11 +12,7 @@ require_once "modules/blog/views/Layout.php";
 
 class utilisateurController
 {
-    private $utilisateurModel;
-    private $host_name = "mysql-gestionsaetest.alwaysdata.net";
-    private $user_name = "379076";
-    private $password  = "gestionSae";
-    private $database_name = "gestionsaetest_bd";
+
 
     public function __construct() {
         // Afficher les erreurs pour le débogage
@@ -36,7 +32,7 @@ class utilisateurController
         }
 
         try {
-            $this->utilisateurModel = new utilisateurModel($this->host_name, $this->user_name, $this->password, $this->database_name);
+            $this->utilisateurModel = new utilisateurModel();
         } catch (PDOException $e) {
             die("Erreur de connexion à la base de données : " . $e->getMessage());
         }
@@ -45,7 +41,7 @@ class utilisateurController
     public function connexion(){
         $mail = $_POST['mail'];
         $mdp = $_POST['mdp'];
-        $model = new utilisateurModel($this->host_name, $this->user_name, $this->password, $this->database_name);
+        $model = new utilisateurModel();
         $model->connexion($mail, $mdp);
         header('location:afficheFormConnexion');
     }
@@ -59,13 +55,13 @@ class utilisateurController
     public function inscription() {
         $mail = $_POST['mail'];
         $mdp = $_POST['mdp'];
-        $model = new utilisateurModel($this->host_name, $this->user_name, $this->password, $this->database_name);
+        $model = new utilisateurModel();
         $model->ajouteUtilisateur($mail, $mdp);
         header('location:afficheFormConnexion');
     }
 
     public function modification() {
-        $model = new utilisateurModel($this->host_name, $this->user_name, $this->password, $this->database_name);
+        $model = new utilisateurModel();
         $id = $_SESSION['id'];
         $mail = $_POST['mail'];
         $nom = $_POST['nom'];
@@ -76,17 +72,21 @@ class utilisateurController
         header('Location: index.php');
     }
 
-    public function afficheFormConnexion() {
-        $utilisateurView = new utilisateurView();
-        ob_start();
-        $utilisateurView->afficher();
-        $contenu = ob_get_clean();
-        $layout = new Layout("Utilisateur", $contenu);
-        $layout->afficher();
+        public function afficheFormConnexion()
+        {
+            $utilisateurView = new utilisateurView();
+            ob_start();
+            $utilisateurView->afficher();
+            $contenu=ob_get_clean();
+            $layout = new Layout("Utilisateur", $contenu);
+            $layout->afficher();
+
+        }
+
+        public function test($val1,$val2){
+            echo $val1." et la valeur 2 est : ".$val2;
+        }
+
     }
 
-    public function test($val1, $val2) {
-        echo $val1 . " et la valeur 2 est : " . $val2;
-    }
-}
-?>
+    ?>
