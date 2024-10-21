@@ -12,24 +12,21 @@ class reservationUtilisateurController
     private $reservationsUtilisateurModele;
 
     public function __construct() {
-        $host_name = "mysql-gestionsaetest.alwaysdata.net";
-        $user_name = "379076";
-        $password  = "gestionSae";
-        $database_name = "gestionsaetest_bd";
 
-        $this->reservationsUtilisateurModele = new reservationUtilisateurModele($host_name, $user_name, $password, $database_name);
+
+        $this->reservationsUtilisateurModele = new reservationUtilisateurModele();
     }
 
     // Méthode pour afficher les réservations de l'utilisateur
     public function afficherReservationsUtilisateur()
     {
         // Vérifier si l'utilisateur est connecté
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['id'])) {
             header('Location: /GestionSalleDeSportSAE/utilisateur/afficheFormConnexion');
             exit();
         }
 
-        $userId = $_SESSION['user_id']; // Assurez-vous que l'ID de l'utilisateur est stocké dans la session
+        $userId = $_SESSION['id']; // Assurez-vous que l'ID de l'utilisateur est stocké dans la session
         // Récupérer les réservations futures et passées
         $reservationsFutures = $this->reservationsUtilisateurModele->getReservationsFutures($userId);
         $reservationsPassees = $this->reservationsUtilisateurModele->getReservationsPassees($userId);

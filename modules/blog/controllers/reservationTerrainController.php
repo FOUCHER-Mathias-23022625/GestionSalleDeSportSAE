@@ -12,12 +12,7 @@ class reservationTerrainController
     private $reservationTerrainModele;
 
     public function __construct() {
-        $host_name = "mysql-gestionsaetest.alwaysdata.net";
-        $user_name = "379076";
-        $password  = "gestionSae";
-        $database_name = "gestionsaetest_bd";
-
-        $this->reservationTerrainModele = new reservationTerrainModele($host_name, $user_name, $password, $database_name);
+        $this->reservationTerrainModele = new reservationTerrainModele();
     }
 
     public function displayReservationTerrain()
@@ -98,12 +93,13 @@ class reservationTerrainController
 
     public function addReservationTerrain()
     {
+        $id_user = $_SESSION['id'];
         $sport = htmlspecialchars($_POST['sport']);
         $date = htmlspecialchars($_POST['date']);
         $heure = htmlspecialchars($_POST['heure']);
         $terrain = htmlspecialchars($_POST['terrain']);
         if ($sport && $date && $heure && $terrain) {
-            $this->reservationTerrainModele->insererReservation($sport, $date, $heure, $terrain);
+            $this->reservationTerrainModele->insererReservation($sport, $date, $heure, $terrain, $id_user);
             $_SESSION['reservation_status'] = 'success';
         } else {
             $_SESSION['reservation_status'] = 'fail';

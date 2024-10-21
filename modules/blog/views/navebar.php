@@ -15,6 +15,9 @@ session_start();
         }
 
         public function afficher(){
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
             ?>
             <header>
             <div class="navBar">
