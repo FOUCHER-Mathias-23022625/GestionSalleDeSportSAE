@@ -217,4 +217,58 @@ class performanceController
             echo "Primary key de la performance non valide.";
         }
     }
+    function addImc(): void
+    {
+        // Récupère les données du formulaire
+        $taille = $_POST['taille'];
+        $poids = $_POST['poids'];
+        $sexe = ($_POST['sexe'] === 'Homme') ? 1 : 0;
+        $date_du_j = date('Y-m-d');
+        $imc = 0;
+        // Vérifie que toutes les données obligatoires sont présentes
+        if ($taille && $poids && $sexe !== null) {
+            // Ajouter la performance à la base de données
+            $this->model->insertImc($date_du_j, $poids, $taille, $sexe);
+            header('Location:affichePerf');
+            exit();
+        }
+        else {
+            echo "Veuillez remplir tous les champs obligatoires.";
+        }
+    }
+
+    public function afficheImc(): string
+    {
+        // Récupérer les données d'IMC depuis le modèle
+        $IMC = $this->model->getImc();
+
+
+        // Vérifie que les données obligatoires sont présentes
+        if (!empty($IMC)) {
+            // Calcul de l'IMC
+            $imc = $IMC['poids'] / ($IMC['taille']/100 * $IMC['taille']/100);
+
+            // Arrondir l'IMC
+            $imc = round($imc, 2);
+
+            // Générer le HTML pour afficher l'IMC
+            $html = "<h3>Votre IMC est de : {$imc}</h3>";
+
+            // Ajouter une interprétation de l'IMC
+            if ($imc < 18.5) {
+                $html .= "<p>Vous êtes en sous-poids.</p>";
+            } elseif ($imc >= 18.5 && $imc < 24.9) {
+                $html .= "<p>Votre poids est normal.</p>";
+            } elseif ($imc >= 25 && $imc < 29.9) {
+                $html .= "<p>Vous êtes en surpoids.</p>";
+            } else {
+                $html .= "<p>Vous êtes en obésité.</p>";
+            }
+
+            return $html;
+        } else {
+            return "<p>Veuillez entrer des valeurs valides pour la taille et le poids.</p>";
+        }
+    }
+
 }
