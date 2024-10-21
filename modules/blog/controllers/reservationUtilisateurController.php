@@ -12,12 +12,9 @@ class reservationUtilisateurController
     private $reservationsUtilisateurModele;
 
     public function __construct() {
-        $host_name = "mysql-gestionsaetest.alwaysdata.net";
-        $user_name = "379076";
-        $password  = "gestionSae";
-        $database_name = "gestionsaetest_bd";
 
-        $this->reservationsUtilisateurModele = new reservationUtilisateurModele($host_name, $user_name, $password, $database_name);
+
+        $this->reservationsUtilisateurModele = new reservationUtilisateurModele();
     }
 
     // Méthode pour afficher les réservations de l'utilisateur

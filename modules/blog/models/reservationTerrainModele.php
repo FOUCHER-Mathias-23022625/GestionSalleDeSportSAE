@@ -1,14 +1,15 @@
 <?php
 
 namespace blog\models;
+require_once "modules/blog/models/bdModel.php";
 
 use PDO;
 class reservationTerrainModele
 {
     private $connexion;
 
-    public function __construct($host_name, $user_name, $password, $database_name) {
-        $this->connexion = new PDO("mysql:host=$host_name;dbname=$database_name", $user_name, $password);
+    public function __construct() {
+        $this->connexion = new bdModel();
     }
 
     /*public function getReservationTerrain($date, $sport){
