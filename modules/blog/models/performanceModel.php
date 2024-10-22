@@ -1,15 +1,15 @@
 <?php
 namespace blog\models;
 
+use PDO;
+
 class performanceModel {
     private $connexion;
 
     public function __construct($host_name, $user_name, $password, $database_name) {
         try {
-            // Tentative de connexion à la base de données
-            $this->connexion = new \PDO("mysql:host=$host_name;dbname=$database_name", $user_name, $password);
-            // Activer les exceptions PDO pour afficher les erreurs
-            $this->connexion->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            $bd = new bdModel();
+            $this->connexion = $bd->getConnexion();
         } catch (\PDOException $e) {
             // En cas d'erreur, afficher le message et arrêter l'exécution
             echo "Erreur de connexion à la base de données : " . $e->getMessage();
@@ -17,7 +17,8 @@ class performanceModel {
         }
     }
 
-    public function getPerformances() {
+    public function getPerformances(): bool|array
+    {
         $sql = "SELECT date, sport, temps_de_jeu, score, resultat FROM performances";
         $stmt = $this->connexion->prepare($sql);
         $stmt->execute();
@@ -48,5 +49,49 @@ class performanceModel {
         $stmt = $this->connexion->prepare($sql);
 
         $stmt->execute([':date' => $date, ':sport' => $sport]);
+    }
+
+    public function getImc(): array
+    {
+        $sql = "SELECT * FROM IMC ";
+        $stmt = $this->connexion->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function insertImc($date, $poids, $taille, $sexe): void
+    {
+
+        // Vérifie si une entrée pour cette date existe déjà
+        $sql_check = "SELECT COUNT(*) FROM IMC WHERE date = :date";
+        $stmt_check = $this->connexion->prepare($sql_check);
+        $stmt_check->execute([':date' => $date]);
+        $count = $stmt_check->fetchColumn();
+
+        if ($count > 0) {
+            // Si une entrée existe déjà, on met à jour les valeurs
+            $sql_update = "UPDATE IMC SET poids = :poids, taille = :taille, sexe = :sexe WHERE date = :date";
+            $stmt_update = $this->connexion->prepare($sql_update);
+            $stmt_update->execute([
+                ':date' => $date,
+                ':poids' => $poids,
+                ':taille' => $taille,
+                ':sexe' => $sexe,
+            ]);
+        } else {
+            // Préparation de la requête SQL pour insérer les données dans la base
+            $sql = "INSERT INTO IMC (date, poids, taille, sexe)
+            VALUES (:date, :poids, :taille, :sexe)";
+
+            $stmt = $this->connexion->prepare($sql);
+
+            // Exécution de la requête avec les valeurs fournies
+            $stmt->execute([
+                ':date' => $date,
+                ':poids' => $poids,
+                ':taille' => $taille,
+                ':sexe' => $sexe,
+            ]);
+        }
     }
 }

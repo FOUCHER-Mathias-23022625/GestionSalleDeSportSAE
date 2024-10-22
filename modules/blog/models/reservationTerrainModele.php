@@ -46,10 +46,26 @@ class reservationTerrainModele
 
     public function insererReservation($sport, $date, $heure, $terrain, $userId)
     {
-        // Connexion à la base de données
-        // Requête pour insérer la réservation dans la base de données
-        $stmt = $this->connexion->pdo->prepare("INSERT INTO reservationTerrain (sport, date, heure, terrain, user_id) VALUES (?, ?, ?, ?,?)");
+        // Vérifier le nombre de réservations pour l'utilisateur à la date donnée
+        $stmt = $this->connexion->pdo->prepare("SELECT COUNT(*) FROM reservationTerrain WHERE user_id = ? AND date = ?");
+        $stmt->execute([$userId, $date]);
+        $reservationCount = $stmt->fetchColumn();
 
+        if ($reservationCount >= 2) {
+            return json_encode(['status' => 'error', 'message' => 'Vous ne pouvez pas reserver plus de 2 créneaux horaires par jour.']);
+        }
+
+        // Vérifier les créneaux horaires pour des sports différents
+        $stmt = $this->connexion->pdo->prepare("SELECT COUNT(*) FROM reservationTerrain WHERE user_id = ? AND date = ? AND heure = ?");
+        $stmt->execute([$userId, $date, $heure]);
+        $timeSlotCount = $stmt->fetchColumn();
+
+        if ($timeSlotCount > 0) {
+            return json_encode(['status' => 'error', 'message' => 'Vous avez déjà réservé un créneau horaire pour un autre sport à cette heure.']);
+        }
+
+        // Insérer la réservation
+        $stmt = $this->connexion->pdo->prepare("INSERT INTO reservationTerrain (sport, date, heure, terrain, user_id) VALUES (?, ?, ?, ?, ?)");
         if ($stmt->execute([$sport, $date, $heure, $terrain, $userId])) {
             return json_encode(['status' => 'success', 'message' => 'Réservation réussie']);
         } else {

@@ -19,11 +19,7 @@ require_once "modules/blog/views/Layout.php";
             $model2 = new compteModel();
             $resultat2 = $model2->dateDeb_dateFin();
             $compteView = new compteView();
-            ob_start();
             $compteView->afficher($resultat,$resultat2);
-            $contenu=ob_get_clean();
-            $layout = new Layout("compte", $contenu);
-            $layout->afficher();
         }
 
         public function maj(){
