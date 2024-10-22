@@ -21,7 +21,7 @@ session_start();
             ?>
             <header>
             <div class="navBar">
-                <a href="/GestionSalleDeSportSae/homepage/accueil">
+                <a href="/GestionSalleDeSportSAE/homepage/accueil">
                     <img src="/GestionSalleDeSportSAE/assets/images/logo-img.png" alt="Logo" id="logo">
                 </a>
                 <div class="nom-site" onclick="window.location.href='/GestionSalleDeSportSAE/homepage/accueil';">
