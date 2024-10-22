@@ -222,13 +222,12 @@ class performanceController
         // Récupère les données du formulaire
         $taille = $_POST['taille'];
         $poids = $_POST['poids'];
-        $sexe = ($_POST['sexe'] === 'Homme') ? 1 : 0;
         $date_du_j = date('Y-m-d');
         $imc = 0;
         // Vérifie que toutes les données obligatoires sont présentes
-        if ($taille && $poids && $sexe !== null) {
+        if ($taille && $poids) {
             // Ajouter la performance à la base de données
-            $this->model->insertImc($date_du_j, $poids, $taille, $sexe);
+            $this->model->insertImc($date_du_j, $poids, $taille);
             header('Location:affichePerf');
             exit();
         }
