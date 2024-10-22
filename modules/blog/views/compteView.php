@@ -37,7 +37,6 @@ require_once 'Layout.php';
 
                 <input type="submit" class="form-submit" value="Mettre à jour">
             </form>
-            <input type="submit" class="form-submit" value="Mettre à jour">
         <form action="changementMdp" method="POST" id="form-mdp" class="changementMdp">
             <label>Changement de vôtre mot de passe</label>
             <input id="ancienMdp" name="ancienMdp"  placeholder="Ancien mot de passe"><br>
