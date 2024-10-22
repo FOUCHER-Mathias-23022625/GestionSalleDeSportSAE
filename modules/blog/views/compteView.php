@@ -37,9 +37,6 @@ require_once 'Layout.php';
             <label for="Email" class="form-label">E-mail:</label><br>
             <input type="email" id="Email" class="form-input" name="EmailCompte" value="<?php echo $resultat['EMail']; ?>" required><br><br>
 
-            <label for="mdp" class="form-label">Mot de passe:</label><br>
-            <input type="password" id="mdp" class="form-input" name="MdpCompte" value="<?php echo $resultat['mdp']; ?>" required><br><br>
-
             <label for="DateDeb" class="form-label">Date de début d'abonnement:</label>
             <label class="form-static"> <?php echo $resultat2['DateDeb']; ?> </label><br><br>
 
@@ -48,7 +45,15 @@ require_once 'Layout.php';
 
             <input type="submit" class="form-submit" value="Mettre à jour">
         </form>
+        <form action="changementMdp" method="POST" id="form-mdp" class="changementMdp">
+            <label>Changement de vôtre mot de passe</label>
+            <input id="ancienMdp" name="ancienMdp"  placeholder="Ancien mot de passe"><br>
+            <input id="nouveauMdp" name="nouveauMdp" placeholder="Nouveau mot de passe"><br>
+            <input type="submit" class="inputSub" id="changement" name="changement" value="Changer le mot de passe" required><br>
+            <input type="submit" class="inputSub" id="oublieMdp" name="oublieMdp" value="Mot de passe oublié ?" required><br>
+        </form>
         </body>
+        <script src="/GestionSalleDeSportSAE/assets/scripts/compte.js"></script>
         </html>
             <?php
             (new \Blog\Views\Layout('compte', ob_get_clean()))->afficher();
