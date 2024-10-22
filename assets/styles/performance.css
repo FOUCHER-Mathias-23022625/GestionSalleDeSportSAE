@@ -246,3 +246,31 @@
     color: black;
     background: #e74c3c;
 }
+
+.sous-poids {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.normal-poids {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.sur-poids {
+    background-color: orange;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.obesite {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}

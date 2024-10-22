@@ -56,7 +56,7 @@ class performanceModel {
         $sql = "SELECT * FROM IMC ";
         $stmt = $this->connexion->prepare($sql);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif
     }
 
     public function insertImc($date, $poids, $taille): void

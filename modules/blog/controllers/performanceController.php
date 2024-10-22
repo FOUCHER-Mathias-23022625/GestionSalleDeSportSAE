@@ -238,36 +238,49 @@ class performanceController
 
     public function afficheImc(): string
     {
-        // Récupérer les données d'IMC depuis le modèle
-        $IMC = $this->model->getImc();
+        // Récupérer toutes les données d'IMC depuis le modèle
+        $imc = $this->model->getImc();
 
+        // Vérifie qu'il y a un IMC calculé pour aujourd'hui
+        $dateDuJour = date('Y-m-d'); // Format AAAA-MM-JJ (ex: 2024-10-22)
+        $imcDuJour = null;
 
-        // Vérifie que les données obligatoires sont présentes
-        if (!empty($IMC)) {
+        // Parcourir toutes les données pour trouver l'IMC du jour
+        foreach ($imc as $IMC) {
+            if (isset($IMC['date']) && $IMC['date'] === $dateDuJour) {
+                $imcDuJour = $IMC;
+                break; // On arrête la boucle dès qu'on trouve l'IMC du jour
+            }
+        }
+
+        // si un IMC du jour a été trouvé
+        if (!empty($imcDuJour)) {
             // Calcul de l'IMC
-            $imc = $IMC['poids'] / ($IMC['taille']/100 * $IMC['taille']/100);
+            $imc = $imcDuJour['poids'] / (($imcDuJour['taille'] / 100) * ($imcDuJour['taille'] / 100));
 
             // Arrondir l'IMC
             $imc = round($imc, 2);
 
             // Générer le HTML pour afficher l'IMC
-            $html = "<h3>Votre IMC est de : {$imc}</h3>";
+            $html = "<h3>Votre IMC aujourd'hui est de : {$imc}</h3>";
 
             // Ajouter une interprétation de l'IMC
             if ($imc < 18.5) {
-                $html .= "<p>Vous êtes en sous-poids.</p>";
+                $html .= "<p class='sous-poids'>Vous êtes en sous-poids.</p>";
             } elseif ($imc >= 18.5 && $imc < 24.9) {
-                $html .= "<p>Votre poids est normal.</p>";
+                $html .= "<p class='normal-poids'>Votre poids est normal.</p>";
             } elseif ($imc >= 25 && $imc < 29.9) {
-                $html .= "<p>Vous êtes en surpoids.</p>";
+                $html .= "<p class='sur-poids'>Vous êtes en surpoids.</p>";
             } else {
-                $html .= "<p>Vous êtes en obésité.</p>";
+                $html .= "<p class='obesite'>Vous êtes en obésité.</p>";
             }
 
             return $html;
         } else {
-            return "<p>Veuillez entrer des valeurs valides pour la taille et le poids.</p>";
+            return "<p>Calculez votre IMC du jour.</p>";
         }
     }
+
+
 
 }
