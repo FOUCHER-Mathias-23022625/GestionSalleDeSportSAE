@@ -252,7 +252,7 @@ class performanceController
                 break; // On arrête la boucle dès qu'on trouve l'IMC du jour
             }
         }
-
+        $html = '';
         // si un IMC du jour a été trouvé
         if (!empty($imcDuJour)) {
             // Calcul de l'IMC
@@ -274,13 +274,59 @@ class performanceController
             } else {
                 $html .= "<p class='obesite'>Vous êtes en obésité.</p>";
             }
+            // Si un IMC du jour existe, afficher le bouton Modifier mon IMC du jour
+            $textButton = "Modifier mon IMC du jour";
 
-            return $html;
         } else {
-            return "<p>Calculez votre IMC du jour.</p>";
+            $html .= "<p>Calculez votre IMC du jour.</p>";
+            $textButton = "Ajouter mon IMC du jour";
         }
+
+        $html .= "<div class='button-containerPerf'>
+                <button id='add-performance-btnPerf' onclick='formAjtImc()'>{$textButton}</button>
+              </div>";
+
+        return $html;
     }
 
+    public function afficheHistorique(): string
+    {
+        // Récupérer toutes les données d'IMC depuis le modèle, triées par date décroissante
+        $IMC_data = $this->model->getImc();
 
+        // Initialiser le HTML
+        $html = "<button id='historique-btn' onclick='afficheHistorique()'>Historique</button>";
+
+        // Générer le tableau HTML de l'historique
+        $html .= "<table id='historique-table' style='display: none;'>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Taille (cm)</th>
+                        <th>Poids (kg)</th>
+                        <th>IMC</th>
+                    </tr>
+                </thead>
+                <tbody>";
+
+        // Parcourir les données pour générer les lignes du tableau
+        foreach ($IMC_data as $IMC) {
+            // Calcul de l'IMC pour chaque enregistrement
+            $imc = $IMC['poids'] / (($IMC['taille'] / 100) * ($IMC['taille'] / 100));
+            $imc = round($imc, 2);
+
+            // Générer chaque ligne du tableau
+            $html .= "<tr>
+                    <td>{$IMC['date']}</td>
+                    <td>{$IMC['taille']}</td>
+                    <td>{$IMC['poids']}</td>
+                    <td>{$imc}</td>
+                  </tr>";
+        }
+
+        $html .= "</tbody></table>";
+
+        return $html;
+    }
 
 }
