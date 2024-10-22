@@ -20,7 +20,9 @@ class performanceView
         $sports = $controller->afficheSport($performances);
         $tempsJeu= $controller->afficheTmps($performances);
         $victoire= $controller->afficheTotVictoire($performances);
+        //IMC
         $afficheImc = $controller->afficheImc();
+        $afficheHistorique = $controller->afficheHistorique();
 
         // Récupérer les données pour le graphique
         $graphData = $controller->getPerformanceDataForGraph();
@@ -68,11 +70,9 @@ class performanceView
 
     <section id="ImcPerf">
         <h2 class="section-titlePerf">Indice de masse corporelle</h2>
-
-        <div class="button-containerPerf">
-            <button id="add-performance-btnPerf" onclick="formAjtImc()">Ajouter mon <b>IMC</b> du jour</button>
-        </div>
         <?php echo $afficheImc ?>
+        <br>
+        <?php echo $afficheHistorique ?>
     </section>
 </main>
 

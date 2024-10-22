@@ -274,3 +274,74 @@
     padding: 5px;
     border-radius: 5px;
 }
+
+#historique-btn{
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Style pour le bouton Historique */
+#historique-btn {
+    background-color: #38444c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#historique-btn:hover {
+    background-color: #45a049; /* Vert foncé au survol */
+}
+
+/* Style pour le tableau */
+#historique-table {
+    width: 100%;
+    border-collapse: collapse; /* Supprime l'espace entre les bordures */
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden; /* Pour arrondir les bordures du tableau */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Effet de shadow */
+}
+
+/* Style pour l'entête du tableau */
+#historique-table th {
+    background-color: #38444c;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* Style pour les cellules du tableau */
+#historique-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Alternance de couleur pour les lignes */
+#historique-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Effet de survol pour les lignes du tableau */
+#historique-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Style pour les lignes du tableau */
+tr {
+    transition: background-color 0.2s ease;
+}
+
+
+

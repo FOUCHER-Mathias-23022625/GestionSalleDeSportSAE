@@ -53,7 +53,7 @@ class performanceModel {
 
     public function getImc(): array
     {
-        $sql = "SELECT * FROM IMC ";
+        $sql = "SELECT * FROM IMC order by date desc ";
         $stmt = $this->connexion->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif
