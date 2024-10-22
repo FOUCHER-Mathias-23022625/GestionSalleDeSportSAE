@@ -132,24 +132,10 @@ class performanceView
             <label for="taille">Taille :</label>
             <input type="number" id="taille" name="taille" min="100" max="250" required>
             <br><br>
-            <br><br>
-
             <!-- Poids -->
             <label for="poids">Poids (en kg) :</label>
             <input type="number" id="poids" name="poids" min="30" max="300" required>
             <br><br>
-
-            <!-- Sexe -->
-            <div class="form-radio-groupPerf">
-                <label class="form-radioPerf">
-                    <input type="radio" name="sexe" value="Homme" required>
-                    <span class="custom-radioPerf"></span> Homme
-                </label>
-                <label class="form-radioPerf">
-                    <input type="radio" name="sexe" value="Femme" required>
-                    <span class="custom-radioPerf"></span> Femme
-                </label>
-            </div>
             <input class="form-submitPerf" type="submit" name="submit" id="submit" value="Découvrir mon IMC">
         </form>
     </div>
