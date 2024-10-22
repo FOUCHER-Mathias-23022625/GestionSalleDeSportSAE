@@ -38,7 +38,6 @@ require_once 'Layout.php';
                 <input type="submit" class="form-submit" value="Mettre à jour">
             </form>
             <input type="submit" class="form-submit" value="Mettre à jour">
-        </form>
         <form action="changementMdp" method="POST" id="form-mdp" class="changementMdp">
             <label>Changement de vôtre mot de passe</label>
             <input id="ancienMdp" name="ancienMdp"  placeholder="Ancien mot de passe"><br>
@@ -46,9 +45,7 @@ require_once 'Layout.php';
             <input type="submit" class="inputSub" id="changement" name="changement" value="Changer le mot de passe" required><br>
             <input type="submit" class="inputSub" id="oublieMdp" name="oublieMdp" value="Mot de passe oublié ?" required><br>
         </form>
-        </body>
         <script src="/GestionSalleDeSportSAE/assets/scripts/compte.js"></script>
-        </html>
             <?php
             (new \Blog\Views\Layout('compte', ob_get_clean()))->afficher();
         }
