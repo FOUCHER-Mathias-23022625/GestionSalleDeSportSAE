@@ -12,9 +12,15 @@ require_once  "./index.php";
 class evenementController{
     private $evenementModel;
 
-    /*public function __construct($db){
-        $this->evenementModel = new evenementModel($db);
-    }*/
+    public function __construct(){
+        $host_name = "127.0.0.1";
+        $user_name = "root";
+        $password = "";
+        $database_name = "saetest";
+
+        $this->model = new evenementModel($host_name, $user_name, $password, $database_name);
+        $this->view = new evenementView();
+    }
 
     public function afficheEvenement()
     {
