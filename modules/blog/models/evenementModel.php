@@ -9,23 +9,35 @@ class evenementModel{
         $this->db = $db;
     }
 
-    // Vérifier si l'utilisateur est déjà inscrit à un événement
-    public function isUserSubscribed($idEvenement, $idUtilisateur) {
-        $query = $this->db->prepare("SELECT * FROM participation WHERE \"IdEvenement\" = :idEvenement AND \"IdUtilisateur\" = :idUtilisateur");
+    public function getEvenements() {
+        $sql = "SELECT * FROM evenements";
+        try {
+            $result = $this->db->query($sql);
+            if (!$result) {
+                throw new \Exception("Erreur lors de l'exécution de la requête SQL");
+            }
+            return $result->fetchAll(\PDO::FETCH_ASSOC);
+        } catch (\Exception $e) {
+            echo "Erreur : " . $e->getMessage();
+            return [];
+        }
+    }
+
+    public function isUserSubscribed($idEvenement, $nom_utilisateur) {
+        $query = $this->db->prepare("SELECT * FROM participation WHERE \"IdEvenement\" = :idEvenement AND \"nom_utilisateur\" = :nom_utilisateur");
         $query->execute([
             ':idEvenement' => $idEvenement,
-            ':idUtilisateur' => $idUtilisateur
+            ':nom_utilisateur' => $nom_utilisateur
         ]);
 
         return $query->rowCount() > 0;
     }
 
-    // Inscrire un utilisateur à un événement
-    public function subscribeUser($idEvenement, $idUtilisateur) {
-        $insert = $this->db->prepare("INSERT INTO participation (\"IdEvenement\", \"IdUtilisateur\") VALUES (:idEvenement, :idUtilisateur)");
+    public function subscribeUser($idEvenement, $nom_utilisateur) {
+        $insert = $this->db->prepare("INSERT INTO participation (\"IdEvenement\", \"nom_utilisateur\") VALUES (:idEvenement, :nom_utilisateur)");
         return $insert->execute([
             ':idEvenement' => $idEvenement,
-            ':idUtilisateur' => $idUtilisateur
+            ':nom_utilisateur' => $nom_utilisateur
         ]);
     }
 

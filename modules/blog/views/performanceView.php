@@ -20,6 +20,7 @@ class performanceView
         $sports = $controller->afficheSport($performances);
         $tempsJeu= $controller->afficheTmps($performances);
         $victoire= $controller->afficheTotVictoire($performances);
+        $afficheImc = $controller->afficheImc();
 
         // Récupérer les données pour le graphique
         $graphData = $controller->getPerformanceDataForGraph();
@@ -64,6 +65,15 @@ class performanceView
             </div>
         </section>
     <?php endif; ?>
+
+    <section id="ImcPerf">
+        <h2 class="section-titlePerf">Indice de masse corporelle</h2>
+
+        <div class="button-containerPerf">
+            <button id="add-performance-btnPerf" onclick="formAjtImc()">Ajouter mon <b>IMC</b> du jour</button>
+        </div>
+        <?php echo $afficheImc ?>
+    </section>
 </main>
 
 <footer id="main-footerPerf">
@@ -90,7 +100,7 @@ class performanceView
                 <option value="Badminton">Badminton</option>
             </select>
 
-            <label class="form-labelPerf" for="TmpJeu">Temps de jeu</label>
+            <label class="form-labelPerf" for="TmpJeu">Temps de jeu (en minutes)</label>
             <input class="form-inputPerf" type="text" id="TmpJeu" name="TempsJeu" required>
 
             <label class="form-labelPerf" for="Score">Score</label>
@@ -98,7 +108,7 @@ class performanceView
 
             <div class="form-radio-groupPerf">
                 <label class="form-radioPerf">
-                    <input type="radio" name="resultat" value="Victoire" required> 
+                    <input type="radio" name="resultat" value="Victoire" required>
                     <span class="custom-radioPerf"></span> Victoire
                 </label>
                 <label class="form-radioPerf">
@@ -109,6 +119,38 @@ class performanceView
 
             <input class="form-submitPerf" type="submit" name="submit" id="submit" value="Ajouter la performance">
 
+        </form>
+    </div>
+</div>
+
+<div class="overlayFormPerf" id="formOverlayAddImc">
+    <div class="form-containerPerf">
+        <h1 class="form-titlePerf">Mon IMC du jour</h1>
+        <form class="event-formPerf" action="addImc" method="POST">
+            <span class="close-btnPerf" onclick="closeFormImc()">&times;</span>
+            <!--Taille -->
+            <label for="taille">Taille :</label>
+            <input type="number" id="taille" name="taille" min="100" max="250" required>
+            <br><br>
+            <br><br>
+
+            <!-- Poids -->
+            <label for="poids">Poids (en kg) :</label>
+            <input type="number" id="poids" name="poids" min="30" max="300" required>
+            <br><br>
+
+            <!-- Sexe -->
+            <div class="form-radio-groupPerf">
+                <label class="form-radioPerf">
+                    <input type="radio" name="sexe" value="Homme" required>
+                    <span class="custom-radioPerf"></span> Homme
+                </label>
+                <label class="form-radioPerf">
+                    <input type="radio" name="sexe" value="Femme" required>
+                    <span class="custom-radioPerf"></span> Femme
+                </label>
+            </div>
+            <input class="form-submitPerf" type="submit" name="submit" id="submit" value="Découvrir mon IMC">
         </form>
     </div>
 </div>

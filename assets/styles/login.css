@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
-    font-family: "Inter", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body{
@@ -33,7 +32,8 @@ body{
     color: black;
     margin-bottom: 50px;
     font-weight: bold;
-    border-bottom: 2px solid #a7c957;;
+    border-bottom: 2px solid #a7c957;
+    font-family: "Poppins", sans-serif;
 }
 
 .connexion_box .input-group {

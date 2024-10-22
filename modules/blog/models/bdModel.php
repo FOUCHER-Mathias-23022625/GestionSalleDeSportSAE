@@ -33,7 +33,10 @@ use PDO;
          $resultat = $this->pdo->prepare($sqlRequete);
          return $resultat->execute();
      }
-
+     public function getConnexion(): PDO
+     {
+         return $this->pdo;
+     }
 
  }
 ?>

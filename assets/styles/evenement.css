@@ -8,13 +8,14 @@
     margin: 0;
     padding: 0;
     text-align: left;
-    font-family: "Inter", sans-serif
+    font-family: "Poppins", sans-serif;
 }
 
 .h1-event{
     font-family: "Poppins", sans-serif;
     text-align: center;
     color: #38444c;
+    margin-top: 50px;
 }
 
 .evenement{
@@ -71,7 +72,7 @@
             100% 0/46% 92% no-repeat;
     -webkit-mask: var(--m);
     mask: var(--m);
-    filter: grayscale(.5);
+    filter: grayscale(0.7);
     transition: .3s linear;
     cursor: pointer;
     width: 350px;
@@ -86,7 +87,7 @@
             100% 0/46% 92% no-repeat;
     -webkit-mask: var(--m);
     mask: var(--m);
-    filter: grayscale(.5);
+    filter: grayscale(.7);
     transition: .3s linear;
     cursor: pointer;
     width: 350px;
@@ -103,7 +104,7 @@
             100% 0/46% 92% no-repeat;
     -webkit-mask: var(--m);
     mask: var(--m);
-    filter: grayscale(.5);
+    filter: grayscale(.7);
     transition: .3s linear;
     cursor: pointer;
     width: 450px;
@@ -152,7 +153,7 @@
     display: flex;
     flex-direction: row;
     padding: 50px 0 50px 0;
-
+    border-bottom: 3px solid #4CAF50;
 }
 
 .txt_inscription{
@@ -217,7 +218,7 @@
 }
 
 .popup_inscription h3 {
-    font-family: "Oswald", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 2em;
     padding: 5px 0 5px 15px;
     color: black;
@@ -251,7 +252,7 @@
     left: 20px;
     font-size: 1em;
     transition: 0.6s;
-    font-family: sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 .popup_inscription .inputbox input:focus ~ span,
 .popup_inscription .inputbox input:valid ~ span {

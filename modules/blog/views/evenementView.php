@@ -63,23 +63,33 @@ class evenementView{
         </section>
         <?php
         /*
-        foreach ($evenements as $evenement) {
-            ?>
-            <div class="evenement">
-                <img src="<?= $evenement['image'] ?>" alt="<?= $evenement['nom'] ?>">
-                <div class="txt">
-                    <h3><?= $evenement['nom'] ?></h3>
-                    <p>Il reste encore <?= $evenement['placesRestantes'] ?> places</p>
-
-                    <!-- Formulaire pour s'inscrire -->
-                    <form method="POST" action="/inscription.php">
-                        <input type="hidden" name="idEvenement" value="<?= $evenement['id'] ?>">
-                        <button type="submit" class="sinscrire">Je participe</button>
-                    </form>
-                </div>
-            </div>
-            <?php
-        }
+        <?php foreach ($evenements as $evenement) : ?>
+                    <div class="evenement">
+                        <?php
+                        // Sélectionner l'image en fonction du sport
+                        switch ($evenement['NomSport']) {
+                            case 'football':
+                                $image = '/GestionSalleDeSportSAE/assets/images/istockphoto-1406854849-612x612.jpg';
+                                break;
+                            case 'basketball':
+                                $image = '/GestionSalleDeSportSAE/assets/images/basket-img.png';
+                                break;
+                            case 'badminton':
+                                $image = '/GestionSalleDeSportSAE/assets/images/raquette-volant-de-badminton.jpg';
+                                break;
+                            default:
+                                $image = '/GestionSalleDeSportSAE/assets/images/logo-img.png';
+                                break;
+                        }
+                        ?>
+                        <img src="<?= $image ?>" alt="<?= $evenement['NomEven'] ?>">
+                        <div class="txt">
+                            <h3><?= $evenement['NomEven'] ?></h3>
+                            <p>Date: <?= $evenement['DateEven'] ?></p>
+                            <button class="sinscrire">Je participe</button>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
         */
         ?>
 
