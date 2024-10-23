@@ -66,9 +66,8 @@ class evenementView{
         <?php foreach ($evenements as $evenement) : ?>
                     <div class="evenement">
                         <?php
-                        // Sélectionner l'image en fonction du sport
                         switch ($evenement['NomSport']) {
-                            case 'football':
+                            case 'futsal':
                                 $image = '/GestionSalleDeSportSAE/assets/images/istockphoto-1406854849-612x612.jpg';
                                 break;
                             case 'basketball':
@@ -85,6 +84,21 @@ class evenementView{
                         <img src="<?= $image ?>" alt="<?= $evenement['NomEven'] ?>">
                         <div class="txt">
                             <h3><?= $evenement['NomEven'] ?></h3>
+                            switch ($evenement['NomSport']) {
+                            case 'futsal':
+                                $description = 'Le Tournoi de Futsal est l'événement sportif idéal pour les amateurs de football rapide et intense. Le futsal, une version en salle du football, se joue à cinq contre cinq sur un terrain plus petit. Que vous soyez débutant ou expert, ce tournoi est l'occasion parfaite de partager des moments de convivialité, et de montrer vos talents. Formez votre équipe et inscrivez-vous dès maintenant pour vivre une expérience inoubliable sur le terrain !';
+                                break;
+                            case 'basketball':
+                                $description = 'Rejoignez notre Tournoi de Basketball et vivez l'excitation du jeu sur le terrain ! En équipe de 5, montrez vos compétences dans des matchs intenses où chaque point compte. Que vous soyez un passionné du basket ou simplement à la recherche d'un défi sportif, ce tournoi est une occasion idéale de partager l'adrénaline du jeu avec vos amis. Ne manquez pas cette opportunité de montrer votre talent, inscrivez-vous maintenant !';
+                                break;
+                            case 'badminton':
+                                $description = 'Envie de mêler rapidité et précision ? Participez à notre Tournoi de Badminton, un sport à la fois technique et dynamique ! En simple ou en double, affrontez vos adversaires dans des matchs rapides où chaque échange est crucial. Ce tournoi est l'occasion parfaite pour tester vos réflexes, affiner votre stratégie, et partager un moment fun avec d'autres passionnés. Inscrivez-vous sans attendre et venez montrer vos meilleures smashes sur le court !';
+                                break;
+                            default:
+                                $description = 'Préparez-vous à vivre une journée d’action et de défis lors de notre Événement Sportif Multi-Discipline ! Si vous êtes à la recherche de nouvelles expériences sportives, cet événement vous offre une occasion unique de vous dépasser et de rencontrer d'autres passionnés. Avec plusieurs tournois, activités et défis sportifs, il y a quelque chose pour tout le monde, quel que soit votre niveau. Formez votre équipe, venez seul, ou avec des amis. Inscrivez-vous maintenant et soyez de la partie !';
+                                break;
+                        }
+                            <p><? $description ?></p>
                             <p>Date: <?= $evenement['DateEven'] ?></p>
                             <button class="sinscrire">Je participe</button>
                         </div>
@@ -92,6 +106,7 @@ class evenementView{
                 <?php endforeach; ?>
         */
         ?>
+
 
         <div class="inscription_footer">
             <div class="txt_inscription">
