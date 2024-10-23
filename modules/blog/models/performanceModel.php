@@ -53,13 +53,13 @@ class performanceModel {
 
     public function getImc(): array
     {
-        $sql = "SELECT * FROM IMC ";
+        $sql = "SELECT * FROM IMC order by date desc ";
         $stmt = $this->connexion->prepare($sql);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif
     }
 
-    public function insertImc($date, $poids, $taille, $sexe): void
+    public function insertImc($date, $poids, $taille): void
     {
 
         // Vérifie si une entrée pour cette date existe déjà
@@ -70,18 +70,17 @@ class performanceModel {
 
         if ($count > 0) {
             // Si une entrée existe déjà, on met à jour les valeurs
-            $sql_update = "UPDATE IMC SET poids = :poids, taille = :taille, sexe = :sexe WHERE date = :date";
+            $sql_update = "UPDATE IMC SET poids = :poids, taille = :taille WHERE date = :date";
             $stmt_update = $this->connexion->prepare($sql_update);
             $stmt_update->execute([
                 ':date' => $date,
                 ':poids' => $poids,
                 ':taille' => $taille,
-                ':sexe' => $sexe,
             ]);
         } else {
             // Préparation de la requête SQL pour insérer les données dans la base
-            $sql = "INSERT INTO IMC (date, poids, taille, sexe)
-            VALUES (:date, :poids, :taille, :sexe)";
+            $sql = "INSERT INTO IMC (date, poids, taille)
+            VALUES (:date, :poids, :taille)";
 
             $stmt = $this->connexion->prepare($sql);
 
@@ -90,7 +89,6 @@ class performanceModel {
                 ':date' => $date,
                 ':poids' => $poids,
                 ':taille' => $taille,
-                ':sexe' => $sexe,
             ]);
         }
     }

@@ -20,7 +20,9 @@ class performanceView
         $sports = $controller->afficheSport($performances);
         $tempsJeu= $controller->afficheTmps($performances);
         $victoire= $controller->afficheTotVictoire($performances);
+        //IMC
         $afficheImc = $controller->afficheImc();
+        $afficheHistorique = $controller->afficheHistorique();
 
         // Récupérer les données pour le graphique
         $graphData = $controller->getPerformanceDataForGraph();
@@ -68,11 +70,9 @@ class performanceView
 
     <section id="ImcPerf">
         <h2 class="section-titlePerf">Indice de masse corporelle</h2>
-
-        <div class="button-containerPerf">
-            <button id="add-performance-btnPerf" onclick="formAjtImc()">Ajouter mon <b>IMC</b> du jour</button>
-        </div>
         <?php echo $afficheImc ?>
+        <br>
+        <?php echo $afficheHistorique ?>
     </section>
 </main>
 
@@ -132,24 +132,10 @@ class performanceView
             <label for="taille">Taille :</label>
             <input type="number" id="taille" name="taille" min="100" max="250" required>
             <br><br>
-            <br><br>
-
             <!-- Poids -->
             <label for="poids">Poids (en kg) :</label>
             <input type="number" id="poids" name="poids" min="30" max="300" required>
             <br><br>
-
-            <!-- Sexe -->
-            <div class="form-radio-groupPerf">
-                <label class="form-radioPerf">
-                    <input type="radio" name="sexe" value="Homme" required>
-                    <span class="custom-radioPerf"></span> Homme
-                </label>
-                <label class="form-radioPerf">
-                    <input type="radio" name="sexe" value="Femme" required>
-                    <span class="custom-radioPerf"></span> Femme
-                </label>
-            </div>
             <input class="form-submitPerf" type="submit" name="submit" id="submit" value="Découvrir mon IMC">
         </form>
     </div>

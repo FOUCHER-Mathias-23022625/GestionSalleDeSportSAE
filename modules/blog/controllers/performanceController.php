@@ -222,13 +222,12 @@ class performanceController
         // Récupère les données du formulaire
         $taille = $_POST['taille'];
         $poids = $_POST['poids'];
-        $sexe = ($_POST['sexe'] === 'Homme') ? 1 : 0;
         $date_du_j = date('Y-m-d');
         $imc = 0;
         // Vérifie que toutes les données obligatoires sont présentes
-        if ($taille && $poids && $sexe !== null) {
+        if ($taille && $poids) {
             // Ajouter la performance à la base de données
-            $this->model->insertImc($date_du_j, $poids, $taille, $sexe);
+            $this->model->insertImc($date_du_j, $poids, $taille);
             header('Location:affichePerf');
             exit();
         }
@@ -239,36 +238,95 @@ class performanceController
 
     public function afficheImc(): string
     {
-        // Récupérer les données d'IMC depuis le modèle
-        $IMC = $this->model->getImc();
+        // Récupérer toutes les données d'IMC depuis le modèle
+        $imc = $this->model->getImc();
 
+        // Vérifie qu'il y a un IMC calculé pour aujourd'hui
+        $dateDuJour = date('Y-m-d'); // Format AAAA-MM-JJ (ex: 2024-10-22)
+        $imcDuJour = null;
 
-        // Vérifie que les données obligatoires sont présentes
-        if (!empty($IMC)) {
+        // Parcourir toutes les données pour trouver l'IMC du jour
+        foreach ($imc as $IMC) {
+            if (isset($IMC['date']) && $IMC['date'] === $dateDuJour) {
+                $imcDuJour = $IMC;
+                break; // On arrête la boucle dès qu'on trouve l'IMC du jour
+            }
+        }
+        $html = '';
+        // si un IMC du jour a été trouvé
+        if (!empty($imcDuJour)) {
             // Calcul de l'IMC
-            $imc = $IMC['poids'] / ($IMC['taille']/100 * $IMC['taille']/100);
+            $imc = $imcDuJour['poids'] / (($imcDuJour['taille'] / 100) * ($imcDuJour['taille'] / 100));
 
             // Arrondir l'IMC
             $imc = round($imc, 2);
 
             // Générer le HTML pour afficher l'IMC
-            $html = "<h3>Votre IMC est de : {$imc}</h3>";
+            $html = "<h3>Votre IMC aujourd'hui est de : {$imc}</h3>";
 
             // Ajouter une interprétation de l'IMC
             if ($imc < 18.5) {
-                $html .= "<p>Vous êtes en sous-poids.</p>";
+                $html .= "<p class='sous-poids'>Vous êtes en sous-poids.</p>";
             } elseif ($imc >= 18.5 && $imc < 24.9) {
-                $html .= "<p>Votre poids est normal.</p>";
+                $html .= "<p class='normal-poids'>Votre poids est normal.</p>";
             } elseif ($imc >= 25 && $imc < 29.9) {
-                $html .= "<p>Vous êtes en surpoids.</p>";
+                $html .= "<p class='sur-poids'>Vous êtes en surpoids.</p>";
             } else {
-                $html .= "<p>Vous êtes en obésité.</p>";
+                $html .= "<p class='obesite'>Vous êtes en obésité.</p>";
             }
+            // Si un IMC du jour existe, afficher le bouton Modifier mon IMC du jour
+            $textButton = "Modifier mon IMC du jour";
 
-            return $html;
         } else {
-            return "<p>Veuillez entrer des valeurs valides pour la taille et le poids.</p>";
+            $html .= "<p>Calculez votre IMC du jour.</p>";
+            $textButton = "Ajouter mon IMC du jour";
         }
+
+        $html .= "<div class='button-containerPerf'>
+                <button id='add-performance-btnPerf' onclick='formAjtImc()'>{$textButton}</button>
+              </div>";
+
+        return $html;
+    }
+
+    public function afficheHistorique(): string
+    {
+        // Récupérer toutes les données d'IMC depuis le modèle, triées par date décroissante
+        $IMC_data = $this->model->getImc();
+
+        // Initialiser le HTML
+        $html = "<button id='historique-btn' onclick='afficheHistorique()'>Historique</button>";
+
+        // Générer le tableau HTML de l'historique
+        $html .= "<table id='historique-table' style='display: none;'>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Taille (cm)</th>
+                        <th>Poids (kg)</th>
+                        <th>IMC</th>
+                    </tr>
+                </thead>
+                <tbody>";
+
+        // Parcourir les données pour générer les lignes du tableau
+        foreach ($IMC_data as $IMC) {
+            // Calcul de l'IMC pour chaque enregistrement
+            $imc = $IMC['poids'] / (($IMC['taille'] / 100) * ($IMC['taille'] / 100));
+            $imc = round($imc, 2);
+
+            // Générer chaque ligne du tableau
+            $html .= "<tr>
+                    <td>{$IMC['date']}</td>
+                    <td>{$IMC['taille']}</td>
+                    <td>{$IMC['poids']}</td>
+                    <td>{$imc}</td>
+                  </tr>";
+        }
+
+        $html .= "</tbody></table>";
+
+        return $html;
     }
 
 }
