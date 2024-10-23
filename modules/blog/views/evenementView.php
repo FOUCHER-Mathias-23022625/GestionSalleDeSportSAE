@@ -105,9 +105,32 @@ class evenementView{
                     </div>
                 <?php endforeach; ?>
         */
+        if (isset($_SESSION['user_id'])) {
         ?>
+        <section class="add_event">
+            <h3>Ajouter un évenement</h3>
+            <form action="submit_evenement.php" method="POST">
+               <div class="inputbox">
+                    <input type="text" name="NomEven" required="required">
+                   <span>Nom de l'événement</span>
+            </div>
 
-
+            <p>Date de l'événement</p>
+            <div class="inputbox">
+                <input type="date" name="DateEven" required="required">
+            </div>
+            <div class="inputbox">
+                <input type="text" name="NomSport" required="required">
+                <span>Nom du sport</span>
+            </div>
+            <div class="inputbox">
+                <input type="submit" id="submitButton" value="Ajouter l'événement">
+            </div>
+            </form>
+        </section>
+        <?php
+        }
+        ?>
         <div class="inscription_footer">
             <div class="txt_inscription">
                 <p>Envie de vous surpasser ou simplement de vous remettre en forme ?</p>
