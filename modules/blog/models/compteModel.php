@@ -39,16 +39,4 @@ namespace blog\models;
             $requete->bindParam(":id",$_SESSION['id']);
             $requete->execute();
         }
-
-
-        public function changementMotDePasse($nvMdp){
-            $hashedMdp = password_hash($nvMdp, PASSWORD_DEFAULT);
-            $requete = $this->connexionBD->pdo->prepare("UPDATE utilisateur SET mdp=:mdp where idUtilisateur =:idUtilisateur");
-            $requete->bindParam(":idUtilisateur",$_SESSION['id']);
-            $requete->bindParam(":mdp",$hashedMdp);
-            $requete->execute();
-
-
-
-        }
     }
