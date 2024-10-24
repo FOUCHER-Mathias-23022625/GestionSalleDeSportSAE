@@ -23,12 +23,12 @@ body{
     border-radius: 10px;
     border-color: black;
     text-align: center;
-    height: 500px;
+    transition: height 0.3s ease;
 }
 
 .connexion_box h2 {
     font-size: 2em;
-    padding: 5px 0 30px 0;
+    padding: 5px 0 30px 0px;
     color: black;
     margin-bottom: 50px;
     font-weight: bold;
@@ -54,8 +54,6 @@ body{
     padding: 10px;
     border-radius: 50px;
     font-size: 1.2em;
-    box-sizing: border-box;
-
 }
 
 .connexion_box label{
@@ -98,4 +96,34 @@ body{
 
 #btn-inscription:hover {
     background: #cdcdcd;
+
+}
+
+#inscription {
+    width: 400px;
+    background: #a7c957;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    margin: 20px 0 20px 0;
+    padding: 10px;
+
+}
+
+#btn-cancel {
+    width: 400px;
+    background: none;
+    color: #38444c;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    padding: 10px;
+}
+
+#btn-cancel:hover {
+    background: #cdcdcd;
+
 }
