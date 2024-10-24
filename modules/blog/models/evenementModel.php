@@ -49,4 +49,15 @@ class evenementModel{
         ]);
     }
 
+    public function ajouteEven(){
+        $nom = $_POST['NomEven'];
+        $date = $_POST['DateEven'];
+        $sport = $_POST['NomSport'];
+        $requete = $this->evenementBD->pdo->prepare("INSERT INTO evenement (NomEven, DateEven, NomSport) VALUES (:nom, :date, :sport)");
+        $requete->bindParam(":nom",$nom);
+        $requete->bindParam(":date",$date);
+        $requete->bindParam(":sport",$sport);
+        $requete->execute();
+    }
+
 }
