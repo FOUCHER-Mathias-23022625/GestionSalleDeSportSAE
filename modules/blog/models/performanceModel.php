@@ -6,7 +6,7 @@ use PDO;
 class performanceModel {
     private $connexion;
 
-    public function __construct($host_name, $user_name, $password, $database_name) {
+    public function __construct() {
         try {
             $bd = new bdModel();
             $this->connexion = $bd->getConnexion();
