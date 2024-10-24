@@ -103,6 +103,24 @@ class reservationTerrainController
             $result = json_decode($result, true);
             if ($result['status'] === 'success') {
                 $_SESSION['reservation_status'] = 'success';
+                $user_email = $id_user['email'];
+                $user_name = $id_user['nom'];
+
+                // Préparer le message de l'email
+                $sujet = "Confirmation de votre réservation";
+                $message = "Bonjour $user_name,\n\n Votre réservation a bien été prise en compte. Voici les détails :\n
+                Sport : $sport\n
+                Date : $date\n
+                Heure : $heure\n
+                Terrain : $terrain\n\n
+                Merci pour votre confiance.\n\n
+                Cordialement,\nVotre équipe de SportHub";
+                $headers = "From: gestionsaetest@alwaysdata.net\r\n";
+                $headers .= "Reply-To: gestionsaetest@alwaysdata.net\r\n";
+                $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+                // Envoyer l'email
+                mail($user_email, $sujet, $message, $headers);
             } else {
                 $_SESSION['reservation_status'] = 'error';
                 $_SESSION['reservation_message'] = $result['message'];
