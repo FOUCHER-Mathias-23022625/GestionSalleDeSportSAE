@@ -19,12 +19,8 @@ class performanceController
 
     public function __construct()
     {
-        $host_name = "127.0.0.1";
-        $user_name = "root";
-        $password = "";
-        $database_name = "saetest";
 
-        $this->model = new performanceModel($host_name, $user_name, $password, $database_name);
+        $this->model = new performanceModel();
         $this->view = new performanceView();
     }
 
@@ -275,11 +271,11 @@ class performanceController
                 $html .= "<p class='obesite'>Vous êtes en obésité.</p>";
             }
             // Si un IMC du jour existe, afficher le bouton Modifier mon IMC du jour
-            $textButton = "Modifier mon IMC du jour";
+            $textButton = "Modifier mon IMC";
 
         } else {
-            $html .= "<p>Calculez votre IMC du jour.</p>";
-            $textButton = "Ajouter mon IMC du jour";
+            $html .= "<p>Calculez votre IMC.</p>";
+            $textButton = "Ajouter mon IMC";
         }
 
         $html .= "<div class='button-containerPerf'>
