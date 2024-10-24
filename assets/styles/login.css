@@ -54,6 +54,8 @@ body{
     padding: 10px;
     border-radius: 50px;
     font-size: 1.2em;
+    box-sizing: border-box;
+
 }
 
 .connexion_box label{
