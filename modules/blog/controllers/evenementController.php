@@ -44,7 +44,13 @@ class evenementController{
             }
         }
 
-        header("Location: /evenements/afficheEvenement");
+        header("Location: afficheEvenement");
+        exit();
+    }
+    public function ajouteEven(){
+        $model = new evenementModel();
+        $model->ajouteEven();
+        header("Location: afficheEvenement");
         exit();
     }
 }

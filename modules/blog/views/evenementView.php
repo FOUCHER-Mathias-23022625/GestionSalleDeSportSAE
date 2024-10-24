@@ -91,9 +91,9 @@ class evenementView{
         if (isset($_SESSION['id'])) {
         ?>
 
-            <section class="add_event">
+        <section class="add_event">
             <h3>Ajouter un évenement</h3>
-            <form action="submit_evenement.php" method="POST">
+            <form action="ajouteEven" method="POST">
                <div class="inputbox">
                     <input type="text" name="NomEven" required="required">
                    <span>Nom de l'événement</span>
@@ -108,7 +108,7 @@ class evenementView{
                 <span>Nom du sport</span>
             </div>
             <div class="inputbox">
-                <input type="submit" id="submitButton" value="Ajouter l'événement">
+                <input type="submit" id="addEventButton" value="Ajouter l'événement">
             </div>
             </form>
         </section>
