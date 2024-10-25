@@ -38,10 +38,9 @@ body{
 
 .connexion_box .input-group {
     position: relative;
-    margin: 0 auto;
+    margin: 0 auto 25px auto;
     width: 400px;
     height: 50px;
-    margin-bottom: 25px;
 }
 .connexion_box .input-group input {
     position: absolute;
