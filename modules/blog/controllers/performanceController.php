@@ -189,6 +189,7 @@ class performanceController
     public function addPerformance(): void
     {
         // Récupère les données du formulaire
+
         $date = $_POST['Date'];
         $sport = $_POST['Sport'];
         $tempsJeu = $_POST['TempsJeu'];
