@@ -24,6 +24,7 @@ class performanceView
         $afficheImc = $controller->afficheImc();
         $afficheHistorique = $controller->afficheHistorique();
 
+
         // Récupérer les données pour le graphique
         $graphData = $controller->getPerformanceDataForGraph();
         $datesJson = json_encode($graphData['dates']);
