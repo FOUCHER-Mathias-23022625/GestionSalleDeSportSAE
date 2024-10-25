@@ -43,4 +43,12 @@ window.onload = function() {
             }
         }
     });
+}
+
+// Initialisation du graphique
+window.onload = function() {
+    initChart("performanceGraphe", dates, "Temps de jeu", tempsjeu, "Temps de jeu (minutes)", "rgba(167, 201, 87, 1)", "rgba(167, 201, 87, 0.2)",false);
+
+    // Initialisation d'un autre graphique pour l'IMC
+    initChart("performanceGrapheImc", date, "IMC", imc, "IMC", "rgba(167, 201, 87, 1)", "rgba(167, 201, 87, 0.2)",true);
 };
