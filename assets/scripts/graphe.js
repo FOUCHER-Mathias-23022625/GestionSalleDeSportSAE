@@ -1,15 +1,21 @@
-// Script pour initialiser le graphique
-window.onload = function() {
-    const ctx = document.getElementById("performanceGraphe").getContext("2d");
-    const performanceChart = new Chart(ctx, {
+// Fonction pour initialiser un graphique avec l'option d'inverser les données
+function initChart(canvasId, labels, datasetLabel, datasetData, yAxisLabel, borderColor, backgroundColor, reverse = false) {
+    // Inverser les labels et les données si reverse est true
+    if (reverse) {
+        labels = labels.slice().reverse();
+        datasetData = datasetData.slice().reverse();
+    }
+
+    const ctx = document.getElementById(canvasId).getContext("2d");
+    const chart = new Chart(ctx, {
         type: "line",
         data: {
-            labels: dates, // Utilisation de la variable dates injectée
+            labels: labels, // Les dates ou autres labels pour l'axe X
             datasets: [{
-                label: "Temps de jeu",
-                data: tempsjeu, // Utilisation de la variable tempsjeu injectée
-                borderColor: "rgba(167, 201, 87, 1)",
-                backgroundColor: "rgba(167, 201, 87, 0.2)",
+                label: datasetLabel, // Label de la dataset
+                data: datasetData, // Données pour l'axe Y
+                borderColor: borderColor,
+                backgroundColor: backgroundColor,
                 fill: true,
                 tension: 0.4
             }]
@@ -23,7 +29,7 @@ window.onload = function() {
                 },
                 title: {
                     display: true,
-                    text: "Évolution des Performances"
+                    text: datasetLabel
                 }
             },
             scales: {
@@ -36,7 +42,7 @@ window.onload = function() {
                 y: {
                     title: {
                         display: true,
-                        text: 'Temps de jeu (minutes)'
+                        text: yAxisLabel // Label pour l'axe Y
                     },
                     beginAtZero: true
                 }
