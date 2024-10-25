@@ -16,11 +16,13 @@ class utilisateurModel {
         }
     }
 
-    public function ajouteUtilisateur($mail, $mdp) {
-        $requete = $this->connexionBD->pdo->prepare("INSERT INTO utilisateur (EMail, mdp) VALUES (:mail, :mdp)");
+    public function ajouteUtilisateur($mail, $mdp,$prenom,$nom) {
+        $requete = $this->connexionBD->pdo->prepare("INSERT INTO utilisateur (EMail, mdp, PrenomU, NomU) VALUES (:mail, :mdp, :prenom, :nom)");
         $hashedMdp = password_hash($mdp, PASSWORD_DEFAULT);
         $requete->bindParam(":mail", $mail);
         $requete->bindParam(":mdp", $hashedMdp);
+        $requete->bindParam(":prenom", $prenom);
+        $requete->bindParam(":nom", $nom);
         $requete->execute();
 
         $requete2 = $this->connexionBD->pdo->prepare("SELECT idUtilisateur FROM utilisateur WHERE EMail = :mail");

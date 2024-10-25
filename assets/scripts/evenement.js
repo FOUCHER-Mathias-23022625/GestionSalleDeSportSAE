@@ -1,15 +1,20 @@
 const buttons = document.querySelectorAll('.sinscrire');
+const overlay = document.getElementById('overlay_popup');
 const popup = document.getElementById('popup_event');
 const closePopup = document.getElementById('closePopup');
 
 buttons.forEach(button => {
     button.addEventListener('click', function() {
         popup.classList.add('show');
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
     });
 });
 
 closePopup.addEventListener('click', function() {
     popup.classList.remove('show');
+    overlay.classList.remove('show');
+    document.body.style.overflow = 'auto';
 });
 
 window.addEventListener('click', function(event) {

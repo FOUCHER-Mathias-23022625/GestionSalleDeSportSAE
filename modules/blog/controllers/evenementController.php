@@ -3,46 +3,37 @@
 namespace controllers;
 use blog\models\evenementModel;
 use blog\views\evenementView;
-use Index;
-
+use PDO;
+use index;
 require_once "modules/blog/models/evenementModel.php";
-require_once  "modules/blog/views/evenementView.php";
-require_once  "./index.php";
-
+require_once "modules/blog/views/evenementView.php";
 class evenementController{
-    private $evenementModel;
 
     public function __construct(){
-        $host_name = "127.0.0.1";
-        $user_name = "root";
-        $password = "";
-        $database_name = "saetest";
-
-        $this->model = new evenementModel($host_name, $user_name, $password, $database_name);
-        $this->view = new evenementView();
+        try {
+            $evenementModel = new evenementModel();
+        } catch (PDOException $e) {
+            die("Erreur de connexion à la base de données : " . $e->getMessage());
+        }
     }
 
-    public function afficheEvenement()
-    {
+    public function afficheEvenement() {
+
         $evenementView = new evenementView();
         $evenementView->afficher();
-
     }
 
     public function inscrireUtilisateur($idEvenement) {
         session_start();
 
-        // Vérifier si l'utilisateur est connecté
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['id'])) {
             $_SESSION['error'] = "Vous devez être connecté pour vous inscrire à un événement.";
             header("Location: /utilisateur/afficheFormConnexion");
             exit();
         }
 
-        // Récupérer l'ID de l'utilisateur connecté
-        $idUtilisateur = $_SESSION['user_id'];
+        $idUtilisateur = $_SESSION['id'];
 
-        // Vérifier si l'utilisateur est déjà inscrit à cet événement sinon, l'inscrit pour l'événement
         if ($this->evenementModel->isUserSubscribed($idEvenement, $idUtilisateur)) {
             $_SESSION['error'] = "Vous êtes déjà inscrit à cet événement.";
         } else {
@@ -53,9 +44,13 @@ class evenementController{
             }
         }
 
-        // Rediriger vers la page de l'événement ou autre page
-        header("Location: /evenements/afficheEvenement");
+        header("Location: afficheEvenement");
+        exit();
+    }
+    public function ajouteEven(){
+        $model = new evenementModel();
+        $model->ajouteEven();
+        header("Location: afficheEvenement");
         exit();
     }
 }
-?>
