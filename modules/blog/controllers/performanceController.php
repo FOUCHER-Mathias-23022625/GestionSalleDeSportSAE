@@ -81,6 +81,9 @@ class performanceController
     {
         $model = new performanceModel('mysql-gestionsaetest.alwaysdata.net', '379076', 'gestionSae', 'gestionsaetest_bd');
         $view = new performanceView();
+        if(!isset($_SESSION['id'])) {
+            header('Location: /GestionSalleDeSportSAE/utilisateur/afficheFormConnexion');
+        }
         $view->afficher($model->getPerformances());
     }
 
@@ -170,6 +173,7 @@ class performanceController
     public function addPerformance(): void
     {
         // Récupère les données du formulaire
+
         $date = $_POST['Date'];
         $sport = $_POST['Sport'];
         $tempsJeu = $_POST['TempsJeu'];
@@ -187,9 +191,10 @@ class performanceController
             exit();
         }
         // Vérifie que toutes les données obligatoires sont présentes
+        $id_user = $_SESSION['id'];
         if ($date && $sport && $tempsJeu && $score && $resultat !== null) {
             // Ajouter la performance à la base de données
-            $this->model->insertPerformance($date, $sport, $tempsJeu, $score, $resultat);
+            $this->model->insertPerformance($date, $sport, $tempsJeu, $score, $resultat, $id_user);
             header('Location:affichePerf');
             exit();
         }
@@ -219,11 +224,12 @@ class performanceController
         $taille = $_POST['taille'];
         $poids = $_POST['poids'];
         $date_du_j = date('Y-m-d');
+        $id_user = $_SESSION['id'];
         $imc = 0;
         // Vérifie que toutes les données obligatoires sont présentes
         if ($taille && $poids) {
             // Ajouter la performance à la base de données
-            $this->model->insertImc($date_du_j, $poids, $taille);
+            $this->model->insertImc($date_du_j, $poids, $taille, $id_user);
             header('Location:affichePerf');
             exit();
         }
@@ -235,7 +241,9 @@ class performanceController
     public function afficheImc(): string
     {
         // Récupérer toutes les données d'IMC depuis le modèle
+
         $imc = $this->model->getImc();
+
 
         // Vérifie qu'il y a un IMC calculé pour aujourd'hui
         $dateDuJour = date('Y-m-d'); // Format AAAA-MM-JJ (ex: 2024-10-22)

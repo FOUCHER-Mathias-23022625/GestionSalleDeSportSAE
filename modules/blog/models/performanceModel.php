@@ -19,17 +19,18 @@ class performanceModel {
 
     public function getPerformances(): bool|array
     {
-        $sql = "SELECT date, sport, temps_de_jeu, score, resultat FROM performances";
+        $id_user = $_SESSION['id'];
+        $sql = "SELECT date, sport, temps_de_jeu, score, resultat FROM performances where id_user = $id_user order by date desc";
         $stmt = $this->connexion->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif
     }
 
-    public function insertPerformance($date, $sport, $tempsJeu, $score, $resultat): void
+    public function insertPerformance($date, $sport, $tempsJeu, $score, $resultat, $id_user): void
     {
         // Préparation de la requête SQL pour insérer les données dans la base
-        $sql = "INSERT INTO performances (date, sport, temps_de_jeu, score, resultat)
-            VALUES (:date, :sport, :temps_de_jeu, :score, :resultat)";
+        $sql = "INSERT INTO performances (date, sport, temps_de_jeu, score, resultat, id_user)
+            VALUES (:date, :sport, :temps_de_jeu, :score, :resultat, :id_user)";
 
         $stmt = $this->connexion->prepare($sql);
 
@@ -39,7 +40,8 @@ class performanceModel {
             ':sport' => $sport,
             ':temps_de_jeu' => $tempsJeu,
             ':score' => $score,
-            ':resultat' => $resultat
+            ':resultat' => $resultat,
+            ':id_user' => $id_user
         ]);
     }
     public function deletePerformance($date,$sport): void
@@ -49,21 +51,23 @@ class performanceModel {
         $stmt = $this->connexion->prepare($sql);
 
         $stmt->execute([':date' => $date, ':sport' => $sport]);
+
     }
 
     public function getImc(): array
     {
-        $sql = "SELECT * FROM IMC order by date desc ";
+        $id_user = $_SESSION['id'];
+        $sql = "SELECT * FROM IMC where id_user = $id_user order by date desc ";
         $stmt = $this->connexion->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif
     }
 
-    public function insertImc($date, $poids, $taille): void
+    public function insertImc($date, $poids, $taille, $id_user): void
     {
-
+        $id_user = $_SESSION['id'];
         // Vérifie si une entrée pour cette date existe déjà
-        $sql_check = "SELECT COUNT(*) FROM IMC WHERE date = :date";
+        $sql_check = "SELECT COUNT(*) FROM IMC WHERE date = :date and id_user = $id_user";
         $stmt_check = $this->connexion->prepare($sql_check);
         $stmt_check->execute([':date' => $date]);
         $count = $stmt_check->fetchColumn();
@@ -79,8 +83,8 @@ class performanceModel {
             ]);
         } else {
             // Préparation de la requête SQL pour insérer les données dans la base
-            $sql = "INSERT INTO IMC (date, poids, taille)
-            VALUES (:date, :poids, :taille)";
+            $sql = "INSERT INTO IMC (date, poids, taille, id_user)
+            VALUES (:date, :poids, :taille, :id_user)";
 
             $stmt = $this->connexion->prepare($sql);
 
@@ -89,6 +93,7 @@ class performanceModel {
                 ':date' => $date,
                 ':poids' => $poids,
                 ':taille' => $taille,
+                ':id_user' => $id_user
             ]);
         }
     }
