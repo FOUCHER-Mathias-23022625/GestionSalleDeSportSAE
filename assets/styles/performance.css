@@ -343,5 +343,25 @@ tr {
     transition: background-color 0.2s ease;
 }
 
+.placeholder-form {
+    position: relative;
+    display: inline-block;
+    width: 100%; /* Pour occuper toute la largeur du formulaire */
+}
 
+.form-inputPerf {
+    width: 100%;
+    padding-right: 2.5rem; /* Laisser de l'espace pour l'unité */
+    box-sizing: border-box;
+    font-size: 22px;
+}
 
+.unite {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    color: rgb(171, 171, 171);
+    pointer-events: none; /* Empêche l'unité d'être cliquable */
+}

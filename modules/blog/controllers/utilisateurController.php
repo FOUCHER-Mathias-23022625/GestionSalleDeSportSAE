@@ -55,8 +55,10 @@ class utilisateurController
     public function inscription() {
         $mail = $_POST['mail'];
         $mdp = $_POST['mdp'];
+        $prenom = $_POST['prenom'];
+        $nom = $_POST['nom'];
         $model = new utilisateurModel();
-        $model->ajouteUtilisateur($mail, $mdp);
+        $model->ajouteUtilisateur($mail, $mdp, $prenom, $nom);
         header('location:afficheFormConnexion');
     }
 
@@ -72,21 +74,21 @@ class utilisateurController
         header('Location: index.php');
     }
 
-        public function afficheFormConnexion()
-        {
-            $utilisateurView = new utilisateurView();
-            ob_start();
-            $utilisateurView->afficher();
-            $contenu=ob_get_clean();
-            $layout = new Layout("Utilisateur", $contenu);
-            $layout->afficher();
-
-        }
-
-        public function test($val1,$val2){
-            echo $val1." et la valeur 2 est : ".$val2;
-        }
+    public function afficheFormConnexion()
+    {
+        $utilisateurView = new utilisateurView();
+        ob_start();
+        $utilisateurView->afficher();
+        $contenu=ob_get_clean();
+        $layout = new Layout("Utilisateur", $contenu);
+        $layout->afficher();
 
     }
 
-    ?>
+    public function test($val1,$val2){
+        echo $val1." et la valeur 2 est : ".$val2;
+    }
+
+}
+
+?>

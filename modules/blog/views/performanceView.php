@@ -87,25 +87,39 @@ class performanceView
         <h1 class="form-titlePerf">Ajouter une performance</h1>
         <form class="event-formPerf" action="addPerformance" method="POST">
             <span class="close-btnPerf" onclick="closeForm()">&times;</span>
-            <label class="form-labelPerf" for="Date">Date</label>
-            <input class="form-inputPerf" type="DATE" id="Date" name="Date" required>
-
-            <label class="form-labelPerf" for="Sport">Sport</label>
-            <select class="form-selectPerf" id="Sport" name="Sport" required>
-                <option value=""> Sélectionnez un sport </option>
-                <option value="Volley">Volley</option>
-                <option value="Football">Football</option>
-                <option value="Tennis">Tennis</option>
-                <option value="Ping-Pong">Ping-Pong</option>
-                <option value="Badminton">Badminton</option>
-            </select>
-
-            <label class="form-labelPerf" for="TmpJeu">Temps de jeu (en minutes)</label>
-            <input class="form-inputPerf" type="text" id="TmpJeu" name="TempsJeu" required>
-
-            <label class="form-labelPerf" for="Score">Score</label>
-            <input class="form-inputPerf" type="text" id="Score" name="Score" required>
-
+            <br>
+            <!--Date-->
+            <div class="placeholder-form">
+                <label class="form-labelPerf" for="Date">Date</label>
+                <input class="form-inputPerf" type="DATE" id="Date" name="Date" required>
+            </div>
+            <br><br>
+            <!--Sport-->
+            <div class="placeholder-form">
+                <label class="form-labelPerf" for="Sport">Sport</label>
+                <select class="form-selectPerf" id="Sport" name="Sport" required>
+                    <option value=""> Sélectionnez un sport </option>
+                    <option value="Volley">Volley</option>
+                    <option value="Football">Football</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Ping-Pong">Ping-Pong</option>
+                    <option value="Badminton">Badminton</option>
+                </select>
+            </div>
+            <br><br>
+            <!--Temps de jeu-->
+            <div class="placeholder-form">
+                <label class="form-labelPerf" for="TmpJeu">Temps de jeu </label>
+                <input class="form-inputPerf" type="text" id="TmpJeu" name="TempsJeu" required>
+            </div>
+            <br><br>
+            <!--Score-->
+            <div class="placeholder-form">
+                <label class="form-labelPerf" for="Score">Score</label>
+                <input class="form-inputPerf" type="text" id="Score" name="Score" required>
+            </div>
+            <br><br>
+            <!--Resultat-->
             <div class="form-radio-groupPerf">
                 <label class="form-radioPerf">
                     <input type="radio" name="resultat" value="Victoire" required>
@@ -116,25 +130,29 @@ class performanceView
                     <span class="custom-radioPerf"></span> Défaite
                 </label>
             </div>
-
+            <br>
             <input class="form-submitPerf" type="submit" name="submit" id="submit" value="Ajouter la performance">
 
         </form>
     </div>
 </div>
-
 <div class="overlayFormPerf" id="formOverlayAddImc">
     <div class="form-containerPerf">
-        <h1 class="form-titlePerf">Mon IMC du jour</h1>
+        <h1 class="form-titlePerf">Mon IMC</h1>
         <form class="event-formPerf" action="addImc" method="POST">
             <span class="close-btnPerf" onclick="closeFormImc()">&times;</span>
+            <br>
             <!--Taille -->
-            <label for="taille">Taille :</label>
-            <input type="number" id="taille" name="taille" min="100" max="250" required>
+                <div class="placeholder-form">
+                <input class="form-inputPerf" type="number" id="taille" name="taille" placeholder="Ma taille" min="100" max="250" required>
+                <label class="unite">cm</label>
+            </div>
             <br><br>
             <!-- Poids -->
-            <label for="poids">Poids (en kg) :</label>
-            <input type="number" id="poids" name="poids" min="30" max="300" required>
+            <div class="placeholder-form">
+                <label class="unite">kg</label>
+                <input class="form-inputPerf" type="" id="poids" name="poids" placeholder="Mon poids" min="30" max="300" required>
+            </div>
             <br><br>
             <input class="form-submitPerf" type="submit" name="submit" id="submit" value="Découvrir mon IMC">
         </form>
