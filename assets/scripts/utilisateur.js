@@ -1,14 +1,21 @@
-const form = document.getElementById('login-form');
-
-
-const btnConnexion = document.getElementById('btn-connexion');
-const btnInscription = document.getElementById('btn-inscription');
-
-
-btnConnexion.addEventListener('click', function() {
-    form.action = 'connexion'; // Action pour la connexion
+document.getElementById('btn-inscription').addEventListener('click', function() {
+    document.getElementById('registration-form').style.display = 'block';
+    document.getElementById('login-form').style.display = 'none';
 });
 
-btnInscription.addEventListener('click', function() {
-    form.action = 'inscription'; // Action pour l'inscription
+// Masquer le formulaire d'inscription et revenir au formulaire de connexion
+document.getElementById('btn-cancel').addEventListener('click', function() {
+    document.getElementById('registration-form').style.display = 'none';
+    document.getElementById('login-form').style.display = 'block';
 });
+
+
+document.getElementById('btn-connexion').addEventListener('click', function() {
+    document.getElementById('login-form').action = 'connexion';
+});
+
+
+document.getElementById('inscription').addEventListener('click', function() {
+    document.getElementById('signup-form').action = 'inscription';
+});
+

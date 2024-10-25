@@ -21,8 +21,8 @@
 .evenement{
     display: flex;
     flex-direction: row;
-    width: 900px;
-    height: 250px;
+    width: 1200px;
+    height: 350px;
     margin: 50px auto;
     --g: 1px;
     --b: 5px;
@@ -48,10 +48,9 @@
     color: white;
     border-radius: 50px;
     outline: none;
-    transition: background-color 0.3s ease;
     width: 100px;
-    margin-left: 300px;
-    padding: 5px;
+    margin: 0 10px 30px 600px;
+    padding: 10px;
     transition: 0.4s ease;
     cursor: pointer;
     border: none;
@@ -59,27 +58,11 @@
 
 .sinscrire:hover,
 .sinscrire:focus {
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 3px 5px;
     color: white;
 }
 
-
-#foot-event{
-    --m:
-            radial-gradient(circle ,#000 99%,#0000)
-            0 100%/46% 92% no-repeat,
-            radial-gradient(circle,#000 99%,#0000)
-            100% 0/46% 92% no-repeat;
-    -webkit-mask: var(--m);
-    mask: var(--m);
-    filter: grayscale(0.7);
-    transition: .3s linear;
-    cursor: pointer;
-    width: 350px;
-    opacity: 1;
-}
-
-#basket-event{
+#event-img {
     --m:
             radial-gradient(circle ,#000 99%,#0000)
             0 100%/46% 92% no-repeat,
@@ -90,24 +73,7 @@
     filter: grayscale(.7);
     transition: .3s linear;
     cursor: pointer;
-    width: 350px;
-    opacity: 1;
-}
-
-
-
-#badminton-event {
-    --m:
-            radial-gradient(circle ,#000 99%,#0000)
-            0 100%/46% 92% no-repeat,
-            radial-gradient(circle,#000 99%,#0000)
-            100% 0/46% 92% no-repeat;
-    -webkit-mask: var(--m);
-    mask: var(--m);
-    filter: grayscale(.7);
-    transition: .3s linear;
-    cursor: pointer;
-    width: 450px;
+    width: 400px;
     opacity: 1;
 }
 
@@ -115,23 +81,13 @@
     --_p: 75%;
 }
 
-.evenement:hover #foot-event {
+.evenement:hover #event-img {
     webkit-mask-position: 7.5% 50%,92.5% 50%;
     mask-position: 7.5% 50%,92.5% 50%;
     filter: grayscale(0);
 }
 
-.evenement:hover #basket-event {
-    webkit-mask-position: 7.5% 50%,92.5% 50%;
-    mask-position: 7.5% 50%,92.5% 50%;
-    filter: grayscale(0);
-}
 
-.evenement:hover #badminton-event {
-    webkit-mask-position: 7.5% 50%,92.5% 50%;
-    mask-position: 7.5% 50%,92.5% 50%;
-    filter: grayscale(0);
-}
 
 .evenement:hover .txt {
     opacity: 1;
@@ -203,7 +159,6 @@
     background-color: white;
     padding: 50px 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    background: white;
     border-radius: 10px;
     border-color: black;
     opacity: 0;
@@ -211,6 +166,7 @@
     transition: opacity 0.4s ease, visibility 0.4s ease;
     max-height: 450px;
     overflow-y: auto;
+    width: 300px;
 }
 
 .popup_inscription.show {
@@ -230,7 +186,7 @@
 
 .popup_inscription .inputbox {
     position: relative;
-    width: 280px;
+    width: 250px;
     height: 50px;
     margin-bottom: 25px;
 }
@@ -238,13 +194,14 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 300px !important;
     border: 2px solid #000;
     outline: none;
     background: none;
     padding: 10px;
     border-radius: 10px;
     font-size: 1.2em;
+    box-sizing: border-box;
 }
 
 .popup_inscription .inputbox span {
@@ -254,6 +211,8 @@
     font-size: 1em;
     transition: 0.6s;
     font-family: "Poppins", sans-serif;
+    pointer-events: none;
+    width: 100px;
 }
 .popup_inscription .inputbox input:focus ~ span,
 .popup_inscription .inputbox input:valid ~ span {
@@ -261,8 +220,26 @@
     font-size: 1em;
 }
 
+.overlay_popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 2;
+}
+
+.overlay_popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 #submitButton {
-    width: 80%;
+    width: 250px;
     background: #a7c957;
     color: white;
     border: white;
@@ -308,10 +285,12 @@
     border-color: black;
     max-height: 450px;
     width: 400px;
+    z-index: -1;
 }
 
+
 .add_event p{
-    margin: 0 0 0 8px;
+    margin: 0 0 0 55px;
 }
 
 
@@ -329,7 +308,7 @@
     position: relative;
     width: 300px;
     height: 50px;
-    margin-bottom: 25px;
+    margin:0 auto 25px auto ;
 }
 .add_event .inputbox input {
     position: absolute;
@@ -342,6 +321,7 @@
     padding: 10px;
     border-radius: 10px;
     font-size: 1.2em;
+    box-sizing: border-box;
 }
 
 .add_event .inputbox span {
@@ -351,6 +331,7 @@
     font-size: 1em;
     transition: 0.6s;
     font-family: "Poppins", sans-serif;
+    pointer-events: none;
 }
 .add_event .inputbox input:focus ~ span,
 .add_event .inputbox input:valid ~ span {
@@ -358,4 +339,16 @@
     font-size: 1em;
 }
 
+#addEventButton {
+    width: 300px;
+    background: #a7c957;
+    color: white;
+    border: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#addEventButton:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 36px 0px, rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
+}
 

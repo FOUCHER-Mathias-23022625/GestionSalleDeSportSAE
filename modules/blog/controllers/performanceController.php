@@ -167,25 +167,6 @@ class performanceController
             'temps_de_jeu' => $tempsjeu
         ];
     }
-
-    public function getPerformanceDataForGraphImc(): array
-    {
-        $imcData = $this->model->getImc();
-
-        $imc = [];
-        $date = [];
-
-        foreach ($imcData as $Imc) {
-            $imc[] = $Imc['poids'] / (($Imc['taille'] / 100) * ($Imc['taille'] / 100));
-            $date[] = $Imc['date'];
-        }
-
-        // Retourner un tableau associatif avec les données nécessaires pour le graphe
-        return [
-            'date' => $date,
-            'imc' => $imc
-        ];
-    }
     public function addPerformance(): void
     {
         // Récupère les données du formulaire

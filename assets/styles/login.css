@@ -23,7 +23,7 @@ body{
     border-radius: 10px;
     border-color: black;
     text-align: center;
-    height: 500px;
+    transition: height 0.3s ease;
 }
 
 .connexion_box h2 {
@@ -38,10 +38,9 @@ body{
 
 .connexion_box .input-group {
     position: relative;
-    margin: 0 auto;
+    margin: 0 auto 25px auto;
     width: 400px;
     height: 50px;
-    margin-bottom: 25px;
 }
 .connexion_box .input-group input {
     position: absolute;
@@ -96,4 +95,34 @@ body{
 
 #btn-inscription:hover {
     background: #cdcdcd;
+
+}
+
+#inscription {
+    width: 400px;
+    background: #a7c957;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    margin: 20px 0 20px 0;
+    padding: 10px;
+
+}
+
+#btn-cancel {
+    width: 400px;
+    background: none;
+    color: #38444c;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    padding: 10px;
+}
+
+#btn-cancel:hover {
+    background: #cdcdcd;
+
 }

@@ -27,10 +27,10 @@ class reservationUtilisateurView
                 <select id="filter">
                     <option value="">Tous les sports</option>
                     <option value="football">Foot</option>
-                    <option value="ping-pong">Foot</option>
-                    <option value="basket">Foot</option>
-                    <option value="badminton">Foot</option>
-                    <option value="Volley-ball">Foot</option>
+                    <option value="ping-pong">ping-pong</option>
+                    <option value="basket">basket</option>
+                    <option value="badminton">badminton</option>
+                    <option value="Volley-ball">Volley-ball</option>
                     <option value="tennis">Tennis</option>
                     <!-- Ajoute d'autres sports selon tes besoins -->
                 </select>
@@ -74,9 +74,6 @@ class reservationUtilisateurView
                                         <div><i class="fas fa-clock"></i> Heure: <?php echo htmlspecialchars($reservation['heure']); ?>:00 H</div>
                                     </div>
                                     <!-- Bouton pour plus de détails -->
-                                    <div class="action-buttons">
-                                        <button class="btn details-btn" onclick="openModaldeleteUtilisateur('<?php echo htmlspecialchars($reservation['sport']); ?>', '<?php echo htmlspecialchars($reservation['heure']); ?>', '<?php echo htmlspecialchars($reservation['date']); ?>')">Annuler</button>
-                                    </div>
                                 </li>
                             <?php endforeach; ?>
                         </ul>

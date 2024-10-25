@@ -1,21 +1,15 @@
-// Fonction pour initialiser un graphique
-function initChart(canvasId, labels, datasetLabel, datasetData, yAxisLabel, borderColor, backgroundColor, reverse = false) {
-    // Inverser les labels et les données si reverse est true
-    if (reverse) {
-        labels = labels.slice().reverse();
-        datasetData = datasetData.slice().reverse();
-    }
-
-    const ctx = document.getElementById(canvasId).getContext("2d");
-    const chart = new Chart(ctx, {
+// Script pour initialiser le graphique
+window.onload = function() {
+    const ctx = document.getElementById("performanceGraphe").getContext("2d");
+    const performanceChart = new Chart(ctx, {
         type: "line",
         data: {
-            labels: labels, // Les dates ou autres labels pour l'axe X
+            labels: dates, // Utilisation de la variable dates injectée
             datasets: [{
-                label: datasetLabel, // Label de la dataset
-                data: datasetData, // Données pour l'axe Y
-                borderColor: borderColor,
-                backgroundColor: backgroundColor,
+                label: "Temps de jeu",
+                data: tempsjeu, // Utilisation de la variable tempsjeu injectée
+                borderColor: "rgba(167, 201, 87, 1)",
+                backgroundColor: "rgba(167, 201, 87, 0.2)",
                 fill: true,
                 tension: 0.4
             }]
@@ -29,7 +23,7 @@ function initChart(canvasId, labels, datasetLabel, datasetData, yAxisLabel, bord
                 },
                 title: {
                     display: true,
-                    text: datasetLabel
+                    text: "Évolution des Performances"
                 }
             },
             scales: {
@@ -42,7 +36,7 @@ function initChart(canvasId, labels, datasetLabel, datasetData, yAxisLabel, bord
                 y: {
                     title: {
                         display: true,
-                        text: yAxisLabel // Label pour l'axe Y
+                        text: 'Temps de jeu (minutes)'
                     },
                     beginAtZero: true
                 }
