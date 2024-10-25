@@ -40,7 +40,8 @@ class performanceModel {
             ':sport' => $sport,
             ':temps_de_jeu' => $tempsJeu,
             ':score' => $score,
-            ':resultat' => $resultat
+            ':resultat' => $resultat,
+            ':id_user' => $id_user
         ]);
     }
     public function deletePerformance($date,$sport): void
@@ -62,7 +63,7 @@ class performanceModel {
         return $stmt->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif
     }
 
-    public function insertImc($date, $poids, $taille): void
+    public function insertImc($date, $poids, $taille, $id_user): void
     {
         $id_user = $_SESSION['id'];
         // Vérifie si une entrée pour cette date existe déjà
@@ -82,8 +83,8 @@ class performanceModel {
             ]);
         } else {
             // Préparation de la requête SQL pour insérer les données dans la base
-            $sql = "INSERT INTO IMC (date, poids, taille)
-            VALUES (:date, :poids, :taille)";
+            $sql = "INSERT INTO IMC (date, poids, taille, id_user)
+            VALUES (:date, :poids, :taille, :id_user)";
 
             $stmt = $this->connexion->prepare($sql);
 
@@ -92,6 +93,7 @@ class performanceModel {
                 ':date' => $date,
                 ':poids' => $poids,
                 ':taille' => $taille,
+                ':id_user' => $id_user
             ]);
         }
     }
