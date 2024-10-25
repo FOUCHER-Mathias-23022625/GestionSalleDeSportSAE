@@ -41,8 +41,13 @@ session_start();
                     </ul>
                     <ul class="mainNav">
                         <?php if($this->estConnecte()){
+                            $model = new \blog\models\compteModel();
+                            $image = $model->utilisateurInformation()['pp'];
+                            if(!$image){
+                                $image="pp.png";
+                            }
                             echo'<li><a href="../utilisateur/deconnecte" name="deconnecte" class="hideOnMobile">Déconnexion</a></li>
-                             <li><a href="../compte/afficheCompte"<img src="../../../assets/images/icons-sport/badminton(1).png" alt="Photo de Profil" class="photoProfil"> </a></li>';} ?>
+                             <li><a href="../compte/afficheCompte"><img src="/GestionSalleDeSportSAE/assets/images/public/'.$image.'". alt="Photo de Profil" class="photoProfil"> </a></li>';} ?>
                         <?php if(!$this->estConnecte()){echo'
                         <li><a href="../utilisateur/afficheFormConnexion" class="hideOnMobile">Connexion</a></li>';
                         }?>
