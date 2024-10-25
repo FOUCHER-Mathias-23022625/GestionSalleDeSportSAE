@@ -28,7 +28,12 @@ class performanceView
         // Récupérer les données pour le graphique
         $graphData = $controller->getPerformanceDataForGraph();
         $datesJson = json_encode($graphData['dates']);
-        $tempsjeuJson = json_encode($graphData['temps_de_jeu']);?>
+        $tempsjeuJson = json_encode($graphData['temps_de_jeu']);
+
+        // données pour graphique Imc
+        $graphDataImc = $controller->getPerformanceDataForGraphImc();
+        $dateJson = json_encode($graphDataImc['date']);
+        $imcJson = json_encode($graphDataImc['imc']);?>
 
 
 <main id="main-contentPerf" class="containerPerf">
@@ -75,6 +80,15 @@ class performanceView
         <br>
         <?php echo $afficheHistorique ?>
     </section>
+
+    <?php if (count($performances) >= 2) : ?>
+        <section id="performance-grapheImc">
+            <h2 class="section-titlePerf">Mon évolution</h2>
+            <div class="chartPerf">
+                <canvas id="performanceGrapheImc"></canvas>
+            </div>
+        </section>
+    <?php endif; ?>
 </main>
 
 <footer id="main-footerPerf">
@@ -167,6 +181,13 @@ class performanceView
 
     console.log(dates);
     console.log(tempsjeu);
+
+    //données du graphe Imc
+    const date = <?php echo $dateJson ?>;
+    const imc = <?php echo $imcJson ?>;
+
+    console.log(date);
+    console.log(imc);
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
