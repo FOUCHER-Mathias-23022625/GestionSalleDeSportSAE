@@ -49,6 +49,7 @@ class performanceModel {
         $stmt = $this->connexion->prepare($sql);
 
         $stmt->execute([':date' => $date, ':sport' => $sport]);
+
     }
 
     public function getImc(): array
