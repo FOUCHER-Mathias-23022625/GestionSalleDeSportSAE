@@ -81,6 +81,9 @@ class performanceController
     {
         $model = new performanceModel('mysql-gestionsaetest.alwaysdata.net', '379076', 'gestionSae', 'gestionsaetest_bd');
         $view = new performanceView();
+        if(!isset($_SESSION['id'])) {
+            header('Location: /GestionSalleDeSportSAE/utilisateur/afficheFormConnexion');
+        }
         $view->afficher($model->getPerformances());
     }
 
@@ -188,9 +191,10 @@ class performanceController
             exit();
         }
         // Vérifie que toutes les données obligatoires sont présentes
+        $id_user = $_SESSION['id'];
         if ($date && $sport && $tempsJeu && $score && $resultat !== null) {
             // Ajouter la performance à la base de données
-            $this->model->insertPerformance($date, $sport, $tempsJeu, $score, $resultat);
+            $this->model->insertPerformance($date, $sport, $tempsJeu, $score, $resultat, $id_user);
             header('Location:affichePerf');
             exit();
         }
