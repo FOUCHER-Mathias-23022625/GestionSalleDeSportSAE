@@ -16,21 +16,21 @@ class interfaceAdminModel
 
     public function GetAllUsers(){
         $sql = "SELECT * FROM utilisateur";
-        $stmt = $this->connexion->prepare($sql);
+        $stmt = $this->connexion->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function GetAllReservations(){
         $sql = "SELECT * FROM reservationTerrain";
-        $stmt = $this->connexion->prepare($sql);
+        $stmt = $this->connexion->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function GetAllEvenements(){
-        $sql = "SELECT * FROM Evenement";
-        $stmt = $this->connexion->prepare($sql);
+        $sql = "SELECT * FROM evenement";
+        $stmt = $this->connexion->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }

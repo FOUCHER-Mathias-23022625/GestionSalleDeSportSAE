@@ -14,7 +14,7 @@ class compteModel
 
     public function utilisateurInformation()
     {
-        $requete = $this->connexionBD->pdo->prepare("SELECT NomU, PrenomU, EMail, mdp, pp FROM utilisateur WHERE idUtilisateur=:idUtilisateur");
+        $requete = $this->connexionBD->pdo->prepare("SELECT NomU, PrenomU, EMail, mdp, pp,admin FROM utilisateur WHERE idUtilisateur=:idUtilisateur");
         $requete->bindParam(":idUtilisateur", $_SESSION["id"]);
         $requete->execute();
         $requete = $requete->fetch();
