@@ -7,7 +7,7 @@ use controllers\performanceController;
 class performanceView
 {
 
-    public function afficher($performances)
+    public function afficher($performances,$imc)
     {
         ob_start();
         // Affichage du message d'erreur, s'il existe
@@ -71,9 +71,9 @@ class performanceView
             <div class="chartPerf">
                 <canvas id="performanceGraphe"></canvas>
             </div>
-        </section>
     <?php endif; ?>
 
+    <!-- Graphique IMC : -->
     <section id="ImcPerf">
         <h2 class="section-titlePerf">Indice de masse corporelle</h2>
         <?php echo $afficheImc ?>
@@ -81,17 +81,19 @@ class performanceView
         <?php echo $afficheHistorique ?>
     </section>
 
-    <?php if (count($performances) >= 2) : ?>
+    <?php if (count($imc) >= 2) : ?>
         <section id="performance-grapheImc">
             <h2 class="section-titlePerf">Mon évolution</h2>
             <div class="chartPerf">
                 <canvas id="performanceGrapheImc"></canvas>
             </div>
         </section>
+</section>
     <?php endif; ?>
 </main>
 
-<footer id="main-footerPerf">
+
+        <footer id="main-footerPerf">
     <div class="containerPerf">
         <p>&copy; 2024 Salle Multi-Sport - Suivi des Performances</p>
     </div>
