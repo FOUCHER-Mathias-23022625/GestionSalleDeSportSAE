@@ -46,11 +46,12 @@ class performanceModel {
     }
     public function deletePerformance($date,$sport)
     {
+        $id_user = $_SESSION['id'];
         // Préparer la requête pour supprimer la performance
-        $sql = "DELETE FROM performances WHERE date = :date AND sport = :sport";
+        $sql = "DELETE FROM performances WHERE date = :date AND sport = :sport AND id_user = :id_user";
         $stmt = $this->connexion->prepare($sql);
 
-        $stmt->execute([':date' => $date, ':sport' => $sport]);
+        $stmt->execute([':date' => $date, ':sport' => $sport, ':id_user' => $id_user]);
 
     }
 
@@ -63,7 +64,7 @@ class performanceModel {
         return $stmt->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif
     }
 
-    public function insertImc($date, $poids, $taille, $id_user)
+    public function insertImc($date, $poids, $taille)
     {
         $id_user = $_SESSION['id'];
         // Vérifie si une entrée pour cette date existe déjà

@@ -20,6 +20,7 @@ class performanceView
         $sports = $controller->afficheSport($performances);
         $tempsJeu= $controller->afficheTmps($performances);
         $victoire= $controller->afficheTotVictoire($performances);
+
         //IMC
         $afficheImc = $controller->afficheImc();
         $afficheHistorique = $controller->afficheHistorique();
@@ -89,7 +90,7 @@ class performanceView
             </tbody>
             <?php endif; ?>
             <?php if (!$afficherTabPerf) : ?>
-            <section id="pas_valeurs"
+            <section id="pas_valeurs">
             <thead>
             <tr>
                 <th>Date</th>
