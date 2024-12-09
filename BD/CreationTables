@@ -13,19 +13,19 @@ create table abonnement
 
 create table utilisateur
 (
-    "NomU"          varchar not null,
-    "PrenomU"       varchar not null,
-    "EMail"         varchar not null
+    "NomU"          varchar(20) not null,
+    "PrenomU"       varchar(20) not null,
+    "EMail"         varchar(60) not null
         unique,
     "IdUtilisateur" serial
         primary key,
-    constraint "EMail_correct"
+    constraint EMail_correct
         check (regexp_like("EMail", '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$'))
 );
 
 create table sport
 (
-    "NomSport"  varchar
+    "NomSport"  varchar(15)
         primary key,
     "NbJoueurs" int
 );
@@ -34,11 +34,10 @@ create table terrain
 (
     "IdTerrain" serial
         primary key,
-    "TypeTerrain" varchar,
+    "TypeTerrain" varchar(15),
     constraint "Terrain_Sport_fk"
         foreign key ("TypeTerrain") references sport ("NomSport")
 );
-
 
 create table reservation
 (
@@ -47,38 +46,90 @@ create table reservation
     "DateRes"       date not null,
     "HDeb"          time not null,
     "HFin"          time not null,
-    "IdUtilisateur" serial not null,
-    "IdTerrain"     serial not null,
+    "IdUtilisateur" int not null,
+    "IdTerrain"     int not null,
 
     constraint reservation_utilisateur_utilisateur_fk
         foreign key ("IdUtilisateur") references utilisateur ("IdUtilisateur"),
     constraint reservation_terrain_terrain_fk
-        foreign key ("IdTerrain") references terrain ("IdTerrain")
+        foreign key ("IdTerrain") references terrain ("IdTerrain"),
+    constraint reservation_terrain_heure
+        check("HDeb"<"HFin")
 );
-
 
 create table evenement
 (
     "IdEvenement" serial
         primary key,
-    "NomEven"     varchar not null,
+    "NomEven"     varchar(40) not null,
     "DateEven"    date    not null,
-    "NomSport"    varchar,
+    "NomSport"    varchar(15),
     constraint evenement_sport_nomsport_fk
         foreign key ("NomSport") references sport ("NomSport")
 );
 
 create table performances
 (
-    "IdUtilisateur" int not null
-        primary key,
-    "DatePerf"    date not null
-        primary key,
+    "IdUtilisateur" int not null,
+    "DatePerf"    date not null,
     "Distance"    decimal(9, 2),
     "Temps"       decimal(6, 2),
     "Repetitions" int,
     "Score"       varchar(7),
     "Resultat"    boolean,
+
     constraint utilisateur_fk
-        foreign key ("IdUtilisateur") references utilisateur ("IdUtilisateur")
+        foreign key ("IdUtilisateur") references utilisateur ("IdUtilisateur"),
+    constraint performances_pk
+        primary key ("IdUtilisateur", "DatePerf")
 );
+
+create function verification_abo() returns trigger
+    as
+    $$
+    begin
+        if new."IdUtilisateur" not in(
+            select abonnement."IdUtilisateur"
+            from abonnement, reservation
+            where new."DateRes" > "DateDeb" and new."DateRes" < "DateExp"
+            )
+        then raise exception 'Plus abonné';
+        else insert into reservation ("DateRes", "HDeb", "HFin", "IdUtilisateur", "IdTerrain") values (new."DateRes", new."HDeb", new."HFin", new."IdUtilisateur", new."IdTerrain");
+    end if;
+        return new;
+end;
+$$;
+
+create trigger reservation_abonnement
+    before insert
+    on reservation
+    for each row
+    WHEN (pg_trigger_depth() < 1)
+    execute procedure verification_abo();
+
+create function disponibilite_reservation() returns trigger
+    as
+    $$
+    begin
+        if new."IdTerrain" in(
+            select "IdTerrain"
+            from reservation
+            )
+            and new."HDeb" in (
+                select "HDeb"
+                from reservation
+                where new."IdTerrain" = "IdTerrain" and "DateRes" = new."DateRes"
+                )
+        then raise exception 'créneau déjà réservé';
+        else insert into reservation ("DateRes", "HDeb", "HFin", "IdUtilisateur", "IdTerrain") values (new."DateRes", new."HDeb", new."HFin", new."IdUtilisateur", new."IdTerrain");
+    end if;
+        return new;
+end;
+$$;
+
+create trigger dispo_reserv
+    before insert
+    on reservation
+    for each row
+    when ( pg_trigger_depth() < 1 )
+    execute procedure disponibilite_reservation();
