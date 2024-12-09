@@ -2,7 +2,7 @@ create table abonnement
 (
     "IdAbonnement" serial
         primary key,
-    "DateDeb"      date not null,
+    "DateDeb"      date not null default current_date,
     "DateExp"      date not null,
     "IdUtilisateur" int unique not null,
     constraint idutilisateur_fk
