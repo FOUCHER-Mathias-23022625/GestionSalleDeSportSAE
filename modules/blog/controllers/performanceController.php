@@ -77,7 +77,7 @@ class performanceController
         return $html; // Retourne le code HTML pour l'affichage dans la vue
     }
 
-    public function affichePerf(): void
+    public function affichePerf()
     {
         $model = new performanceModel('mysql-gestionsaetest.alwaysdata.net', '379076', 'gestionSae', 'gestionsaetest_bd');
         $view = new performanceView();
@@ -190,7 +190,7 @@ class performanceController
         ];
     }
 
-    public function addPerformance(): void
+    public function addPerformance()
     {
         // Récupère les données du formulaire
 
@@ -223,7 +223,7 @@ class performanceController
         }
     }
 
-    public function deletePerformance(): void
+    public function deletePerformance()
     {
         $date = $_POST['Date'];
         $sport = $_POST['Sport'];
@@ -238,7 +238,7 @@ class performanceController
             echo "Primary key de la performance non valide.";
         }
     }
-    function addImc(): void
+    function addImc()
     {
         // Récupère les données du formulaire
         $taille = $_POST['taille'];
@@ -283,7 +283,7 @@ class performanceController
             $imc = $imcDuJour['poids'] / (($imcDuJour['taille'] / 100) * ($imcDuJour['taille'] / 100));
 
             // Arrondir l'IMC
-            $imc = round($imc, 2);
+            $imc = round($imc, 3);
 
             // Générer le HTML pour afficher l'IMC
             $html = "<h3>Votre IMC aujourd'hui est de : {$imc}</h3>";
@@ -291,9 +291,9 @@ class performanceController
             // Ajouter une interprétation de l'IMC
             if ($imc < 18.5) {
                 $html .= "<p class='sous-poids'>Vous êtes en sous-poids.</p>";
-            } elseif ($imc >= 18.5 && $imc < 24.9) {
+            } elseif ($imc >= 18.5 && $imc < 25) {
                 $html .= "<p class='normal-poids'>Votre poids est normal.</p>";
-            } elseif ($imc >= 25 && $imc < 29.9) {
+            } elseif ($imc >= 25 && $imc < 30) {
                 $html .= "<p class='sur-poids'>Vous êtes en surpoids.</p>";
             } else {
                 $html .= "<p class='obesite'>Vous êtes en obésité.</p>";

@@ -53,7 +53,7 @@ function initChart(canvasId, labels, datasetLabel, datasetData, yAxisLabel, bord
 
 // Initialisation du graphique
 window.onload = function() {
-    initChart("performanceGraphe", dates, "Temps de jeu", tempsjeu, "Temps de jeu (minutes)", "rgba(167, 201, 87, 1)", "rgba(167, 201, 87, 0.2)",false);
+    initChart("performanceGraphe", dates, "Temps de jeu", tempsjeu, "Temps de jeu (minutes)", "rgba(167, 201, 87, 1)", "rgba(167, 201, 87, 0.2)",true);
 
     // Initialisation d'un autre graphique pour l'IMC
     initChart("performanceGrapheImc", date, "IMC", imc, "IMC", "rgba(167, 201, 87, 1)", "rgba(167, 201, 87, 0.2)",true);

@@ -17,7 +17,7 @@ class performanceModel {
         }
     }
 
-    public function getPerformances(): bool|array
+    public function getPerformances()
     {
         $id_user = $_SESSION['id'];
         $sql = "SELECT date, sport, temps_de_jeu, score, resultat FROM performances where id_user = $id_user order by date desc";
@@ -26,7 +26,7 @@ class performanceModel {
         return $stmt->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif
     }
 
-    public function insertPerformance($date, $sport, $tempsJeu, $score, $resultat, $id_user): void
+    public function insertPerformance($date, $sport, $tempsJeu, $score, $resultat, $id_user)
     {
         // Préparation de la requête SQL pour insérer les données dans la base
         $sql = "INSERT INTO performances (date, sport, temps_de_jeu, score, resultat, id_user)
@@ -44,7 +44,7 @@ class performanceModel {
             ':id_user' => $id_user
         ]);
     }
-    public function deletePerformance($date,$sport): void
+    public function deletePerformance($date,$sport)
     {
         // Préparer la requête pour supprimer la performance
         $sql = "DELETE FROM performances WHERE date = :date AND sport = :sport";
@@ -63,7 +63,7 @@ class performanceModel {
         return $stmt->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif
     }
 
-    public function insertImc($date, $poids, $taille, $id_user): void
+    public function insertImc($date, $poids, $taille, $id_user)
     {
         $id_user = $_SESSION['id'];
         // Vérifie si une entrée pour cette date existe déjà
