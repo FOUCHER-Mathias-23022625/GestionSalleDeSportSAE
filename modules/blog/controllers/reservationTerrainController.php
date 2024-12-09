@@ -19,6 +19,10 @@ class  reservationTerrainController
 
     public function displayReservationTerrain()
     {
+        if (!isset($_SESSION['id'])) {
+            header('Location: /GestionSalleDeSportSAE/utilisateur/afficheFormConnexion');
+            exit();
+        }
         $reservation_status = isset($_SESSION['reservation_status']) ? $_SESSION['reservation_status'] : null;
         unset($_SESSION['reservation_status']);
         $selected_sport = isset($_POST['sport']) ? $_POST['sport'] : null;
