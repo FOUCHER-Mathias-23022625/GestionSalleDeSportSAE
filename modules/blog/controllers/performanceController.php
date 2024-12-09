@@ -23,8 +23,14 @@ class performanceController
         $this->model = new performanceModel();
         $this->view = new performanceView();
     }
-
-    public function afficherTableauPerformances($performances): string
+    public function afficherTableauPerformances($performances): bool
+    {
+        if (empty($performances)) {
+            return false;
+        }
+        return true;
+    }
+    /*public function afficherTableauPerformances($performances): string
     {
         $html = '';
         // Vérifie si des performances sont disponibles
@@ -76,7 +82,7 @@ class performanceController
 
         return $html; // Retourne le code HTML pour l'affichage dans la vue
     }
-
+*/
     public function affichePerf()
     {
         $model = new performanceModel('mysql-gestionsaetest.alwaysdata.net', '379076', 'gestionSae', 'gestionsaetest_bd');
