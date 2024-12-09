@@ -6,6 +6,7 @@ require_once 'modules/blog/controllers/performanceController.php';
 require_once  'modules/blog/controllers/homepageController.php';
 require_once 'modules/blog/controllers/reservationUtilisateurController.php';
 require_once 'modules/blog/controllers/compteController.php';
+require_once 'modules/blog/controllers/interfaceAdminController.php';
 
 
 class Index {
@@ -37,12 +38,18 @@ class Index {
                     return call_user_func_array([$controller, $methodName], $params);
                 } else {
                     header('location:/GestionSalleDeSportSAE/homepage/accueil') ;
+                    exit();
+
                 }
             } else {
                 header('location:homepage/accueil') ;
+                exit();
+
             }
         } else {
             header('location:homepage/accueil') ;
+            exit();
+
         }
     }
 
@@ -56,5 +63,7 @@ if (is_array($url)) {
     echo $index->routeur($url);
 } else {
     header('location: index.php');
+    exit();
+
 }
 ?>
