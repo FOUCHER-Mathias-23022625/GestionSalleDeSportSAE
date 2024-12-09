@@ -18,6 +18,14 @@
     font-family: 'Poppins', sans-serif; /* Ajout de la police utilisée auparavant */
 }
 
+.hub{
+    background-color: #4CAF50;
+  margin-left: 3px;
+  border-radius: 5px;
+  color: white;
+  padding: 3px;
+}
+
 .login-button{
     background-color: #4CAF50; /* Vert similaire à l'ancienne couleur d'accent */
     color: white; /* Texte blanc pour le bouton de connexion */
@@ -43,7 +51,7 @@
 }
 
 .nav-link{
-    color: white; /* Texte blanc pour les liens */
+    color: rgb(114, 114, 114); /* Texte blanc pour les liens */
     font-weight: 500;
     position: relative;
     font-family: 'Poppins', sans-serif;
