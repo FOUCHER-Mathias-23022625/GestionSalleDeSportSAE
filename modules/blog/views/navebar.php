@@ -20,48 +20,51 @@ session_start();
             }
             ?>
             <header>
-                <nav class="navbar bg-body-tertiary fixed-top">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Offcanvas navbar</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                            <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                            </div>
-                            <div class="offcanvas-body">
-                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Link</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </li>
-                                </ul>
-                                <form class="d-flex mt-3" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+            <div class="navBar">
+                <a href="/GestionSalleDeSportSAE/homepage/accueil">
+                    <img src="/GestionSalleDeSportSAE/assets/images/logo-img.png" alt="Logo" id="logo">
+                </a>
+                <div class="nom-site" onclick="window.location.href='/GestionSalleDeSportSAE/homepage/accueil';">
+                    Sport
+                    <span class="hub">Hub</span>
+                </div>
+                <nav class="menuNavBar">
+                    <ul class="sidebar">
+                        <li><a class="sidebarBtnA"><img src="/GestionSalleDeSportSAE/assets/images/croix-blanche.png" alt="bouton menu burger"  onclick="hideSidebar()" class="menu_btn_open"></a></li>
+                        <li><a href="index.html#APropos" class="menu-link">❔ A propos</a></li>
+                        <li class="deroulant"><a href="index.html#Solutions" class="menu-link">💡 Nos solutions ▼</a></li>
+                        
+                        <li><a href="index.html#nosrealisations" class="menu-link">🔨 Nos réalisations</a></li>
+                        <li><a href="index.html#AvisClients" class="menu-link">⭐ Avis</a></li>
+                        <li><a href="index.html#ContactezNous" class="menu-link">📩 Contact</a></li>
+                        
+                    </ul>
+                    <ul class="mainNav">
+                        <?php if($this->estConnecte()){
+                            $model = new \blog\models\compteModel();
+                            $image = $model->utilisateurInformation()['pp'];
+                            if(!$image){
+                                $image="pp.png";
+                            }
+                            echo'<li><a href="../utilisateur/deconnecte" name="deconnecte" class="hideOnMobile">Déconnexion</a></li>
+                             <li><a href="../compte/afficheCompte"><img src="/GestionSalleDeSportSAE/assets/images/public/'.$image.'". alt="Photo de Profil" class="photoProfil"> </a></li>';} ?>
+                        <?php if(!$this->estConnecte()){echo'
+                        <li><a href="../utilisateur/afficheFormConnexion" class="hideOnMobile">Connexion</a></li>';
+                        }?>
+                        <li><a href="../performance/affichePerf" class="hideOnMobile">Performances</a></li>
+                        <li class="deroulant"><a href="../evenement/afficheEvenement" class="hideOnMobile">Évenement</a></li>
+                        <li><a href="../reservationTerrain/displayReservationTerrain" class="hideOnMobile">Réservation</a></li>
+                        <li><a href="../homepage/accueil" class="hideOnMobile">Accueil</a></li>
+
+
+
+                        <li><img   src="/GestionSalleDeSportSAE/assets/images/burger-white.png" alt="bouton menu burger" onclick="showSidebar()" class="menu_btn_close"></li>
+                        
+                    </ul>
+            
                 </nav>
-            </header>
+            </div>
+        </header>
         <?php
         }
 
