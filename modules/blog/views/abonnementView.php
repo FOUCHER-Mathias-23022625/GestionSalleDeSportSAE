@@ -59,6 +59,29 @@ class abonnementView{
                     <button class="choose-offer-btn">JE CHOISIS CETTE OFFRE</button>
                 </div>
             </section>
+            <!-- Modal HTML -->
+            <div id="paymentModal" class="modal">
+                <div class="modal-content">
+                    <h3>Confirmer votre abonnement</h3>
+                    <p>Vous avez choisi l'abonnement <span id="selectedOffer"></span>.</p>
+                    <p>Montant : <span id="selectedPrice"></span></p>
+
+                    <!-- Formulaire de paiement -->
+                    <form id="paymentForm">
+                        <input type="text" id="cardNumber" placeholder="Numéro de carte bancaire" required>
+                        <input type="text" id="cardHolder" placeholder="Nom du titulaire" required>
+                        <input type="text" id="expiryDate" placeholder="Date d'expiration (MM/AA)" required>
+                        <input type="text" id="cvv" placeholder="CVV" required>
+                    </form>
+
+                    <!-- Boutons -->
+                    <button id="confirmPayment">Confirmer le paiement</button>
+                    <button id="cancelPayment" class="cancel-payment-btn">Annuler</button>
+                </div>
+            </div>
+
+            <script src="/GestionSalleDeSportSAE/assets/scripts/abonnement.js"></script>
+
         </main>
 
         <?php
