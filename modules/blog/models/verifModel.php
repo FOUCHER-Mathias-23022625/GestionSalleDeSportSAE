@@ -20,9 +20,9 @@ class verifModel
     }
 
 
- public function requete()
+ public function requeteMois()
     {
-        $requete = $this->connexionBD->pdo->prepare("SELECT idUtilisateur FROM abonnement WHERE dateExp < DATE_ADD(CURDATE(), INTERVAL 1 MONTH)");
+        $requete = $this->connexionBD->pdo->prepare("SELECT idUtilisateur FROM abonnement WHERE dateExp = DATE_ADD(CURDATE(), INTERVAL 1 MONTH)");
         $requete->execute();
         $donnees = $requete->fetchAll(PDO::FETCH_ASSOC);
 
@@ -41,11 +41,34 @@ class verifModel
             echo "Aucun abonnement expirant dans moins d'un mois.";
         }
     }
+
+    public function requeteSemaine()
+    {
+        $requete = $this->connexionBD->pdo->prepare("SELECT idUtilisateur FROM abonnement WHERE dateExp = DATE_ADD(CURDATE(), INTERVAL 1 WEEK)");
+        $requete->execute();
+        $donnees = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        if (!empty($donnees)) {
+            foreach ($donnees as $id) {
+                $requete2 = $this->connexionBD->pdo->prepare("SELECT EMail FROM utilisateur WHERE idUtilisateur = :idUtil");
+                $requete2->bindParam(":idUtil", $id["idUtilisateur"]);
+                $requete2->execute();
+                $donnees2 = $requete2->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($donnees2 as $mail) {
+                    mail($mail["EMail"], "Votre abonnement expire bientôt", "Bonjour, votre abonnement expire dans une semaine !");
+                }
+            }
+        } else {
+            echo "Aucun abonnement expirant dans moins d'un mois.";
+        }
+    }
 }
 
 // Instanciation et appel
 $instance = new verifModel();
-$instance->requete();
+$instance->requeteMois();
+$instance->requeteSemaine();
 
 
 ?>
