@@ -138,3 +138,74 @@
     margin-bottom: 10px;
 }
 
+.activites-section{
+    margin-bottom: 50px;
+}
+
+#activites{
+    font-size: 45px;
+    color: #38444c;
+    margin: 100px auto 50px auto;
+}
+
+.activites-bienfaits{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.activites-section img{
+    width: 50%;
+    object-fit: cover;
+}
+
+.activites-bienfaits p{
+    margin-right: 30px;
+    font-size: 13px;
+}
+
+.txt-bienfaits{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.txt-bienfaits h2{
+    font-size: 30px;
+}
+
+#amenagments{
+    font-size: 45px;
+    color: #38444c;
+    margin: 100px auto 50px auto;
+}
+
+.activites-amenagements{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto 20px auto;
+    align-items: center;
+}
+
+.activites-section img{
+    width: 50%;
+    object-fit: cover;
+}
+
+.activites-amenagements p{
+    font-size: 13px;
+}
+
+.txt-amenagements{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 30px;
+}
+
+.txt-amenagements h2{
+    font-size: 30px;
+}
