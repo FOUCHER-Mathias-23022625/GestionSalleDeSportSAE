@@ -129,6 +129,7 @@
 }
 
 .form-containerPerf {
+    width: 20%; /* Ajuster la largeur globale du formulaire */
     background-color: #fff;
     padding: 2rem;
     text-align: center;
@@ -137,7 +138,15 @@
     position: relative;
     z-index: 1001;
 }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
+input[type="number"] {
+    -moz-appearance: textfield; /* Pour Firefox */
+}
 .form-submitPerf {
     padding: 0.75rem;
     background-color: #a7c957;

@@ -125,7 +125,7 @@ class performanceView
             <!--Temps de jeu-->
             <div class="placeholder-form">
                 <label class="form-labelPerf" for="TmpJeu">Temps de jeu </label>
-                <input class="form-inputPerf" type="text" id="TmpJeu" name="TempsJeu" required>
+                <input class="form-inputPerf" type="number" id="TmpJeu" name="TempsJeu" required>
             </div>
             <br><br>
             <!--Score-->
