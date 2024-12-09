@@ -3,6 +3,14 @@ const overlay = document.getElementById('overlay_popup');
 const popup = document.getElementById('popup_event');
 const closePopup = document.getElementById('closePopup');
 
+function handleParticipationEvenementClick(isUserConnected) {
+    if (!isUserConnected) {
+        alert('Vous devez être connecté pour vous inscrire à un évenement.');
+    } else {
+        window.location.href = '../evenement/afficheEvenement';
+    }
+}
+
 buttons.forEach(button => {
     button.addEventListener('click', function() {
         popup.classList.add('show');

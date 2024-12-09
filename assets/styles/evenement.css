@@ -143,13 +143,18 @@
     border-radius: 5px;
     outline: none;
     transform: none;
-    border: none;
     height: 40px;
     background-color: #a7c957;
     color: #38444c;
     cursor: pointer;
+    transition: 0.3s ease;
+    border: 2px solid #38444c;
 }
 
+.btnInscription:hover{
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
 
 .popup_inscription {
     position: fixed;
