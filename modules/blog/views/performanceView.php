@@ -16,7 +16,7 @@ class performanceView
             unset($_SESSION['error_message']); // Supprimer le message après l'affichage
         }
         $controller = new PerformanceController();
-        $performancesTableHtml = $controller->afficherTableauPerformances($performances);
+        $afficherTabPerf = $controller->afficherTableauPerformances($performances);
         $sports = $controller->afficheSport($performances);
         $tempsJeu= $controller->afficheTmps($performances);
         $victoire= $controller->afficheTotVictoire($performances);
@@ -58,7 +58,52 @@ class performanceView
     <section id="detail-performancePerf">
         <h2 class="section-titlePerf">Détails des Performances</h2>
         <table id="performance-tablePerf">
-            <?php echo $performancesTableHtml ?>
+            <?php if ($afficherTabPerf) : ?>
+            <!-- Si des performances existent, on affiche le tableau avec toutes les colonnes-->
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Sport</th>
+                <th>Temps de jeu</th>
+                <th>Score</th>
+                <th>Suppression</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($performances as $performance): ?>
+            <tr>
+                <td><?php echo htmlspecialchars($performance['date']); ?></td>
+                <td><?php echo htmlspecialchars($performance['sport']); ?></td>
+
+                <td><?php echo htmlspecialchars($performance['temps_de_jeu']); ?></td>
+                <td><?php echo htmlspecialchars($performance['score']); ?></td>
+                <td>
+                    <form method="POST" action="deletePerformance" onsubmit="return confirmDelete();">
+                        <input type="hidden" name="Date" value="[date]">
+                        <input type="hidden" name="Sport" value="[sport]">
+                        <button type="submit" class="delete-btnPerf">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+            </tbody>
+            <?php endif; ?>
+            <?php if (!$afficherTabPerf) : ?>
+            <section id="pas_valeurs"
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Sport</th>
+                <th>Temps de jeu</th>
+                <th>Score</th>
+            </tr>
+            </thead>
+            <tr>
+                <td colspan="4">Aucune performance enregistrée.</td>
+            </tr>
+            </section>
+            <?php endif; ?>
+
         </table>
         <div class="button-containerPerf">
             <button id="add-performance-btnPerf" onclick="formAjt()">Ajouter une performance</button>
@@ -88,7 +133,6 @@ class performanceView
                 <canvas id="performanceGrapheImc"></canvas>
             </div>
         </section>
-</section>
     <?php endif; ?>
 </main>
 
