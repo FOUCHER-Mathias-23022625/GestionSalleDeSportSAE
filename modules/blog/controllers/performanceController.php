@@ -255,14 +255,19 @@ class performanceController
                 exit;
             }
             // Si les données sont valides
-            if (type($poidsx) || $taille <= 0) {
+            if (!is_int($poids) || !is_int($taille)) {
+
+                $_SESSION['error_message'] = "Le poids et la taille doivent être des valeurs positives et non nulles.";
+                header('Location:affichePerf'); // Rediriger vers la page performances
+                exit;
+            }
+            else{
                 $this->model->insertImc($date_du_j, $poids, $taille, $id_user);
 
                 // Redirection après succès
                 header('Location:affichePerf');
                 exit;
             }
-
 
         }
     }
