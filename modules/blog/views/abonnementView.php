@@ -9,27 +9,56 @@ require_once  "modules/blog/controllers/abonnementController.php";
 
 class abonnementView{
 
-    public function afficher($resultat,$resultat2){
+    public function afficher(){
         ob_start();
         ?>
         <main class="page-abonnement">
             <h1 class="h1-sub">Nos abonnements</h1>
-
-            <div class="offer-container">
-                <h3 class="offer-title">CLASSIC</h3>
-                <div class="offer-price">
-                    <span class="main-price">20€</span>
-                    <span class="price-duration">/mois</span>
+            <section class="abonnements">
+                <div class="offer-container">
+                    <h3 class="offer-title">CLASSIQUE</h3>
+                    <div class="offer-price">
+                        <span class="main-price">20€</span>
+                        <span class="price-duration">/mois</span>
+                    </div>
+                    <p class="adhesion-fees">Frais d’adhésion de 15€</p>
+                    <ul class="offer-features">
+                        <li><span class="icon">✓</span> Accès illimité à tous les terrains</li>
+                        <li><span class="icon">✓</span> Accès aux évènements en solo</li>
+                    </ul>
+                    <button class="choose-offer-btn">JE CHOISIS CETTE OFFRE</button>
                 </div>
-                <p class="promo-price">Les 4 premières semaines à <span class="promo-highlight">19€</span></p>
-                <p class="adhesion-fees">Frais d’adhésion de 15€</p>
-                <ul class="offer-features">
-                    <li>Accès illimité à tous les terrains</li>
-                    <li>Accès aux évènements en solo</li>
-                </ul>
-                <button class="choose-offer-btn">JE CHOISIS CETTE OFFRE</button>
-            </div>
-
+                <div class="offer-container premium">
+                    <h3 class="offer-title">PREMIUM</h3>
+                    <div class="offer-price">
+                        <span class="main-price">100€</span>
+                        <span class="price-duration">/6 mois</span>
+                    </div>
+                    <p class="adhesion-fees">Frais d’adhésion de 15€</p>
+                    <ul class="offer-features">
+                        <li><span class="icon">✓</span>Accès illimité à tous les terrains</li>
+                        <li><span class="icon">✓</span>Accès aux évènements en solo</li>
+                        <li><span class="icon">✓</span>Possibilité d'inviter 1 personne à vos activités du weekend</li>
+                        <li><span class="icon">✓</span>Avantage premium</li>
+                    </ul>
+                    <button class="choose-offer-btn">JE CHOISIS CETTE OFFRE</button>
+                </div>
+                <div class="offer-container">
+                    <h3 class="offer-title">ELITE</h3>
+                    <div class="offer-price">
+                        <span class="main-price">200€</span>
+                        <span class="price-duration">/an</span>
+                    </div>
+                    <p class="adhesion-fees">Frais d’adhésion de 15€</p>
+                    <ul class="offer-features">
+                        <li><span class="icon">✓</span>Accès illimité à tous les terrains</li>
+                        <li><span class="icon">✓</span>Accès aux évènements en solo</li>
+                        <li><span class="icon">✓</span>Possibilité d'inviter jusqu'à 2 personnes à vos activités</li>
+                        <li><span class="icon">✓</span>Avantage premium</li>
+                    </ul>
+                    <button class="choose-offer-btn">JE CHOISIS CETTE OFFRE</button>
+                </div>
+            </section>
         </main>
 
         <?php
