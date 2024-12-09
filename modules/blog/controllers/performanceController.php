@@ -243,8 +243,8 @@ class performanceController
     {
         // Vérifier que les données ont été envoyées via la méthode POST
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $poids = $_POST['poids'] ?? 0;
-            $taille = $_POST['taille'] ?? 0;
+            $poids = $_POST['poids'];
+            $taille = $_POST['taille'];
             $date_du_j = date('Y-m-d');
             $id_user = $_SESSION['id']; // Assure que l'utilisateur est connecté
 
@@ -255,6 +255,12 @@ class performanceController
                 exit;
             }
             // Si les données sont valides
+            if (!is_int($poids) || !is_int($taille)) {
+
+                $_SESSION['error_message'] = "Le poids et la taille doivent être des valeurs positives et non nulles.";
+                header('Location:affichePerf'); // Rediriger vers la page performances
+                exit;
+            }
             else{
                 $this->model->insertImc($date_du_j, $poids, $taille, $id_user);
 
@@ -262,7 +268,6 @@ class performanceController
                 header('Location:affichePerf');
                 exit;
             }
-
 
         }
     }
@@ -280,7 +285,7 @@ class performanceController
 
         // Parcourir toutes les données pour trouver l'IMC du jour
         foreach ($imc as $IMC) {
-            if (isset($IMC['date']) && $IMC['date'] === $dateDuJour) {
+            if (isset($IMC['date']) && $IMC['date'] == $dateDuJour) {
                 $imcDuJour = $IMC;
                 break; // On arrête la boucle dès qu'on trouve l'IMC du jour
             }
