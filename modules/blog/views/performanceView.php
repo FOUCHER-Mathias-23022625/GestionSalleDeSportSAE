@@ -160,13 +160,13 @@ class performanceView
             <!--Taille -->
                 <div class="placeholder-form">
                     <label class="unite">cm</label>
-                <input class="form-inputPerf" id="taille" name="taille" placeholder="Ma taille" min="100" max="250" required>
+                <input class="form-inputPerf" type="number" id="taille" name="taille" placeholder="Ma taille" min="100" max="250" required>
             </div>
             <br><br>
             <!-- Poids -->
             <div class="placeholder-form">
                 <label class="unite">kg</label>
-                <input class="form-inputPerf" id="poids" name="poids" placeholder="Mon poids" min="30" max="300" required>
+                <input class="form-inputPerf" type="number" id="poids" name="poids" placeholder="Mon poids" min="30" max="300" required>
             </div>
             <br><br>
             <input class="form-submitPerf" type="submit" name="submit" id="submit" value="Découvrir mon IMC">
