@@ -65,7 +65,7 @@ class verifModel
     }
 }
 
-// Instanciation et appel
+// Instanciation et appel des deux fonctions
 $instance = new verifModel();
 $instance->requeteMois();
 $instance->requeteSemaine();
