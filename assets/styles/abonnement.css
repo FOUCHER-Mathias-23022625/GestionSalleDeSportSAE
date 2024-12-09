@@ -1,0 +1,83 @@
+.offer-container {
+    width: 300px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.offer-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.offer-price {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+.main-price {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+}
+
+.price-duration {
+    font-size: 16px;
+    color: #666;
+    margin-left: 5px;
+}
+
+.promo-price {
+    font-size: 14px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.promo-highlight {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.adhesion-fees {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.offer-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.offer-features li {
+    font-size: 14px;
+    color: #333;
+    margin: 5px 0;
+}
+
+.choose-offer-btn {
+    background-color: #ffc107;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.choose-offer-btn:hover {
+    background-color: #e6a800;
+}

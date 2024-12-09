@@ -63,7 +63,7 @@ class evenementView{
                         ?>
                             <p><?= $description ?></p>
                             <p>Date: <?= $evenement['DateEven'] ?></p>
-                            <button class="sinscrire">Je participe</button>
+                            <button class="sinscrire" onclick="<?= json_encode($isUserConnected) ?>">Je participe</button>
                         </div>
                     </div>
                 <?php endforeach; ?>
