@@ -30,59 +30,7 @@ class performanceController
         }
         return true;
     }
-    /*public function afficherTableauPerformances($performances): string
-    {
-        $html = '';
-        // Vérifie si des performances sont disponibles
-        if (!empty($performances)) {
-            // Si des performances existent, on affiche le tableau avec toutes les colonnes
-            $html .= '<thead>';
-            $html .= '<tr>';
-            $html .= '<th>Date</th>';
-            $html .= '<th>Sport</th>';
-            $html .= '<th>Temps de jeu</th>';
-            $html .= '<th>Score</th>';
-            $html .= '<th>Suppression</th>';
-            $html .= '</tr>';
-            $html .= '</thead>';
-            $html .= '<tbody>';
-            // Parcourt chaque performance et génère les lignes du tableau
-            foreach ($performances as $performance) {
-                $html .= '<tr>';
-                $html .= '<td>' . htmlspecialchars($performance['date']) . '</td>';
-                $html .= '<td>' . htmlspecialchars($performance['sport']) . '</td>';
-                $html .= '<td>' . htmlspecialchars($performance['temps_de_jeu']) . '</td>';
-                $html .= '<td>' . htmlspecialchars($performance['score']) . '</td>';
 
-                // Ajout de bouton de suppression à chaque ligne
-                $html .= '<td>';
-                $html .= '<form method="POST" action="deletePerformance" onsubmit="return confirmDelete();">'; // Appel de la fonction
-                $html .= '<input type="hidden" name="Date" value="' . htmlspecialchars($performance['date']) . '">';
-                $html .= '<input type="hidden" name="Sport" value="' . htmlspecialchars($performance['sport']) . '">';
-                $html .= '<button type="submit" class="delete-btnPerf">Supprimer</button>';
-                $html .= '</form>';
-                $html .= '</td>';
-
-
-                $html .= '</tr>';
-            }
-        } else {
-            // Si aucune performance n'est disponible, on affiche un message sans la colonne Suppression/Modification
-            $html .= '<thead>';
-            $html .= '<tr>';
-            $html .= '<th>Date</th>';
-            $html .= '<th>Sport</th>';
-            $html .= '<th>Temps de jeu</th>';
-            $html .= '<th>Score</th>';
-            $html .= '</tr>';
-            $html .= '</thead>';
-            $html = '<tr><td colspan="4">Aucune performance enregistrée.</td></tr>';
-        }
-
-
-        return $html; // Retourne le code HTML pour l'affichage dans la vue
-    }
-*/
     public function affichePerf()
     {
         $model = new performanceModel('mysql-gestionsaetest.alwaysdata.net', '379076', 'gestionSae', 'gestionsaetest_bd');
@@ -223,6 +171,12 @@ class performanceController
             header('Location:affichePerf');
             exit();
         }
+        if($tempsJeu <=0) {
+            $_SESSION['error_message'] = "Le temps de jeu n'est pas valide.";
+            echo "Le temps de jeu n'est pas valide.";
+            header('Location:affichePerf');
+            exit();
+        }
         // Vérifie que toutes les données obligatoires sont présentes
         $id_user = $_SESSION['id'];
         if ($date && $sport && $tempsJeu && $score && $resultat !== null) {
@@ -238,17 +192,20 @@ class performanceController
 
     public function deletePerformance()
     {
+        var_dump($_POST); // Vérifiez que les données sont bien envoyées
         $date = $_POST['Date'];
         $sport = $_POST['Sport'];
+        $id_user = $_SESSION['id'];
         // Vérifie que la cle primaire est bien fourni
-        if ($date && $sport) {
-            $this->model->deletePerformance($date, $sport);
+        if ($date && $sport && $id_user) {
+            $this->model->deletePerformance($date, $sport, $id_user);
 
             // Redirection après la suppression
             header('Location: affichePerf');
             exit();
         } else {
-            echo "Primary key de la performance non valide.";
+            $_SESSION['error_message'] = "Erreur avec les clés.";
+            echo "Clés invalides pour la suppression.";
         }
     }
 
@@ -268,7 +225,7 @@ class performanceController
                 exit;
             }
             else{
-                $this->model->insertImc($date_du_j, $poids, $taille, $id_user);
+                $this->model->insertImc($date_du_j, $poids, $taille);
 
                 // Redirection après succès
                 header('Location:affichePerf');

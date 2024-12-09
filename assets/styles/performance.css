@@ -70,8 +70,6 @@
     align-content: center;
 }
 .chartPerf canvas {
-    width: 100%;
-    height: auto;
     align-content: center;
     border: 1px solid #ddd;
     border-radius: 8px;
