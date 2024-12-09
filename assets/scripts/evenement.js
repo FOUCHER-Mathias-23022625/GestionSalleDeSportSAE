@@ -6,8 +6,6 @@ const closePopup = document.getElementById('closePopup');
 function handleParticipationEvenementClick(isUserConnected) {
     if (!isUserConnected) {
         alert('Vous devez être connecté pour vous inscrire à un évenement.');
-    } else {
-        window.location.href = '../evenement/afficheEvenement';
     }
 }
 

@@ -12,7 +12,7 @@ class homepageView{
 
         ob_start();
 
-        $isUserConnected = isset($_SESSION['user_id']);
+        $isUserConnected = isset($_SESSION['id']);
 
         ?>
     <main class="homepage">
@@ -65,7 +65,7 @@ class homepageView{
                         Outre la santé, les motivations qui nous poussent à s’inscrire dans un club de sport sont multiples et peuvent évoluer au fur et à mesure de notre implication dans les programmes d’entrainement : remise en forme, prise de masse, perte de poids, endurance, rééducation…
                     </p>
                 </div>
-                <img src="/GestionSalleDeSportSAE/assets/images/salledesport-img.jpg" alt="bienfaits-img" class="bienfaits-img"/>
+                <img src="/GestionSalleDeSportSAE/assets/images/bienfaits-img.jpg" alt="bienfaits-img" class="bienfaits-img"/>
             </div>
             <div class="activites-amenagements">
                 <img src="/GestionSalleDeSportSAE/assets/images/amenagements-img.jpg" alt="amenagement-img" class="amenagement-img"/>
@@ -94,7 +94,6 @@ class homepageView{
             </div>
         </section>
         <script src="/GestionSalleDeSportSAE/assets/scripts/homepage.js"></script>
-
     </main>
 
     <?php
