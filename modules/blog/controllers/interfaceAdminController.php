@@ -22,7 +22,6 @@ class interfaceAdminController
     public function afficherInterfaceAdmin() {
         $modelUtili = new compteModel();
         $userInfo = $modelUtili->utilisateurInformation();
-        var_dump($userInfo); // Pour vérifier ce qui est retourné
         $userStatus = $userInfo['admin'] ?? 0;
 
         $viewInterfaceAdmin = new interfaceAdminView();
