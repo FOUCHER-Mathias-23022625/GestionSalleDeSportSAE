@@ -238,23 +238,32 @@ class performanceController
             echo "Primary key de la performance non valide.";
         }
     }
-    function addImc()
+
+    public function addImc()
     {
-        // Récupère les données du formulaire
-        $taille = $_POST['taille'];
-        $poids = $_POST['poids'];
-        $date_du_j = date('Y-m-d');
-        $id_user = $_SESSION['id'];
-        $imc = 0;
-        // Vérifie que toutes les données obligatoires sont présentes
-        if ($taille && $poids) {
-            // Ajouter la performance à la base de données
-            $this->model->insertImc($date_du_j, $poids, $taille, $id_user);
-            header('Location:affichePerf');
-            exit();
-        }
-        else {
-            echo "Veuillez remplir tous les champs obligatoires.";
+        // Vérifier que les données ont été envoyées via la méthode POST
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $poids = $_POST['poids'] ?? 0;
+            $taille = $_POST['taille'] ?? 0;
+            $date_du_j = date('Y-m-d');
+            $id_user = $_SESSION['id']; // Assure que l'utilisateur est connecté
+
+            // Vérifier que poids et taille sont positifs et différents de 0
+            if ($poids <= 0 || $taille <= 0) {
+                $_SESSION['error_message'] = "Le poids et la taille doivent être des valeurs positives et non nulles.";
+                header('Location:affichePerf'); // Rediriger vers la page performances
+                exit;
+            }
+            // Si les données sont valides
+            else{
+                $this->model->insertImc($date_du_j, $poids, $taille, $id_user);
+
+                // Redirection après succès
+                header('Location:affichePerf');
+                exit;
+            }
+
+
         }
     }
 
@@ -299,15 +308,15 @@ class performanceController
                 $html .= "<p class='obesite'>Vous êtes en obésité.</p>";
             }
             // Si un IMC du jour existe, afficher le bouton Modifier mon IMC du jour
-            $textButton = "Modifier mon IMC";
+            $addImc = "Modifier mon IMC";
 
         } else {
             $html .= "<p>Calculez votre IMC.</p>";
-            $textButton = "Ajouter mon IMC";
+            $addImc = "Ajouter mon IMC";
         }
 
         $html .= "<div class='button-containerPerf'>
-                <button id='add-performance-btnPerf' onclick='formAjtImc()'>{$textButton}</button>
+                <button id='add-performance-btnPerf' onclick='formAjtImc()'>{$addImc}</button>
               </div>";
 
         return $html;
