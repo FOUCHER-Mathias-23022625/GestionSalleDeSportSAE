@@ -84,7 +84,7 @@ class performanceController
         if(!isset($_SESSION['id'])) {
             header('Location: /GestionSalleDeSportSAE/utilisateur/afficheFormConnexion');
         }
-        $view->afficher($model->getPerformances());
+        $view->afficher($model->getPerformances(),$model->getImc());
     }
 
     public function afficheSport($performances): string
@@ -152,6 +152,14 @@ class performanceController
         echo json_encode($performances);
     }
 
+    public function getImcJson() {
+        $model = new performanceModel('host_name', 'user_name', 'password', 'database_name');
+        $imc = $model->getImc();
+
+        header('Content-Type: application/json');
+        echo json_encode($imc);
+    }
+
     public function getPerformanceDataForGraph(): array
     {
         $performances = $this->model->getPerformances();
@@ -174,7 +182,6 @@ class performanceController
     public function getPerformanceDataForGraphImc(): array
     {
         $imcData = $this->model->getImc();
-
         $imc = [];
         $date = [];
 
@@ -273,7 +280,7 @@ class performanceController
 
 
         // Vérifie qu'il y a un IMC calculé pour aujourd'hui
-        $dateDuJour = date('Y-m-d'); // Format AAAA-MM-JJ (ex: 2024-10-22)
+        $dateDuJour = date('Y-m-d'); // Format AAAA-MM-JJ
         $imcDuJour = null;
 
         // Parcourir toutes les données pour trouver l'IMC du jour
