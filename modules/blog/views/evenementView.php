@@ -17,6 +17,7 @@ class evenementView{
 
         $evenementModel = new evenementModel();
         $evenements = $evenementModel->getEvenements();
+        $isUserConnected = isset($_SESSION['id']);
 
         ?>
     <main class="page-event">
@@ -62,7 +63,7 @@ class evenementView{
                         ?>
                             <p><?= $description ?></p>
                             <p>Date: <?= $evenement['DateEven'] ?></p>
-                            <button class="sinscrire">Je participe</button>
+                            <button class="sinscrire" onclick="handleParticipationEvenementClick(<?= json_encode($isUserConnected) ?>)">Je participe</button>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -73,8 +74,8 @@ class evenementView{
                 <form>
                     <div id="participantsList">
                         <div class="inputbox">
-                            <input type="text" required="required" name="participantName[]">
-                            <span>Nom</span>
+                            <input type="text" required="required" email="participantEmail[]">
+                            <span>Email</span>
                         </div>
                     </div>
                     <div class="inputbox">

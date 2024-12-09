@@ -54,6 +54,7 @@ session_start();
                         <li><a href="../performance/affichePerf" class="hideOnMobile">Performances</a></li>
                         <li class="deroulant"><a href="../evenement/afficheEvenement" class="hideOnMobile">Évenement</a></li>
                         <li><a href="../reservationTerrain/displayReservationTerrain" class="hideOnMobile">Réservation</a></li>
+                        <li><a href="../homepage/accueil" class="hideOnMobile">Accueil</a></li>
 
 
 
