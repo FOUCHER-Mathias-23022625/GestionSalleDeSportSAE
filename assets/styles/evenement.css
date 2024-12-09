@@ -179,6 +179,11 @@
     visibility: visible;
 }
 
+.popup_inscription.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
 .popup_inscription h3 {
     font-family: "Poppins", sans-serif;
     font-size: 2em;

@@ -3,17 +3,16 @@ const overlay = document.getElementById('overlay_popup');
 const popup = document.getElementById('popup_event');
 const closePopup = document.getElementById('closePopup');
 
-function handleParticipationEvenementClick(isUserConnected) {
-    if (!isUserConnected) {
-        alert('Vous devez être connecté pour vous inscrire à un évenement.');
-    }
-}
 
 buttons.forEach(button => {
     button.addEventListener('click', function() {
-        popup.classList.add('show');
-        overlay.classList.add('show');
-        document.body.style.overflow = 'hidden';
+        if (!isUserConnected) {
+            alert('Vous devez être connecté pour vous inscrire à un évenement.');
+        }else{
+            popup.classList.add('show');
+            overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
     });
 });
 
