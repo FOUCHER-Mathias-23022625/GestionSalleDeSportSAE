@@ -63,25 +63,23 @@
     color: #4CAF50 !important; /* Vert pour les liens au survol */
 }
 
-/* Initialement caché */
-/* Positionnement par défaut du dropdown */
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: auto; /* Auto pour suivre la logique Bootstrap */
-    right: 0;  /* Important pour dropdown-menu-end */
-    transform: translateY(0);
-    z-index: 1050;
-    opacity: 1; /* S'assurer que l'opacité est correctement réglée */
-    visibility: visible; /* Pour éviter les conflits */
+/* Assurez-vous que le menu commence directement sous le parent */
+.nav-link.dropdown-toggle {
+    position: relative; /* Nécessaire pour l'alignement */
 }
-
-/* Affichage du dropdown au survol */
-.nav-link.dropdown-toggle:hover + .dropdown-menu,
-.dropdown-menu:hover {
+.dropdown:hover .dropdown-menu {
     display: block;
     opacity: 1;
     visibility: visible;
+}
+
+.dropdown-menu {
+    margin-top: 0;
+    transform: translateY(0);
+    padding-top: 10px; /* Remplissage pour éviter les "trous" */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
 }
 
 @media (min-width: 992px){
