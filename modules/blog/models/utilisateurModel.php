@@ -59,10 +59,9 @@ class utilisateurModel {
             $donnees = $requeteConnexion->fetch();
             if ($donnees && password_verify($mdp, $donnees['mdp'])) {
                 $_SESSION['id'] = $donnees['idUtilisateur'];
-                header('Location:afficheFormConnexion/');
-            } else {
-                header('Location:eee');
+                header('Location:../homepage/accueil');
             }
+            header('Location:../homepage/accueil');
         }
     }
 
