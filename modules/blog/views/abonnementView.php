@@ -1,6 +1,5 @@
 <?php
 namespace blog\views;
-use controllers\abonnementController;
 use navebar;
 use index;
 require_once 'navebar.php';
@@ -59,14 +58,12 @@ class abonnementView{
                     <button class="choose-offer-btn">JE CHOISIS CETTE OFFRE</button>
                 </div>
             </section>
-            <!-- Modal HTML -->
             <div id="paymentModal" class="modal">
                 <div class="modal-content">
                     <h3>Confirmer votre abonnement</h3>
                     <p>Vous avez choisi l'abonnement <span id="selectedOffer"></span>.</p>
                     <p>Montant : <span id="selectedPrice"></span></p>
 
-                    <!-- Formulaire de paiement -->
                     <form id="paymentForm">
                         <input type="text" id="cardNumber" placeholder="Numéro de carte bancaire" required>
                         <input type="text" id="cardHolder" placeholder="Nom du titulaire" required>
@@ -74,7 +71,6 @@ class abonnementView{
                         <input type="text" id="cvv" placeholder="CVV" required>
                     </form>
 
-                    <!-- Boutons -->
                     <button id="confirmPayment">Confirmer le paiement</button>
                     <button id="cancelPayment" class="cancel-payment-btn">Annuler</button>
                 </div>

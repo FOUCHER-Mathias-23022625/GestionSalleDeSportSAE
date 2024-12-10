@@ -1,6 +1,7 @@
 <?php
 namespace blog\views;
-use blog\models\evenementModel;use navebar;
+use blog\models\evenementModel;
+use navebar;
 use index;
 require_once 'navebar.php';
 require_once 'Layout.php';

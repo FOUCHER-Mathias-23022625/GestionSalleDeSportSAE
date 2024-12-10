@@ -15,7 +15,7 @@ class abonnementController
         }
     }
 
-    public function abonnements() {
+    public function afficher() {
 
         $abonnementView = new abonnementView();
         $abonnementView->afficher();
