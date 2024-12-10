@@ -65,5 +65,27 @@ class utilisateurModel {
             }
         }
     }
+
+    public function utilisateurMail($mail){
+        $requeteMail = $this->connexionBD->pdo->prepare("SELECT EMail FROM utilisateur WHERE EMAIL = :mail");
+        $requeteMail->bindParam(':mail', $mail);
+        if($requeteMail->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function changementMotDePasse($nvMdp, $mail){
+        $hashedMdp = password_hash($nvMdp, PASSWORD_DEFAULT);
+        $requete = $this->connexionBD->pdo->prepare("UPDATE utilisateur SET mdp=:mdp where EMail =:mail");
+        $requete->bindParam(":mail",$mail);
+        $requete->bindParam(":mdp",$hashedMdp);
+        $requete->execute();
+
+
+
+    }
 }
 ?>

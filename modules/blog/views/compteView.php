@@ -12,22 +12,28 @@ class compteView{
     public function afficher($resultat,$resultat2){
         ob_start();
         ?>
+<div class="login-container">
+    <form action="maj" method="POST" class="connexion_box" enctype="multipart/form-data">
         <h2 class="form-title">Compte</h2>
-        <form action="maj" method="POST" class="user-form" enctype="multipart/form-data">
-
-
-            <label>Image</label><br>
+            <label>Photo de profil</label><br>
+        <div class="input-group">
             <input type="file" id="image" name="image" ><br><br>
+        </div>
 
 
             <label for="NomU" class="form-label">Nom:</label><br>
-            <input type="text" id="NomU" class="form-input" name="NomCompte" value="<?php echo $resultat['NomU']; ?>" required><br><br>
-
+        <div class="input-group">
+            <input type="text" id="NomU"  name="NomCompte" value="<?php echo $resultat['NomU']; ?>" required><br><br>
+        </div>
             <label for="PrenomU" class="form-label">Prénom:</label><br>
-            <input type="text" id="PrenomU" class="form-input" name="PrenomCompte" value="<?php echo $resultat['PrenomU']; ?>" required><br><br>
+        <div class="input-group">
+            <input type="text" id="PrenomU"  name="PrenomCompte" value="<?php echo $resultat['PrenomU']; ?>" required><br><br>
+        </div>
 
             <label for="Email" class="form-label">E-mail:</label><br>
-            <input type="email" id="Email" class="form-input" name="EmailCompte" value="<?php echo $resultat['EMail']; ?>" required><br><br>
+        <div class="input-group">
+            <input type="email" id="Email"  name="EmailCompte" value="<?php echo $resultat['EMail']; ?>" required><br><br>
+        </div>
 
             <label for="DateDeb" class="form-label">Date de début d'abonnement:</label>
             <label class="form-static"> <?php echo $resultat2['DateDeb']; ?> </label><br><br>
@@ -35,9 +41,9 @@ class compteView{
             <label for="DateExp" class="form-label">Date de fin d'abonnement :</label>
             <label class="form-static"> <?php echo $resultat2['DateExp']; ?> </label><br><br>
 
-            <input type="submit" class="form-submit" value="Mettre à jour">
+            <input type="submit" id="maj_btn" class="form-submit" value="Mettre à jour">
         </form>
-
+</div>
 
 
         <form action="changementMdp" method="POST" id="form-mdp" class="changementMdp">
