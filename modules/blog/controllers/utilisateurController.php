@@ -44,7 +44,7 @@ class utilisateurController
         $mdp = $_POST['mdp'];
         $model = new utilisateurModel();
         $model->connexion($mail, $mdp);
-        header('location:afficheFormConnexion');
+        header('location:../homepage/accueil');
     }
 
     public function deconnecte() {
