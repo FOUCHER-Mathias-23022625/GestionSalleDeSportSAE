@@ -6,6 +6,7 @@ require_once 'modules/blog/controllers/performanceController.php';
 require_once  'modules/blog/controllers/homepageController.php';
 require_once 'modules/blog/controllers/reservationUtilisateurController.php';
 require_once 'modules/blog/controllers/compteController.php';
+require_once 'modules/blog/controllers/abonnementController.php';
 
 
 class Index {
