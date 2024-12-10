@@ -24,8 +24,6 @@ class reservationTerrainView
         <section class="reservationChoice">
             <h1>Réserver un terrain de sport</h1>
             <p>Sélectionnez un sport pour voir les créneaux disponibles et réservez votre terrain !</p>
-
-            <a href="/GestionSalleDeSportSAE/interfaceAdmin/afficherInterfaceAdmin">ENORME VIERRRRRRRRRRRRRRRRR</a>
             <ul class="icons">
                 <li class="icon" onclick="showForm('tennis', this)" id="tennis">
                     <img src="/GestionSalleDeSportSAE/assets/images/icons-sport/tennis.png" alt="Tennis Image" />

@@ -61,13 +61,14 @@ session_start();
                                 $image = "pp.png";
                             }
                             ?>
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="/GestionSalleDeSportSAE/assets/images/public/<?= $image ?>" alt="Photo de Profil" class="photoProfil">
+                                <span class="ms-2">▼</span> <!-- Ajout de la flèche à droite -->
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="/GestionSalleDeSportSAE/compte/afficheCompte">Service 1</a></li>
-                                <li><a class="dropdown-item" href="/GestionSalleDeSportSAE/utilisateur/deconnecte">Déconnexion</a></li>
-                                <li><a class="dropdown-item" href="/GestionSalleDeSportSAE/compte/afficheCompte">Service 3</a></li>
+                                <li><a class="dropdown-item" href="/GestionSalleDeSportSAE/compte/afficheCompte">Profil</a></li>
+                                <li><a class="dropdown-item" href="/GestionSalleDeSportSAE/reservationUtilisateur/afficherReservationsUtilisateur">Mes reservations</a></li>
+                                <li><a id="deco" class="dropdown-item" href="/GestionSalleDeSportSAE/utilisateur/deconnecte">Déconnexion</a></li>
                             </ul>
                             <!--<li class="nav-item">
                                 <a class="nav-link mx-lg-2" href="/GestionSalleDeSportSAE/utilisateur/deconnecte">Déconnexion</a>

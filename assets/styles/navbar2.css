@@ -27,6 +27,22 @@
     justify-content: center;
 }
 
+.dropdown-menu{
+    background-color: #38444c; /* Couleur de fond de l'ancien menu déroulant */
+}
+
+.offcanvas.show {
+    background-color: #38444c;
+}
+
+.offcanvas-title {
+    color: white;
+}
+
+#deco{
+    color: red;
+}
+
 .hub{
     background-color: #4CAF50;
   margin-left: 3px;
@@ -52,7 +68,7 @@
 .navbar-toggler {
     border:none;
     font-size: 1.25rem;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .navbar-toggler:focus, .btn-close:focus {
@@ -73,23 +89,33 @@
     color: #4CAF50 !important; /* Vert pour les liens au survol */
 }
 
-/* Assurez-vous que le menu commence directement sous le parent */
 .nav-link.dropdown-toggle {
-    position: relative; /* Nécessaire pour l'alignement */
-}
-.dropdown:hover .dropdown-menu {
-    display: block;
-    opacity: 1;
-    visibility: visible;
+    position: relative; /* Assure l'alignement avec le menu */
 }
 
+/* Style du sous-menu (disparu par défaut) */
 .dropdown-menu {
-    margin-top: 0;
-    transform: translateY(0);
-    padding-top: 10px; /* Remplissage pour éviter les "trous" */
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    opacity: 0;  /* Par défaut, il est caché */
+    visibility: hidden;  /* Par défaut, il est invisible */
+    transition: opacity 0.3s ease, visibility 0.3s ease;  /* Animation fluide */
+    z-index: 1050;
+}
+
+.nav-link .dropdown-toggle span {
+    font-size: 18px; /* Taille de la flèche */
+}
+
+/* Lorsque le menu devient visible */
+.dropdown-menu.show {
+    opacity: 1;  /* Le menu devient visible */
+    visibility: visible;  /* Le menu est rendu visible */
+}
+
+.nav-link.dropdown-toggle::after {
+    display: none;
 }
 
 @media (min-width: 992px){
