@@ -1,23 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-.h1-sub{
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    color: #38444c;
-    margin-top: 50px;
-}
-
-.abonnements{
-    display: flex;
-    flex-direction: row;
-    margin: 50px 120px;
-    justify-content: space-between;
-}
-
 .offer-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     width: 300px;
     background-color: #f9f9f9;
     border: 1px solid #e0e0e0;
@@ -129,13 +110,13 @@
 }
 
 
-.offer-features .icon {
+.offer-features .icone {
     color: #4CAF50;
     font-size: 16px;
     margin-right: 8px;
 }
 
-.modal {
+.modal-payment {
     visibility: hidden;
     position: fixed;
     top: 0;
@@ -151,13 +132,13 @@
     transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
 }
 
-.modal.show {
+.modal-payment.show {
     visibility: visible;
     opacity: 1;
     transition: opacity 0.3s ease-in-out, visibility 0s 0s;
 }
 
-.modal-content {
+.modal-payment-content {
     background-color: #fff;
     border-radius: 8px;
     padding: 20px;
@@ -170,23 +151,23 @@
     transition: transform 0.3s ease-in-out;
 }
 
-.modal.show .modal-content {
+.modal-payment.show .modal-payment-content {
     transform: translateY(0);
 }
 
-.modal h3 {
+.modal-payment h3 {
     font-size: 24px;
     color: #38444c;
     margin-bottom: 20px;
 }
 
-.modal p {
+.modal-payment p {
     font-size: 16px;
     color: #333;
     margin-bottom: 20px;
 }
 
-.modal input {
+.modal-payment input {
     width: 80%;
     padding: 10px;
     margin: 10px 0;
@@ -196,7 +177,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-.modal button {
+.modal-payment button {
     background-color: #4CAF50;
     color: #fff;
     border: none;
@@ -210,7 +191,7 @@
     width: 80%;
 }
 
-.modal button:hover {
+.modal-payment button:hover {
     background-color: #3d8d3f;
 }
 
