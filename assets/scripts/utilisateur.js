@@ -5,6 +5,7 @@ document.getElementById('btn-inscription').addEventListener('click', function() 
 
 // Masquer le formulaire d'inscription et revenir au formulaire de connexion
 document.getElementById('btn-cancel').addEventListener('click', function() {
+
     document.getElementById('registration-form').style.display = 'none';
     document.getElementById('login-form').style.display = 'block';
 });
@@ -19,3 +20,15 @@ document.getElementById('inscription').addEventListener('click', function() {
     document.getElementById('signup-form').action = 'inscription';
 });
 
+document.getElementById('oublieMdp-btn').addEventListener('click', function() {
+    document.getElementById('registration-form').style.display = 'none';
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('oublie-mdp-form').style.display = 'block';
+});
+
+document.getElementById('btn-cancel2').addEventListener('click', function() {
+
+    document.getElementById('registration-form').style.display = 'none';
+    document.getElementById('login-form').style.display = 'block';
+    document.getElementById('oublie-mdp-form').style.display = 'none';
+});

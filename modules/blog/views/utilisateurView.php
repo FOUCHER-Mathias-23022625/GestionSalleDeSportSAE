@@ -32,6 +32,7 @@ class utilisateurView
                     </div>
                     <button type="submit" name="btn-connexion" id="btn-connexion" class="login-btn">Se connecter</button>
                     <button type="button" name="btn-inscription" id="btn-inscription" class="create-btn">Créer un compte</button>
+                    <input type="submit" class="login-btn" id="oublieMdp-btn" name="oublieMdp" value="Mot de passe oublié ?"><br>
                 </form>
 
                 <div id="registration-form"  style="display: none;">
@@ -55,6 +56,16 @@ class utilisateurView
                         </div>
                         <button type="submit" name="btn-signup" id="inscription" class="login-btn">S'inscrire</button>
                         <button type="button" id="btn-cancel" class="create-btn">Annuler</button>
+                    </form>
+                </div>
+                <div id="oublie-mdp-form" style="display: none">
+                    <h2>Renseigner vôtre mail</h2>
+                    <form method="POST" action="oublieMdp">
+                        <div class="input-group">
+                            <input type="text"  name="AncienMail" placeholder="Mail" required>
+                        </div>
+                        <button type="submit" id="ancienMail" class="login-btn">Valider</button>
+                        <button type="button" id="btn-cancel2" class="create-btn">Annuler</button>
                     </form>
                 </div>
             </div>

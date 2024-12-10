@@ -1,81 +1,86 @@
-/* Formulaire utilisateur - style */
-.user-form {
-    background-color: #2e2e2e;
-    padding: 20px;
-    border-radius: 10px;
-    width: 100%; /* Changer à 100% pour s'adapter à l'écran */
-    max-width: 400px; /* Limiter la largeur maximale */
-    margin: 0 auto; /* Centrer le formulaire */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+* {
+    font-family: "Poppins", sans-serif;
 }
 
-.form-title {
-    text-align: center;
-    color: #ffffff;
-    font-size: 24px;
-    margin-bottom: 20px;
+body{
+    margin: 0;
+    padding: 0;
+    text-align: unset !important;
 }
 
-.form-label {
-    color: #b0b0b0;
-    font-size: 14px;
-    font-weight: bold;
+.login-container{
+    margin: 0 auto;
+    width: 700px;
 }
 
-.form-input {
-    width: calc(100% - 20px); /* Ajuster la largeur pour laisser de l'espace pour le padding */
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #4c4c4c;
-    border-radius: 5px;
-    background-color: #38444c;
-    color: #ffffff;
-}
-
-.form-input:focus {
-    border-color: #a7c957;
-    outline: none;
-}
-
-.form-static {
-    color: #b0b0b0;
-    font-size: 14px;
-}
-
-.form-submit {
-    width: 100%;
-    padding: 10px;
-    background-color:#109b71;
-    color: #fff;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.form-submit:hover {
-    background-color: #a7c957;
-}
-
-.profile-picture-container {
+.connexion_box {
     position: relative;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 50px 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border-color: black;
+    text-align: center;
+    transition: height 0.3s ease;
 }
 
-.profile-picture-label {
-    cursor: pointer; /* Indique que l'image est cliquable */
+.connexion_box h2 {
+    font-size: 2em;
+    padding: 5px 0 30px 0px;
+    color: black;
+    margin-bottom: 50px;
+    font-weight: bold;
+    border-bottom: 2px solid #a7c957;
+    font-family: "Poppins", sans-serif;
 }
 
-.profile-picture {
-    width: 100px;  /* Taille de l'image */
-    height: 100px; /* Taille de l'image */
-    border-radius: 50%; /* Pour rendre l'image circulaire */
-    object-fit: cover; /* Pour que l'image remplisse le cercle */
-    border: 2px solid #64dd17; /* Bordure verte */
+.connexion_box .input-group {
+    position: relative;
+    margin: 0 auto 25px auto;
+    width: 400px;
+    height: 50px;
+}
+.connexion_box .input-group input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 2px solid #000;
+    outline: none;
+    background: none;
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 1.2em;
 }
 
-.file-input {
-    display: none; /* Cacher le champ d'entrée de fichier */
+.connexion_box label{
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px 110px;
+    font-size: 20px;
+
+}.connexion_box .input-group input::placeholder{
+     font-size: 15px;
+ }
+
+#maj_btn{
+    width: 400px;
+    background: #a7c957;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    margin: 20px 0 20px 0;
+    padding: 10px;
+
 }
+
+#maj_btn:hover {
+    background: #2a872e;
+}
+
+
+
