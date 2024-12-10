@@ -13,10 +13,11 @@ class compteView{
         ob_start();
         ?>
         <h2 class="form-title">Compte</h2>
-        <form action="maj" method="POST" class="user-form">
+        <form action="maj" method="POST" class="user-form" enctype="multipart/form-data">
+
 
             <label>Image</label><br>
-            <input type="file" id="pp" name="pp" ><br><br>
+            <input type="file" id="image" name="image" ><br><br>
 
 
             <label for="NomU" class="form-label">Nom:</label><br>

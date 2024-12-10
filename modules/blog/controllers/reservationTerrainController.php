@@ -2,12 +2,14 @@
 
 namespace controllers;
 
+use blog\models\compteModel;
 use blog\models\reservationTerrainModele;
 use blog\views\reservationTerrainView;
 require_once  "./index.php";
 require_once 'modules/blog/models/reservationTerrainModele.php';
 require_once 'modules/blog/views/reservationTerrainView.php';
-class reservationTerrainController
+require_once 'modules/blog/models/compteModel.php';
+class  reservationTerrainController
 {
     private $reservationTerrainModele;
 
@@ -17,6 +19,10 @@ class reservationTerrainController
 
     public function displayReservationTerrain()
     {
+        if (!isset($_SESSION['id'])) {
+            header('Location: /GestionSalleDeSportSAE/utilisateur/afficheFormConnexion');
+            exit();
+        }
         $reservation_status = isset($_SESSION['reservation_status']) ? $_SESSION['reservation_status'] : null;
         unset($_SESSION['reservation_status']);
         $selected_sport = isset($_POST['sport']) ? $_POST['sport'] : null;
@@ -91,9 +97,15 @@ class reservationTerrainController
     }
     // j'ai un probleme, je n'arrive pas a afficher uniquement les terrains dispinibles pour le sport selectionné et pas tout les terrains disponibles
 
+
     public function addReservationTerrain()
     {
         $id_user = $_SESSION['id'];
+
+        $model=new compteModel();
+        $mail = $model->utilisateurInformation()['EMail'];
+        $nomUtili = $model->utilisateurInformation()['NomU'];
+
         $sport = htmlspecialchars($_POST['sport']);
         $date = htmlspecialchars($_POST['date']);
         $heure = htmlspecialchars($_POST['heure']);
@@ -103,12 +115,10 @@ class reservationTerrainController
             $result = json_decode($result, true);
             if ($result['status'] === 'success') {
                 $_SESSION['reservation_status'] = 'success';
-                $user_email = $id_user['email'];
-                $user_name = $id_user['nom'];
 
                 // Préparer le message de l'email
                 $sujet = "Confirmation de votre réservation";
-                $message = "Bonjour $user_name,\n\n Votre réservation a bien été prise en compte. Voici les détails :\n
+                $message = "Bonjour $nomUtili,\n\n Votre réservation a bien été prise en compte. Voici les détails :\n
                 Sport : $sport\n
                 Date : $date\n
                 Heure : $heure\n
@@ -120,7 +130,8 @@ class reservationTerrainController
                 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
                 // Envoyer l'email
-                mail($user_email, $sujet, $message, $headers);
+
+                mail($mail, $sujet, $message, $headers);
             } else {
                 $_SESSION['reservation_status'] = 'error';
                 $_SESSION['reservation_message'] = $result['message'];

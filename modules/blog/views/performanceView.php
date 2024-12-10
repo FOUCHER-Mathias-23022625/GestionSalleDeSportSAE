@@ -7,7 +7,7 @@ use controllers\performanceController;
 class performanceView
 {
 
-    public function afficher($performances)
+    public function afficher($performances,$imc)
     {
         ob_start();
         // Affichage du message d'erreur, s'il existe
@@ -16,18 +16,25 @@ class performanceView
             unset($_SESSION['error_message']); // Supprimer le message après l'affichage
         }
         $controller = new PerformanceController();
-        $performancesTableHtml = $controller->afficherTableauPerformances($performances);
+        $afficherTabPerf = $controller->afficherTableauPerformances($performances);
         $sports = $controller->afficheSport($performances);
         $tempsJeu= $controller->afficheTmps($performances);
         $victoire= $controller->afficheTotVictoire($performances);
+
         //IMC
         $afficheImc = $controller->afficheImc();
         $afficheHistorique = $controller->afficheHistorique();
 
+
         // Récupérer les données pour le graphique
         $graphData = $controller->getPerformanceDataForGraph();
         $datesJson = json_encode($graphData['dates']);
-        $tempsjeuJson = json_encode($graphData['temps_de_jeu']);?>
+        $tempsjeuJson = json_encode($graphData['temps_de_jeu']);
+
+        // données pour graphique Imc
+        $graphDataImc = $controller->getPerformanceDataForGraphImc();
+        $dateJson = json_encode($graphDataImc['date']);
+        $imcJson = json_encode($graphDataImc['imc']);?>
 
 
 <main id="main-contentPerf" class="containerPerf">
@@ -52,7 +59,52 @@ class performanceView
     <section id="detail-performancePerf">
         <h2 class="section-titlePerf">Détails des Performances</h2>
         <table id="performance-tablePerf">
-            <?php echo $performancesTableHtml ?>
+            <?php if ($afficherTabPerf) : ?>
+            <!-- Si des performances existent, on affiche le tableau avec toutes les colonnes-->
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Sport</th>
+                <th>Temps de jeu</th>
+                <th>Score</th>
+                <th>Suppression</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($performances as $performance): ?>
+            <tr>
+                <td><?php echo htmlspecialchars($performance['date']); ?></td>
+                <td><?php echo htmlspecialchars($performance['sport']); ?></td>
+
+                <td><?php echo htmlspecialchars($performance['temps_de_jeu']); ?></td>
+                <td><?php echo htmlspecialchars($performance['score']); ?></td>
+                <td>
+                    <form method="POST" action="deletePerformance" onsubmit="return confirmDelete();">
+                        <input type="hidden" name="Date" value="[date]">
+                        <input type="hidden" name="Sport" value="[sport]">
+                        <button type="submit" class="delete-btnPerf">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+            </tbody>
+            <?php endif; ?>
+            <?php if (!$afficherTabPerf) : ?>
+            <section id="pas_valeurs">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Sport</th>
+                <th>Temps de jeu</th>
+                <th>Score</th>
+            </tr>
+            </thead>
+            <tr>
+                <td colspan="4">Aucune performance enregistrée.</td>
+            </tr>
+            </section>
+            <?php endif; ?>
+
         </table>
         <div class="button-containerPerf">
             <button id="add-performance-btnPerf" onclick="formAjt()">Ajouter une performance</button>
@@ -65,18 +117,28 @@ class performanceView
             <div class="chartPerf">
                 <canvas id="performanceGraphe"></canvas>
             </div>
-        </section>
     <?php endif; ?>
 
+    <!-- Graphique IMC : -->
     <section id="ImcPerf">
         <h2 class="section-titlePerf">Indice de masse corporelle</h2>
         <?php echo $afficheImc ?>
         <br>
         <?php echo $afficheHistorique ?>
     </section>
+
+    <?php if (count($imc) >= 2) : ?>
+        <section id="performance-grapheImc">
+            <h2 class="section-titlePerf">Mon évolution</h2>
+            <div class="chartPerf">
+                <canvas id="performanceGrapheImc"></canvas>
+            </div>
+        </section>
+    <?php endif; ?>
 </main>
 
-<footer id="main-footerPerf">
+
+        <footer id="main-footerPerf">
     <div class="containerPerf">
         <p>&copy; 2024 Salle Multi-Sport - Suivi des Performances</p>
     </div>
@@ -110,7 +172,7 @@ class performanceView
             <!--Temps de jeu-->
             <div class="placeholder-form">
                 <label class="form-labelPerf" for="TmpJeu">Temps de jeu </label>
-                <input class="form-inputPerf" type="text" id="TmpJeu" name="TempsJeu" required>
+                <input class="form-inputPerf" type="number" id="TmpJeu" name="TempsJeu" required>
             </div>
             <br><br>
             <!--Score-->
@@ -144,14 +206,14 @@ class performanceView
             <br>
             <!--Taille -->
                 <div class="placeholder-form">
+                    <label class="unite">cm</label>
                 <input class="form-inputPerf" type="number" id="taille" name="taille" placeholder="Ma taille" min="100" max="250" required>
-                <label class="unite">cm</label>
             </div>
             <br><br>
             <!-- Poids -->
             <div class="placeholder-form">
                 <label class="unite">kg</label>
-                <input class="form-inputPerf" type="" id="poids" name="poids" placeholder="Mon poids" min="30" max="300" required>
+                <input class="form-inputPerf" type="number" id="poids" name="poids" placeholder="Mon poids" min="30" max="300" required>
             </div>
             <br><br>
             <input class="form-submitPerf" type="submit" name="submit" id="submit" value="Découvrir mon IMC">
@@ -166,6 +228,13 @@ class performanceView
 
     console.log(dates);
     console.log(tempsjeu);
+
+    //données du graphe Imc
+    const date = <?php echo $dateJson ?>;
+    const imc = <?php echo $imcJson ?>;
+
+    console.log(date);
+    console.log(imc);
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
