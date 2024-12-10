@@ -17,6 +17,16 @@
     cursor: pointer;
 }
 
+.photoProfil {
+    border-radius: 50%;
+    border: 2px solid #fff;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .hub{
     background-color: #4CAF50;
   margin-left: 3px;
