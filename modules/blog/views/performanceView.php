@@ -15,6 +15,12 @@ class performanceView
             echo '<div class="error-messagePerf">' . $_SESSION['error_message'] . '</div>';
             unset($_SESSION['error_message']); // Supprimer le message après l'affichage
         }
+
+        // Affichage d'un message de validation', s'il existe
+        if (isset($_SESSION['valid_message'])) {
+                echo '<div class="valid_messagePerf">' . $_SESSION['valid_message'] . '</div>';
+            unset($_SESSION['valid_message']); // Supprimer le message après l'affichage
+        }
         $controller = new PerformanceController();
         $afficherTabPerf = $controller->afficherTableauPerformances($performances);
         $sports = $controller->afficheSport($performances);
@@ -80,8 +86,8 @@ class performanceView
                 <td><?php echo htmlspecialchars($performance['score']); ?></td>
                 <td>
                     <form method="POST" action="deletePerformance" onsubmit="return confirmDelete();">
-                        <input type="hidden" name="Date" value="[date]">
-                        <input type="hidden" name="Sport" value="[sport]">
+                        <input type="hidden" name="Date" value="<?php echo htmlspecialchars($performance['date']); ?>">
+                        <input type="hidden" name="Sport" value="<?php echo htmlspecialchars($performance['sport']); ?>">
                         <button type="submit" class="delete-btnPerf">Supprimer</button>
                     </form>
                 </td>
