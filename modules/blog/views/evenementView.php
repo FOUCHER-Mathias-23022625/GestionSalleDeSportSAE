@@ -1,6 +1,7 @@
 <?php
 namespace blog\views;
-use blog\models\evenementModel;use navebar;
+use blog\models\evenementModel;
+use navebar;
 use index;
 require_once 'navebar.php';
 require_once 'Layout.php';
@@ -18,6 +19,7 @@ class evenementView{
         $evenementModel = new evenementModel();
         $evenements = $evenementModel->getEvenements();
         $isUserConnected = isset($_SESSION['id']);
+
 
         ?>
     <main class="page-event">
@@ -63,7 +65,7 @@ class evenementView{
                         ?>
                             <p><?= $description ?></p>
                             <p>Date: <?= $evenement['DateEven'] ?></p>
-                            <button class="sinscrire" onclick="<?= json_encode($isUserConnected) ?>">Je participe</button>
+                            <button class="sinscrire" onclick="handleParticipationEvenementClick(<?= json_encode($isUserConnected) ?>)">Je participe</button>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -129,6 +131,8 @@ class evenementView{
                 <button class="btnInscription">Je m'inscris</button>
             </div>
         </div>
+
+        <script>const isUserConnected = <?= json_encode($isUserConnected) ?>;</script>
         <script src="/GestionSalleDeSportSAE/assets/scripts/evenement.js"></script>
     </main>
 

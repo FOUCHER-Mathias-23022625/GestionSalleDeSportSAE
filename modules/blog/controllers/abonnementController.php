@@ -3,9 +3,7 @@
 namespace blog\controllers;
 
 use blog\models\abonnementModel;
-use blog\models\evenementModel;
 use blog\views\abonnementView;
-use blog\views\evenementView;
 
 class abonnementController
 {
@@ -17,7 +15,7 @@ class abonnementController
         }
     }
 
-    public function abonnements() {
+    public function afficheAbonnement() {
 
         $abonnementView = new abonnementView();
         $abonnementView->afficher();
