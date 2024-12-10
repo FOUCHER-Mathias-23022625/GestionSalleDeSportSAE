@@ -22,8 +22,8 @@ class abonnementView{
                     </div>
                     <p class="adhesion-fees">Frais d’adhésion de 15€</p>
                     <ul class="offer-features">
-                        <li><span class="icon">✓</span> Accès illimité à tous les terrains</li>
-                        <li><span class="icon">✓</span> Accès aux évènements en solo</li>
+                        <li><span class="icone">✓</span> Accès illimité à tous les terrains</li>
+                        <li><span class="icone">✓</span> Accès aux évènements en solo</li>
                     </ul>
                     <button class="choose-offer-btn">JE CHOISIS CETTE OFFRE</button>
                 </div>
@@ -35,10 +35,10 @@ class abonnementView{
                     </div>
                     <p class="adhesion-fees">Frais d’adhésion de 15€</p>
                     <ul class="offer-features">
-                        <li><span class="icon">✓</span>Accès illimité à tous les terrains</li>
-                        <li><span class="icon">✓</span>Accès aux évènements en solo</li>
-                        <li><span class="icon">✓</span>Possibilité d'inviter 1 personne à vos activités du weekend</li>
-                        <li><span class="icon">✓</span>Avantage premium</li>
+                        <li><span class="icone">✓</span>Accès illimité à tous les terrains</li>
+                        <li><span class="icone">✓</span>Accès aux évènements en solo</li>
+                        <li><span class="icone">✓</span>Possibilité d'inviter 1 personne à vos activités du weekend</li>
+                        <li><span class="icone">✓</span>Avantage premium</li>
                     </ul>
                     <button class="choose-offer-btn">JE CHOISIS CETTE OFFRE</button>
                 </div>
@@ -50,16 +50,16 @@ class abonnementView{
                     </div>
                     <p class="adhesion-fees">Frais d’adhésion de 15€</p>
                     <ul class="offer-features">
-                        <li><span class="icon">✓</span>Accès illimité à tous les terrains</li>
-                        <li><span class="icon">✓</span>Accès aux évènements en solo</li>
-                        <li><span class="icon">✓</span>Possibilité d'inviter jusqu'à 2 personnes à vos activités</li>
-                        <li><span class="icon">✓</span>Avantage premium</li>
+                        <li><span class="icone">✓</span>Accès illimité à tous les terrains</li>
+                        <li><span class="icone">✓</span>Accès aux évènements en solo</li>
+                        <li><span class="icone">✓</span>Possibilité d'inviter jusqu'à 2 personnes à vos activités</li>
+                        <li><span class="icone">✓</span>Avantage premium</li>
                     </ul>
                     <button class="choose-offer-btn">JE CHOISIS CETTE OFFRE</button>
                 </div>
             </section>
-            <div id="paymentModal" class="modal">
-                <div class="modal-content">
+            <div id="paymentModal" class="modal-payment">
+                <div class="modal-payment-content">
                     <h3>Confirmer votre abonnement</h3>
                     <p>Vous avez choisi l'abonnement <span id="selectedOffer"></span>.</p>
                     <p>Montant : <span id="selectedPrice"></span></p>
