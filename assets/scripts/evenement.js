@@ -6,8 +6,9 @@ const closePopup = document.getElementById('closePopup');
 
 buttons.forEach(button => {
     button.addEventListener('click', function() {
-        const eventId = this.getAttribute('data-id'); // Récupère l'ID de l'événement
+        const eventId = this.getAttribute('IdEven'); // Récupère l'ID de l'événement
         console.log('ID de l\'événement:', eventId); // Affiche l'ID dans la console (à remplacer par votre logique)
+
 
         if (!isUserConnected) {
             alert('Vous devez être connecté pour vous inscrire à un évenement.');

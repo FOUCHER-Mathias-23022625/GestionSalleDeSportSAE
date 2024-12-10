@@ -20,6 +20,7 @@ class evenementView{
         $evenements = $evenementModel->getEvenements();
         $isUserConnected = isset($_SESSION['id']);
 
+
         ?>
     <main class="page-event">
         <h1 class="h1-event">Les évènements à venir</h1>
@@ -130,6 +131,8 @@ class evenementView{
                 <button class="btnInscription">Je m'inscris</button>
             </div>
         </div>
+
+        <script>const isUserConnected = <?= json_encode($isUserConnected) ?>;</script>
         <script src="/GestionSalleDeSportSAE/assets/scripts/evenement.js"></script>
     </main>
 
