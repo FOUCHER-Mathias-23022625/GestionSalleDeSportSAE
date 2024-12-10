@@ -254,6 +254,11 @@ input[type="number"] {
     background: #e74c3c;
 }
 
+.valid_messagePerf {
+    padding: 10px;
+    color: black;
+    background: #a7c957;
+}
 .sous-poids {
     background-color: red;
     color: white;
@@ -371,4 +376,27 @@ tr {
     font-size: 22px;
     color: rgb(171, 171, 171);
     pointer-events: none; /* Empêche l'unité d'être cliquable */
+}
+
+.legend-container {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.legend-color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.legend-label {
+    font-size: 14px;
+    color: #333;
 }

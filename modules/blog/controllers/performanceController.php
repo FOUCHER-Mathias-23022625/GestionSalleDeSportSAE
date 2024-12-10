@@ -193,15 +193,17 @@ class performanceController
     public function deletePerformance()
     {
         var_dump($_POST); // Vérifiez que les données sont bien envoyées
+        var_dump($_SESSION);
         $date = $_POST['Date'];
         $sport = $_POST['Sport'];
         $id_user = $_SESSION['id'];
         // Vérifie que la cle primaire est bien fourni
         if ($date && $sport && $id_user) {
-            $this->model->deletePerformance($date, $sport, $id_user);
+            $this->model->deletePerformance($date, $sport);
 
             // Redirection après la suppression
             header('Location: affichePerf');
+            $_SESSION['valid_message'] = "Suppression de la performance réalisé avec succès.";
             exit();
         } else {
             $_SESSION['error_message'] = "Erreur avec les clés.";
