@@ -1,12 +1,27 @@
-function showSidebar(){
-    const sidebar = document.querySelector('.sidebar')
-    const menu_btn_close = document.querySelector('.menu_btn_close')
-    sidebar.style.display = 'flex'
-    menu_btn_close.style.visibility = 'hidden'
+// Variables pour gérer le délai
+let dropdownTimeout;
+
+// Fonction pour montrer le menu
+function showDropdown(dropdownMenu) {
+    clearTimeout(dropdownTimeout);
+    dropdownMenu.classList.add('show');
 }
-function hideSidebar(){
-    const sidebar = document.querySelector('.sidebar')
-    const menu_btn_close = document.querySelector('.menu_btn_close')
-    sidebar.style.display = 'none'
-    menu_btn_close.style.visibility = 'visible'
+
+// Fonction pour cacher le menu avec un délai
+function hideDropdown(dropdownMenu) {
+    dropdownTimeout = setTimeout(() => {
+        dropdownMenu.classList.remove('show');
+    }, 200); // 200ms de délai
 }
+
+// Ajouter des écouteurs d'événements pour le survol
+document.querySelectorAll('.dropdown').forEach(dropdown => {
+    const toggle = dropdown.querySelector('.dropdown-toggle');
+    const menu = dropdown.querySelector('.dropdown-menu');
+
+    toggle.addEventListener('mouseenter', () => showDropdown(menu));
+    menu.addEventListener('mouseenter', () => showDropdown(menu));
+
+    toggle.addEventListener('mouseleave', () => hideDropdown(menu));
+    menu.addEventListener('mouseleave', () => hideDropdown(menu));
+});
