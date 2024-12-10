@@ -3,8 +3,17 @@ const overlay = document.getElementById('overlay_popup');
 const popup = document.getElementById('popup_event');
 const closePopup = document.getElementById('closePopup');
 
+function handleParticipationEvenementClick(isUserConnected) {
+    if (!isUserConnected) {
+        alert('Vous devez être connecté pour vous inscrire à un évenement.');
+    }else {
+        popup.classList.add('show');
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+}
 
-buttons.forEach(button => {
+/*buttons.forEach(button => {
     button.addEventListener('click', function() {
         const eventId = this.getAttribute('IdEven'); // Récupère l'ID de l'événement
         console.log('ID de l\'événement:', eventId); // Affiche l'ID dans la console (à remplacer par votre logique)
@@ -13,7 +22,6 @@ buttons.forEach(button => {
         if (!isUserConnected) {
             alert('Vous devez être connecté pour vous inscrire à un évenement.');
         } else {
-            // Optionnel : Ajouter l'ID de l'événement dans un champ caché du formulaire pour l'envoyer au serveur
             const hiddenInput = document.createElement('input');
             hiddenInput.type = 'hidden';
             hiddenInput.name = 'eventId';
@@ -25,7 +33,7 @@ buttons.forEach(button => {
             document.body.style.overflow = 'hidden';
         }
     });
-});
+});*/
 
 closePopup.addEventListener('click', function() {
     popup.classList.remove('show');
