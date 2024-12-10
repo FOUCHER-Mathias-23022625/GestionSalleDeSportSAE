@@ -1,11 +1,15 @@
 <?php
 
 namespace blog\controllers;
-
+namespace controllers;
+use blog\views\Layout;
+use Index;
 use blog\models\abonnementModel;
-use blog\models\evenementModel;
 use blog\views\abonnementView;
-use blog\views\evenementView;
+require_once  "modules/blog/views/abonnementView.php";
+require_once  "modules/blog/models/abonnementModel.php";
+require_once "modules/blog/views/Layout.php";
+
 
 class abonnementController
 {
@@ -17,7 +21,7 @@ class abonnementController
         }
     }
 
-    public function abonnements() {
+    public function afficheAbonnement() {
 
         $abonnementView = new abonnementView();
         $abonnementView->afficher();

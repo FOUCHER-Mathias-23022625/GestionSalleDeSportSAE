@@ -1,5 +1,6 @@
 <?php
 namespace controllers;
+use blog\models\compteModel;
 use blog\models\utilisateurModel;
 use blog\views\Layout;
 use blog\views\utilisateurView;
@@ -43,7 +44,7 @@ class utilisateurController
         $mdp = $_POST['mdp'];
         $model = new utilisateurModel();
         $model->connexion($mail, $mdp);
-        header('location:afficheFormConnexion');
+        header('location:../homepage/accueil');
     }
 
     public function deconnecte() {
@@ -88,6 +89,50 @@ class utilisateurController
     public function test($val1,$val2){
         echo $val1." et la valeur 2 est : ".$val2;
     }
+
+    public function generateurMdp(){
+        $alphabet="abcdefghijklmnopqrstuvwxyz";
+        $alphabetMaj="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $numero="0123456789";
+        $caractere=";.,!-";
+        $code='';
+        for($i=0;$i<rand(5,10);$i++){
+            $code.=$alphabet[rand(0,25)];
+        }
+        for($i=0;$i<rand(5,10);$i++){
+            $code.=$alphabetMaj[rand(0,25)];
+        }
+        for($i=0;$i<rand(5,10);$i++){
+            $code.=$numero[rand(0,9)];
+        }
+        for($i=0;$i<rand(5,10);$i++){
+            $code.=$caractere[rand(0,4)];
+        }
+        return str_shuffle($code);
+    }
+
+    public function changementMdp(){
+        $ancienMdp = $_POST['ancienMdp'];
+        $nouveauMdp = $_POST['nouveauMdp'];
+        if($this->verifMdp($ancienMdp)){
+            $model= new compteModel();
+            $model->changementMotDePasse($nouveauMdp);
+        }
+        header('location:../homepage/accueil');
+    }
+
+    public function oublieMdp(){
+        $model = new utilisateurModel();
+        $persoMail= $_POST["AncienMail"];
+        if($model->utilisateurMail($persoMail)){
+            $mdp = $this->generateurMdp();
+            $model->changementMotDePasse($mdp, $persoMail);
+            mail($persoMail,"Nouveau mot de passe", "Bonjour, vôtre mot de passe à été changé. Vôtre nouveau mot de passe est : ".$mdp);
+            header('location:../homepage/accueil');
+        }
+    }
+
+
 
 }
 

@@ -252,12 +252,14 @@ input[type="number"] {
     padding: 10px;
     color: black;
     background: #e74c3c;
+    text-align: center;
 }
 
 .valid_messagePerf {
     padding: 10px;
     color: black;
     background: #a7c957;
+    text-align: center;
 }
 .sous-poids {
     background-color: red;

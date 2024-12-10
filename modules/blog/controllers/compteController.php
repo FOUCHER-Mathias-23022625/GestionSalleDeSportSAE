@@ -58,24 +58,6 @@ class compteController{
         }
         return str_shuffle($code);
     }
-
-    public function changementMdp(){
-        $ancienMdp = $_POST['ancienMdp'];
-        $nouveauMdp = $_POST['nouveauMdp'];
-        if($this->verifMdp($ancienMdp)){
-            $model= new compteModel();
-            $model->changementMotDePasse($nouveauMdp);
-        }
-        header('location:../homepage/accueil');
-    }
-    public function oublieMdp(){
-        $model = new compteModel();
-        $model2 = new compteModel();
-        $mdp = $this->generateurMdp();
-        $model->changementMotDePasse($mdp);
-        $mail=$model2->utilisateurInformation()['EMail'];
-        mail($mail,"Nouveau mot de passe", "Bonjour, vôtre mot de passe à été changé. Vôtre nouveau mot de passe est : ".$mdp);
-        header('location:../homepage/accueil');
-    }
+    
 
 }
