@@ -9,7 +9,7 @@ function initChart(canvasId, labels, datasetLabel, datasetData, yAxisLabel, bord
     // Configuration de base des plugins
     const plugins = {
         legend: {
-            display: true,
+            display: false,
             position: "top",
         },
         title: {
@@ -101,5 +101,5 @@ window.onload = function() {
     initChart("performanceGraphe", dates, "Temps de jeu", tempsjeu, "Temps de jeu (minutes)", "rgba(167, 201, 87, 1)", "rgba(167, 201, 87, 0.2)", true, false);
 
     // Graphique avec bandes (IMC)
-    initChart("performanceGrapheImc", date, "IMC", imc, "IMC", "rgba(0,0,0,1)", "rgba(167, 201, 87, 0.0)", true, true);
+    initChart("performanceGrapheImc", date, "🟥: sous poids       🟩: poids normal       🟧: sur-poids       🟥: obésité", imc, "IMC", "rgba(0,0,0,1)", "rgba(167, 201, 87, 0.0)", true, true);
 };
