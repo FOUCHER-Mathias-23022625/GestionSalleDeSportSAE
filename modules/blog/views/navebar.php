@@ -20,51 +20,68 @@ session_start();
             }
             ?>
             <header>
-            <div class="navBar">
-                <a href="/GestionSalleDeSportSAE/homepage/accueil">
-                    <img src="/GestionSalleDeSportSAE/assets/images/logo-img.png" alt="Logo" id="logo">
-                </a>
-                <div class="nom-site" onclick="window.location.href='/GestionSalleDeSportSAE/homepage/accueil';">
-                    Sport
-                    <span class="hub">Hub</span>
-                </div>
-                <nav class="menuNavBar">
-                    <ul class="sidebar">
-                        <li><a class="sidebarBtnA"><img src="/GestionSalleDeSportSAE/assets/images/croix-blanche.png" alt="bouton menu burger"  onclick="hideSidebar()" class="menu_btn_open"></a></li>
-                        <li><a href="index.html#APropos" class="menu-link">❔ A propos</a></li>
-                        <li class="deroulant"><a href="index.html#Solutions" class="menu-link">💡 Nos solutions ▼</a></li>
-                        
-                        <li><a href="index.html#nosrealisations" class="menu-link">🔨 Nos réalisations</a></li>
-                        <li><a href="index.html#AvisClients" class="menu-link">⭐ Avis</a></li>
-                        <li><a href="index.html#ContactezNous" class="menu-link">📩 Contact</a></li>
-                        
-                    </ul>
-                    <ul class="mainNav">
-                        <?php if($this->estConnecte()){
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid">
+                        <div class="navbar-brand me-auto" onclick="window.location.href='/GestionSalleDeSportSAE/homepage/accueil';">
+                            Sport
+                            <span class="hub">Hub</span>
+                        </div>
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                            <div class="offcanvas-header">
+                                <div class="offcanvas-title" id="offcanvasNavbarLabel" onclick="window.location.href='/GestionSalleDeSportSAE/homepage/accueil';">
+                                    Sport
+                                    <span class="hub">Hub</span>
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link mx-lg-2 active" aria-current="page" href="/GestionSalleDeSportSAE/homepage/accueil">Accueil</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link mx-lg-2" href="/GestionSalleDeSportSAE/reservationTerrain/displayReservationTerrain">Réservation</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link mx-lg-2" href="/GestionSalleDeSportSAE/evenement/afficheEvenement">Évenement</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link mx-lg-2" href="/GestionSalleDeSportSAE/performance/affichePerf">Performances</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link mx-lg-2" href="/GestionSalleDeSportSAE/utilisateur/deconnecte">Deco</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <?php if($this->estConnecte()):
                             $model = new \blog\models\compteModel();
                             $image = $model->utilisateurInformation()['pp'];
-                            if(!$image){
-                                $image="pp.png";
+                            if (!$image) {
+                                $image = "pp.png";
                             }
-                            echo'<li><a href="../utilisateur/deconnecte" name="deconnecte" class="hideOnMobile">Déconnexion</a></li>
-                             <li><a href="../compte/afficheCompte"><img src="/GestionSalleDeSportSAE/assets/images/public/'.$image.'". alt="Photo de Profil" class="photoProfil"> </a></li>';} ?>
-                        <?php if(!$this->estConnecte()){echo'
-                        <li><a href="../utilisateur/afficheFormConnexion" class="hideOnMobile">Connexion</a></li>';
-                        }?>
-                        <li><a href="../performance/affichePerf" class="hideOnMobile">Performances</a></li>
-                        <li class="deroulant"><a href="../evenement/afficheEvenement" class="hideOnMobile">Évenement</a></li>
-                        <li><a href="../reservationTerrain/displayReservationTerrain" class="hideOnMobile">Réservation</a></li>
-                        <li><a href="../homepage/accueil" class="hideOnMobile">Accueil</a></li>
+                            ?>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/GestionSalleDeSportSAE/assets/images/public/<?= $image ?>" alt="Photo de Profil" class="photoProfil">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="/GestionSalleDeSportSAE/compte/afficheCompte">Service 1</a></li>
+                                <li><a class="dropdown-item" href="/GestionSalleDeSportSAE/utilisateur/deconnecte">Déconnexion</a></li>
+                                <li><a class="dropdown-item" href="/GestionSalleDeSportSAE/compte/afficheCompte">Service 3</a></li>
+                            </ul>
+                            <!--<li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="/GestionSalleDeSportSAE/utilisateur/deconnecte">Déconnexion</a>
+                            </li> -->
+                        <?php else: ?>
+                            <a href="/GestionSalleDeSportSAE/utilisateur/afficheFormConnexion" class="login-button">Connexion</a>
+                        <?php endif; ?>
 
-
-
-                        <li><img   src="/GestionSalleDeSportSAE/assets/images/burger-white.png" alt="bouton menu burger" onclick="showSidebar()" class="menu_btn_close"></li>
-                        
-                    </ul>
-            
+                        <button class="navbar-toggler pe-8" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                            <span class="navbar-light navbar-toggler-icon"></span>
+                        </button>
+                    </div>
                 </nav>
-            </div>
-        </header>
+            </header>
         <?php
         }
 

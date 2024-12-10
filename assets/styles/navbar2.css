@@ -2,20 +2,19 @@
 
 .navbar{
     background-color: #38444c; /* Couleur de fond de l'ancienne navbar */
-    margin: 20px;
     transition: 0.3s background-color;
     height: 80px;
-    border-radius: 16px;
     padding: 0.5rem;
     box-shadow: -1px 3px 8px black; /* Ombre portée similaire à l'ancienne navbar */
 }
 
 .navbar-brand{
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 500;
-    color: white; /* Texte blanc comme dans l'ancienne navbar */
+    color: white !important; /* Texte blanc comme dans l'ancienne navbar */
     transition: 0.3s color;
     font-family: 'Poppins', sans-serif; /* Ajout de la police utilisée auparavant */
+    cursor: pointer;
 }
 
 .hub{
@@ -37,12 +36,13 @@
 }
 
 .login-button:hover{
-    background-color: rgb(76, 175, 80); /* Teinte plus claire au survol */
+    background-color: rgb(76, 175, 80) ; /* Teinte plus claire au survol */
 }
 
 .navbar-toggler {
     border:none;
     font-size: 1.25rem;
+    margin-left: 10px;
 }
 
 .navbar-toggler:focus, .btn-close:focus {
@@ -51,15 +51,37 @@
 }
 
 .nav-link{
-    color: rgb(114, 114, 114); /* Texte blanc pour les liens */
+    color: white !important; /* Texte blanc pour les liens */
     font-weight: 500;
     position: relative;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase; /* Texte en majuscules comme auparavant */
 }
 
+
 .nav-link:hover, .nav-link:active{
-    color: #4CAF50; /* Vert pour les liens au survol */
+    color: #4CAF50 !important; /* Vert pour les liens au survol */
+}
+
+/* Initialement caché */
+/* Positionnement par défaut du dropdown */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: auto; /* Auto pour suivre la logique Bootstrap */
+    right: 0;  /* Important pour dropdown-menu-end */
+    transform: translateY(0);
+    z-index: 1050;
+    opacity: 1; /* S'assurer que l'opacité est correctement réglée */
+    visibility: visible; /* Pour éviter les conflits */
+}
+
+/* Affichage du dropdown au survol */
+.nav-link.dropdown-toggle:hover + .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
 @media (min-width: 992px){
