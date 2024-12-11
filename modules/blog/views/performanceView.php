@@ -119,7 +119,7 @@ class performanceView
     </section>
 
     <?php if (count($performances) >= 2) : ?>
-        <section id="performance-graphePerf">
+        <section id="performance-graphe-perf">
             <h2 class="section-titlePerf">Statistiques Visualisées</h2>
             <div class="chartPerf">
                 <canvas id="performanceGraphe"></canvas>
@@ -135,7 +135,7 @@ class performanceView
     </section>
 
     <?php if (count($imc) >= 2) : ?>
-        <section id="performance-grapheImc">
+        <section id="performance-graphe-imc">
             <h2 class="section-titlePerf">Mon évolution</h2>
             <div class="chartPerf">
                 <canvas id="performanceGrapheImc"></canvas>
