@@ -59,7 +59,7 @@ class utilisateurModel {
             $donnees = $requeteConnexion->fetch();
             if ($donnees && password_verify($mdp, $donnees['mdp'])) {
                 $_SESSION['id'] = $donnees['idUtilisateur'];
-                if($requeteConnexion["admin"]==1){
+                if($donnees["admin"]==1){
                     $_SESSION["admin"] = 1;
                 }
                 header('Location:../homepage/accueil');
