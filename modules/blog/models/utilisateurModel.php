@@ -52,14 +52,19 @@ class utilisateurModel {
     }
 
     public function connexion($mail, $mdp) {
-        $requeteConnexion = $this->connexionBD->pdo->prepare("SELECT idUtilisateur, EMail, mdp FROM utilisateur WHERE EMail = :mail");
+        $requeteConnexion = $this->connexionBD->pdo->prepare("SELECT idUtilisateur, EMail, mdp, admin FROM utilisateur WHERE EMail = :mail");
         $requeteConnexion->bindParam(':mail', $mail);
 
         if ($requeteConnexion->execute()) {
             $donnees = $requeteConnexion->fetch();
             if ($donnees && password_verify($mdp, $donnees['mdp'])) {
                 $_SESSION['id'] = $donnees['idUtilisateur'];
+                if($donnees['admin']==1){
+                    $_SESSION["admin"] = 1;
+                }
                 header('Location:../homepage/accueil');
+
+
             }
             header('Location:../homepage/accueil');
         }

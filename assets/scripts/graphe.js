@@ -96,10 +96,43 @@ function initChart(canvasId, labels, datasetLabel, datasetData, yAxisLabel, bord
 }
 
 // Initialisation des graphiques
-window.onload = function() {
-    // Graphique avec fond sous la courbe (pas de bandes)
-    initChart("performanceGraphe", dates, "Temps de jeu", tempsjeu, "Temps de jeu (minutes)", "rgba(76, 175, 80, 1)", "rgba(76, 175, 80, 0.2)", true, false);
+// Fonction pour initialiser le graphe des performances
+function initPerformanceChart() {
+    initChart(
+        "performanceGraphe",
+        dates,
+        "Temps de jeu",
+        tempsjeu,
+        "Temps de jeu (minutes)",
+        "rgba(76, 175, 80, 1)",
+        "rgba(76, 175, 80, 0.2)",
+        true,  //sens du graphe
+        false  //bande de IMC
+    );
+}
 
-    // Graphique avec bandes (IMC)
-    initChart("performanceGrapheImc", date, "🟥: sous poids       🟩: poids normal       🟧: sur-poids       🟥: obésité", imc, "IMC", "rgba(0,0,0,1)", "rgba(76, 175, 80, 0.0)", true, true);
-};
+// Fonction pour initialiser le graphe de l'IMC
+function initImcChart() {
+    initChart(
+        "performanceGrapheImc",
+        date,
+        "🟥 sous poids       🟩 poids normal       🟧 sur-poids       🟥 obésité",     //Légende
+        imc,
+        "IMC",
+        "rgba(0,0,0,1)",
+        "rgba(76, 175, 80, 0.0)",
+        true,  //sens du graphe
+        true  //bande de IMC
+    );
+}
+//Appel selon le graphe demandé
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("performanceGraphe")) {
+        initPerformanceChart();
+    }
+    if (document.getElementById("performanceGrapheImc")) {
+        initImcChart();
+    }
+});
+
+

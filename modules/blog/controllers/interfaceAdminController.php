@@ -1,15 +1,19 @@
 <?php
-
+namespace blog\controllers;
 namespace controllers;
+
 
 use blog\views\interfaceAdminView;
 use blog\models\interfaceAdminModel;
 use blog\models\compteModel;
+use Index;
+use blog\views\Layout;
 
-require_once  "./index.php";
+
 require_once "modules/blog/views/interfaceAdminView.php";
 require_once "modules/blog/models/interfaceAdminModel.php";
 require_once "modules/blog/models/compteModel.php";
+require_once "modules/blog/views/Layout.php";
 
 class interfaceAdminController
 {
@@ -35,7 +39,6 @@ class interfaceAdminController
                 header('Location: /GestionSalleDeSportSAE/homepage/accueil');
                 exit();
             } else {
-                echo "Affichage de la vue de l'admin";
                 $viewInterfaceAdmin->afficher();
             }
         }
@@ -50,6 +53,14 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($user['PrenomU'] ?? '') ?></td>
                 <td><?= htmlspecialchars($user['EMail'] ?? '') ?></td>
                 <td><?= htmlspecialchars($user['admin'] ?? '') ?></td>
+                <td class="actions">
+                    <a href="/GestionSalleDeSportSAE/interfaceAdmin/deleteUser(<?= urlencode($user['IdUtilisateur']) ?>)" class="delete-icon" title="Supprimer">
+                        ❌
+                    </a>
+                    <a href="update.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="edit-icon" title="Mettre à jour">
+                        ✏️
+                    </a>
+                </td>
             </tr>
         <?php endforeach;
     }
@@ -64,6 +75,14 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($reservation['date'] ?? '') ?></td>
                 <td><?= htmlspecialchars($reservation['heure'] ?? '') ?></td>
                 <td><?= htmlspecialchars($reservation['terrain'] ?? '') ?></td>
+                <td class="actions">
+                    <a href="delete.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">
+                        ❌
+                    </a>
+                    <a href="update.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="edit-icon" title="Mettre à jour">
+                        ✏️
+                    </a>
+                </td>
             </tr>
         <?php endforeach;
     }
@@ -77,7 +96,30 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($evenement['NomEven'] ?? '') ?></td>
                 <td><?= htmlspecialchars($evenement['DateEven'] ?? '') ?></td>
                 <td><?= htmlspecialchars($evenement['NomSport'] ?? '') ?></td>
+                <td class="actions">
+                    <a href="delete.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">
+                        ❌
+                    </a>
+                    <a href="update.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="edit-icon" title="Mettre à jour">
+                        ✏️
+                    </a>
+                </td>
             </tr>
         <?php endforeach;
+    }
+
+    public function deleteUser($userId)
+    {
+        $this->interfaceAdminModel->deleteUser($userId);
+    }
+
+    public function deleteEvent($eventId){
+        $this->interfaceAdminModel->deleteEvent($eventId);
+        header('Location: /GestionSalleDeSportSAE/interfaceAdmin/afficherInterfaceAdmin');
+    }
+
+    public function deleteReservation($sport,$userId,$date,$heure){
+        $this->interfaceAdminModel->deleteResa($sport,$userId,$date,$heure);
+
     }
 }
