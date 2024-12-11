@@ -32,7 +32,7 @@ class utilisateurView
                     </div>
                     <button type="submit" name="btn-connexion" id="btn-connexion" class="login-btn">Se connecter</button>
                     <button type="button" name="btn-inscription" id="btn-inscription" class="create-btn">Créer un compte</button>
-                    <input type="submit" class="login-btn" id="oublieMdp-btn" name="oublieMdp" value="Mot de passe oublié ?"><br>
+                    <input type="button" class="login-btn" id="oublieMdp-btn" name="oublieMdp" value="Mot de passe oublié ?"><br>
                 </form>
 
                 <div id="registration-form"  style="display: none;">
@@ -59,7 +59,7 @@ class utilisateurView
                     </form>
                 </div>
                 <div id="oublie-mdp-form" style="display: none">
-                    <h2>Renseigner vôtre mail</h2>
+                    <h2>Renseigner votre mail</h2>
                     <form method="POST" action="oublieMdp">
                         <div class="input-group">
                             <input type="text"  name="AncienMail" placeholder="Mail" required>
