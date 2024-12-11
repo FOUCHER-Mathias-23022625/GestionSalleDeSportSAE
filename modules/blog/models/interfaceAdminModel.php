@@ -35,7 +35,7 @@ class interfaceAdminModel
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function deleteUser($userId){
+    public function deleteUserMod($userId){
         $stmt = $this->connexion->pdo->prepare("DELETE FROM utilisateur WHERE user_id = ?");
         $stmt->execute([$userId]);
     }
