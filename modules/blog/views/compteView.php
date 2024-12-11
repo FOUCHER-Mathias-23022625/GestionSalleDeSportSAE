@@ -13,7 +13,7 @@ class compteView{
         ob_start();
         ?>
 <div class="login-container">
-    <form action="maj" method="POST" class="connexion_box" enctype="multipart/form-data">
+    <form action="maj" method="POST" id="compte-info"class="connexion_box" enctype="multipart/form-data">
         <h2 class="form-title">Compte</h2>
             <label>Photo de profil</label><br>
         <div class="input-group">
@@ -34,7 +34,14 @@ class compteView{
         <div class="input-group">
             <input type="email" id="Email"  name="EmailCompte" value="<?php echo $resultat['EMail']; ?>" required><br><br>
         </div>
-
+        <label>Changement de vôtre mot de passe</label>
+        <div class="input-group">
+            <input id="ancienMdp" name="ancienMdp"  placeholder="Ancien mot de passe"><br><br>
+        </div>
+        <div class="input-group">
+            <input id="nouveauMdp" name="nouveauMdp" placeholder="Nouveau mot de passe"><br><br>
+        </div>
+        <input type="submit" class="inputSub" id="changement" name="changement" value="Changer le mot de passe" required><br><br>
             <label for="DateDeb" class="form-label">Date de début d'abonnement:</label>
             <label class="form-static"> <?php echo $resultat2['DateDeb']; ?> </label><br><br>
 
@@ -46,13 +53,7 @@ class compteView{
 </div>
 
 
-        <form action="changementMdp" method="POST" id="form-mdp" class="changementMdp">
-            <label>Changement de vôtre mot de passe</label>
-            <input id="ancienMdp" name="ancienMdp"  placeholder="Ancien mot de passe"><br>
-            <input id="nouveauMdp" name="nouveauMdp" placeholder="Nouveau mot de passe"><br>
-            <input type="submit" class="inputSub" id="changement" name="changement" value="Changer le mot de passe" required><br>
-            <input type="submit" class="inputSub" id="oublieMdp" name="oublieMdp" value="Mot de passe oublié ?" required><br>
-        </form>
+
         <script src="/GestionSalleDeSportSAE/assets/scripts/compte.js"></script>
         <?php
         (new \Blog\Views\Layout('compte', ob_get_clean()))->afficher();
