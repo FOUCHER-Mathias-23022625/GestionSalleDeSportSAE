@@ -68,6 +68,7 @@ session_start();
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="/GestionSalleDeSportSAE/compte/afficheCompte">Profil</a></li>
                                 <li><a class="dropdown-item" href="/GestionSalleDeSportSAE/reservationUtilisateur/afficherReservationsUtilisateur">Mes reservations</a></li>
+                                <li><a id="classement" class="dropdown-item" href="/GestionSalleDeSportSAE/utilisateur/afficheClassement">Classements</a></li>
                                 <li><a id="deco" class="dropdown-item" href="/GestionSalleDeSportSAE/utilisateur/deconnecte">Déconnexion</a></li>
                             </ul>
                             <!--<li class="nav-item">
