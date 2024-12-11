@@ -111,15 +111,16 @@ class interfaceAdminController
     public function deleteUser($userId)
     {
         $this->interfaceAdminModel->deleteUser($userId);
+        exit();
     }
 
     public function deleteEvent($eventId){
         $this->interfaceAdminModel->deleteEvent($eventId);
-        header('Location: /GestionSalleDeSportSAE/interfaceAdmin/afficherInterfaceAdmin');
+        exit();
     }
 
     public function deleteReservation($sport,$userId,$date,$heure){
         $this->interfaceAdminModel->deleteResa($sport,$userId,$date,$heure);
-
+        exit();
     }
 }
