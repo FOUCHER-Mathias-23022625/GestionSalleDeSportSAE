@@ -47,7 +47,7 @@ class compteView{
 
 
         <form action="changementMdp" method="POST" id="form-mdp" class="changementMdp">
-            <label>Changement de vôtre mot de passe</label>
+            <label>Changement de votre mot de passe</label>
             <input id="ancienMdp" name="ancienMdp"  placeholder="Ancien mot de passe"><br>
             <input id="nouveauMdp" name="nouveauMdp" placeholder="Nouveau mot de passe"><br>
             <input type="submit" class="inputSub" id="changement" name="changement" value="Changer le mot de passe" required><br>
