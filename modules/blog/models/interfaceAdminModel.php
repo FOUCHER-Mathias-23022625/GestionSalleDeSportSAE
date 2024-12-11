@@ -35,9 +35,13 @@ class interfaceAdminModel
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function deleteUser($userId){
-        $stmt = $this->connexion->pdo->prepare("DELETE FROM utilisateur WHERE user_id = ?");
-        $stmt->execute([$userId]);
+    public function deleteUserMod($userId){
+        $stmt = $this->connexion->pdo->prepare("DELETE FROM utilisateur WHERE IdUtilisateur = :userId");
+        $stmt2 = $this->connexion->pdo->prepare("DELETE FROM abonnement WHERE IdUtilisateur = :userId");
+        $stmt->bindParam(":userId", $userId);
+        $stmt2->bindParam(":userId", $userId);
+        $stmt2->execute();
+        $stmt->execute();
     }
 
     public function deleteEvent($eventId){
