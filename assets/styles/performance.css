@@ -38,7 +38,7 @@
 
 .stat-valuePerf {
     font-size: 1.5rem;
-    color: #a7c957;
+    color: #4CAF50;
 }
 
 /* Styles pour le tableau de performance */
@@ -56,12 +56,22 @@
 }
 
 #performance-tablePerf th {
-    background-color: #a7c957;
+    background-color: #4CAF50;
     color: white;
 }
 
 #performance-tablePerf tr:nth-child(even) {
     background-color: #f9f9f9;
+}
+
+/* Ligne pour une victoire */
+.victory-cell {
+    color: green; /* Vert foncé pour le texte */
+}
+
+/* Ligne pour une défaite */
+.defeat-cell {
+    color: red; /* Rouge foncé pour le texte */
 }
 
 /* Styles pour la section des graphiques */
@@ -94,7 +104,7 @@
 
 /* Styles pour le bouton */
 #add-performance-btnPerf {
-    background-color: #a7c957;
+    background-color: #4CAF50;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -105,12 +115,12 @@
 }
 
 #add-performance-btnPerf:hover {
-    background-color: #a7c957;
+    background-color: #4CAF50;
 }
 
 #add-performance-btnPerf:focus {
     outline: none;
-    box-shadow: 0 0 0 3px #a7c957;
+    box-shadow: 0 0 0 3px #4CAF50;
 }
 
 .overlayFormPerf {
@@ -127,7 +137,8 @@
 }
 
 .form-containerPerf {
-    width: 20%; /* Ajuster la largeur globale du formulaire */
+    width: 30%; /* Ajuster la largeur globale du formulaire */
+    height: auto;
     background-color: #fff;
     padding: 2rem;
     text-align: center;
@@ -147,7 +158,9 @@ input[type="number"] {
 }
 .form-submitPerf {
     padding: 0.75rem;
-    background-color: #a7c957;
+    background-color: #4CAF50;
+    width: 100%;
+    text-align: center;
     color: white;
     border: none;
     border-radius: 5px;
@@ -159,6 +172,7 @@ input[type="number"] {
 .form-selectPerf{
     padding: 0.75rem;
     border: 1px solid #ccc;
+    width: 100%;
     border-radius: 5px;
     color: #333;
     box-sizing: border-box;
@@ -191,14 +205,14 @@ input[type="number"] {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    border: 2px solid #a7c957;
+    border: 2px solid #4CAF50;
     transition: background-color 0.3s ease;
 }
 
 
 .form-radioPerf input:checked + .custom-radioPerf {
-    background-color: #a7c957;
-    border-color: #a7c957;
+    background-color: #4CAF50;
+    border-color: #4CAF50;
 }
 
 
@@ -232,7 +246,7 @@ input[type="number"] {
 }
 
 .close-btnPerf:hover {
-    color: #a7c957;
+    color: #4CAF50;
 }
 
 .delete-btnPerf {
@@ -258,7 +272,7 @@ input[type="number"] {
 .valid_messagePerf {
     padding: 10px;
     color: black;
-    background: #a7c957;
+    background: #4CAF50;
     text-align: center;
 }
 .sous-poids {
@@ -269,7 +283,7 @@ input[type="number"] {
 }
 
 .normal-poids {
-    background-color: green;
+    background-color: #45a049;
     color: white;
     padding: 5px;
     border-radius: 5px;

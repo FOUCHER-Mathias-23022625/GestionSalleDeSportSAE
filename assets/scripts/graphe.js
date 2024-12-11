@@ -35,7 +35,7 @@ function initChart(canvasId, labels, datasetLabel, datasetData, yAxisLabel, bord
                     type: 'box',
                     yMin: 18.5,
                     yMax: 25,
-                    backgroundColor: 'rgba(167, 201, 87,0.3)',
+                    backgroundColor: 'rgba(76, 175, 80,0.3)',
                     borderWidth: 0,
                 },
                 {
@@ -98,8 +98,8 @@ function initChart(canvasId, labels, datasetLabel, datasetData, yAxisLabel, bord
 // Initialisation des graphiques
 window.onload = function() {
     // Graphique avec fond sous la courbe (pas de bandes)
-    initChart("performanceGraphe", dates, "Temps de jeu", tempsjeu, "Temps de jeu (minutes)", "rgba(167, 201, 87, 1)", "rgba(167, 201, 87, 0.2)", true, false);
+    initChart("performanceGraphe", dates, "Temps de jeu", tempsjeu, "Temps de jeu (minutes)", "rgba(76, 175, 80, 1)", "rgba(76, 175, 80, 0.2)", true, false);
 
     // Graphique avec bandes (IMC)
-    initChart("performanceGrapheImc", date, "🟥: sous poids       🟩: poids normal       🟧: sur-poids       🟥: obésité", imc, "IMC", "rgba(0,0,0,1)", "rgba(167, 201, 87, 0.0)", true, true);
+    initChart("performanceGrapheImc", date, "🟥: sous poids       🟩: poids normal       🟧: sur-poids       🟥: obésité", imc, "IMC", "rgba(0,0,0,1)", "rgba(76, 175, 80, 0.0)", true, true);
 };
