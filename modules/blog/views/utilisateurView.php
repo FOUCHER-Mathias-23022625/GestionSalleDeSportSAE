@@ -59,7 +59,7 @@ class utilisateurView
                     </form>
                 </div>
                 <div id="oublie-mdp-form" style="display: none">
-                    <h2>Renseigner votre mail</h2>
+                    <h2>Renseignez votre mail</h2>
                     <form method="POST" action="oublieMdp">
                         <div class="input-group">
                             <input type="text"  name="AncienMail" placeholder="Mail" required>
