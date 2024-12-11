@@ -54,7 +54,7 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($user['EMail'] ?? '') ?></td>
                 <td><?= htmlspecialchars($user['admin'] ?? '') ?></td>
                 <td class="actions">
-                    <a href="/GestionSalleDeSportSAE/interfaceAdmin/deleteUser(<?= urlencode($user['IdUtilisateur']) ?>)" class="delete-icon" title="Supprimer">
+                    <a href="/GestionSalleDeSportSAE/interfaceAdmin/deleteUser/<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">
                         ❌
                     </a>
                     <a href="update.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="edit-icon" title="Mettre à jour">
@@ -110,16 +110,17 @@ class interfaceAdminController
 
     public function deleteUser($userId)
     {
-        $this->interfaceAdminModel->deleteUser($userId);
+        $this->interfaceAdminModel->deleteUserMod($userId);
+        exit();
     }
 
     public function deleteEvent($eventId){
         $this->interfaceAdminModel->deleteEvent($eventId);
-        header('Location: /GestionSalleDeSportSAE/interfaceAdmin/afficherInterfaceAdmin');
+        exit();
     }
 
     public function deleteReservation($sport,$userId,$date,$heure){
         $this->interfaceAdminModel->deleteResa($sport,$userId,$date,$heure);
-
+        exit();
     }
 }
