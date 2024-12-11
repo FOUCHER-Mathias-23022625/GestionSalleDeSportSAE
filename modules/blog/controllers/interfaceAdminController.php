@@ -39,7 +39,6 @@ class interfaceAdminController
                 header('Location: /GestionSalleDeSportSAE/homepage/accueil');
                 exit();
             } else {
-                echo "Affichage de la vue de l'admin";
                 $viewInterfaceAdmin->afficher();
             }
         }
@@ -54,6 +53,14 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($user['PrenomU'] ?? '') ?></td>
                 <td><?= htmlspecialchars($user['EMail'] ?? '') ?></td>
                 <td><?= htmlspecialchars($user['admin'] ?? '') ?></td>
+                <td class="actions">
+                    <a href="delete.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">
+                        ❌
+                    </a>
+                    <a href="update.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="edit-icon" title="Mettre à jour">
+                        ✏️
+                    </a>
+                </td>
             </tr>
         <?php endforeach;
     }
