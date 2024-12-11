@@ -8,6 +8,10 @@
     box-shadow: -1px 3px 8px black; /* Ombre portée similaire à l'ancienne navbar */
 }
 
+.logo-Site{
+    height: 100px;
+}
+
 .navbar-brand{
     font-size: 32px;
     font-weight: 500;

@@ -14,6 +14,18 @@ session_start();
             return false;
         }
 
+        public function estAdmin()
+        {
+            if($this->estConnecte()){
+                if(isset($_SESSION['admin'])) {
+                    return true;
+                }
+                return false;
+            }
+        return false;
+
+        }
+
         public function afficher(){
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
@@ -25,12 +37,15 @@ session_start();
                         <div class="navbar-brand me-auto" onclick="window.location.href='/GestionSalleDeSportSAE/homepage/accueil';">
                             Sport
                             <span class="hub">Hub</span>
+                            <img src="/GestionSalleDeSportSAE/assets/images/logo-img.png" alt="logo de notre site ">
                         </div>
+
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                             <div class="offcanvas-header">
                                 <div class="offcanvas-title" id="offcanvasNavbarLabel" onclick="window.location.href='/GestionSalleDeSportSAE/homepage/accueil';">
                                     Sport
                                     <span class="hub">Hub</span>
+                                    <img src="/GestionSalleDeSportSAE/assets/images/logo-img.png" alt="logo de notre site" class="logo-Site">
                                 </div>
                                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
@@ -48,9 +63,11 @@ session_start();
                                     <li class="nav-item">
                                         <a class="nav-link mx-lg-2" href="/GestionSalleDeSportSAE/performance/affichePerf">Performances</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link mx-lg-2" href="/GestionSalleDeSportSAE/utilisateur/deconnecte">Deco</a>
-                                    </li>
+                                    <?php if($this->estAdmin()) { ?>
+                                        <li class="nav-item">
+                                            <a class="nav-link mx-lg-2" href = "/GestionSalleDeSportSAE/interfaceAdmin/afficherInterfaceAdmin">InterfaceUtilisateur</a >
+                                        </li >
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>
@@ -58,7 +75,7 @@ session_start();
                             $model = new \blog\models\compteModel();
                             $image = $model->utilisateurInformation()['pp'];
                             if (!$image) {
-                                $image = "pp.png";
+                                $image = "basePp.png";
                             }
                             ?>
                             <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
