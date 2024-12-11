@@ -38,6 +38,16 @@ class compteController{
             return false;
         }
     }
+
+    public function changementMdp(){
+        $ancienMdp = $_POST['ancienMdp'];
+        $nouveauMdp = $_POST['nouveauMdp'];
+        if($this->verifMdp($ancienMdp)){
+            $model= new compteModel();
+            $model->changementMotDePasse($nouveauMdp);
+        }
+        header('location:../homepage/accueil');
+    }
     public function generateurMdp(){
         $alphabet="abcdefghijklmnopqrstuvwxyz";
         $alphabetMaj="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
