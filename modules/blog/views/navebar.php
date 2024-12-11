@@ -37,7 +37,7 @@ session_start();
                         <div class="navbar-brand me-auto" onclick="window.location.href='/GestionSalleDeSportSAE/homepage/accueil';">
                             Sport
                             <span class="hub">Hub</span>
-                            <img src="/GestionSalleDeSportSAE/assets/images/logo-img.png" alt="logo de notre site ">
+                            <img src="/GestionSalleDeSportSAE/assets/images/logo-img.png" alt="logo de notre site " class="logo-Site">
                         </div>
 
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -65,7 +65,7 @@ session_start();
                                     </li>
                                     <?php if($this->estAdmin()) { ?>
                                         <li class="nav-item">
-                                            <a class="nav-link mx-lg-2" href = "/GestionSalleDeSportSAE/interfaceAdmin/afficherInterfaceAdmin">InterfaceUtilisateur</a >
+                                            <a class="nav-link mx-lg-2" href = "/GestionSalleDeSportSAE/interfaceAdmin/afficherInterfaceAdmin">Interface Administrateur</a >
                                         </li >
                                     <?php } ?>
                                 </ul>

@@ -34,4 +34,19 @@ class interfaceAdminModel
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function deleteUser($userId){
+        $stmt = $this->connexion->pdo->prepare("DELETE FROM utilisateur WHERE user_id = ?");
+        $stmt->execute([$userId]);
+    }
+
+    public function deleteEvent($eventId){
+    $stmt = $this->connexion->pdo->prepare("DELETE FROM evenement WHERE id = ?");
+    $stmt->execute([$eventId]);
+    }
+
+    public function deleteReservation($sport,$userId,$date,$heure){
+        $stmt = $this->connexion->pdo->prepare("DELETE FROM reservationTerrain WHERE sport = ? AND user_id = ? AND date = ? AND heure = ?");
+        $stmt->execute([$sport,$userId,$date,$heure]);
+    }
 }

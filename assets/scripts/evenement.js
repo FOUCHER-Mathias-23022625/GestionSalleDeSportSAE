@@ -13,27 +13,10 @@ function handleParticipationEvenementClick(isUserConnected) {
     }
 }
 
-/*buttons.forEach(button => {
-    button.addEventListener('click', function() {
-        const eventId = this.getAttribute('IdEven'); // Récupère l'ID de l'événement
-        console.log('ID de l\'événement:', eventId); // Affiche l'ID dans la console (à remplacer par votre logique)
+function confirmSupprimerEven(id) {
+    return confirm("Voulez-vous vraiment supprimer cet événement ?");
+}
 
-
-        if (!isUserConnected) {
-            alert('Vous devez être connecté pour vous inscrire à un évenement.');
-        } else {
-            const hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = 'eventId';
-            hiddenInput.value = eventId;
-            popup.querySelector('form').appendChild(hiddenInput);
-
-            popup.classList.add('show');
-            overlay.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-    });
-});*/
 
 closePopup.addEventListener('click', function() {
     popup.classList.remove('show');

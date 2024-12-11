@@ -57,6 +57,11 @@
     background-color: #f9f9f9;
 }
 
+.admin-container a{
+    text-decoration: none;
+
+}
+
 .admin-container table tr:hover {
     background-color: #c8e6c9;
     transition: background-color 0.3s ease;

@@ -2,19 +2,24 @@
 
 namespace controllers;
 use blog\models\evenementModel;
+use blog\models\performanceModel;
 use blog\views\evenementView;
+use blog\views\performanceView;
 use PDO;
 use index;
 require_once "modules/blog/models/evenementModel.php";
 require_once "modules/blog/views/evenementView.php";
+
 class evenementController{
 
-    public function __construct(){
-        try {
-            $evenementModel = new evenementModel();
-        } catch (PDOException $e) {
-            die("Erreur de connexion à la base de données : " . $e->getMessage());
-        }
+    private $model;
+    private $view;
+
+    public function __construct()
+    {
+
+        $this->model = new evenementModel();
+        $this->view = new evenementView();
     }
 
     public function afficheEvenement() {
@@ -34,10 +39,10 @@ class evenementController{
 
         $idUtilisateur = $_SESSION['id'];
 
-        if ($this->evenementModel->isUserSubscribed($idEvenement, $idUtilisateur)) {
+        if ($this->model->isUserSubscribed($idEvenement, $idUtilisateur)) {
             $_SESSION['error'] = "Vous êtes déjà inscrit à cet événement.";
         } else {
-            if ($this->evenementModel->subscribeUser($idEvenement, $idUtilisateur)) {
+            if ($this->model->subscribeUser($idEvenement, $idUtilisateur)) {
                 $_SESSION['success'] = "Inscription réussie à l'événement.";
             } else {
                 $_SESSION['error'] = "Erreur lors de l'inscription à l'événement.";
@@ -53,4 +58,20 @@ class evenementController{
         header("Location: afficheEvenement");
         exit();
     }
+
+    public function supprimerEven() {
+        $dateEven = $_POST['DateEven'];
+        $nomEven = $_POST['NomEven'];
+        if ($dateEven && $nomEven) {
+            $this->model->supprimerEven($dateEven, $nomEven);
+
+            header('Location: afficheEvenement');
+            $_SESSION['valid_message'] = "Suppression de la performance réalisé avec succès.";
+            exit();
+        } else {
+            $_SESSION['error_message'] = "Erreur avec les clés.";
+            echo "Clés invalides pour la suppression.";
+        }
+    }
+
 }

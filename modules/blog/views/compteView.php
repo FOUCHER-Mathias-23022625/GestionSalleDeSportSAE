@@ -54,9 +54,6 @@ class compteView{
             <input type="submit" id="maj_btn" class="form-submit" value="Mettre à jour">
         </form>
 </div>
-
-
-
         <script src="/GestionSalleDeSportSAE/assets/scripts/compte.js"></script>
         <?php
         (new \Blog\Views\Layout('compte', ob_get_clean()))->afficher();
