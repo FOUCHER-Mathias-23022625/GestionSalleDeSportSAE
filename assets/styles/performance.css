@@ -4,6 +4,7 @@
     width: 80%;
     margin: 0 auto;
     padding: 20px;
+    text-align: center ;
 }
 
 .section-titlePerf {
@@ -115,7 +116,7 @@
 }
 
 #add-performance-btnPerf:hover {
-    background-color: #4CAF50;
+    background-color: #3D8C40;
 }
 
 #add-performance-btnPerf:focus {
