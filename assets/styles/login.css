@@ -32,7 +32,7 @@ body{
     color: black;
     margin-bottom: 50px;
     font-weight: bold;
-    border-bottom: 2px solid #a7c957;
+    border-bottom: 2px solid #4CAF50;
     font-family: "Poppins", sans-serif;
 }
 
@@ -67,7 +67,7 @@ body{
 
 #btn-connexion {
     width: 400px;
-    background: #a7c957;
+    background: #4CAF50;
     color: white;
     border-radius: 20px;
     border: none;
@@ -79,7 +79,57 @@ body{
 }
 
 #btn-connexion:hover {
-    background: #2a872e;
+    background: #4CAF50;
+}
+
+#ancienMail{
+    width: 400px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    margin: 20px 0 20px 0;
+    padding: 10px;
+
+}
+
+#ancienMail:hover {
+    background: #4CAF50;
+}
+
+#oublieMdp-btn{
+    width: 400px;
+    background: none;
+    color: #38444c;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    padding: 10px;
+}
+
+#oublieMdp-btn:hover {
+    background: #cdcdcd;
+
+}
+
+
+#btn-cancel2{
+    width: 400px;
+    background: none;
+    color: #38444c;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    padding: 10px;
+}
+
+#btn-cancel2:hover {
+    background: #cdcdcd;
+
 }
 
 #btn-inscription {
@@ -100,7 +150,7 @@ body{
 
 #inscription {
     width: 400px;
-    background: #a7c957;
+    background: #4CAF50;
     color: white;
     border-radius: 20px;
     border: none;
