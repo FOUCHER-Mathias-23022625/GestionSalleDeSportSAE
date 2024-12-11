@@ -44,6 +44,7 @@ class interfaceAdminView
                         <th>Date</th>
                         <th>Heure</th>
                         <th>Terrain</th>
+                        <th>Actions</th>
                     </tr>
                     <?php $afficherResa = new \controllers\interfaceAdminController();
                     $afficherResa->AfficheReservations(); ?>
@@ -62,6 +63,7 @@ class interfaceAdminView
                         <th>Nom de l'événement</th>
                         <th>Date</th>
                         <th>Sport</th>
+                        <th>Actions</th>
                     </tr>
                     <?php $afficherEVE = new \controllers\interfaceAdminController();
                     $afficherEVE->AfficheEvenements(); ?>

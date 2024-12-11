@@ -54,7 +54,7 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($user['EMail'] ?? '') ?></td>
                 <td><?= htmlspecialchars($user['admin'] ?? '') ?></td>
                 <td class="actions">
-                    <a href="delete.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">
+                    <a href="/GestionSalleDeSportSAE/interfaceAdmin/deleteUser(<?= urlencode($user['IdUtilisateur']) ?>)" class="delete-icon" title="Supprimer">
                         ❌
                     </a>
                     <a href="update.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="edit-icon" title="Mettre à jour">
@@ -75,6 +75,14 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($reservation['date'] ?? '') ?></td>
                 <td><?= htmlspecialchars($reservation['heure'] ?? '') ?></td>
                 <td><?= htmlspecialchars($reservation['terrain'] ?? '') ?></td>
+                <td class="actions">
+                    <a href="delete.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">
+                        ❌
+                    </a>
+                    <a href="update.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="edit-icon" title="Mettre à jour">
+                        ✏️
+                    </a>
+                </td>
             </tr>
         <?php endforeach;
     }
@@ -88,7 +96,32 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($evenement['NomEven'] ?? '') ?></td>
                 <td><?= htmlspecialchars($evenement['DateEven'] ?? '') ?></td>
                 <td><?= htmlspecialchars($evenement['NomSport'] ?? '') ?></td>
+                <td class="actions">
+                    <a href="delete.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">
+                        ❌
+                    </a>
+                    <a href="update.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="edit-icon" title="Mettre à jour">
+                        ✏️
+                    </a>
+                </td>
             </tr>
         <?php endforeach;
+    }
+
+    public function deleteUser($userId)
+    {
+        $this->interfaceAdminModel->deleteUser($userId);
+        header('Location: /GestionSalleDeSportSAE/interfaceAdmin/afficherInterfaceAdmin');
+
+    }
+
+    public function deleteEvent($eventId){
+        $this->interfaceAdminModel->deleteEvent($eventId);
+        header('Location: /GestionSalleDeSportSAE/interfaceAdmin/afficherInterfaceAdmin');
+    }
+
+    public function deleteReservation($sport,$userId,$date,$heure){
+        $this->interfaceAdminModel->deleteResa($sport,$userId,$date,$heure);
+
     }
 }
