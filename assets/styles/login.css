@@ -32,7 +32,7 @@ body{
     color: black;
     margin-bottom: 50px;
     font-weight: bold;
-    border-bottom: 2px solid #a7c957;
+    border-bottom: 2px solid #4CAF50;
     font-family: "Poppins", sans-serif;
 }
 
@@ -67,7 +67,7 @@ body{
 
 #btn-connexion {
     width: 400px;
-    background: #a7c957;
+    background: #4CAF50;
     color: white;
     border-radius: 20px;
     border: none;
@@ -100,7 +100,7 @@ body{
 
 #inscription {
     width: 400px;
-    background: #a7c957;
+    background: #4CAF50;
     color: white;
     border-radius: 20px;
     border: none;
