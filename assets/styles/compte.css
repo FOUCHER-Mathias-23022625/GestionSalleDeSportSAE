@@ -37,6 +37,7 @@ body{
 }
 
 .connexion_box .input-group {
+    justify-content: right;
     position: relative;
     margin: 0 auto 25px auto;
     width: 400px;
@@ -49,7 +50,7 @@ body{
     width: 100%;
     border: 2px solid #000;
     outline: none;
-    background: none;
+
     padding: 10px;
     border-radius: 50px !important;
     font-size: 1.2em;
@@ -77,6 +78,11 @@ body{
     padding: 10px;
 
 }
+*:disabled {
+    background-color: dimgrey;
+    color: linen;
+    opacity: 1;
+}
 
 #maj_btn:hover {
     background: #2a872e;
@@ -97,6 +103,12 @@ body{
 
 #changement:hover {
     background: #2a872e;
+}
+
+.crayon{
+    z-index: 1;
+    border: none;
+    background: none;
 }
 
 

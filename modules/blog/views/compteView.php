@@ -23,16 +23,19 @@ class compteView{
 
             <label for="NomU" class="form-label">Nom:</label><br>
         <div class="input-group">
-            <input type="text" id="NomU"  name="NomCompte" value="<?php echo $resultat['NomU']; ?>" required><br><br>
+            <input type="text" id="NomU"  name="NomCompte" value="<?php echo $resultat['NomU']; ?>" disabled required>
+            <button type="button" id="nomModif" class="crayon">✏️</button><br><br>
         </div>
             <label for="PrenomU" class="form-label">Prénom:</label><br>
         <div class="input-group">
-            <input type="text" id="PrenomU"  name="PrenomCompte" value="<?php echo $resultat['PrenomU']; ?>" required><br><br>
+            <input type="text" id="PrenomU"  name="PrenomCompte" value="<?php echo $resultat['PrenomU']; ?>" disabled required>
+            <button type="button" id="prenomModif" class="crayon">✏️</button><br><br>
         </div>
 
             <label for="Email" class="form-label">E-mail:</label><br>
         <div class="input-group">
-            <input type="email" id="Email"  name="EmailCompte" value="<?php echo $resultat['EMail']; ?>" required><br><br>
+            <input type="email" id="Email"  name="EmailCompte" value="<?php echo $resultat['EMail']; ?>" disabled required>
+            <button type="button" id="mailModif" class="crayon">✏️</button><br><br>
         </div>
         <label>Changement de vôtre mot de passe</label>
         <div class="input-group">
