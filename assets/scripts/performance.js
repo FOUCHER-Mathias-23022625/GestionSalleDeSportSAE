@@ -1,3 +1,4 @@
+//Partie graphe
 function initChart(canvasId, labels, datasetLabel, datasetData, yAxisLabel, borderColor, backgroundColor, reverse = false, addBands = false) {
     if (reverse) {
         labels = labels.slice().reverse();
@@ -134,5 +135,40 @@ document.addEventListener("DOMContentLoaded", () => {
         initImcChart();
     }
 });
+
+// Partie formulaire
+
+//Formulaire ajouter performance
+function formAjt() {
+    document.getElementById("formOverlayAddPerf").style.display = "flex";
+}
+
+function closeForm() {
+    document.getElementById("formOverlayAddPerf").style.display = "none";
+}
+
+//formulaire ajouter IMC
+function formAjtImc() {
+    document.getElementById("formOverlayAddImc").style.display = "flex";
+}
+
+function closeFormImc() {
+    document.getElementById("formOverlayAddImc").style.display = "none";
+}
+function afficheHistorique() {
+    var table = document.getElementById('historique-table');
+    if (table.style.display === 'none') {
+        table.style.display = 'table';
+    } else {
+        table.style.display = 'none';
+    }
+}
+
+//Partie confirmation (pop-up)
+function confirmDelete() {
+    return confirm('Êtes-vous sûr de vouloir supprimer cette performance ?');
+}
+
+
 
 

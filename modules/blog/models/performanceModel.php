@@ -31,18 +31,26 @@ class performanceModel {
         // Préparation de la requête SQL pour insérer les données dans la base
         $sql = "INSERT INTO performances (date, sport, temps_de_jeu, score, resultat, id_user)
             VALUES (:date, :sport, :temps_de_jeu, :score, :resultat, :id_user)";
+        $sqlCheck = "SELECT COUNT(*) FROM IMC WHERE date = :date and sport = :sport and id_user = $id_user";
 
-        $stmt = $this->connexion->prepare($sql);
+        if ($sqlCheck>=2){
+            $_SESSION['error_message'] = "Performance déjà existante, veuillez la supprimer et la réajouter pour la modifier.";
+        }
+        else{
+            $stmt = $this->connexion->prepare($sql);
+            // Exécution de la requête avec les valeurs fournies
+            $stmt->execute([
+                ':date' => $date,
+                ':sport' => $sport,
+                ':temps_de_jeu' => $tempsJeu,
+                ':score' => $score,
+                ':resultat' => $resultat,
+                ':id_user' => $id_user
+            ]);
+        }
 
-        // Exécution de la requête avec les valeurs fournies
-        $stmt->execute([
-            ':date' => $date,
-            ':sport' => $sport,
-            ':temps_de_jeu' => $tempsJeu,
-            ':score' => $score,
-            ':resultat' => $resultat,
-            ':id_user' => $id_user
-        ]);
+
+
     }
     public function deletePerformance($date,$sport)
     {
