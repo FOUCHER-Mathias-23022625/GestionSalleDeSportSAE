@@ -26,7 +26,7 @@
     margin: 50px auto;
     --g: 1px;
     --b: 5px;
-    --c: #a7c957;
+    --c: #4CAF50;
 
     padding: calc(var(--g) + var(--b));
     position: relative;
@@ -44,7 +44,7 @@
 
 
 .sinscrire{
-    background-color: #a7c957;
+    background-color: #4CAF50;
     color: white;
     border-radius: 50px;
     outline: none;
@@ -143,7 +143,7 @@
     outline: none;
     transform: none;
     height: 40px;
-    background-color: #a7c957;
+    background-color: #4CAF50;
     color: #38444c;
     cursor: pointer;
     transition: 0.3s ease;
@@ -190,7 +190,7 @@
     color: black;
     margin-bottom: 50px;
     font-weight: bold;
-    border-left: 5px solid #a7c957;
+    border-left: 5px solid #4CAF50;
 }
 
 .popup_inscription .inputbox {
@@ -249,7 +249,7 @@
 
 #submitButton {
     width: 250px;
-    background: #a7c957;
+    background: #4CAF50;
     color: white;
     border: white;
     cursor: pointer;
@@ -310,7 +310,7 @@
     color: black;
     margin-bottom: 50px;
     font-weight: bold;
-    border-left: 5px solid #a7c957;
+    border-left: 5px solid #4CAF50;
 }
 
 .add_event .inputbox {
@@ -350,7 +350,7 @@
 
 #addEventButton {
     width: 300px;
-    background: #a7c957;
+    background: #4CAF50;
     color: white;
     border: white;
     cursor: pointer;
