@@ -35,7 +35,7 @@ class evenementView{
                             case 'basketball':
                                 $image = '/GestionSalleDeSportSAE/assets/images/basket-img.png';
                                 break;
-                            case 'badminton':
+                            case 'badminton-simple':
                                 $image = '/GestionSalleDeSportSAE/assets/images/raquette-volant-de-badminton.jpg';
                                 break;
                             default:
@@ -65,7 +65,17 @@ class evenementView{
                         ?>
                             <p><?= $description ?></p>
                             <p>Date: <?= $evenement['DateEven'] ?></p>
-                            <button class="sinscrire" onclick="handleParticipationEvenementClick(<?= json_encode($isUserConnected) ?>)">Je participe</button>
+                            <div class="interaction-event">
+                                <button class="sinscrire" onclick="handleParticipationEvenementClick(<?= json_encode($isUserConnected) ?>)">Je participe</button>
+                                <?php if ($isUserConnected): ?>
+                                    <form method="POST" action="supprimerEven" onsubmit="return confirmSupprimerEven();">
+                                        <input type="hidden" name="DateEven" value="<?php echo htmlspecialchars($evenement['DateEven']); ?>">
+                                        <input type="hidden" name="NomEven" value="<?php echo htmlspecialchars($evenement['NomEven']); ?>">
+                                        <button type="submit" class="supprimer-event-btn">Supprimer</button>
+                                    </form>
+                                <?php endif;?>
+                            </div>
+
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -106,10 +116,18 @@ class evenementView{
             <div class="inputbox">
                 <input type="date" name="DateEven" required="required">
             </div>
-            <div class="inputbox">
-                <input type="text" name="NomSport" required="required">
-                <span>Nom du sport</span>
-            </div>
+                <label class="form-labelPerf" for="Sport">Sport</label>
+                <select class="form-selectPerf" id="Sport" name="NomSport" required>
+                    <option value=""> Sélectionnez un sport </option>
+                    <option value="futsal">Futsal</option>
+                    <option value="basketball">Basketball</option>
+                    <option value="volleyball">Volleyball</option>
+                    <option value="ping-pong">Ping-pong</option>
+                    <option value="tennis-simple">Tennis (simple)</option>
+                    <option value="tennis-double">Tennis (double)</option>
+                    <option value="badminton-simple">Badminton (simple)</option>
+                    <option value="badminton-double">Badminton (double)</option>
+                </select>
             <div class="inputbox">
                 <input type="submit" id="addEventButton" value="Ajouter l'événement">
             </div>
