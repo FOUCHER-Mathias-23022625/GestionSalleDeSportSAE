@@ -36,8 +36,9 @@ class interfaceAdminModel
     }
 
     public function deleteUserMod($userId){
-        $stmt = $this->connexion->pdo->prepare("DELETE FROM utilisateur WHERE user_id = ?");
-        $stmt->execute([$userId]);
+        $stmt = $this->connexion->pdo->prepare("DELETE FROM utilisateur WHERE user_id = :userId");
+        $stmt->bindParam(":userId", $userId);
+        $stmt->execute();
     }
 
     public function deleteEvent($eventId){
