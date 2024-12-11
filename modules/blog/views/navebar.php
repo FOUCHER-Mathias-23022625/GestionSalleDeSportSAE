@@ -16,13 +16,13 @@ session_start();
 
         public function estAdmin()
         {
-            if($this->estAdmin()){
+            if($this->estConnecte()){
                 if(isset($_SESSION['admin'])) {
                     return true;
                 }
                 return false;
             }
-
+        return false;
 
         }
 
@@ -45,7 +45,7 @@ session_start();
                                 <div class="offcanvas-title" id="offcanvasNavbarLabel" onclick="window.location.href='/GestionSalleDeSportSAE/homepage/accueil';">
                                     Sport
                                     <span class="hub">Hub</span>
-                                    <img src="/GestionSalleDeSportSAE/assets/images/logo-img.png" alt="logo de notre site">
+                                    <img src="/GestionSalleDeSportSAE/assets/images/logo-img.png" alt="logo de notre site" class="logo-Site">
                                 </div>
                                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
