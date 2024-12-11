@@ -145,12 +145,13 @@ class performanceView
 </main>
 
 
-        <footer id="main-footerPerf">
+<footer id="main-footerPerf">
     <div class="containerPerf">
         <p>&copy; 2024 Salle Multi-Sport - Suivi des Performances</p>
     </div>
 </footer>
 
+        <!--Formulaire-->
 <div class="overlayFormPerf" id="formOverlayAddPerf">
     <div class="form-containerPerf">
         <h1 class="form-titlePerf">Ajouter une performance</h1>
@@ -246,9 +247,7 @@ class performanceView
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
-<script src="/GestionSalleDeSportSAE/assets/scripts/graphe.js"></script>
-<script src="/GestionSalleDeSportSAE/assets/scripts/performance_form.js"></script>
-<script src="/GestionSalleDeSportSAE/assets/scripts/confirmSupprPerformance.js"></script>
+<script src="/GestionSalleDeSportSAE/assets/scripts/performance.js"></script>
 
 <?php
         (new \blog\views\Layout('Mes Performances',ob_get_clean()))->afficher();
