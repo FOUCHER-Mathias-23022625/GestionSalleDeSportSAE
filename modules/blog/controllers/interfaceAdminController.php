@@ -158,9 +158,9 @@ class interfaceAdminController
         exit();
     }
 
-    public function updateUser($userId)
+    public function updateUser($userId, $nom, $prenom, $email, $admin)
     {
-        $this->interfaceAdminModel->updateUserMod($userId);
+        $this->interfaceAdminModel->updateUserMod($userId, $nom, $prenom, $email, $admin);
         header('Location: /GestionSalleDeSportSAE/interfaceAdmin/afficherInterfaceAdmin');
         exit();
     }
