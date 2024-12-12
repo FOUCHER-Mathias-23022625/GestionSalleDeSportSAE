@@ -5,3 +5,7 @@ function openConfirmationBox() {
 function closeConfirmationBox() {
     document.getElementById('confirm-overlay').style.display = 'none';
 }
+
+function getID(id){
+    return id;
+}

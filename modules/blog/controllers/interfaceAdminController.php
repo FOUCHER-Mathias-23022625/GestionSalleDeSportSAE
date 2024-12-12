@@ -56,15 +56,26 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($user['EMail'] ?? '') ?></td>
                 <td><?= htmlspecialchars($user['admin'] ?? '') ?></td>
                 <td class="actions">
-                    <a href="/GestionSalleDeSportSAE/interfaceAdmin/deleteUserBox/<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">
-                        ❌
-                    </a>
+                    <button onclick="openConfirmationBox()">Supprimer l'utilisateur</button>
                     <a href="update.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="edit-icon" title="Mettre à jour">
                         ✏️
                     </a>
                 </td>
             </tr>
-        <?php endforeach;
+        <?php endforeach; ?>
+
+        <div id="confirmation-container">
+            <div id="confirm-overlay" class="custom-overlay">
+                <div id="confirm-box" class="custom-box">
+                    <p>Êtes-vous sûr de vouloir supprimer l\'utilisateur ' . htmlspecialchars($userId) . ' ?</p>
+                    <div class="custom-actions">
+                        <<a href="/GestionSalleDeSportSAE/interfaceAdmin/deleteUserBox/<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">Confirmer</a>
+                        <button class="custom-cancel-btn" onclick="closeConfirmationBox()">Annuler</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
     }
 
     public function AfficheReservations()
