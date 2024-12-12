@@ -26,16 +26,28 @@ class performanceModel {
         return $stmt->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif
     }
 
-    public function insertPerformance($date, $sport, $tempsJeu, $score, $resultat, $id_user)
+    public function insertPerformance($date, $sport, $tempsJeu, $score, $resultat)
     {
+        $id_user = $_SESSION['id'];
         // Préparation de la requête SQL pour insérer les données dans la base
         $sql = "INSERT INTO performances (date, sport, temps_de_jeu, score, resultat, id_user)
             VALUES (:date, :sport, :temps_de_jeu, :score, :resultat, :id_user)";
-        $sqlCheck = "SELECT COUNT(*) FROM IMC WHERE date = :date and sport = :sport and id_user = $id_user";
+        $sqlCheck = "SELECT COUNT(*) FROM performances WHERE date = :date and sport = :sport and id_user = :id_user";
 
-        if ($sqlCheck>=2){
+        // Préparation de la vérification
+        $stmtCheck = $this->connexion->prepare($sqlCheck);
+        $stmtCheck->execute([
+            ':date' => $date,
+            ':sport' => $sport,
+            ':id_user' => $id_user
+        ]);
+        //recupere le nombre d'entree existante
+        $count = $stmtCheck->fetchColumn();
+
+        if ($count>=1){
             $_SESSION['error_message'] = "Performance déjà existante, veuillez la supprimer et la réajouter pour la modifier.";
         }
+
         else{
             $stmt = $this->connexion->prepare($sql);
             // Exécution de la requête avec les valeurs fournies

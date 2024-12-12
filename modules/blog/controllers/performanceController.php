@@ -179,9 +179,9 @@ class performanceController
         }
         // Vérifie que toutes les données obligatoires sont présentes
         $id_user = $_SESSION['id'];
-        if ($date && $sport && $tempsJeu && $score && $resultat !== null) {
+        if ($date && $sport && $tempsJeu && $score && $resultat !== null && $id_user) {
             // Ajouter la performance à la base de données
-            $this->model->insertPerformance($date, $sport, $tempsJeu, $score, $resultat, $id_user);
+            $this->model->insertPerformance($date, $sport, $tempsJeu, $score, $resultat);
             header('Location:affichePerf');
             exit();
         }
