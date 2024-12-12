@@ -69,7 +69,7 @@ class interfaceAdminController
                 <div id="confirm-box" class="custom-box">
                     <p>Êtes-vous sûr de vouloir supprimer l\'utilisateur ' . htmlspecialchars($userId) . ' ?</p>
                     <div class="custom-actions">
-                        <<a href="/GestionSalleDeSportSAE/interfaceAdmin/deleteUserBox/<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">Confirmer</a>
+                        <<a href="/GestionSalleDeSportSAE/interfaceAdmin/deleteUser/<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">Confirmer</a>
                         <button class="custom-cancel-btn" onclick="closeConfirmationBox()">Annuler</button>
                     </div>
                 </div>
@@ -121,11 +121,6 @@ class interfaceAdminController
         <?php endforeach;
     }
 
-    public function deleteUserBox($userId)
-    {
-        $this->interfaceAdminView->confirmationBoxUser($userId);
-        exit();
-    }
     public function deleteUser($userId)
     {
         $this->interfaceAdminModel->deleteUserMod($userId);
