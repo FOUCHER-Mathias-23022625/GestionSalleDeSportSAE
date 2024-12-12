@@ -158,12 +158,22 @@ class interfaceAdminController
         exit();
     }
 
-    public function updateUser($userId, $nom, $prenom, $email, $admin)
+    public function updateUser()
     {
+        $userId = $_POST['IdUtilisateur']; // Champ caché pour l'ID
+        $nom = $_POST['NomU'];
+        $prenom = $_POST['PrenomU'];
+        $email = $_POST['EMail'];
+        $admin = $_POST['admin'];
+
+        // Appeler le modèle pour effectuer la mise à jour
         $this->interfaceAdminModel->updateUserMod($userId, $nom, $prenom, $email, $admin);
+
+        // Redirection après la mise à jour
         header('Location: /GestionSalleDeSportSAE/interfaceAdmin/afficherInterfaceAdmin');
         exit();
     }
+
 
     public function deleteEvent($eventId){
         $this->interfaceAdminModel->deleteEvent($eventId);
