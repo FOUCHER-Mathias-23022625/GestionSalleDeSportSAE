@@ -71,6 +71,20 @@ class interfaceAdminView
             </section>
         </main>
 
-    <?php (new \Blog\Views\Layout('Interface Administrateur', ob_get_clean()))->afficher();
+        <script type="text/javascript" src="/GestionSalleDeSportSAE/assets/scripts/interfaceAdmin.js"></script>
+
+        <?php (new \Blog\Views\Layout('Interface Administrateur', ob_get_clean()))->afficher();
+    }
+
+    public function confirmationBoxUser($userId) {
+        return '
+    <div id="confirm-overlay" class="custom-overlay">
+        <div id="confirm-box" class="custom-box">
+            <p>Êtes-vous sûr de vouloir supprimer l\'utilisateur ' . htmlspecialchars($userId) . ' ?</p>
+            <div class="custom-actions">
+                <a href="/GestionSalleDeSportSAE/interfaceAdmin/deleteUser/<?= urlencode($evenement[\'IdEvenement\']) ?>" class="custom-confirm-btn">Confirmer</a>
+                <button class="custom-cancel-btn" onclick="closeConfirmationBox()">Annuler</button>
+        </div>
+    </div>';
     }
 }

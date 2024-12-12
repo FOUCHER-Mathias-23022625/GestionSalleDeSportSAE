@@ -54,7 +54,7 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($user['EMail'] ?? '') ?></td>
                 <td><?= htmlspecialchars($user['admin'] ?? '') ?></td>
                 <td class="actions">
-                    <a href="/GestionSalleDeSportSAE/interfaceAdmin/deleteUser/<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">
+                    <a href="/GestionSalleDeSportSAE/interfaceAdmin/confirmationBoxUser/<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">
                         ❌
                     </a>
                     <a href="update.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="edit-icon" title="Mettre à jour">
@@ -76,7 +76,7 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($reservation['heure'] ?? '') ?></td>
                 <td><?= htmlspecialchars($reservation['terrain'] ?? '') ?></td>
                 <td class="actions">
-                    <a href="delete.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">
+                    <a href="/GestionSalleDeSportSAE/interfaceAdmin/deleteReservation/<?= urlencode($reservation['sport']) ?>/<?= urlencode($reservation['user_id']) ?>/<?= urlencode($reservation['date']) ?>/<?= urlencode($reservation['heure']) ?>" class="delete-icon" title="Supprimer">
                         ❌
                     </a>
                     <a href="update.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="edit-icon" title="Mettre à jour">
@@ -97,7 +97,7 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($evenement['DateEven'] ?? '') ?></td>
                 <td><?= htmlspecialchars($evenement['NomSport'] ?? '') ?></td>
                 <td class="actions">
-                    <a href="delete.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">
+                    <a href="/GestionSalleDeSportSAE/interfaceAdmin/deleteEvent/<?= urlencode($evenement['IdEvenement']) ?>" class="delete-icon" title="Supprimer">
                         ❌
                     </a>
                     <a href="update.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="edit-icon" title="Mettre à jour">
@@ -107,7 +107,6 @@ class interfaceAdminController
             </tr>
         <?php endforeach;
     }
-
     public function deleteUser($userId)
     {
         $this->interfaceAdminModel->deleteUserMod($userId);
