@@ -54,7 +54,7 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($user['EMail'] ?? '') ?></td>
                 <td><?= htmlspecialchars($user['admin'] ?? '') ?></td>
                 <td class="actions">
-                    <a href="/GestionSalleDeSportSAE/interfaceAdmin/confirmationBoxUser/<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">
+                    <a href="/GestionSalleDeSportSAE/interfaceAdmin/deleteUserBox/<?= urlencode($user['IdUtilisateur']) ?>" class="delete-icon" title="Supprimer">
                         ❌
                     </a>
                     <a href="update.php?id=<?= urlencode($user['IdUtilisateur']) ?>" class="edit-icon" title="Mettre à jour">
@@ -106,6 +106,13 @@ class interfaceAdminController
                 </td>
             </tr>
         <?php endforeach;
+    }
+
+    public function deleteUserBox($userId)
+    {
+        $this->interfaceAdminView = new interfaceAdminView();
+        $this->interfaceAdminView->confirmationBoxUser($userId);
+        exit();
     }
     public function deleteUser($userId)
     {
