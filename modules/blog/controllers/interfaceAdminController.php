@@ -18,9 +18,11 @@ require_once "modules/blog/views/Layout.php";
 class interfaceAdminController
 {
     private $interfaceAdminModel;
+    private $interfaceAdminView;
 
     public function __construct() {
         $this->interfaceAdminModel = new interfaceAdminModel();
+        $this->interfaceAdminView = new interfaceAdminView();
     }
 
     public function afficherInterfaceAdmin() {
@@ -110,7 +112,6 @@ class interfaceAdminController
 
     public function deleteUserBox($userId)
     {
-        $this->interfaceAdminView = new interfaceAdminView();
         $this->interfaceAdminView->confirmationBoxUser($userId);
         exit();
     }
