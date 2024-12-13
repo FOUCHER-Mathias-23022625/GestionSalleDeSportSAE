@@ -9,7 +9,7 @@ require_once 'modules/blog/controllers/compteController.php';
 require_once 'modules/blog/controllers/interfaceAdminController.php';
 require_once 'modules/blog/controllers/abonnementController.php';
 require_once 'modules/blog/controllers/activiteController.php';
-
+require_once 'modules/blog/controllers/classementController.php';
 
 class Index {
     public function url() {
