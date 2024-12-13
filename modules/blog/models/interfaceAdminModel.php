@@ -59,8 +59,31 @@ class interfaceAdminModel
     $stmt->execute([$eventId]);
     }
 
-    public function deleteReservation($sport,$userId,$date,$heure){
+    public function updateReservationMod($reservationId, $sport, $userId, $date, $heure, $terrain)
+    {
+        $stmt = $this->connexion->pdo->prepare("UPDATE reservations SET sport = :sport, user_id = :user_id, date = :date, heure = :heure, terrain = :terrain WHERE id = :reservation_id");
+        $stmt->bindParam(":reservation_id", $reservationId);
+        $stmt->bindParam(":sport", $sport);
+        $stmt->bindParam(":user_id", $userId);
+        $stmt->bindParam(":date", $date);
+        $stmt->bindParam(":heure", $heure);
+        $stmt->bindParam(":terrain", $terrain);
+        $stmt->execute();
+    }
+
+
+    public function deleteReservationMod($sport,$userId,$date,$heure){
         $stmt = $this->connexion->pdo->prepare("DELETE FROM reservationTerrain WHERE sport = ? AND user_id = ? AND date = ? AND heure = ?");
         $stmt->execute([$sport,$userId,$date,$heure]);
+    }
+
+    public function updateEvenementMod($evenementId, $nomEven, $dateEven, $nomSport)
+    {
+        $stmt = $this->connexion->pdo->prepare("UPDATE evenements SET NomEven = :nom_even, DateEven = :date_even, NomSport = :nom_sportWHERE IdEvenement = :evenement_id");
+        $stmt->bindParam(":evenement_id", $evenementId);
+        $stmt->bindParam(":nom_even", $nomEven);
+        $stmt->bindParam(":date_even", $dateEven);
+        $stmt->bindParam(":nom_sport", $nomSport);
+        $stmt->execute();
     }
 }

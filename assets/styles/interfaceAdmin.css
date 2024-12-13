@@ -160,3 +160,24 @@
 .custom-cancel-btn:hover {
     background-color: #bbb;
 }
+
+.custom-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.actions button {
+    border: none;
+    background: none;
+    padding: 1px;
+}
