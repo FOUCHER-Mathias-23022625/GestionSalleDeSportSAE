@@ -83,8 +83,8 @@ class performanceView
                 <td><?php echo htmlspecialchars($performance['sport']); ?></td>
 
                 <td><?php echo htmlspecialchars($performance['temps_de_jeu']); ?></td>
-                <td class="<?php echo $performance['resultat'] == 1 ? 'victory-cell' : 'defeat-cell'; ?>">  <!--affichage vert si Victoire et rouge si Defaite-->
-                    <?php echo htmlspecialchars($performance['score']); ?>
+                <td class="<?php echo ($performance['resultat'] == 1) ? 'victory-cell' : (($performance['resultat'] == 2) ? 'draw-cell' : 'defeat-cell'); ?>">
+                <?php echo htmlspecialchars($performance['score']); ?>
                 <td>
                     <form method="POST" action="deletePerformance" onsubmit="return confirmDelete();">
                         <input type="hidden" name="Date" value="<?php echo htmlspecialchars($performance['date']); ?>">
@@ -198,6 +198,10 @@ class performanceView
                 <label class="form-radioPerf">
                     <input type="radio" name="resultat" value="Défaite" required>
                     <span class="custom-radioPerf"></span> Défaite
+                </label>
+                <label class="form-radioPerf">
+                    <input type="radio" name="resultat" value="Égalité" required>
+                    <span class="custom-radioPerf"></span> Égalité
                 </label>
             </div>
             <br>
