@@ -17,6 +17,7 @@ class classementController
 {
     private $model;
     private $view;
+    private $db;
 
     public function __construct()
     {
@@ -24,18 +25,6 @@ class classementController
         $this->model = new classementModel();
         $this->view = new classementView();
     }
-    public function getClassement()
-    {
-        $sql = "SELECT nom, prenom, COUNT(resultat) AS victoires 
-                FROM performances 
-                WHERE resultat = 1 
-                GROUP BY id_user 
-                ORDER BY victoires DESC";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
     public function afficheClassement()
     {
         $model = new classementModel('mysql-gestionsaetest.alwaysdata.net', '379076', 'gestionSae', 'gestionsaetest_bd');
@@ -45,6 +34,18 @@ class classementController
         }
         $view->afficher();
     }
+    public function afficheClassementVictoire()
+    {
+        if (!isset($_SESSION['id'])) {
+            header('Location: /GestionSalleDeSportSAE/utilisateur/afficheFormConnexion');
+            exit;
+        }
 
+        // Récupération des données depuis le modèle
+        $classement = $this->model->getClassement();
+
+        // Retourne les données du classement
+        return $classement;
+    }
 
 }

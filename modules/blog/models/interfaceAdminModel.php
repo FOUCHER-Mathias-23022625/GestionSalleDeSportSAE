@@ -59,10 +59,9 @@ class interfaceAdminModel
     $stmt->execute([$eventId]);
     }
 
-    public function updateReservationMod($reservationId, $sport, $userId, $date, $heure, $terrain)
+    public function updateReservationMod($sport, $userId, $date, $heure, $terrain)
     {
-        $stmt = $this->connexion->pdo->prepare("UPDATE reservations SET sport = :sport, user_id = :user_id, date = :date, heure = :heure, terrain = :terrain WHERE id = :reservation_id");
-        $stmt->bindParam(":reservation_id", $reservationId);
+        $stmt = $this->connexion->pdo->prepare("UPDATE reservationTerrain SET sport = :sport, user_id = :user_id, date = :date, heure = :heure, terrain = :terrain  WHERE sport = :sport AND user_id = :user_id AND date = :date AND heure = :heure ");
         $stmt->bindParam(":sport", $sport);
         $stmt->bindParam(":user_id", $userId);
         $stmt->bindParam(":date", $date);
@@ -79,7 +78,7 @@ class interfaceAdminModel
 
     public function updateEvenementMod($evenementId, $nomEven, $dateEven, $nomSport)
     {
-        $stmt = $this->connexion->pdo->prepare("UPDATE evenements SET NomEven = :nom_even, DateEven = :date_even, NomSport = :nom_sportWHERE IdEvenement = :evenement_id");
+        $stmt = $this->connexion->pdo->prepare("UPDATE evenement SET NomEven = :nom_even, DateEven = :date_even, NomSport = :nom_sport WHERE IdEvenement = :evenement_id");
         $stmt->bindParam(":evenement_id", $evenementId);
         $stmt->bindParam(":nom_even", $nomEven);
         $stmt->bindParam(":date_even", $dateEven);

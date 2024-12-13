@@ -23,10 +23,16 @@ function openConfirmationBoxEvent(eventId) {
 
 
 function openConfirmationBoxReserv(sport, idUser, date, heure) {
+    // Vérifie si les paramètres sont valides
+    if (!sport || !idUser || !date || !heure) {
+        console.error("Les paramètres sont manquants :", { sport, idUser, date, heure });
+        return;
+    }
+
     // Récupère l'élément <a> du bouton "Confirmer"
     const confirmLink = document.getElementById('confirm-link');
 
-    // Met à jour dynamiquement l'attribut href avec l'ID utilisateur
+    // Met à jour dynamiquement l'attribut href avec les valeurs fournies
     confirmLink.href = `/GestionSalleDeSportSAE/interfaceAdmin/deleteReservation/${sport}/${idUser}/${date}/${heure}`;
 
     // Affiche la boîte de confirmation
@@ -37,11 +43,19 @@ function closeConfirmationBox() {
     document.getElementById('confirm-overlay').style.display = 'none';
 }
 
-function closeEditBox() {
+function closeEditBoxUser() {
     // Masquer la boîte modale
-    document.getElementById('edit-overlay').style.display = 'none';
+    document.getElementById('edit-overlay-user').style.display = 'none';
 }
 
+function closeEditBoxResa() {
+    // Masquer la boîte modale
+    document.getElementById('edit-overlay-resa').style.display = 'none';
+}
+function closeEditBoxEvent() {
+    // Masquer la boîte modale
+    document.getElementById('edit-overlay-event').style.display = 'none';
+}
 
 
 
@@ -60,7 +74,6 @@ function openEditForm(user) {
 
 function openEditReservationBox(reservation) {
     // Remplir les champs du formulaire avec les données de la réservation
-    document.getElementById("edit-reservation-id").value = reservation.id;
     document.getElementById("edit-sport").value = reservation.sport;
     document.getElementById("edit-user-id").value = reservation.user_id;
     document.getElementById("edit-date").value = reservation.date;

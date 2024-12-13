@@ -1,0 +1,104 @@
+.containerClass {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.section-titleClass {
+    padding-top: 20px;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+#win-content {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#win-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+#win-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+
+#win-content th,
+#win-content td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+#win-content th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#win-content tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#win-content tr:hover {
+    background-color: #f1f1f1;
+}
+
+.error-messagePerf {
+    color: #e74c3c;
+    background-color: #fce4e4;
+    border: 1px solid #e74c3c;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.valid_messagePerf {
+    color: #2ecc71;
+    background-color: #e9f7ef;
+    border: 1px solid #2ecc71;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#main-footerPerf {
+    background-color: #38444c;
+    padding: 10px 0;
+    color: #fff;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.containerPerf {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Style des cellules de classement */
+#win-content td {
+    font-size: 1rem;
+    color: #333;
+}
+
+#win-content th {
+    font-weight: bold;
+}
+
+#win-content tr:first-child th {
+    border-top: 2px solid #4CAF50;
+}
+
+#win-content tr:last-child td {
+    border-bottom: 2px solid #4CAF50;
+}
+/* Style pour la ligne de l'utilisateur connecté */
+.highlight {
+    background-color: #f0f0f0; /* Couleur grise claire */
+    font-weight: bold; /* Optionnel : rendre le texte plus lisible */
+}
