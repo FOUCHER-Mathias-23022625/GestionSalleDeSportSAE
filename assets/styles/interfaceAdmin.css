@@ -104,6 +104,19 @@
     background-color: #45a049;
 }
 
+#edit-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* Fond flou */
 .custom-overlay {
     display: none;
@@ -119,56 +132,57 @@
     align-items: center;
 }
 
-/* Boîte centrée */
 .custom-box {
-    background: #ffffff;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    border-radius: 12px;
-    width: 450px;
-    max-width: 90%;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    text-align: left;
-    color: #38444D;
 }
 
-/* Titre du formulaire */
-.custom-box h2 {
-    margin-bottom: 20px;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #4CAF50;
-    border-bottom: 2px solid #4CAF50;
-    padding-bottom: 10px;
-}
-
+/* Style pour les labels et champs */
 .custom-form label {
     display: block;
     margin: 10px 0 5px;
-    font-weight: bold;
-    color: #38444c;
+    color: #333;
+    font-size: 14px;
 }
 
 .custom-form input,
 .custom-form select {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
-    color: #38444c;
-    background-color: white;
+    background-color: #f9f9f9;
+    transition: all 0.3s;
+}
+
+.custom-form input:focus,
+.custom-form select:focus {
+    border-color: #4CAF50;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Style pour les boutons */
+.custom-save-btn,
+.custom-cancel-btn {
+    width: 48%;
+    padding: 12px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
 }
 
 .custom-save-btn {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
 }
 
 .custom-save-btn:hover {
@@ -176,28 +190,48 @@
 }
 
 .custom-cancel-btn {
-    background-color: #ccc;
-    color: #38444c;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
+    background-color: #f44336;
+    color: white;
 }
 
 .custom-cancel-btn:hover {
-    background-color: #bbb;
+    background-color: #d32f2f;
 }
 
-/* Responsive adjustments */
+/* Positionnement des boutons */
+.custom-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Ombre subtile autour des champs de texte */
+.custom-form input,
+.custom-form select {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-form input:focus,
+.custom-form select:focus {
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Responsivité pour petits écrans */
 @media (max-width: 600px) {
-    .custom-box {
-        width: 90%;
+    #edit-container {
+        padding: 15px;
+        max-width: 100%;
     }
 
     .custom-actions {
         flex-direction: column;
-        gap: 15px;
+        align-items: stretch;
+    }
+
+    .custom-save-btn,
+    .custom-cancel-btn {
+        width: 100%;
+        margin: 5px 0;
     }
 }
 

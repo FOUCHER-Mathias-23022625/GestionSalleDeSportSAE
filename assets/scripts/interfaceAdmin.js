@@ -45,7 +45,7 @@ function closeConfirmationBox() {
 
 function closeEditBoxUser() {
     // Masquer la boîte modale
-    document.getElementById('edit-overlay-User').style.display = 'none';
+    document.getElementById('edit-overlay-user').style.display = 'none';
 }
 
 function closeEditBoxResa() {
