@@ -149,22 +149,23 @@ class interfaceAdminController
             <div id="edit-overlay-resa" class="custom-overlay">
                 <div id="edit-box" class="custom-box">
                     <form id="edit-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateReservation" method="POST">
-                        <!-- Champ caché pour l'ID de l'utilisateur -->
-                        <input type="hidden" name="IdUtilisateur" id="edit-id">
 
-                        <label for="edit-nom">Nom :</label>
-                        <input type="text" name="NomU" id="edit-nom" required>
+                        <label for="edit-sport">Sport choisis :</label>
+                        <input type="text" name="sport" id="edit-sport" required>
 
-                        <label for="edit-prenom">Prénom :</label>
-                        <input type="text" name="PrenomU" id="edit-prenom" required>
+                        <label for="edit-user-id">L'id de l'utilisateur :</label>
+                        <input type="text" name="userId" id="edit-user-id" required>
 
-                        <label for="edit-email">Email :</label>
-                        <input type="email" name="EMail" id="edit-email" required>
+                        <label for="edit-date">date :</label>
+                        <input type="date" name="date" id="edit-date" required>
 
-                        <label for="edit-admin">Admin :</label>
-                        <select name="admin" id="edit-admin" required>
-                            <option value="0">Non</option>
-                            <option value="1">Oui</option>
+                        <label for="edit-heure">heure :</label>
+                        <input type="time" id="edit-heure" name="heure" />
+
+                        <label for="edit-terrain">Admin :</label>
+                        <select name="terrain" id="edit-terrain" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
                         </select>
 
                         <div class="custom-actions">
