@@ -90,7 +90,7 @@ class performanceController
         // Vérifie si des performances sont disponibles
         if (!empty($performances)) {
             foreach ($performances as $performance) {
-                if ($performance['resultat']) {
+                if ($performance['resultat']==1) {
                     $totalVictoire += 1;
                 }
             }
@@ -159,7 +159,8 @@ class performanceController
         $sport = $_POST['Sport'];
         $tempsJeu = $_POST['TempsJeu'];
         $score = $_POST['Score'];
-        $resultat = ($_POST['resultat'] === 'Victoire') ? 1 : 0;
+        $resultat = ($_POST['resultat'] === 'Défaite') ? 1 : (($_POST['resultat'] === 'Égalité') ? 2 : 0);
+
 
         // Récupérer la date du jour
         $currentDate = date('Y-m-d');
