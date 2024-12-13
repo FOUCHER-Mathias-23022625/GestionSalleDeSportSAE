@@ -41,8 +41,11 @@ class compteModel
                 if(!move_uploaded_file($tmpName, 'assets/images/public/'.basename($image['name']))){
                     die();
                 }
-                $requete1 = $this->connexionBD->pdo->prepare("UPDATE utilisateur set pp=:image where idUtilisateur=:id");
+                $requete1 = $this->connexionBD->pdo->prepare("UPDATE utilisateur set pp=:image, NomU=:nom, PrenomU =:prenom, EMail =:mail where idUtilisateur=:id");
                 $requete1->bindParam(":image",$image['name']);
+                $requete1->bindParam(":nom",$_POST['NomCompte']);
+                $requete1->bindParam(":prenom",$_POST['PrenomCompte']);
+                $requete1->bindParam(":mail",$_Post['EmailCompte']);
                 $requete1->bindParam(":id",$_SESSION['id']);
                 $requete1->execute();
             } else {
