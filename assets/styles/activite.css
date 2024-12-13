@@ -1,0 +1,157 @@
+.activite-page h1{
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.activites-section{
+    margin-bottom: 50px;
+}
+
+#activites{
+    font-size: 45px;
+    color: #38444c;
+    margin: 75px auto 50px auto;
+}
+
+.activites-bienfaits{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.activites-section img{
+    width: 50%;
+    object-fit: cover;
+}
+
+.activites-bienfaits p{
+    margin-right: 30px;
+    font-size: 13px;
+}
+
+.txt-bienfaits{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.txt-bienfaits h2{
+    font-size: 30px;
+}
+
+#amenagments{
+    font-size: 45px;
+    color: #38444c;
+    margin: 100px auto 50px auto;
+}
+
+.activites-amenagements{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto 20px auto;
+    align-items: center;
+}
+
+.activites-section img{
+    width: 50%;
+    object-fit: cover;
+}
+
+.activites-amenagements p{
+    font-size: 13px;
+}
+
+.txt-amenagements{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 30px;
+}
+
+.txt-amenagements h2{
+    font-size: 30px;
+}
+
+.evenements-sport-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    margin: 100px auto;
+    height: 400px;
+}
+
+.evenements-section {
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    color: white;
+    text-align: center;
+    border-radius: 10px 0 0 10px;
+    flex: 1;
+    border-right: 2px solid #4CAF50;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.evenements-section:hover {
+    filter: brightness(75%);
+}
+
+.evenements-section h2 {
+    font-size: 2.5rem;
+    margin: 50px auto 20px auto;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.evenements-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+    max-width: 800px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.sport-section {
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    color: white;
+    text-align: center;
+    border-radius: 0 10px 10px 0;
+    flex: 1;
+    border-left: 2px solid #4CAF50;
+    transition: 0.5s ease;
+}
+
+.sport-section:hover {
+    filter: brightness(75%);
+}
+
+.sport-section img{
+
+    filter: brightness(50%);
+}
+
+.sport-section h2 {
+    font-size: 2.5rem;
+    margin: 50px auto 20px auto;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.sport-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
