@@ -35,8 +35,23 @@ class evenementView{
                             case 'basketball':
                                 $image = '/GestionSalleDeSportSAE/assets/images/basket-img.png';
                                 break;
+                            case 'badminton-double':
+                                $image = '/GestionSalleDeSportSAE/assets/images/badmintonsimple.jpg';
+                                break;
                             case 'badminton-simple':
-                                $image = '/GestionSalleDeSportSAE/assets/images/raquette-volant-de-badminton.jpg';
+                                $image = '/GestionSalleDeSportSAE/assets/images/badmintondouble.jpg';
+                                break;
+                            case 'tennis-simple':
+                                $image = '/GestionSalleDeSportSAE/assets/images/tennissimple.jpg';
+                                break;
+                            case 'tennis-double':
+                                $image = '/GestionSalleDeSportSAE/assets/images/tennisdouble.jpg';
+                                break;
+                            case 'ping-pong':
+                                $image = '/GestionSalleDeSportSAE/assets/images/pingpong.png';
+                                break;
+                            case 'volleyball':
+                                $image = '/GestionSalleDeSportSAE/assets/images/volleyball.jpg';
                                 break;
                             default:
                                 $image = '/GestionSalleDeSportSAE/assets/images/logo-img.png';

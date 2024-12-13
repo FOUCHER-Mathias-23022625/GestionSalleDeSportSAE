@@ -44,7 +44,8 @@ class evenementModel{
         return $query->rowCount() > 0;
     }
 
-    public function subscribeUser($idEvenement, $nom_utilisateur) {
+    public function subscribeUser($idEvenement, $nom_utilisateur): bool
+    {
         $insert = $this->evenementBD->prepare(("INSERT INTO participation (\"IdEvenement\", \"nom_utilisateur\") VALUES (:idEvenement, :nom_utilisateur)"));
         return $insert->execute([
             ':idEvenement' => $idEvenement,
@@ -52,7 +53,8 @@ class evenementModel{
         ]);
     }
 
-    public function ajouteEven(){
+    public function ajouteEven($nomEven, $dateEven, $nomSport): bool
+    {
         $nom = $_POST['NomEven'];
         $date = $_POST['DateEven'];
         $sport = $_POST['NomSport'];
@@ -60,7 +62,7 @@ class evenementModel{
         $requete->bindParam(":nom",$nom);
         $requete->bindParam(":date",$date);
         $requete->bindParam(":sport",$sport);
-        $requete->execute();
+        return $requete->execute();
     }
 
     public function supprimerEven($dateEven,$nomEven){
