@@ -23,10 +23,16 @@ function openConfirmationBoxEvent(eventId) {
 
 
 function openConfirmationBoxReserv(sport, idUser, date, heure) {
+    // Vérifie si les paramètres sont valides
+    if (!sport || !idUser || !date || !heure) {
+        console.error("Les paramètres sont manquants :", { sport, idUser, date, heure });
+        return;
+    }
+
     // Récupère l'élément <a> du bouton "Confirmer"
     const confirmLink = document.getElementById('confirm-link');
 
-    // Met à jour dynamiquement l'attribut href avec l'ID utilisateur
+    // Met à jour dynamiquement l'attribut href avec les valeurs fournies
     confirmLink.href = `/GestionSalleDeSportSAE/interfaceAdmin/deleteReservation/${sport}/${idUser}/${date}/${heure}`;
 
     // Affiche la boîte de confirmation
