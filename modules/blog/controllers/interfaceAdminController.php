@@ -77,9 +77,8 @@ class interfaceAdminController
         <!-- Edit box qui nous permets de modifier les informations d'un utilisateur -->
         <div id="edit-container">
             <div id="edit-overlay-user" class="custom-overlay">
-                <div id="edit-box" class="custom-box">
-                    <form id="edit-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateUser" method="POST">
-                        <!-- Champ caché pour l'ID de l'utilisateur -->
+                <div class="custom-box">
+                    <form class="custom-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateUser" method="POST">
                         <input type="hidden" name="IdUtilisateur" id="edit-id">
 
                         <label for="edit-nom">Nom :</label>
@@ -98,8 +97,8 @@ class interfaceAdminController
                         </select>
 
                         <div class="custom-actions">
-                            <button type="submit" class="save-btn">Sauvegarder</button>
-                            <button type="button" class="custom-cancel-btn" onclick="closeEditBox()">Annuler</button>
+                            <button type="submit" class="custom-save-btn">Sauvegarder</button>
+                            <button type="button" class="custom-cancel-btn" onclick="closeEditBoxUser()">Annuler</button>
                         </div>
                     </form>
                 </div>
@@ -134,7 +133,7 @@ class interfaceAdminController
         <div id="confirmation-container">
             <div id="confirm-overlay" class="custom-overlay">
                 <div id="confirm-box" class="custom-box">
-                    <p>Êtes-vous sûr de vouloir supprimer l'utilisateur ?</p>
+                    <p>Êtes-vous sûr de vouloir supprimer cette réservation ?</p>
                     <div class="custom-actions">
                         <a id="confirm-link" href="#" class="delete-icon" title="Supprimer">Confirmer</a>
                         <button class="custom-cancel-btn" onclick="closeConfirmationBox()">Annuler</button>
@@ -147,30 +146,29 @@ class interfaceAdminController
 
         <div id="edit-container">
             <div id="edit-overlay-resa" class="custom-overlay">
-                <div id="edit-box" class="custom-box">
-                    <form id="edit-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateReservation" method="POST">
-
+                <div class="custom-box">
+                    <form class="custom-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateReservation" method="POST">
                         <label for="edit-sport">Sport choisis :</label>
                         <input type="text" name="sport" id="edit-sport" required>
 
                         <label for="edit-user-id">L'id de l'utilisateur :</label>
                         <input type="text" name="userId" id="edit-user-id" required>
 
-                        <label for="edit-date">date :</label>
+                        <label for="edit-date">Date :</label>
                         <input type="date" name="date" id="edit-date" required>
 
-                        <label for="edit-heure">heure :</label>
-                        <input type="time" id="edit-heure" name="heure" />
+                        <label for="edit-heure">Heure :</label>
+                        <input type="time" id="edit-heure" name="heure" required>
 
-                        <label for="edit-terrain">Admin :</label>
+                        <label for="edit-terrain">Terrain :</label>
                         <select name="terrain" id="edit-terrain" required>
                             <option value="1">1</option>
                             <option value="2">2</option>
                         </select>
 
                         <div class="custom-actions">
-                            <button type="submit" class="save-btn">Sauvegarder</button>
-                            <button type="button" class="custom-cancel-btn" onclick="closeEditBox()">Annuler</button>
+                            <button type="submit" class="custom-save-btn">Sauvegarder</button>
+                            <button type="button" class="custom-cancel-btn" onclick="closeEditBoxResa()">Annuler</button>
                         </div>
                     </form>
                 </div>
@@ -195,25 +193,37 @@ class interfaceAdminController
             </tr>
         <?php endforeach; ?>
 
+        <div id="confirmation-container">
+            <div id="confirm-overlay" class="custom-overlay">
+                <div id="confirm-box" class="custom-box">
+                    <p>Êtes-vous sûr de vouloir supprimer cette évènement ?</p>
+                    <div class="custom-actions">
+                        <a id="confirm-link" href="#" class="delete-icon" title="Supprimer">Confirmer</a>
+                        <button class="custom-cancel-btn" onclick="closeConfirmationBox()">Annuler</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div id="edit-container">
             <div id="edit-overlay-event" class="custom-overlay">
-                <div id="edit-box" class="custom-box">
-                    <form id="edit-evenement-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateEvenement" method="POST">
-                        <!-- ID de l'événement (champ caché) -->
-                        <input type="hidden" name="evenement_id" id="edit-evenement-id" value="">
+                <div class="custom-box">
+                    <form class="custom-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateEvenement" method="POST">
+                        <input type="hidden" name="evenement_id" id="edit-evenement-id">
 
                         <label for="edit-nom-even">Nom de l'événement :</label>
-                        <input type="text" name="nom_even" id="edit-nom-even" value="" required>
+                        <input type="text" name="nom_even" id="edit-nom-even" required>
 
                         <label for="edit-date-even">Date de l'événement :</label>
-                        <input type="date" name="date_even" id="edit-date-even" value="" required>
+                        <input type="date" name="date_even" id="edit-date-even" required>
 
                         <label for="edit-nom-sport">Nom du sport :</label>
-                        <input type="text" name="nom_sport" id="edit-nom-sport" value="" required>
+                        <input type="text" name="nom_sport" id="edit-nom-sport" required>
 
-                        <button type="submit">Sauvegarder</button>
-                        <button type="button" onclick="closeEditEvenementBox()">Annuler</button>
+                        <div class="custom-actions">
+                            <button type="submit" class="custom-save-btn">Sauvegarder</button>
+                            <button type="button" class="custom-cancel-btn" onclick="closeEditBoxEvent()">Annuler</button>
+                        </div>
                     </form>
                 </div>
             </div>

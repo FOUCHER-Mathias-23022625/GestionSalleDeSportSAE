@@ -141,68 +141,48 @@
     padding-bottom: 10px;
 }
 
-/* Champs de formulaire */
-.custom-box form label {
+.custom-form label {
     display: block;
-    margin-bottom: 8px;
+    margin: 10px 0 5px;
     font-weight: bold;
     color: #38444c;
 }
 
-.custom-box form input,
-.custom-box form select,
-.custom-box form textarea {
+.custom-form input,
+.custom-form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
-    font-size: 1rem;
+    font-size: 16px;
     color: #38444c;
-    transition: border-color 0.3s;
+    background-color: white;
 }
 
-.custom-box form input:focus,
-.custom-box form select:focus,
-.custom-box form textarea:focus {
-    border-color: #4CAF50;
-    outline: none;
-}
-
-/* Boutons */
-.custom-actions {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-}
-
-.custom-btn {
+.custom-save-btn {
+    background-color: #4CAF50;
+    color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+    transition: background 0.3s;
 }
 
-.custom-btn:hover {
-    transform: translateY(-2px);
-}
-
-.custom-confirm-btn {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.custom-confirm-btn:hover {
-    background-color: #43a047;
+.custom-save-btn:hover {
+    background-color: #45a049;
 }
 
 .custom-cancel-btn {
     background-color: #ccc;
     color: #38444c;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .custom-cancel-btn:hover {

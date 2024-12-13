@@ -43,11 +43,19 @@ function closeConfirmationBox() {
     document.getElementById('confirm-overlay').style.display = 'none';
 }
 
-function closeEditBox() {
+function closeEditBoxUser() {
     // Masquer la boîte modale
-    document.getElementById('edit-overlay').style.display = 'none';
+    document.getElementById('edit-overlay-User').style.display = 'none';
 }
 
+function closeEditBoxResa() {
+    // Masquer la boîte modale
+    document.getElementById('edit-overlay-resa').style.display = 'none';
+}
+function closeEditBoxEvent() {
+    // Masquer la boîte modale
+    document.getElementById('edit-overlay-event').style.display = 'none';
+}
 
 
 
