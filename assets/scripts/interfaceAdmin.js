@@ -55,7 +55,7 @@ function openEditForm(user) {
     document.getElementById('edit-admin').value = user.admin;
 
     // Afficher la boîte modale
-    document.getElementById('edit-overlay').style.display = 'flex';
+    document.getElementById('edit-overlay-user').style.display = 'flex';
 }
 
 function openEditReservationBox(reservation) {
@@ -68,7 +68,7 @@ function openEditReservationBox(reservation) {
     document.getElementById("edit-terrain").value = reservation.terrain;
 
     // Afficher la boîte de modification
-    document.getElementById("edit-overlay").style.display = "flex";
+    document.getElementById("edit-overlay-resa").style.display = "flex";
 }
 
 function openEditEvenementBox(evenement) {
@@ -79,5 +79,5 @@ function openEditEvenementBox(evenement) {
     document.getElementById("edit-nom-sport").value = evenement.NomSport;
 
     // Afficher la boîte de modification
-    document.getElementById("edit-overlay").style.display = "flex";
+    document.getElementById("edit-overlay-event").style.display = "flex";
 }

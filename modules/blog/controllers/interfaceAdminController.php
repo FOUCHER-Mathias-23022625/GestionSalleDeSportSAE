@@ -76,7 +76,7 @@ class interfaceAdminController
 
         <!-- Edit box qui nous permets de modifier les informations d'un utilisateur -->
         <div id="edit-container">
-            <div id="edit-overlay" class="custom-overlay">
+            <div id="edit-overlay-user" class="custom-overlay">
                 <div id="edit-box" class="custom-box">
                     <form id="edit-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateUser" method="POST">
                         <!-- Champ caché pour l'ID de l'utilisateur -->
@@ -141,7 +141,7 @@ class interfaceAdminController
         <!-- Edit box qui nous permets de modifier les informations d'une reservation -->
 
         <div id="edit-container">
-            <div id="edit-overlay" class="custom-overlay">
+            <div id="edit-overlay-resa" class="custom-overlay">
                 <div id="edit-box" class="custom-box">
                     <form id="edit-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateReservation" method="POST">
                         <!-- Champ caché pour l'ID de l'utilisateur -->
@@ -191,7 +191,7 @@ class interfaceAdminController
 
 
         <div id="edit-container">
-            <div id="edit-overlay" class="custom-overlay">
+            <div id="edit-overlay-event" class="custom-overlay">
                 <div id="edit-box" class="custom-box">
                     <form id="edit-evenement-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateEvenement" method="POST">
                         <!-- ID de l'événement (champ caché) -->
