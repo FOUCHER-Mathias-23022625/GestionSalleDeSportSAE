@@ -183,7 +183,7 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($evenement['DateEven'] ?? '') ?></td>
                 <td><?= htmlspecialchars($evenement['NomSport'] ?? '') ?></td>
                 <td class="actions">
-                    <button onclick="openConfirmationBoxEvent(<?= urlencode($evenements['IdEvenement']) ?>)">❌</button>
+                    <button onclick="openConfirmationBoxEvent(<?= isset($evenement['IdEvenement']) ? urlencode($evenement['IdEvenement']) : 'null' ?>)">❌</button>
                     <button onclick='openEditEvenementBox(<?= json_encode($evenement, JSON_HEX_TAG) ?>)'>️️️️✏️</button>
                 </td>
             </tr>
