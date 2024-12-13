@@ -71,6 +71,8 @@ class interfaceAdminView
             </section>
         </main>
 
-    <?php (new \Blog\Views\Layout('Interface Administrateur', ob_get_clean()))->afficher();
+        <script type="text/javascript" src="/GestionSalleDeSportSAE/assets/scripts/interfaceAdmin.js"></script>
+
+        <?php (new \Blog\Views\Layout('Interface Administrateur', ob_get_clean()))->afficher();
     }
 }

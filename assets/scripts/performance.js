@@ -117,7 +117,7 @@ function initImcChart() {
     initChart(
         "performanceGrapheImc",
         date,
-        "🟥 sous poids       🟩 poids normal       🟧 sur-poids       🟥 obésité",     //Légende
+        "🟥 sous-poids       🟩 poids normal       🟧 sur-poids       🟥 obésité",     //Légende
         imc,
         "IMC",
         "rgba(0,0,0,1)",
