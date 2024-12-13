@@ -53,10 +53,26 @@ class evenementController{
         exit();
     }
     public function ajouteEven(){
-        $model = new evenementModel();
-        $model->ajouteEven();
-        header("Location: afficheEvenement");
-        exit();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $nomEven = $_POST['NomEven'];
+            $dateEven = $_POST['DateEven'];
+            $nomSport = $_POST['NomSport'];
+
+            $dateActuelle = date('Y-m-d');
+            if ($dateEven < $dateActuelle) {
+                $_SESSION['error'] = "La date de l'événement est dépassé.";
+                header('Location: afficheEvenement');
+                exit();
+            }
+            if ($this->model->ajouteEven($nomEven, $dateEven, $nomSport)) {
+                $_SESSION['success'] = "Événement ajouté avec succès.";
+            } else {
+                $_SESSION['error'] = "Erreur lors de l'ajout de l'événement.";
+            }
+
+            header('Location: afficheEvenement');
+            exit();
+        }
     }
 
     public function supprimerEven() {
