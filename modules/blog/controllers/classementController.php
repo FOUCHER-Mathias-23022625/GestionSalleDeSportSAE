@@ -13,7 +13,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-class performanceController
+class classementController
 {
     private $model;
     private $view;
@@ -36,7 +36,7 @@ class performanceController
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    /*public function afficheClassement()
+    public function afficheClassement()
     {
         $model = new classementModel('mysql-gestionsaetest.alwaysdata.net', '379076', 'gestionSae', 'gestionsaetest_bd');
         $view = new classementView();
@@ -44,11 +44,6 @@ class performanceController
             header('Location: /GestionSalleDeSportSAE/utilisateur/afficheFormConnexion');
         }
         $view->afficher();
-    }*/
-
-    public function afficheClassement()
-    {
-        die("Méthode afficheClassement appelée !");
     }
 
 
