@@ -79,7 +79,7 @@ class interfaceAdminModel
 
     public function updateEvenementMod($evenementId, $nomEven, $dateEven, $nomSport)
     {
-        $stmt = $this->connexion->pdo->prepare("UPDATE evenements SET NomEven = :nom_even, DateEven = :date_even, NomSport = :nom_sportWHERE IdEvenement = :evenement_id");
+        $stmt = $this->connexion->pdo->prepare("UPDATE evenements SET NomEven = :nom_even, DateEven = :date_even, NomSport = :nom_sport WHERE IdEvenement = :evenement_id");
         $stmt->bindParam(":evenement_id", $evenementId);
         $stmt->bindParam(":nom_even", $nomEven);
         $stmt->bindParam(":date_even", $dateEven);

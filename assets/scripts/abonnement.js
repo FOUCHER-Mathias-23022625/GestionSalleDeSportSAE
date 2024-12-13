@@ -1,45 +1,22 @@
-const buttons = document.querySelectorAll(".choose-offer-btn");
-const modal = document.getElementById("paymentModal");
-const selectedOffer = document.getElementById("selectedOffer");
-const selectedPrice = document.getElementById("selectedPrice");
-const confirmButton = document.getElementById("confirmPayment");
-const cancelButton = document.getElementById("cancelPayment");
-
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const offerName = button
-            .closest(".offer-container")
-            .querySelector(".offer-title").innerText;
-        const offerPrice = button
-            .closest(".offer-container")
-            .querySelector(".main-price").innerText;
-
-        selectedOffer.innerText = offerName;
-        selectedPrice.innerText = offerPrice;
-        modal.classList.add("show");
+paypal.Buttons({
+    createOrder: function(data, actions) {
+    // This function sets up the details of the transaction,
+    // including the amount and line item details.
+    return actions.order.create({
+    purchase_units: [{
+    amount: {
+    value: '0.10'
+        }
+    }]
     });
-});
-
-confirmButton.addEventListener("click", () => {
-    const cardNumber = document.getElementById("cardNumber").value;
-    const cardHolder = document.getElementById("cardHolder").value;
-    const expiryDate = document.getElementById("expiryDate").value;
-    const cvv = document.getElementById("cvv").value;
-
-    if (cardNumber && cardHolder && expiryDate && cvv) {
-        modal.classList.remove("show");
-        alert("Paiement réussi ! Merci pour votre abonnement.");
-    } else {
-        alert("Veuillez remplir tous les champs pour procéder au paiement.");
+    },
+    onApprove: function(data, actions) {
+        // This function captures the funds from the transaction.
+        return actions.order.capture().then(function(details) {
+            // This function shows a transaction success message to your buyer.
+            alert('Transaction completed by ' + details.payer.name.given_name);
+        });
     }
-});
 
-cancelButton.addEventListener("click", () => {
-    modal.classList.remove("show");
-});
 
-window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-        modal.classList.remove("show");
-    }
-});
+}).render('#paypal-button-container')
