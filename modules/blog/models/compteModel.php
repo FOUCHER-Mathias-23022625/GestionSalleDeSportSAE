@@ -41,11 +41,8 @@ class compteModel
                 if(!move_uploaded_file($tmpName, 'assets/images/public/'.basename($image['name']))){
                     die();
                 }
-                $requete1 = $this->connexionBD->pdo->prepare("UPDATE utilisateur set pp=:image, NomU=:nom, PrenomU =:prenom, EMail =:mail where idUtilisateur=:id");
+                $requete1 = $this->connexionBD->pdo->prepare("UPDATE utilisateur set pp=:image where idUtilisateur=:id");
                 $requete1->bindParam(":image",$image['name']);
-                $requete1->bindParam(":nom",$_POST['NomCompte']);
-                $requete1->bindParam(":prenom",$_POST['PrenomCompte']);
-                $requete1->bindParam(":mail",$_Post['EmailCompte']);
                 $requete1->bindParam(":id",$_SESSION['id']);
                 $requete1->execute();
             } else {
@@ -56,16 +53,17 @@ class compteModel
             die();
         }
 
-
-
-
-
-
-
-
-
-
         $requete = $this->connexionBD->pdo->prepare("UPDATE utilisateur set NomU=:nom, PrenomU=:prenom, EMail=:email where idUtilisateur=:id");
+        if (!isset($_POST['PrenomCompte'])) {
+            $_POST['PrenomCompte'] = $this->utilisateurInformation()['PrenomU'];
+        }
+        if (!isset($_POST['NomCompte'])) {
+            $_POST['NomCompte'] = $this->utilisateurInformation()['NomU'];
+        }
+        if (!isset($_POST['EmailCompte'])) {
+            $_POST['EmailCompte'] = $this->utilisateurInformation()['EMail'];
+        }
+
         $requete->bindParam(":prenom", $_POST['PrenomCompte']);
         $requete->bindParam(":nom",$_POST['NomCompte']);
         $requete->bindParam(":email",$_POST['EmailCompte']);
