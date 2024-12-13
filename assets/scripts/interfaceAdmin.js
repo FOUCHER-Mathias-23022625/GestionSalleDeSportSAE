@@ -66,7 +66,6 @@ function openEditForm(user) {
 
 function openEditReservationBox(reservation) {
     // Remplir les champs du formulaire avec les données de la réservation
-    document.getElementById("edit-reservation-id").value = reservation.id;
     document.getElementById("edit-sport").value = reservation.sport;
     document.getElementById("edit-user-id").value = reservation.user_id;
     document.getElementById("edit-date").value = reservation.date;
