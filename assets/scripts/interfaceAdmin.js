@@ -68,7 +68,7 @@ function openEditReservationBox(reservation) {
     document.getElementById("edit-terrain").value = reservation.terrain;
 
     // Afficher la boîte de modification
-    document.getElementById("edit-reservation-form").style.display = "block";
+    document.getElementById("edit-overlay").style.display = "flex";
 }
 
 function openEditEvenementBox(evenement) {
@@ -79,5 +79,5 @@ function openEditEvenementBox(evenement) {
     document.getElementById("edit-nom-sport").value = evenement.NomSport;
 
     // Afficher la boîte de modification
-    document.getElementById("edit-evenement-form").style.display = "block";
+    document.getElementById("edit-overlay").style.display = "flex";
 }
