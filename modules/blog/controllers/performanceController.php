@@ -159,7 +159,7 @@ class performanceController
         $sport = $_POST['Sport'];
         $tempsJeu = $_POST['TempsJeu'];
         $score = $_POST['Score'];
-        $resultat = ($_POST['resultat'] === 'Défaite') ? 1 : (($_POST['resultat'] === 'Égalité') ? 2 : 0);
+        $resultat = ($_POST['resultat'] === 'Victoire') ? 1 : (($_POST['resultat'] === 'Égalité') ? 2 : 0);
 
 
         // Récupérer la date du jour
