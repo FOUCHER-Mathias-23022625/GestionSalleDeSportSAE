@@ -55,7 +55,7 @@ class interfaceAdminModel
     }
 
     public function deleteEvent($eventId){
-    $stmt = $this->connexion->pdo->prepare("DELETE FROM evenement WHERE id = ?");
+    $stmt = $this->connexion->pdo->prepare("DELETE FROM evenement WHERE IdEvenement = ?");
     $stmt->execute([$eventId]);
     }
 

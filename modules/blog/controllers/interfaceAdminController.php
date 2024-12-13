@@ -119,7 +119,12 @@ class interfaceAdminController
                 <td><?= htmlspecialchars($reservation['heure'] ?? '') ?></td>
                 <td><?= htmlspecialchars($reservation['terrain'] ?? '') ?></td>
                 <td class="actions">
-                    <button onclick="openConfirmationBoxReserv(<?= urlencode($reservations['sport']), urlencode($reservations['user_id']),urlencode($reservations['date']),urlencode($reservations['heure']) ?>)">❌</button>
+                    <button onclick="openConfirmationBoxReserv(
+                    <?= isset($reservations['sport']) ? "'" . urlencode($reservations['sport']) . "'" : "null" ?>,
+                    <?= isset($reservations['user_id']) ? "'" . urlencode($reservations['user_id']) . "'" : "null" ?>,
+                    <?= isset($reservations['date']) ? "'" . urlencode($reservations['date']) . "'" : "null" ?>,
+                    <?= isset($reservations['heure']) ? "'" . urlencode($reservations['heure']) . "'" : "null" ?>)">
+                        ❌</button>
                     <button onclick='openEditReservationBox(<?= json_encode($reservation, JSON_HEX_TAG) ?>)'>✏️</button>
                 </td>
             </tr>
