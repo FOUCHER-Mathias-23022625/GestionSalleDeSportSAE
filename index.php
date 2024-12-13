@@ -8,6 +8,7 @@ require_once 'modules/blog/controllers/reservationUtilisateurController.php';
 require_once 'modules/blog/controllers/compteController.php';
 require_once 'modules/blog/controllers/interfaceAdminController.php';
 require_once 'modules/blog/controllers/abonnementController.php';
+require_once 'modules/blog/controllers/activiteController.php';
 
 
 class Index {
