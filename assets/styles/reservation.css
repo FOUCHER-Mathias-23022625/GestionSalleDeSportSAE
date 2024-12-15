@@ -245,7 +245,7 @@
     }
 }
 
-.card {
+.cardRes {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -254,7 +254,7 @@
     text-align: center;
 }
 
-.card h2 {
+.cardRes h2 {
     color: #1a3c78;
     margin-bottom: 20px;
 }

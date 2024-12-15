@@ -64,7 +64,7 @@ class  reservationTerrainController
             <section class="Reservation">
                 <div class="colonne1">
                 <h3>Terrain 1</h3>
-                <div class="card">
+                <div class="cardRes">
                     <?php if (!empty($available_time_slots)): ?>                        <?php foreach ($available_time_slots as $time): ?>
                             <button class="time-slot" onclick="openModal('<?php echo htmlspecialchars($time); ?>', 1)">
                                 <?php echo htmlspecialchars($time); ?>:00 H
@@ -77,7 +77,7 @@ class  reservationTerrainController
                 </div>
                 <div class="colonne1">
                 <h3>Terrain 2</h3>
-                <div class="card">
+                <div class="cardRes">
                     <?php if (!empty($available_time_slotsBis)): ?>
                         <?php foreach ($available_time_slotsBis as $time2): ?>
                             <button class="time-slot" onclick="openModal('<?php echo htmlspecialchars($time2); ?>', 2)">

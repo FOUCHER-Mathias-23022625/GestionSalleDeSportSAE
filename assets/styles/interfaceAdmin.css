@@ -72,6 +72,7 @@
     max-height: 400px;
     overflow-y: auto;
     display: block;
+    max-width: fit-content;
 }
 
 /* Champs de recherche et de filtre */
@@ -132,7 +133,6 @@
 }
 
 .custom-box {
-    width: 100%;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -188,12 +188,13 @@
     background-color: #45a049;
 }
 
-.custom-cancel-btn {
+.delete-icon {
     background-color: #f44336;
     color: white;
+    text-decoration: none;
 }
 
-.custom-cancel-btn:hover {
+.delete-icon:hover {
     background-color: #d32f2f;
 }
 
