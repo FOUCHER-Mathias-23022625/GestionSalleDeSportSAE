@@ -52,9 +52,9 @@ class reservationTerrainView
 
             <div id="form-container">
                 <form class="event-form" action="" method="POST">
-                    <label for="sport">Sport sélectionné :</label>
+                    <label for="sport" id="sportSelec">Sport sélectionné :</label>
                     <input type="text" id="selected-sport" name="sport" aria-label="textAutoChange" readonly>
-                    <label for="date">Sélectionnez une date :</label>
+                    <label for="date" id="dateSelec">Sélectionnez une date :</label>
                     <input type="date" id="date" name="date">
 
                     <button class="btnVoirResa" type="submit"><span>Voir les terrains disponibles :</span><i></i></button>

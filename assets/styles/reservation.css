@@ -16,6 +16,7 @@
     margin: 0;
     background-color: #f7f7f7;
     font-family: 'Arial', sans-serif;
+    text-align: center;
 }
 
 .reservationChoice h1 {
@@ -393,4 +394,17 @@
 
 .dateSelectionné{
     text-align: center;
+}
+
+@media (min-width: 992px){
+    .reservationChoice form{
+        max-width: min-content;
+    }
+    .icons{
+        gap: 15px;
+        max-width: 90%;
+    }
+    .titreSportSelec{
+        margin: 0;
+    }
 }

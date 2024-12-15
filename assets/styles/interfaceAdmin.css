@@ -26,6 +26,7 @@
 /* Section des tables */
 .admin-container section {
     margin-bottom: 30px;
+    width: fit-content;
 }
 
 /* Table Styles */

@@ -12,6 +12,15 @@ class evenementView{
 
     }
 
+    public function estAdmin()
+    {
+        if(isset($_SESSION['admin'])) {
+            return true;
+        }
+        return false;
+
+    }
+
     public function afficher(){
 
         ob_start();
@@ -117,6 +126,7 @@ class evenementView{
         </div>
         <?php
         if (isset($_SESSION['id'])) {
+            if($this->estAdmin()){
         ?>
 
         <section class="add_event">
@@ -149,6 +159,7 @@ class evenementView{
             </form>
         </section>
         <?php
+            }
         }
         ?>
         <div class="inscription_footer">
