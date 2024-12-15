@@ -396,7 +396,7 @@
     text-align: center;
 }
 
-@media (min-width: 992px){
+@media (max-width: 992px){
     .reservationChoice form{
         max-width: min-content;
     }
