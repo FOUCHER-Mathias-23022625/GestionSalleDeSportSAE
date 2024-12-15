@@ -1,9 +1,9 @@
-.reservation{
+.Reservation{
     margin-top: 40px;
     display: flex;
     align-items: center;
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 250px;
     justify-content: space-between;
 }
 
@@ -283,7 +283,7 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin: 10px 0px;
+    margin: 10px 0;
 }
 
 .time-slot:hover {
@@ -364,6 +364,7 @@
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
     position: relative;
     font-size: 5rem;
+    margin: 20px 35%;
 
 }
 
@@ -383,9 +384,10 @@
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
     inset: 0 0 0 0;
-    background: #28a745;
+    background: #4CAF50;
     z-index: -1;
-    transition: transform .3s ease;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
 }
 
 
