@@ -22,7 +22,6 @@ class compteView{
                     id="image"
                     name="image"
                     accept="image/png, image/jpeg, image/jpg"
-                    required
             >
             <button type="submit" formaction="deletePP" formmethod="POST" id="supprPP" class="crayon">❌</button><br><br>
         </div>
