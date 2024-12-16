@@ -35,8 +35,6 @@ session_start();
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container-fluid">
                         <div class="navbar-brand me-auto" onclick="window.location.href='/GestionSalleDeSportSAE/homepage/accueil';">
-                            Sport
-                            <span class="hub">Hub</span>
                             <img src="/GestionSalleDeSportSAE/assets/images/logo-img.png" alt="logo de notre site " class="logo-Site">
                         </div>
 
