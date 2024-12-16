@@ -12,6 +12,11 @@ class utilisateurView
 
     public function afficher()
     {
+        // Affichage du message d'erreur, s'il existe
+        if (isset($_SESSION['error_message'])) {
+            echo '<div class="error-messagePerf">' . $_SESSION['error_message'] . '</div>';
+            unset($_SESSION['error_message']); // Supprimer le message après l'affichage
+        }
         ?>
 
         <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/login.css">
@@ -44,7 +49,10 @@ class utilisateurView
                         </div>
                         <label for="new-password">Mot de passe</label>
                         <div class="input-group">
-                            <input type="password" id="new-password" name="mdp" placeholder="Mon mot de passe" required>
+                            <input type="password" id="new-password" name="mdp" placeholder="Mon mot de passe" required
+                                   pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                                   title="Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule et un chiffre.">
+
                         </div>
                         <label>Prenom</label>
                         <div class="input-group">
