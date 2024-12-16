@@ -54,6 +54,8 @@ class homepageView{
             <img src="/GestionSalleDeSportSAE/assets/images/performancee.jpg" alt="performance-img" class="performance-img">
         </section>
 
+        <a href="../abonnement/afficheAbonnement" class="nostarifs-btn">Nos tarifs</a>
+
         <section class="inscription_footer">
             <div class="txt_inscription">
                 <p>Envie de vous surpasser ou simplement de vous remettre en forme ?</p>
