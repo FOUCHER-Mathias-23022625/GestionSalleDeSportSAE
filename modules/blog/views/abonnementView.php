@@ -37,7 +37,6 @@ class abonnementView{
                     <ul class="offer-features">
                         <li><span class="icone">✓</span>Accès illimité à tous les terrains</li>
                         <li><span class="icone">✓</span>Accès aux évènements en solo</li>
-                        <li><span class="icone">✓</span>Possibilité d'inviter 1 personne à vos activités du weekend</li>
                         <li><span class="icone">✓</span>Avantage premium</li>
                     </ul>
                     <button class="choose-offer-btn">JE CHOISIS CETTE OFFRE</button>
