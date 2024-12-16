@@ -64,15 +64,17 @@ class abonnementView{
                     <p>Vous avez choisi l'abonnement <span id="selectedOffer"></span>.</p>
                     <p>Montant : <span id="selectedPrice"></span></p>
 
-                    <form id="paymentForm">
+                    <form id="paymentForm" method="POST" action="">
                         <input type="text" id="cardNumber" placeholder="Numéro de carte bancaire" required>
                         <input type="text" id="cardHolder" placeholder="Nom du titulaire" required>
                         <input type="text" id="expiryDate" placeholder="Date d'expiration (MM/AA)" required>
                         <input type="text" id="cvv" placeholder="CVV" required>
+
+                        <button type="submit" id="confirmPayment">Confirmer le paiement</button>
+                        <button id="cancelPayment" class="cancel-payment-btn">Annuler</button>
                     </form>
 
-                    <button id="confirmPayment">Confirmer le paiement</button>
-                    <button id="cancelPayment" class="cancel-payment-btn">Annuler</button>
+
                 </div>
             </div>
 
