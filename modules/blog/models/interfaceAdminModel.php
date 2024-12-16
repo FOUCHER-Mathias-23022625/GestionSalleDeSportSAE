@@ -45,7 +45,7 @@ class interfaceAdminModel
     }
 
     public function updateUserMod($userId,$nom,$prenom,$email,$admin){
-        $stmt = $this->connexion->pdo->prepare("UPDATE utilisateur SET NomU = :nom, PrenomU = :prenom, EMail = :email, admin = :admin WHERE IdUtilisateur = :userId");
+        $stmt = $this->connexion->pdo->prepare("UPDATE  NomU = :nom, PrenomU = :prenom, EMail = :email, admin = :admin WHERE IdUtilisateur = :userId");
         $stmt->bindParam(":userId", $userId);
         $stmt->bindParam(":nom", $nom);
         $stmt->bindParam(":prenom", $prenom);
