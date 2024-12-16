@@ -17,7 +17,13 @@ class compteView{
         <h2 class="form-title">Compte</h2>
             <label>Photo de profil</label><br>
         <div class="input-group">
-            <input type="file" id="image" name="image" ><br><br>
+            <input
+                    type="file"
+                    id="image"
+                    name="image"
+                    accept="image/png, image/jpeg, image/jpg"
+                    required
+            >
         </div>
 
 
