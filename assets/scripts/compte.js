@@ -3,7 +3,10 @@ const form = document.getElementById('compte-info');
 
 const inputChangement = document.getElementById('changement');
 
-
+const supprPP = document.getElementById('supprPP');
+supprPP.addEventListener('click', function() {
+    return confirm("Etes vous sur de vouloir supprimer votre photo de profil?")
+});
 
 inputChangement.addEventListener('click', function() {
     form.action = 'changementMdp'; // Action pour la connexion
