@@ -138,16 +138,27 @@
 .custom-box {
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 30px;
+    gap: 20px;
+    box-shadow: 0 0 20px black;
+    text-align: center !important;
+}
+
+.custom-box br {
+    margin-bottom: 20px;
 }
 
 /* Style pour les labels et champs */
 .custom-form label {
     display: block;
-    margin: 10px 0 5px;
+    margin: 10px 0 20px;
     color: #333;
     font-size: 14px;
+
+}
+
+.custom-form{
+    gap: 20px;
 }
 
 .custom-form input,
