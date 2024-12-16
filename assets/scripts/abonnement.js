@@ -4,6 +4,7 @@ const selectedOffer = document.getElementById("selectedOffer");
 const selectedPrice = document.getElementById("selectedPrice");
 const confirmButton = document.getElementById("confirmPayment");
 const cancelButton = document.getElementById("cancelPayment");
+const formPayment = document.getElementById("paymentForm");
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         const offerName = button
@@ -24,7 +25,9 @@ confirmButton.addEventListener("click", () => {
     const cvv = document.getElementById("cvv").value;
     if (cardNumber && cardHolder && expiryDate && cvv) {
         modal.classList.remove("show");
+        formPayment.action="appliquerAbo/"+selectedOffer.innerText;
         alert("Paiement réussi ! Merci pour votre abonnement.");
+
     } else {
         alert("Veuillez remplir tous les champs pour procéder au paiement.");
     }

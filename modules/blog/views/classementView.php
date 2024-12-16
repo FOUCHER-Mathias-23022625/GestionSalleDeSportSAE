@@ -23,36 +23,47 @@ class classementView
             echo '<div class="valid_messagePerf">' . $_SESSION['valid_message'] . '</div>';
             unset($_SESSION['valid_message']); // Supprimer le message après l'affichage
         }
-        // Récupération des données du classement
+        // Récupération des données des classements
         $performance = new classementController();
-        $classement = $performance->afficheClassementVictoire();
+        $classementV = $performance->afficheClassementVictoire();
+        $classementP = $performance->afficheClassementNBPerformance();
+        $classementT = $performance->afficheClassementTempsCumule();
         ?>
         <main id="main-contentClass" class="containerClass">
             <h1 class="section-titleClass">Classements des adhérents</h1>
-            <section id="win-content">
-                <h2>Nombre de victoires </h2>
+
+            <!-- Onglets -->
+            <div class="tab-container">
+                <button class="tab-button active" onclick="showTab(event, 'victoires')">Plus de victoires</button>
+                <button class="tab-button" onclick="showTab(event, 'nbPerf')">Plus sportif</button>
+                <button class="tab-button" onclick="showTab(event, 'nbTemps')">Plus endurant</button>
+            </div>
+
+            <!-- Contenu des onglets -->
+            <section id="victoires" class="tab-content active">
+                <h2>Classement par victoires</h2>
                 <table id="classement-table">
                     <thead>
-                        <tr>
-                            <th>Rang</th>
-                            <th>Nom</th>
-                            <th>Prénom</th>
-                            <th>Nombres de victoires</th>
-                        </tr>
+                    <tr>
+                        <th>Rang</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Nombre de victoires</th>
+                    </tr>
                     </thead>
                     <tbody>
                     <?php $rank = 1; ?>
-                    <?php foreach ($classement as $row) : ?>
+                    <?php foreach ($classementV as $row) : ?>
                         <tr class="<?php echo ($row['IdUtilisateur'] == $_SESSION['id']) ? 'highlight' : ''; ?>">
-                        <td>
+                            <td>
                                 <?php
                                 // Affichage des médailles en fonction du rang
                                 if ($rank == 1) {
-                                    echo "🥇 "; // Médaille d'or pour le premier
+                                    echo "🥇 ";
                                 } elseif ($rank == 2) {
-                                    echo "🥈 "; // Médaille d'argent pour le deuxième
+                                    echo "🥈 ";
                                 } elseif ($rank == 3) {
-                                    echo "🥉 "; // Médaille de bronze pour le troisième
+                                    echo "🥉 ";
                                 }
                                 echo $rank++;
                                 ?>
@@ -65,8 +76,81 @@ class classementView
                     </tbody>
                 </table>
             </section>
-        </main>
 
+            <section id="nbPerf" class="tab-content">
+                <h2>Classement par nombres de performances</h2>
+                <table id="classement-table">
+                    <thead>
+                    <tr>
+                        <th>Rang</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Nombre de performances</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php $rank = 1; ?>
+                    <?php foreach ($classementP as $rows) : ?>
+                        <tr class="<?php echo ($rows['IdUtilisateur'] == $_SESSION['id']) ? 'highlight' : ''; ?>">
+                            <td>
+                                <?php
+                                // Affichage des médailles en fonction du rang
+                                if ($rank == 1) {
+                                    echo "🥇 ";
+                                } elseif ($rank == 2) {
+                                    echo "🥈 ";
+                                } elseif ($rank == 3) {
+                                    echo "🥉 ";
+                                }
+                                echo $rank++;
+                                ?>
+                            </td>
+                            <td><?php echo htmlspecialchars($rows['NomU']) ?></td>
+                            <td><?php echo htmlspecialchars($rows['PrenomU']) ?></td>
+                            <td><?php echo htmlspecialchars($rows['nombre_performances']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="nbTemps" class="tab-content">
+                <h2>Classement par temps de performances</h2>
+                <table id="classement-table">
+                    <thead>
+                    <tr>
+                        <th>Rang</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Temps cumulés</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php $rank = 1; ?>
+                    <?php foreach ($classementT as $row) : ?>
+                        <tr class="<?php echo ($row['IdUtilisateur'] == $_SESSION['id']) ? 'highlight' : ''; ?>">
+                            <td>
+                                <?php
+                                // Affichage des médailles en fonction du rang
+                                if ($rank == 1) {
+                                    echo "🥇 ";
+                                } elseif ($rank == 2) {
+                                    echo "🥈 ";
+                                } elseif ($rank == 3) {
+                                    echo "🥉 ";
+                                }
+                                echo $rank++;
+                                ?>
+                            </td>
+                            <td><?php echo htmlspecialchars($row['NomU']) ?></td>
+                            <td><?php echo htmlspecialchars($row['PrenomU']) ?></td>
+                            <td><?php echo htmlspecialchars($row['temps_cumule']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </section>
+        </main>
 
         <footer id="main-footerPerf">
             <div class="containerPerf">
@@ -79,3 +163,5 @@ class classementView
     }
 }
 ?>
+
+<script src="/GestionSalleDeSportSAE/assets/scripts/classement.js"></script>

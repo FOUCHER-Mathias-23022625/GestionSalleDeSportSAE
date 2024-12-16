@@ -42,14 +42,26 @@ class compteView{
             <input id="ancienMdp" name="ancienMdp"  placeholder="Ancien mot de passe"><br><br>
         </div>
         <div class="input-group">
-            <input id="nouveauMdp" name="nouveauMdp" placeholder="Nouveau mot de passe"><br><br>
+            <input id="nouveauMdp" name="nouveauMdp" placeholder="Nouveau mot de passe"
+                   pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                   title="Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule et un chiffre."><br><br>
         </div>
         <input type="submit" class="inputSub" id="changement" name="changement" value="Changer le mot de passe" required><br><br>
             <label for="DateDeb" class="form-label">Date de début d'abonnement:</label>
-            <label class="form-static"> <?php echo $resultat2['DateDeb']; ?> </label><br><br>
+            <label class="form-static"> <?php if($resultat2['DateDeb']!=null){
+                echo $resultat2['DateDeb'];
+                }
+                else{
+                    echo "Pas d'abonnement";
+                }?> </label><br><br>
 
             <label for="DateExp" class="form-label">Date de fin d'abonnement :</label>
-            <label class="form-static"> <?php echo $resultat2['DateExp']; ?> </label><br><br>
+            <label class="form-static"> <?php if($resultat2['DateDeb']!=null){
+                    echo $resultat2['DateDeb'];
+                }
+                else{
+                    echo "Pas d'abonnement";
+                }?> </label><br><br>
 
             <input type="submit" id="maj_btn" class="form-submit" value="Mettre à jour">
         </form>

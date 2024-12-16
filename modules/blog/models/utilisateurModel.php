@@ -31,17 +31,8 @@ class utilisateurModel {
         $donnees = $requete2->fetch();
         $_SESSION['id'] = $donnees['idUtilisateur'];
 
-        $abo = $this->connexionBD->pdo->prepare("INSERT INTO abonnement (idUtilisateur, DateDeb, DateExp) VALUES (:idUtilisateur, :dateDeb, :dateExp)");
+        $abo = $this->connexionBD->pdo->prepare("INSERT INTO abonnement (idUtilisateur, DateDeb, DateExp) VALUES (:idUtilisateur, NULL, NULL)");
         $abo->bindParam(":idUtilisateur", $_SESSION['id']);
-
-        $dateDeb = new \DateTime();  // date actuelle
-        $dateDebFormatted = $dateDeb->format('Y-m-d H:i:s');
-        $dateExp = clone $dateDeb;  // Clonage de l'objet DateTime
-        $dateExp->modify('+1 year');
-        $dateExpFormatted = $dateExp->format('Y-m-d H:i:s');
-
-        $abo->bindParam(":dateDeb", $dateDebFormatted);
-        $abo->bindParam(":dateExp", $dateExpFormatted);
         $abo->execute();
     }
 

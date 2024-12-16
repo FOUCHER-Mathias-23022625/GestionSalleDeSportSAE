@@ -69,6 +69,7 @@ class compteModel
         $requete->bindParam(":email",$_POST['EmailCompte']);
         $requete->bindParam(":id",$_SESSION['id']);
         $requete->execute();
+
     }
 
 

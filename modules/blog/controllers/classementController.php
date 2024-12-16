@@ -42,7 +42,34 @@ class classementController
         }
 
         // Récupération des données depuis le modèle
-        $classement = $this->model->getClassement();
+        $classement = $this->model->getClassementVictoires();
+
+        // Retourne les données du classement
+        return $classement;
+    }
+    public function afficheClassementNBPerformance()
+    {
+        if (!isset($_SESSION['id'])) {
+            header('Location: /GestionSalleDeSportSAE/utilisateur/afficheFormConnexion');
+            exit;
+        }
+
+        // Récupération des données depuis le modèle
+        $classement = $this->model->getClassementPerformances();
+
+        // Retourne les données du classement
+        return $classement;
+    }
+
+    public function afficheClassementTempsCumule()
+    {
+        if (!isset($_SESSION['id'])) {
+            header('Location: /GestionSalleDeSportSAE/utilisateur/afficheFormConnexion');
+            exit;
+        }
+
+        // Récupération des données depuis le modèle
+        $classement = $this->model->getClassementTemps();
 
         // Retourne les données du classement
         return $classement;
