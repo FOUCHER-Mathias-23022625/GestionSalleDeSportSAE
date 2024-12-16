@@ -24,9 +24,11 @@ closePopup.addEventListener('click', function() {
     document.body.style.overflow = 'auto';
 });
 
-window.addEventListener('click', function(event) {
-    if (event.target == popup) {
+window.addEventListener('click', function (event) {
+    if (event.target == overlay) { // Vérifie si le clic est sur l'overlay
         popup.classList.remove('show');
+        overlay.classList.remove('show');
+        document.body.style.overflow = 'auto';
     }
 });
 
@@ -36,7 +38,7 @@ document.getElementById('addParticipant').addEventListener('click', function() {
 
     newParticipant.innerHTML = `
         <input type="text" required="required" name="participantName[]">
-        <span>Nom</span>
+        <span>Email</span>
     `;
 
     document.getElementById('participantsList').appendChild(newParticipant);
