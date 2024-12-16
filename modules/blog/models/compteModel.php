@@ -83,4 +83,10 @@ class compteModel
 
 
     }
+
+    public function delPP(){
+        $requete = $this->connexionBD->pdo->prepare("UPDATE utilisateur set pp = null");
+        $requete->execute();
+        header("location: ../homepage/accueil");
+    }
 }

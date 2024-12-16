@@ -69,5 +69,9 @@ class compteController{
         return str_shuffle($code);
     }
     
-
+    public function deletePP(){
+        $model = new compteModel();
+        $model->delPP();
+        exit();
+    }
 }
