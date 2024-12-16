@@ -99,7 +99,7 @@
 .event-section, .reservation-section, .performance-section {
     display: flex;
     justify-content: space-between;
-    margin: 50px auto 40px auto ;
+    margin: 50px auto 100px auto ;
     width: 80%;
 }
 
@@ -137,6 +137,24 @@
 .homepage h2{
     margin-bottom: 10px;
 }
+
+.nostarifs-btn {
+    margin: 40px auto;
+    background-color: #4CAF50;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5em;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    transition: 0.5s ease;
+    padding: 15px 50px;
+    text-decoration: none;
+}
+
+.nostarifs-btn:hover {
+    background-color: #2a872e;
+}
+
 
 
 
