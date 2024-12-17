@@ -21,7 +21,7 @@ class activiteController
         }
     }
 
-    public function afficheActivite() {
+    public function nosActivites() {
 
         $activiteView = new activiteView();
         $activiteView->afficher();
