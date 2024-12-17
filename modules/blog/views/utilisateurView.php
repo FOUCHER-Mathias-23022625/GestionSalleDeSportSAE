@@ -73,6 +73,7 @@ class utilisateurView
                             <!-- Overlay de la pop-up -->
                             <div class="popup-overlay" id="popupOverlay" style="display: flex">
                                 <div class="popup">
+                                <span class="close-btn" onclick=closePopup()>&times;</span>
                                     <h2>Vérifiez votre adresse e-mail</h2>
                                     <p>Entrez le code à 6 chiffres que nous avons envoyé à votre adresse e-mail.</p>
                                     <div class="input-container">
