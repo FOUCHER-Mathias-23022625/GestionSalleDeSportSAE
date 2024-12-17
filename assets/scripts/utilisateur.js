@@ -33,6 +33,12 @@ document.getElementById('btn-cancel2').addEventListener('click', function() {
     document.getElementById('oublie-mdp-form').style.display = 'none';
 });
 
-
-
+function moveFocus(currentInput, nextIndex) {
+    if (currentInput.value.length === 1) {
+        const nextInput = currentInput.parentElement.children[nextIndex];
+        if (nextInput) {
+            nextInput.focus();
+        }
+    }
+}
 
