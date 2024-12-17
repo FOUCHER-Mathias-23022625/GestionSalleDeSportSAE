@@ -67,7 +67,7 @@ class utilisateurView
                     </form>
                 </div>
                 <?php
-                if (isset($_SESSION['mail'])) {
+                if (isset($_SESSION['mailUtilisateur'])) {
                     echo '
                         <form action="verifCode" method="post">
                             <!-- Overlay de la pop-up -->
