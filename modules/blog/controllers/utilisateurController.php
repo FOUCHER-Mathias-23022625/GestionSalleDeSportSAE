@@ -162,7 +162,7 @@ class utilisateurController
             $code = implode('', $_POST['code']);
             if ($code == $_SESSION['code']){
                 $this->inscription();
-                $_SESSION['alerte'] = "Vous avez bien été inscrit";
+                $_SESSION['alert'] = "Vous avez bien été inscrit";
                 header("location: ../homepage/accueil");
 
             }
