@@ -42,3 +42,8 @@ function moveFocus(currentInput, nextIndex) {
     }
 }
 
+function closePopup() {
+    alert("Vous n'avez pas fini l'inscription. Votre compte n'a donc pas été créé")
+    document.getElementById('popupOverlay').style.display = 'none';
+}
+

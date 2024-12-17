@@ -15,6 +15,12 @@ class homepageView{
         $isUserConnected = isset($_SESSION['id']);
 
         ?>
+<?php
+        if (isset($_SESSION['alert'])) {
+        echo "<script>alert('" . $_SESSION['alert'] . "');</script>";
+        // Supprimer l'alerte après l'affichage pour éviter qu'elle n'apparaisse à nouveau lors de la prochaine requête
+        unset($_SESSION['alert']);
+        }?>
     <main class="homepage">
         <section class="video-section">
             <img class="background-video" src="/GestionSalleDeSportSAE/assets/images/homeVideo.gif">
