@@ -3,7 +3,7 @@
 namespace blog\views;
 
 use navebar;
-use index;
+use Index;
 
 require_once 'navebar.php';
 require_once 'Layout.php';
@@ -40,12 +40,12 @@ class activiteView
                 </div>
 
                 <div class="evenements-sport-container">
-                    <div class="evenements-section" style="background-image: url('/GestionSalleDeSportSAE/assets/images/evenement-bg.jpg');" onclick="window.location.href='../evenement/afficheEvenement';">
+                    <div class="evenements-section" style="background-image: url('/GestionSalleDeSportSAE/assets/images/evenement-bg.jpg');" onclick="window.location.href='/GestionSalleDeSportSAE/evenement/afficheEvenement';">
                         <h2>Événements</h2>
                         <p>Découvrez nos événements sportifs à venir ! Des tournois, des compétitions et des activités uniques sont organisés régulièrement pour mettre en avant l'esprit sportif de notre communauté.</p>
                     </div>
 
-                    <div class="sport-section" style="background-image: url('/GestionSalleDeSportSAE/assets/images/sports-bg.jpg');" onclick="window.location.href='../sport/nosSports';">
+                    <div class="sport-section" style="background-image: url('/GestionSalleDeSportSAE/assets/images/sports-bg.jpg');" onclick="window.location.href='/GestionSalleDeSportSAE/sport/nosSports';">
                         <h2>Sport</h2>
                         <p>Visite notre page dédiée au sport pour découvrir tous les programmes et activités proposées dans notre salle. Que ce soit pour la musculation, les sports collectifs, ou les compétitions, tu trouveras tout ce qu'il faut pour atteindre tes objectifs sportifs !</p>
                     </div>
@@ -54,6 +54,6 @@ class activiteView
         </main>
 
         <?php
-        (new \Blog\Views\Layout('activité', ob_get_clean()))->afficher();
+        (new \Blog\Views\Layout('Activités', ob_get_clean()))->afficher();
     }
 }
