@@ -91,7 +91,7 @@ class evenementView{
                         <p>Date: <?= $evenement['DateEven'] ?></p>
                         <div class="interaction-event">
                             <button class="sinscrire" onclick="handleParticipationEvenementClick(<?= json_encode($isUserConnected) ?>)">Je participe</button>
-                            <?php if ($isUserConnected): ?>
+                            <?php if ($this->estAdmin()): ?>
                                 <form method="POST" action="supprimerEven" onsubmit="return confirmSupprimerEven();">
                                     <input type="hidden" name="DateEven" value="<?php echo htmlspecialchars($evenement['DateEven']); ?>">
                                     <input type="hidden" name="NomEven" value="<?php echo htmlspecialchars($evenement['NomEven']); ?>">
@@ -168,11 +168,11 @@ class evenementView{
                     <p>Rejoignez-nous dès maintenant en vous inscrivant !</p>
                 </div>
                 <div class="arrow">
-                    <img id="arrow" src="/GestionSalleDeSportSAE/assets/images/arrow-removebg-preview.png">
+                    <img id="arrow" src="/GestionSalleDeSportSAE/assets/images/arrow-removebg-preview.png" alt="">
                 </div>
                 <div class="form_inscription">
                     <input type="text" placeholder="Votre adresse mail">
-                    <button class="btnInscription">Je m'inscris</button>
+                    <button class="btnInscription">Recevoir la newsletter</button>
                 </div>
             </div>
 
