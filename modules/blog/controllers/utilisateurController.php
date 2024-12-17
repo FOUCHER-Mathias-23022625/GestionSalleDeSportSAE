@@ -4,6 +4,7 @@ use blog\models\compteModel;
 use blog\models\utilisateurModel;
 use blog\views\Layout;
 use blog\views\utilisateurView;
+use blog\views\verifMailView;
 use Index;
 
 require_once "modules/blog/views/utilisateurView.php";
@@ -54,10 +55,10 @@ class utilisateurController
     }
 
     public function inscription() {
-        $mail = $_POST['mail'];
-        $mdp = $_POST['mdp'];
-        $prenom = $_POST['prenom'];
-        $nom = $_POST['nom'];
+        $mail = $_SESSION['mailUtilisateur'];
+        $mdp = $_SESSION['mdpUtilisateur'];
+        $prenom = $_SESSION['prenomUtilisateur'];
+        $nom = $_SESSION['nomUtilisateur'];
         $model = new utilisateurModel();
         $model->ajouteUtilisateur($mail, $mdp, $prenom, $nom);
         header('location:afficheFormConnexion');
@@ -132,6 +133,44 @@ class utilisateurController
         }
     }
 
+    public function genereCode(){
+        $numero="0123456789";
+        $code='';
+        for($i=0;$i<6;$i++){
+            $code.=$numero[rand(0,9)];
+        }
+        return $code;
+    }
+
+
+
+    public function verifMail(){
+        $_SESSION['mailUtilisateur'] = $_POST['mail'];
+        $_SESSION['mdpUtilisateur'] = $_POST['mdp'];
+        $_SESSION['prenomUtilisateur'] = $_POST['prenom'];
+        $_SESSION['nomUtilisateur'] = $_POST['nom'];
+
+
+        $code=$this->genereCode();
+        $_SESSION['code']=$code;
+        mail($_SESSION['mailUtilisateur'], "Code de vérification", "Votre code de vérification est : \n".$code);
+        header("location: afficheFormConnexion");
+    }
+
+    public function verifCode(){
+        if (isset($_POST['code'])) {
+            $code = implode('', $_POST['code']);
+            if ($code == $_SESSION['code']){
+                $this->inscription();
+            }
+            else{
+                unset($_SESSION['mailUtilisateur']);
+                unset($_SESSION['mdpUtilisateur']);
+                unset($_SESSION['prenomUtilisateur']);
+                unset($_SESSION['nomUtilisateur']);
+            }
+        }
+    }
 
 
 }

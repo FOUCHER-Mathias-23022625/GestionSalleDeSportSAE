@@ -17,7 +17,7 @@ document.getElementById('btn-connexion').addEventListener('click', function() {
 
 
 document.getElementById('inscription').addEventListener('click', function() {
-    document.getElementById('signup-form').action = 'inscription';
+    document.getElementById('signup-form').action = 'verifMail';
 });
 
 document.getElementById('oublieMdp-btn').addEventListener('click', function() {
@@ -32,3 +32,7 @@ document.getElementById('btn-cancel2').addEventListener('click', function() {
     document.getElementById('login-form').style.display = 'block';
     document.getElementById('oublie-mdp-form').style.display = 'none';
 });
+
+
+
+
