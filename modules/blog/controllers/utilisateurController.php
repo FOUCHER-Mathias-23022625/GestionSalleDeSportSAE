@@ -162,6 +162,7 @@ class utilisateurController
             $code = implode('', $_POST['code']);
             if ($code == $_SESSION['code']){
                 $this->inscription();
+                header("location: ../homepage/accueil");
             }
             else{
                 unset($_SESSION['mailUtilisateur']);
