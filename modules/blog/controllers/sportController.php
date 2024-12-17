@@ -1,6 +1,6 @@
 <?php
 
-namespace blog\controllers;
+namespace controllers;
 use blog\views\sportView;
 use Index;
 

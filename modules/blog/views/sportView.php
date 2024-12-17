@@ -13,7 +13,7 @@ class sportView {
         ?>
         <main class="sport-page">
             <h1 id="sports">Nos Sports</h1>
-            <section class="sport-section">
+            <section class="sports">
                 <div class="image-sport-basketball" title="Basketball">
                     <img src="/GestionSalleDeSportSAE/assets/images/basket-sport.jpg" alt="Image Sport basketball">
                 </div>
@@ -33,19 +33,7 @@ class sportView {
                     <img src="/GestionSalleDeSportSAE/assets/images/badminton-sport.jpg" alt="Image 5">
                 </div>
             </section>
-            <section class="inscription_footer">
-                <div class="txt_inscription">
-                    <p>Envie de vous surpasser ou simplement de vous remettre en forme ?</p>
-                    <p>Rejoignez-nous dès maintenant en vous inscrivant !</p>
-                </div>
-                <div class="arrow">
-                    <img id="arrow" src="/GestionSalleDeSportSAE/assets/images/arrow-removebg-preview.png">
-                </div>
-                <div class="form_inscription">
-                    <input type="text" placeholder="Votre adresse mail">
-                    <button class="btnInscription">Recevoir la newsletter</button>
-                </div>
-            </section>
+            <a type="button" href="../utilisateur/afficheFormConnexion" class="sport-btnInscription">Rejoignez-nous !</a>
         </main>
         <?php
         (new \Blog\Views\Layout('Sports', ob_get_clean()))->afficher();

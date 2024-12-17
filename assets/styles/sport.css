@@ -2,12 +2,15 @@
     font-family: "Poppins", sans-serif;
     text-align: center;
     color: #38444c;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
+.sport-page{
+    height: 1300px;
+}
 
 .image-sport-basketball {
-    top: 150px;
+    top: 200px;
     left: 250px;
     position: absolute;
     overflow: hidden;
@@ -24,12 +27,12 @@
 }
 
 .image-sport-basketball:hover{
-    top: 140px;
+    top: 190px;
     box-shadow: 0px 5px 10px #636a6e;
 }
 
 .image-sport-futsal {
-    top: 150px;
+    top: 200px;
     right: 250px;
     position: absolute;
     overflow: hidden;
@@ -46,12 +49,12 @@
 }
 
 .image-sport-futsal:hover{
-    top: 140px;
+    top: 190px;
     box-shadow: 0px 5px 10px #636a6e;
 }
 
 .image-sport-tennis {
-    top: 500px;
+    top: 550px;
     right: 250px;
     position: absolute;
     overflow: hidden;
@@ -68,12 +71,12 @@
 }
 
 .image-sport-tennis:hover{
-    top: 490px;
+    top: 540px;
     box-shadow: 0px 5px 10px #636a6e;
 }
 
 .image-sport-volley {
-    top: 675px;
+    top: 725px;
     left: 250px;
     position: absolute;
     overflow: hidden;
@@ -90,12 +93,12 @@
 }
 
 .image-sport-volley:hover{
-    top: 665px;
+    top: 715px;
     box-shadow: 0px 5px 10px #636a6e;
 }
 
 .image-sport-pingpong {
-    top: 800px;
+    top: 850px;
     right: 250px;
     position: absolute;
     overflow: hidden;
@@ -112,12 +115,12 @@
 }
 
 .image-sport-pingpong:hover{
-    top: 790px;
+    top: 840px;
     box-shadow: 0px 5px 10px #636a6e;
 }
 
 .image-sport-badminton {
-    top: 1010px;
+    top: 1060px;
     left: 250px;
     position: absolute;
     overflow: hidden;
@@ -134,8 +137,26 @@
 }
 
 .image-sport-badminton:hover{
-    top: 1000px;
-    box-shadow: 0px 5px 10px #636a6e;
+    top: 1050px;
+    box-shadow: 0 5px 10px #636a6e;
 }
 
+.sport-btnInscription{
+    top: 1250px;
+    right: 400px;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: 0.5s ease;
+    width: 200px;
+    background-color: #4CAF50;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+}
 
+.sport-btnInscription:hover{
+    background-color: #2a872e;
+}
