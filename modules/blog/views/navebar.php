@@ -56,7 +56,7 @@ session_start();
                                         <a class="nav-link mx-lg-2" href="/GestionSalleDeSportSAE/reservationTerrain/displayReservationTerrain">Réservation</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link mx-lg-2" href="/GestionSalleDeSportSAE/activite/afficheActivite">Activités</a>
+                                        <a class="nav-link mx-lg-2" href="/GestionSalleDeSportSAE/activite/nosActivites">Activités</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link mx-lg-2" href="/GestionSalleDeSportSAE/performance/affichePerf">Performances</a>
