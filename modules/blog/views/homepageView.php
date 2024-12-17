@@ -66,7 +66,7 @@ class homepageView{
             </div>
             <div class="form_inscription">
                 <input type="text" placeholder="Votre adresse mail">
-                <button class="btnInscription">Je m'inscris</button>
+                <button class="btnInscription">Recevoir la newsletter</button>
             </div>
         </section>
         <script src="/GestionSalleDeSportSAE/assets/scripts/homepage.js"></script>

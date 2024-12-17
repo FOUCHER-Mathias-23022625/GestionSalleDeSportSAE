@@ -80,23 +80,29 @@ class interfaceAdminController
                 <div class="custom-box">
                     <form class="custom-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateUser" method="POST">
                         <input type="hidden" name="IdUtilisateur" id="edit-id">
+                        <div class="custom-inputNom">
+                            <label for="edit-nom">Nom :</label>
+                            <input type="text" name="NomU" id="edit-nom" required>
+                        </div>
                         <br>
-
-                        <label for="edit-nom">Nom :</label>
-                        <input type="text" name="NomU" id="edit-nom" required>
+                        <div class="custom-inputPrenom">
+                            <label for="edit-prenom">Prénom :</label>
+                            <input type="text" name="PrenomU" id="edit-prenom" required>
+                        </div>
                         <br>
-                        <label for="edit-prenom">Prénom :</label>
-                        <input type="text" name="PrenomU" id="edit-prenom" required>
+                        <div class="custom-inputMail">
+                            <label for="edit-email">Email :</label>
+                            <input type="email" name="EMail" id="edit-email" required>
+                        </div>
                         <br>
-                        <label for="edit-email">Email :</label>
-                        <input type="email" name="EMail" id="edit-email" required>
+                        <div class="custom-inputAdmin">
+                            <label for="edit-admin">Admin :</label>
+                            <select name="admin" id="edit-admin" required>
+                                <option value="0">Non</option>
+                                <option value="1">Oui</option>
+                            </select>
+                        </div>
                         <br>
-                        <label for="edit-admin">Admin :</label>
-                        <select name="admin" id="edit-admin" required>
-                            <option value="0">Non</option>
-                            <option value="1">Oui</option>
-                        </select>
-                        <br><br>
                         <div class="custom-actions">
                             <button type="submit" class="custom-save-btn">Sauvegarder</button>
                             <button type="button" class="custom-cancel-btn" onclick="closeEditBoxUser()">Annuler</button>
@@ -149,24 +155,34 @@ class interfaceAdminController
             <div id="edit-overlay-resa" class="custom-overlay">
                 <div class="custom-box">
                     <form class="custom-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateReservation" method="POST">
-                        <label for="edit-sport">Sport choisis :</label>
-                        <input type="text" name="sport" id="edit-sport" required>
+                        <div class="admin-reservationSport">
+                            <label for="edit-sport">Sport choisis :</label>
+                            <input type="text" name="sport" id="edit-sport" required>
+                        </div>
                         <br>
-                        <label for="edit-user-id">L'id de l'utilisateur :</label>
-                        <input type="text" name="userId" id="edit-user-id" required>
+                        <div class="admin-reservationIdUser">
+                            <label for="edit-user-id">L'id de l'utilisateur :</label>
+                            <input type="text" name="userId" id="edit-user-id" required>
+                        </div>
                         <br>
-                        <label for="edit-date">Date :</label>
-                        <input type="date" name="date" id="edit-date" required>
+                        <div class="admin-reservationDate">
+                            <label for="edit-date">Date :</label>
+                            <input type="date" name="date" id="edit-date" required>
+                        </div>
                         <br>
-                        <label for="edit-heure">Heure :</label>
-                        <input type="time" id="edit-heure" name="heure" required>
+                        <div class="admin-reservationHeure">
+                            <label for="edit-heure">Heure :</label>
+                            <input type="time" id="edit-heure" name="heure" required>
+                        </div>
                         <br>
-                        <label for="edit-terrain">Terrain :</label>
-                        <select name="terrain" id="edit-terrain" required>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>
-                        <br><br>
+                        <div class="admin-reservationTerrain">
+                            <label for="edit-terrain">Terrain :</label>
+                            <select name="terrain" id="edit-terrain" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <br>
                         <div class="custom-actions">
                             <button type="submit" class="custom-save-btn">Sauvegarder</button>
                             <button type="button" class="custom-cancel-btn" onclick="closeEditBoxResa()">Annuler</button>
@@ -211,16 +227,21 @@ class interfaceAdminController
                 <div class="custom-box">
                     <form class="custom-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateEvenement" method="POST">
                         <input type="hidden" name="evenement_id" id="edit-evenement-id">
+                        <div class="admin-evenNom">
+                            <label for="edit-nom-even">Nom de l'événement :</label>
+                            <input type="text" name="nom_even" id="edit-nom-even" required>
+                        </div>
                         <br>
-                        <label for="edit-nom-even">Nom de l'événement :</label>
-                        <input type="text" name="nom_even" id="edit-nom-even" required>
+                        <div class="admin-evenDate">
+                            <label for="edit-date-even">Date de l'événement :</label>
+                            <input type="date" name="date_even" id="edit-date-even" required>
+                        </div>
                         <br>
-                        <label for="edit-date-even">Date de l'événement :</label>
-                        <input type="date" name="date_even" id="edit-date-even" required>
+                        <div class="admin-evenSport">
+                            <label for="edit-nom-sport">Nom du sport :</label>
+                            <input type="text" name="nom_sport" id="edit-nom-sport" required>
+                        </div>
                         <br>
-                        <label for="edit-nom-sport">Nom du sport :</label>
-                        <input type="text" name="nom_sport" id="edit-nom-sport" required>
-                        <br><br>
                         <div class="custom-actions">
                             <button type="submit" class="custom-save-btn">Sauvegarder</button>
                             <button type="button" class="custom-cancel-btn" onclick="closeEditBoxEvent()">Annuler</button>

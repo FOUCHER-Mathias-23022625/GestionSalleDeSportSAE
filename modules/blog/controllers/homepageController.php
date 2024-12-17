@@ -1,6 +1,6 @@
 <?php
 
-namespace controllers;
+namespace blog\controllers;
 use blog\views\homepageView;
 use Index;
 

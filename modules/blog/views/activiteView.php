@@ -45,7 +45,7 @@ class activiteView
                         <p>Découvrez nos événements sportifs à venir ! Des tournois, des compétitions et des activités uniques sont organisés régulièrement pour mettre en avant l'esprit sportif de notre communauté.</p>
                     </div>
 
-                    <div class="sport-section" style="background-image: url('/GestionSalleDeSportSAE/assets/images/sports-bg.jpg');">
+                    <div class="sport-section" style="background-image: url('/GestionSalleDeSportSAE/assets/images/sports-bg.jpg');" onclick="window.location.href='../sport/nosSports';">
                         <h2>Sport</h2>
                         <p>Visite notre page dédiée au sport pour découvrir tous les programmes et activités proposées dans notre salle. Que ce soit pour la musculation, les sports collectifs, ou les compétitions, tu trouveras tout ce qu'il faut pour atteindre tes objectifs sportifs !</p>
                     </div>
