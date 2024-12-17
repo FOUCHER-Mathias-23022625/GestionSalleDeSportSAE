@@ -66,6 +66,29 @@ class utilisateurView
                         <button type="button" id="btn-cancel" class="create-btn">Annuler</button>
                     </form>
                 </div>
+                <?php
+                if (isset($_SESSION['mailUtilisateur'])) {
+                    echo '
+                        <form action="verifCode" method="post">
+                            <!-- Overlay de la pop-up -->
+                            <div class="popup-overlay" id="popupOverlay" style="display: flex">
+                                <div class="popup">
+                                    <h2>Vérifiez votre adresse e-mail</h2>
+                                    <p>Entrez le code à 6 chiffres que nous avons envoyé à votre adresse e-mail.</p>
+                                    <div class="input-container">
+                                        <input type="text" name="code[]" maxlength="1" oninput="moveFocus(this, 1)">
+                                        <input type="text" name="code[]" maxlength="1" oninput="moveFocus(this, 2)">
+                                        <input type="text" name="code[]" maxlength="1" oninput="moveFocus(this, 3)">
+                                        <input type="text" name="code[]" maxlength="1" oninput="moveFocus(this, 4)">
+                                        <input type="text" name="code[]" maxlength="1" oninput="moveFocus(this, 5)">
+                                        <input type="text" name="code[]" maxlength="1" oninput="moveFocus(this, 6)">
+                                    </div>
+                                    <button class="verify-btn" type="submit">Vérifier l\'e-mail</button>
+                                </div>
+                            </div>
+                        </form>';
+                }
+                ?>
                 <div id="oublie-mdp-form" style="display: none">
                     <h2>Renseignez votre mail</h2>
                     <form method="POST" action="oublieMdp">
