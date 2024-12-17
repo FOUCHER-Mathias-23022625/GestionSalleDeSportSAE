@@ -195,6 +195,7 @@ body{
 }
 
 .popup {
+    position: absolute;
     background: #ffffff;
     border-radius: 10px;
     padding: 20px;
@@ -252,4 +253,18 @@ body{
 
 .resend:hover {
     text-decoration: underline;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px; /* Distance depuis le haut de la pop-up */
+    right: 10px; /* Distance depuis la droite de la pop-up */
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #000;
 }

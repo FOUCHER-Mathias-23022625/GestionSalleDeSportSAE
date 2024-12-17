@@ -162,12 +162,18 @@ class utilisateurController
             $code = implode('', $_POST['code']);
             if ($code == $_SESSION['code']){
                 $this->inscription();
+                $_SESSION['alert'] = "Vous avez bien été inscrit";
+                header("location: ../homepage/accueil");
+
             }
             else{
                 unset($_SESSION['mailUtilisateur']);
                 unset($_SESSION['mdpUtilisateur']);
                 unset($_SESSION['prenomUtilisateur']);
                 unset($_SESSION['nomUtilisateur']);
+                $_SESSION['alert'] = "Le code n'est pas le bon, le compte n'a pas pu être créé";
+                header("location: ../homepage/accueil");
+
             }
         }
     }

@@ -33,6 +33,17 @@ document.getElementById('btn-cancel2').addEventListener('click', function() {
     document.getElementById('oublie-mdp-form').style.display = 'none';
 });
 
+function moveFocus(currentInput, nextIndex) {
+    if (currentInput.value.length === 1) {
+        const nextInput = currentInput.parentElement.children[nextIndex];
+        if (nextInput) {
+            nextInput.focus();
+        }
+    }
+}
 
-
+function closePopup() {
+    alert("Vous n'avez pas fini l'inscription. Votre compte n'a donc pas été créé")
+    document.getElementById('popupOverlay').style.display = 'none';
+}
 
