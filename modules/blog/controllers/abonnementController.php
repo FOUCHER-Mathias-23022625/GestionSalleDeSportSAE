@@ -23,7 +23,7 @@ class abonnementController
         }
     }
 
-    public function afficheAbonnement() {
+    public function nosAbonnements() {
 
         $abonnementView = new abonnementView();
         $abonnementView->afficher();

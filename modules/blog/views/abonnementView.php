@@ -10,6 +10,9 @@ class abonnementView{
 
     public function afficher(){
         ob_start();
+
+        $isUserConnectedPayment = isset($_SESSION['id']);
+
         ?>
         <main class="page-abonnement">
             <h1 class="h1-sub">Nos abonnements</h1>
@@ -25,7 +28,7 @@ class abonnementView{
                         <li><span class="icone">✓</span> Accès illimité à tous les terrains</li>
                         <li><span class="icone">✓</span> Accès aux évènements en solo</li>
                     </ul>
-                    <button class="choose-offer-btn">JE CHOISIS CETTE OFFRE</button>
+                    <button class="choose-offer-btn" onclick="handlePaymentClick(<?= json_encode($isUserConnectedPayment) ?>)">JE CHOISIS CETTE OFFRE</button>
                 </div>
                 <div class="offer-container premium">
                     <h3 class="offer-title">PREMIUM</h3>
@@ -39,7 +42,7 @@ class abonnementView{
                         <li><span class="icone">✓</span>Accès aux évènements en solo</li>
                         <li><span class="icone">✓</span>Avantage premium</li>
                     </ul>
-                    <button class="choose-offer-btn">JE CHOISIS CETTE OFFRE</button>
+                    <button class="choose-offer-btn" onclick="handlePaymentClick(<?= json_encode($isUserConnectedPayment) ?>)">JE CHOISIS CETTE OFFRE</button>
                 </div>
                 <div class="offer-container">
                     <h3 class="offer-title">ELITE</h3>
@@ -54,7 +57,7 @@ class abonnementView{
                         <li><span class="icone">✓</span>Possibilité d'inviter jusqu'à 2 personnes à vos activités</li>
                         <li><span class="icone">✓</span>Avantage premium</li>
                     </ul>
-                    <button class="choose-offer-btn">JE CHOISIS CETTE OFFRE</button>
+                    <button class="choose-offer-btn" onclick="handlePaymentClick(<?= json_encode($isUserConnectedPayment) ?>)">JE CHOISIS CETTE OFFRE</button>
                 </div>
             </section>
             <div id="paymentModal" class="modal-payment">
@@ -77,6 +80,7 @@ class abonnementView{
                 </div>
             </div>
 
+            <script>const isUserConnectedPayment = <?= json_encode($isUserConnectedPayment) ?>;</script>
             <script src="/GestionSalleDeSportSAE/assets/scripts/abonnement.js"></script>
 
         </main>
