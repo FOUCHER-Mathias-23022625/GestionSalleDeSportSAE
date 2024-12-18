@@ -27,7 +27,7 @@ class  reservationTerrainController
             header('Location: /GestionSalleDeSportSAE/utilisateur/afficheFormConnexion');
             exit();
         }
-        if(! $this->abonnementController->checkAbo()){
+        if (!$this->abonnementController->checkAbo()) {
             header('Location: /GestionSalleDeSportSAE/abonnement/afficheAbonnement');
             exit();
         }
