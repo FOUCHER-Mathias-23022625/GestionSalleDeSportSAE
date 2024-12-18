@@ -170,8 +170,8 @@ class utilisateurController
             unset($_SESSION['mdpUtilisateur']);
             unset($_SESSION['prenomUtilisateur']);
             unset($_SESSION['nomUtilisateur']);
-            $_SESSION['alert'] = "Vous avez bien été inscrit";
-            header("location: ../abonnement/afficheAbonnement");
+            $_SESSION['alert'] = "Code de vérification invalide.";
+            header("location: ../homepage/accueil");
             exit();
 
 
