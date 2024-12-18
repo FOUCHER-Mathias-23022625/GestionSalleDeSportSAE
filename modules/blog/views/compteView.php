@@ -13,7 +13,7 @@ class compteView{
         ob_start();
         ?>
 <div class="login-container">
-    <form action="maj" method="POST" id="compte-info"class="connexion_box" enctype="multipart/form-data">
+    <form action="majData" method="POST" id="compte-info"class="connexion_box" enctype="multipart/form-data">
         <h2 class="form-title">Compte</h2>
             <label>Photo de profil</label><br>
         <div class="input-group">
@@ -43,12 +43,14 @@ class compteView{
             <input type="email" id="Email"  name="EmailCompte" value="<?php echo $resultat['EMail']; ?>" disabled required>
             <button type="button" id="mailModif" class="crayon">✏️</button><br><br>
         </div>
+        <!--validation-->
+        <input type="submit" id="maj_btn" class="form-submit" value="Mettre à jour">
         <label>Changement de vôtre mot de passe</label>
         <div class="input-group">
-            <input id="ancienMdp" name="ancienMdp"  placeholder="Ancien mot de passe"><br><br>
+            <input id="ancienMdp" type="password" name="ancienMdp"  placeholder="Ancien mot de passe"><br><br>
         </div>
         <div class="input-group">
-            <input id="nouveauMdp" name="nouveauMdp" placeholder="Nouveau mot de passe"
+            <input id="nouveauMdp" type="password" name="nouveauMdp" placeholder="Nouveau mot de passe"
                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\S]{8,}$"
                    title="Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule et un chiffre."><br><br>
         </div>
@@ -68,8 +70,6 @@ class compteView{
                 else{
                     echo "Pas d'abonnement";
                 }?> </label><br><br>
-
-            <input type="submit" id="maj_btn" class="form-submit" value="Mettre à jour">
         </form>
 </div>
         <script src="/GestionSalleDeSportSAE/assets/scripts/compte.js"></script>
