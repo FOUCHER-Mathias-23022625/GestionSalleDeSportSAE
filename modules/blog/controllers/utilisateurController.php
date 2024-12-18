@@ -170,9 +170,9 @@ class utilisateurController
             unset($_SESSION['mdpUtilisateur']);
             unset($_SESSION['prenomUtilisateur']);
             unset($_SESSION['nomUtilisateur']);
-            $_SESSION['alert'] = "Le code n'est pas le bon, le compte n'a pas pu être créé";
+            $_SESSION['alert'] = "Code de vérification invalide.";
             header("location: ../homepage/accueil");
-
+            exit();
 
 
         }
