@@ -10,6 +10,12 @@ class abonnementView{
 
     public function afficher(){
         ob_start();
+
+
+        if (isset($_SESSION['alert'])) {
+            echo "<script>alert('" . $_SESSION['alert'] . "');</script>";
+            unset($_SESSION['alert']);
+        }
         ?>
         <main class="page-abonnement">
             <h1 class="h1-sub">Nos abonnements</h1>

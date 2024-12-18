@@ -163,7 +163,7 @@ class utilisateurController
             if ($code == $_SESSION['code']){
                 $this->inscription();
                 $_SESSION['alert'] = "Vous avez bien été inscrit";
-                header("location: ../homepage/accueil");
+                header("location: ../abonnement/afficheAbonnement");
                 exit();
             }
             unset($_SESSION['mailUtilisateur']);
