@@ -161,7 +161,7 @@ class performanceView
             <!--Date-->
             <div class="placeholder-form">
                 <label class="form-labelPerf" for="Date">Date</label>
-                <input class="form-inputPerf" type="DATE" id="Date" name="Date" required>
+                <input class="form-inputPerf" type="DATE" id="Date" name="Date" max="<?php echo date('Y-m-d'); ?>" required>
             </div>
             <br><br>
             <!--Sport-->
