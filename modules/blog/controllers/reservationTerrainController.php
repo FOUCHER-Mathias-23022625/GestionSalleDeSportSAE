@@ -100,8 +100,6 @@ class  reservationTerrainController
                 </div>
             </section>
         <?php
-        else:
-            echo "<p>Aucun sport ou date sélectionné.</p>";
         endif;
     }
 
