@@ -6,6 +6,7 @@
     height: 80px;
     padding: 0.5rem;
     box-shadow: -1px 3px 8px black; /* Ombre portée similaire à l'ancienne navbar */
+    box-sizing:content-box;
 }
 
 .logo-Site{
