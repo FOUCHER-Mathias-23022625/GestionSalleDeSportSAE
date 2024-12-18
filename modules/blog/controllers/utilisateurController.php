@@ -40,12 +40,21 @@ class utilisateurController
         }
     }
 
-    public function connexion(){
+    public function connexion() {
         $mail = $_POST['mail'];
         $mdp = $_POST['mdp'];
         $model = new utilisateurModel();
-        $model->connexion($mail, $mdp);
-        header('location:../homepage/accueil');
+
+        // Appel à la méthode connexion et vérification des résultats
+        if ($model->connexion($mail, $mdp)) {
+            // Si connexion réussie, rediriger vers la homepage
+            header('location:../homepage/accueil');
+        } else {
+            // Si connexion échoue, alerte et rediriger vers la page de connexion
+            $_SESSION['alert'] = "Email ou mot de passe incorrect.";
+            header('location:afficheFormConnexion');
+        }
+        exit();
     }
 
     public function deconnecte() {
@@ -87,10 +96,6 @@ class utilisateurController
 
     }
 
-    public function test($val1,$val2){
-        echo $val1." et la valeur 2 est : ".$val2;
-    }
-
     public function generateurMdp(){
         $alphabet="abcdefghijklmnopqrstuvwxyz";
         $alphabetMaj="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -119,7 +124,7 @@ class utilisateurController
             $model= new compteModel();
             $model->changementMotDePasse($nouveauMdp);
         }
-        header('location:../homepage/accueil');
+        header("location: afficheFormConnexion");
     }
 
     public function oublieMdp(){
@@ -129,7 +134,7 @@ class utilisateurController
             $mdp = $this->generateurMdp();
             $model->changementMotDePasse($mdp, $persoMail);
             mail($persoMail,"Nouveau mot de passe", "Bonjour, vôtre mot de passe à été changé. Vôtre nouveau mot de passe est : ".$mdp);
-            header('location:../homepage/accueil');
+            header("location: afficheFormConnexion");
         }
     }
 
@@ -171,7 +176,7 @@ class utilisateurController
             unset($_SESSION['prenomUtilisateur']);
             unset($_SESSION['nomUtilisateur']);
             $_SESSION['alert'] = "Code de vérification invalide.";
-            header("location: ../homepage/accueil");
+            header("location: afficheFormConnexion");
             exit();
 
 
