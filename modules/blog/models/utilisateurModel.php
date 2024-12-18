@@ -55,10 +55,11 @@ class utilisateurModel {
                 }
                 header('Location:../homepage/accueil');
 
-
+            return true;
             }
             header('Location:../homepage/accueil');
         }
+        return false;
     }
 
     public function utilisateurMail($mail){
