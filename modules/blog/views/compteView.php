@@ -74,7 +74,9 @@ class compteView{
                 }
                 else{
                     echo "Pas d'abonnement";
-                }?> </label><br><br>
+                }?>
+            </label><br><br>
+        <a href="../abonnement/nosAbonnements" class="nostarifs-btn">Nos Abonnements</a>
         </form>
 </div>
         <script src="/GestionSalleDeSportSAE/assets/scripts/compte.js"></script>
