@@ -11,6 +11,11 @@ class compteView{
 
     public function afficher($resultat,$resultat2){
         ob_start();
+
+        if (isset($_SESSION['alert'])) {
+            echo "<script>alert('" . $_SESSION['alert'] . "');</script>";
+            unset($_SESSION['alert']);
+        }
         ?>
 <div class="login-container">
     <form action="majData" method="POST" id="compte-info"class="connexion_box" enctype="multipart/form-data">

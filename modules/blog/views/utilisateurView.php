@@ -12,7 +12,10 @@ class utilisateurView
 
     public function afficher()
     {
-
+        if (isset($_SESSION['alert'])) {
+            echo "<script>alert('" . $_SESSION['alert'] . "');</script>";
+            unset($_SESSION['alert']);
+        }
         ?>
 
         <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/login.css">

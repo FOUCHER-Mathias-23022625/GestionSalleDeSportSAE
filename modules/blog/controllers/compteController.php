@@ -45,6 +45,10 @@ class compteController{
         if($this->verifMdp($ancienMdp)){
             $model= new compteModel();
             $model->changementMotDePasse($nouveauMdp);
+            $_SESSION['alert'] = "Votre mot de passe a bien été modifié.";
+        }
+        else{
+            $_SESSION['alert'] = "Ancien mot de passe incorrect.";
         }
         header('location:afficheCompte');
     }
