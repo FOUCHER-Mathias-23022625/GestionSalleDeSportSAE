@@ -5,6 +5,8 @@ namespace controllers;
 use blog\models\compteModel;
 use blog\models\reservationTerrainModele;
 use blog\views\reservationTerrainView;
+use JetBrains\PhpStorm\NoReturn;
+
 require_once  "./index.php";
 require_once 'modules/blog/models/reservationTerrainModele.php';
 require_once 'modules/blog/views/reservationTerrainView.php';
@@ -12,27 +14,34 @@ require_once 'modules/blog/models/compteModel.php';
 class  reservationTerrainController
 {
     private $reservationTerrainModele;
+    private $abonnementController;
 
     public function __construct() {
         $this->reservationTerrainModele = new reservationTerrainModele();
+        $this->abonnementController = new abonnementController();
     }
 
-    public function displayReservationTerrain()
+    public function displayReservationTerrain(): void
     {
         if (!isset($_SESSION['id'])) {
             header('Location: /GestionSalleDeSportSAE/utilisateur/afficheFormConnexion');
             exit();
         }
+        if(! $this->abonnementController->checkAbo()){
+            header('Location: /GestionSalleDeSportSAE/abonnement/afficheAbonnement');
+            exit();
+        }
+
         $reservation_status = isset($_SESSION['reservation_status']) ? $_SESSION['reservation_status'] : null;
         unset($_SESSION['reservation_status']);
         $selected_sport = isset($_POST['sport']) ? $_POST['sport'] : null;
         $selected_date = isset($_POST['date']) ? $_POST['date'] : null;
         $selected_terrain = isset($_POST['terrain']) ? $_POST['terrain'] : null;
         $view = new ReservationTerrainView();
-        $view->afficher($selected_date,$selected_sport,$reservation_status,$selected_terrain);
+        $view->afficher($selected_date,$selected_sport,$reservation_status);
     }
 
-    public function afficheRes($selected_date, $selected_sport)
+    public function afficheRes($selected_date, $selected_sport): void
     {
         $request_res = $this->reservationTerrainModele->getReservationTerrain($selected_date, $selected_sport, 1);
         $request_resBis = $this->reservationTerrainModele->getReservationTerrain($selected_date, $selected_sport, 2);
@@ -95,10 +104,9 @@ class  reservationTerrainController
             echo "<p>Aucun sport ou date sélectionné.</p>";
         endif;
     }
-    // j'ai un probleme, je n'arrive pas a afficher uniquement les terrains dispinibles pour le sport selectionné et pas tout les terrains disponibles
 
 
-    public function addReservationTerrain()
+    public function addReservationTerrain(): void
     {
         $id_user = $_SESSION['id'];
 
