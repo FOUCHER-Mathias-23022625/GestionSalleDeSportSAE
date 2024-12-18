@@ -29,6 +29,14 @@ class abonnementController
         $abonnementView->afficher();
     }
 
+    public function checkAbo(): bool {
+        $model = new abonnementModel();
+        $dateFin = $model->infoAbo()['DateExp'];
+        $dateFinObj = new DateTime($dateFin);
+        $dateActuelle = new DateTime();
+        return $dateFinObj >= $dateActuelle;
+    }
+
     public function appliquerAbo($abo){
         $model = new abonnementModel();
         $dateFin = $model->infoAbo()['DateExp'];

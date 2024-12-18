@@ -78,6 +78,7 @@ class homepageView{
     </main>
 
     <?php
+
         (new \Blog\Views\Layout('SportHub', ob_get_clean()))->afficher();
  }
 }

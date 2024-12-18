@@ -12,11 +12,7 @@ class utilisateurView
 
     public function afficher()
     {
-        // Affichage du message d'erreur, s'il existe
-        if (isset($_SESSION['error_message'])) {
-            echo '<div class="error-messagePerf">' . $_SESSION['error_message'] . '</div>';
-            unset($_SESSION['error_message']); // Supprimer le message après l'affichage
-        }
+
         ?>
 
         <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/login.css">

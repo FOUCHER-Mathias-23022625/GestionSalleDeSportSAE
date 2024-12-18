@@ -55,7 +55,7 @@ class reservationTerrainView
                     <label for="sport" id="sportSelec">Sport sélectionné :</label>
                     <input type="text" id="selected-sport" name="sport" aria-label="textAutoChange" readonly>
                     <label for="date" id="dateSelec">Sélectionnez une date :</label>
-                    <input type="date" id="date" name="date">
+                    <input type="date" id="date" name="date" min="<?php echo date('Y-m-d'); ?>">
 
                     <button class="btnVoirResa" type="submit"><span>Voir les terrains disponibles :</span><i></i></button>
                 </form>
