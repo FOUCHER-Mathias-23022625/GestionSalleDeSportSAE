@@ -170,9 +170,9 @@ class utilisateurController
             unset($_SESSION['mdpUtilisateur']);
             unset($_SESSION['prenomUtilisateur']);
             unset($_SESSION['nomUtilisateur']);
-            $_SESSION['alert'] = "Le code n'est pas le bon, le compte n'a pas pu être créé";
-            header("location: ../homepage/accueil");
-
+            $_SESSION['alert'] = "Vous avez bien été inscrit";
+            header("location: ../abonnement/afficheAbonnement");
+            exit();
 
 
         }
