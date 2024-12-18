@@ -11,6 +11,7 @@ class abonnementView{
     public function afficher(){
         ob_start();
 
+        $isUserConnectedPayment = isset($_SESSION['id']);
 
         if (isset($_SESSION['alert'])) {
             echo "<script>alert('" . $_SESSION['alert'] . "');</script>";

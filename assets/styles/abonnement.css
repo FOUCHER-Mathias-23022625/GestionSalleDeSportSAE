@@ -10,7 +10,7 @@
 .abonnements{
     display: flex;
     flex-direction: row;
-    margin: 50px 120px;
+    margin: 100px 200px;
     justify-content: space-between;
 }
 
@@ -19,24 +19,19 @@
     flex-direction: column;
     justify-content: space-between;
     width: 300px;
-    background-color: #f9f9f9;
+    background-color: #dddddd;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     font-family: "Poppins", sans-serif;
+    transition: 0.5s ease;
 }
 
-.offer-container {
-    width: 300px;
-    background-color: #f9f9f9;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    font-family: "Poppins", sans-serif;
+
+.offer-container:hover {
+    box-shadow: 0 5px 10px #4CAF50;
 }
 
 .offer-title {

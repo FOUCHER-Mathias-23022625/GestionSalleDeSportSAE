@@ -5,19 +5,27 @@ const selectedPrice = document.getElementById("selectedPrice");
 const confirmButton = document.getElementById("confirmPayment");
 const cancelButton = document.getElementById("cancelPayment");
 const formPayment = document.getElementById("paymentForm");
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const offerName = button
-            .closest(".offer-container")
-            .querySelector(".offer-title").innerText;
-        const offerPrice = button
-            .closest(".offer-container")
-            .querySelector(".main-price").innerText;
-        selectedOffer.innerText = offerName;
-        selectedPrice.innerText = offerPrice;
-        modal.classList.add("show");
-    });
-});
+
+function handlePaymentClick(isUserConnectedPayment){
+    if (!isUserConnectedPayment){
+        alert("Vous devez être connecté pour procéder à l'achat d'un abonnement")
+    }else{
+        buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const offerName = button
+                    .closest(".offer-container")
+                    .querySelector(".offer-title").innerText;
+                const offerPrice = button
+                    .closest(".offer-container")
+                    .querySelector(".main-price").innerText;
+                selectedOffer.innerText = offerName;
+                selectedPrice.innerText = offerPrice;
+                modal.classList.add("show");
+            });
+        });
+    }
+}
+
 confirmButton.addEventListener("click", () => {
     const cardNumber = document.getElementById("cardNumber").value;
     const cardHolder = document.getElementById("cardHolder").value;
