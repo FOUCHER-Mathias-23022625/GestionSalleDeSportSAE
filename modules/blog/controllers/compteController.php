@@ -22,7 +22,7 @@ class compteController{
         $compteView->afficher($resultat,$resultat2);
     }
 
-    public function maj(){
+    public function majData(){
         $model = new compteModel();
 
         $model->edit_utilisateur();
@@ -46,7 +46,7 @@ class compteController{
             $model= new compteModel();
             $model->changementMotDePasse($nouveauMdp);
         }
-        header('location:../homepage/accueil');
+        header('location:afficheCompte');
     }
     public function generateurMdp(){
         $alphabet="abcdefghijklmnopqrstuvwxyz";
@@ -72,6 +72,7 @@ class compteController{
     public function deletePP(){
         $model = new compteModel();
         $model->delPP();
+        header('location:afficheCompte');
         exit();
     }
 }
