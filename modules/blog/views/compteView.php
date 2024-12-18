@@ -62,8 +62,8 @@ class compteView{
                 }?> </label><br><br>
 
             <label for="DateExp" class="form-label">Date de fin d'abonnement :</label>
-            <label class="form-static"> <?php if($resultat2['DateDeb']!=null){
-                    echo $resultat2['DateDeb'];
+            <label class="form-static"> <?php if($resultat2['DateExp']!=null){
+                    echo $resultat2['DateExp'];
                 }
                 else{
                     echo "Pas d'abonnement";
