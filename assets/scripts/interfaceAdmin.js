@@ -1,23 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('search-reservations');
     const filterInput = document.getElementById('filter-reservations');
-    const reservationCards = document.querySelectorAll('.reservation-card');
+    const rows = document.querySelectorAll('table tr'); // Toutes les lignes du tableau
 
     function filterReservations() {
         const searchValue = searchInput.value.toLowerCase();
         const filterValue = filterInput.value.toLowerCase();
 
-        reservationCards.forEach(card => {
-            const sport = card.querySelector('.reservation-info div:nth-child(1)').textContent.toLowerCase();
-            const date = card.querySelector('.reservation-info div:nth-child(2)').textContent.toLowerCase();
+        rows.forEach((row, index) => {
+            // Ignore la première ligne (l'en-tête du tableau)
+            if (index === 0) return;
 
-            const matchesSearch = !searchValue || date.includes(searchValue);
-            const matchesFilter = !filterValue || sport.includes(filterValue);
+            const cells = row.querySelectorAll('td');
+            if (cells.length > 0) {
+                const sport = cells[0].textContent.toLowerCase(); // Première colonne : Sport
+                const date = cells[2].textContent.toLowerCase();  // Troisième colonne : Date
 
-            card.style.display = matchesSearch && matchesFilter ? '' : 'none';
+                const matchesSearch = !searchValue || date.includes(searchValue);
+                const matchesFilter = !filterValue || sport.includes(filterValue);
+
+                // Affiche ou masque la ligne en fonction des filtres
+                row.style.display = matchesSearch && matchesFilter ? '' : 'none';
+            }
         });
     }
 
+    // Ajoute les écouteurs d'événements sur les champs de recherche et de filtre
     searchInput.addEventListener('input', filterReservations);
     filterInput.addEventListener('input', filterReservations);
 });
