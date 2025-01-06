@@ -35,7 +35,6 @@ class interfaceAdminView
                 <h2>Réservations</h2>
                 <div class="search-filter-container">
                     <input type="text" id="search-reservations" placeholder="Rechercher une réservation...">
-                    <input type="text" id="filter-reservations" placeholder="Filtrer par sport...">
                 </div>
                 <table>
                     <tr>
@@ -55,7 +54,6 @@ class interfaceAdminView
                 <h2>Événements</h2>
                 <div class="search-filter-container">
                     <input type="text" id="search-evenements" placeholder="Rechercher un événement...">
-                    <input type="text" id="filter-evenements" placeholder="Filtrer par sport...">
                 </div>
                 <table>
                     <tr>
