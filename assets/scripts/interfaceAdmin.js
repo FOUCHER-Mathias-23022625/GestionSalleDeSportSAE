@@ -1,33 +1,42 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const searchInput = document.getElementById('search-reservations');
-    const filterInput = document.getElementById('filter-reservations');
-    const rows = document.querySelectorAll('table tr'); // Toutes les lignes du tableau
+    // Objets de mapping entre champs de recherche et leurs tableaux respectifs
+    const filters = [
+        {
+            inputId: 'search-utilisateurs',
+            tableSelector: 'section:nth-of-type(1) table',
+        },
+        {
+            inputId: 'search-reservations',
+            tableSelector: 'section:nth-of-type(2) table',
+        },
+        {
+            inputId: 'search-evenements',
+            tableSelector: 'section:nth-of-type(3) table',
+        }
+    ];
 
-    function filterReservations() {
-        const searchValue = searchInput.value.toLowerCase();
-        const filterValue = filterInput.value.toLowerCase();
+    filters.forEach(filter => {
+        const searchInput = document.getElementById(filter.inputId);
+        const table = document.querySelector(filter.tableSelector);
+        const rows = table.querySelectorAll('tr');
 
-        rows.forEach((row, index) => {
-            // Ignore la première ligne (l'en-tête du tableau)
-            if (index === 0) return;
+        // Fonction de filtrage pour le tableau
+        searchInput.addEventListener('input', function () {
+            const searchValue = searchInput.value.toLowerCase();
 
-            const cells = row.querySelectorAll('td');
-            if (cells.length > 0) {
-                const sport = cells[0].textContent.toLowerCase(); // Première colonne : Sport
-                const date = cells[2].textContent.toLowerCase();  // Troisième colonne : Date
+            rows.forEach((row, index) => {
+                // Ignore la première ligne (l'en-tête)
+                if (index === 0) return;
 
-                const matchesSearch = !searchValue || date.includes(searchValue);
-                const matchesFilter = !filterValue || sport.includes(filterValue);
-
-                // Affiche ou masque la ligne en fonction des filtres
-                row.style.display = matchesSearch && matchesFilter ? '' : 'none';
-            }
+                const cells = row.querySelectorAll('td');
+                if (cells.length > 0) {
+                    // Vérifie si une des colonnes contient la valeur recherchée
+                    const rowText = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(' ');
+                    row.style.display = rowText.includes(searchValue) ? '' : 'none';
+                }
+            });
         });
-    }
-
-    // Ajoute les écouteurs d'événements sur les champs de recherche et de filtre
-    searchInput.addEventListener('input', filterReservations);
-    filterInput.addEventListener('input', filterReservations);
+    });
 });
 
 function openConfirmationBox(userId) {
