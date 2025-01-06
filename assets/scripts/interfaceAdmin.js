@@ -1,26 +1,33 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const searchInput = document.getElementById('search-reservations');
-    const filterInput = document.getElementById('filter-reservations');
-    const reservationCards = document.querySelectorAll('.reservation-card');
+const searchInput = document.getElementById('search');
+const filterSelect = document.getElementById('filter');
+const reservationCards = document.querySelectorAll('.future-reservations .reservation-card');
 
-    function filterReservations() {
-        const searchValue = searchInput.value.toLowerCase();
-        const filterValue = filterInput.value.toLowerCase();
+// Fonction de filtrage
+function filterReservations() {
+    const searchValue = searchInput.value.toLowerCase();
+    const filterValue = filterSelect.value;
 
-        reservationCards.forEach(card => {
-            const sport = card.querySelector('.reservation-info div:nth-child(1)').textContent.toLowerCase();
-            const date = card.querySelector('.reservation-info div:nth-child(2)').textContent.toLowerCase();
+    // Parcourir les cartes de réservation
+    reservationCards.forEach(card => {
+        const sport = card.querySelector('.reservation-info div:nth-child(1)').textContent.toLowerCase();
+        const date = card.querySelector('.reservation-info div:nth-child(2)').textContent.toLowerCase();
 
-            const matchesSearch = !searchValue || date.includes(searchValue);
-            const matchesFilter = !filterValue || sport.includes(filterValue);
+        // Vérifier si la carte correspond à la recherche et au filtre
+        const matchesSearch = sport.includes(searchValue) || date.includes(searchValue);
+        const matchesFilter = !filterValue || sport.includes(filterValue.toLowerCase());
 
-            card.style.display = matchesSearch && matchesFilter ? '' : 'none';
-        });
-    }
+        // Afficher ou masquer la carte
+        if (matchesSearch && matchesFilter) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
 
-    searchInput.addEventListener('input', filterReservations);
-    filterInput.addEventListener('input', filterReservations);
-});
+// Ajouter des écouteurs d'événements pour le champ de recherche et le filtre
+searchInput.addEventListener('input', filterReservations);
+filterSelect.addEventListener('change', filterReservations);
 
 function openConfirmationBox(userId) {
     // Récupère l'élément <a> du bouton "Confirmer"
