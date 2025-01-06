@@ -1,3 +1,27 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('search-reservations');
+    const filterInput = document.getElementById('filter-reservations');
+    const reservationCards = document.querySelectorAll('.reservation-card');
+
+    function filterReservations() {
+        const searchValue = searchInput.value.toLowerCase();
+        const filterValue = filterInput.value.toLowerCase();
+
+        reservationCards.forEach(card => {
+            const sport = card.querySelector('.reservation-info div:nth-child(1)').textContent.toLowerCase();
+            const date = card.querySelector('.reservation-info div:nth-child(2)').textContent.toLowerCase();
+
+            const matchesSearch = !searchValue || date.includes(searchValue);
+            const matchesFilter = !filterValue || sport.includes(filterValue);
+
+            card.style.display = matchesSearch && matchesFilter ? '' : 'none';
+        });
+    }
+
+    searchInput.addEventListener('input', filterReservations);
+    filterInput.addEventListener('input', filterReservations);
+});
+
 function openConfirmationBox(userId) {
     // Récupère l'élément <a> du bouton "Confirmer"
     const confirmLink = document.getElementById('confirm-link');
