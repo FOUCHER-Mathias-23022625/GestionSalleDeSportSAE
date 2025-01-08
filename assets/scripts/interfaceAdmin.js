@@ -1,3 +1,44 @@
+document.addEventListener('DOMContentLoaded', function () {
+    // Objets de mapping entre champs de recherche et leurs tableaux respectifs
+    const filters = [
+        {
+            inputId: 'search-utilisateurs',
+            tableSelector: 'section:nth-of-type(1) table',
+        },
+        {
+            inputId: 'search-reservations',
+            tableSelector: 'section:nth-of-type(2) table',
+        },
+        {
+            inputId: 'search-evenements',
+            tableSelector: 'section:nth-of-type(3) table',
+        }
+    ];
+
+    filters.forEach(filter => {
+        const searchInput = document.getElementById(filter.inputId);
+        const table = document.querySelector(filter.tableSelector);
+        const rows = table.querySelectorAll('tr');
+
+        // Fonction de filtrage pour le tableau
+        searchInput.addEventListener('input', function () {
+            const searchValue = searchInput.value.toLowerCase();
+
+            rows.forEach((row, index) => {
+                // Ignore la première ligne (l'en-tête)
+                if (index === 0) return;
+
+                const cells = row.querySelectorAll('td');
+                if (cells.length > 0) {
+                    // Vérifie si une des colonnes contient la valeur recherchée
+                    const rowText = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(' ');
+                    row.style.display = rowText.includes(searchValue) ? '' : 'none';
+                }
+            });
+        });
+    });
+});
+
 function openConfirmationBox(userId) {
     // Récupère l'élément <a> du bouton "Confirmer"
     const confirmLink = document.getElementById('confirm-link');
