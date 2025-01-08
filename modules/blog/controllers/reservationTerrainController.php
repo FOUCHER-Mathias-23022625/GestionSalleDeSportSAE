@@ -3,12 +3,12 @@
 namespace controllers;
 
 use blog\models\compteModel;
-use blog\models\reservationTerrainModele;
+use blog\models\reservationTerrainModel;
 use blog\views\reservationTerrainView;
 use JetBrains\PhpStorm\NoReturn;
 
 require_once  "./index.php";
-require_once 'modules/blog/models/reservationTerrainModele.php';
+require_once 'modules/blog/models/reservationTerrainModel.php';
 require_once 'modules/blog/views/reservationTerrainView.php';
 require_once 'modules/blog/models/compteModel.php';
 class  reservationTerrainController
@@ -17,7 +17,7 @@ class  reservationTerrainController
     private $abonnementController;
 
     public function __construct() {
-        $this->reservationTerrainModele = new reservationTerrainModele();
+        $this->reservationTerrainModele = new reservationTerrainModel();
         $this->abonnementController = new abonnementController();
     }
 
