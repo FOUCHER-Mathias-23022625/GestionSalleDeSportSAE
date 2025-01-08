@@ -2,10 +2,10 @@
 
 namespace controllers;
 
-use blog\models\reservationUtilisateurModele;
+use blog\models\reservationUtilisateurModel;
 use blog\views\reservationUtilisateurView;
 require_once  "./index.php";
-require_once 'modules/blog/models/reservationUtilisateurModele.php';
+require_once 'modules/blog/models/reservationUtilisateurModel.php';
 require_once 'modules/blog/views/reservationUtilisateurView.php';
 class reservationUtilisateurController
 {
@@ -14,7 +14,7 @@ class reservationUtilisateurController
     public function __construct() {
 
 
-        $this->reservationsUtilisateurModele = new reservationUtilisateurModele();
+        $this->reservationsUtilisateurModele = new reservationUtilisateurModel();
     }
 
     // Méthode pour afficher les réservations de l'utilisateur
