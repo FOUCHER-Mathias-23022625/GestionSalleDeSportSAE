@@ -1,9 +1,10 @@
 <?php
 namespace blog\models;
-use PDO;
+//use PDO;
 use PDOException;
 
-require_once "modules/blog/models/bdModel.php";
+
+//require_once 'modules/blog/models/bdModel.php';
 
 class utilisateurModel {
     private $connexionBD;
@@ -34,12 +35,14 @@ class utilisateurModel {
         $abo = $this->connexionBD->pdo->prepare("INSERT INTO abonnement (idUtilisateur, DateDeb, DateExp) VALUES (:idUtilisateur, NULL, NULL)");
         $abo->bindParam(":idUtilisateur", $_SESSION['id']);
         $abo->execute();
+        return true;
     }
 
     public function delete_utilisateur($idUtilisateur) {
         $requete = $this->connexionBD->pdo->prepare("DELETE FROM utilisateur WHERE idUtilisateur = :idUtilisateur");
         $requete->bindParam(":idUtilisateur", $idUtilisateur);
         $requete->execute();
+        return true;
     }
 
     public function connexion($mail, $mdp) {
@@ -79,9 +82,7 @@ class utilisateurModel {
         $requete->bindParam(":mail",$mail);
         $requete->bindParam(":mdp",$hashedMdp);
         $requete->execute();
-
-
-
     }
+
 }
 ?>
