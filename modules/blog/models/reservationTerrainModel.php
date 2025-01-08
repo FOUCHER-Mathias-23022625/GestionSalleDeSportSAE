@@ -12,14 +12,6 @@ class reservationTerrainModel
         $this->connexion = new bdModel();
     }
 
-    /*public function getReservationTerrain($date, $sport){
-        if (empty($date) || empty($sport)) {
-            return []; // Retournez un tableau vide si l'un des paramètres est manquant
-        }
-        $request_res = "SELECT * FROM reservationTerrain Where sport =$sport and date= $date ORDER BY heure";
-        return $this->connexion->query($request_res)->fetchAll(PDO::FETCH_ASSOC);
-    } */
-
     public function getReservationTerrain($date, $sport, $terrain) {
         // Vérifiez que les paramètres $date et $sport ne sont pas vides
         if (empty($date) || empty($sport) || empty($terrain)) {
