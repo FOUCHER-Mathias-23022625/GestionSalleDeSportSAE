@@ -178,6 +178,13 @@ class performanceController
             header('Location:affichePerf');
             exit();
         }
+        //Vérifie l'abonnement
+        /*if(!estAbonne()){
+            $_SESSION['error_message'] = "Vous devez souscrire à un abonnement pour pouvoir ajouter une performance";
+            echo "Vous devez souscrire à un abonnement pour pouvoir ajouter une performance";
+            header('Location:affichePerf');
+            exit();
+        }*/
         // Vérifie que toutes les données obligatoires sont présentes
         $id_user = $_SESSION['id'];
         if ($date && $sport && $tempsJeu && $score && $resultat !== null && $id_user) {
