@@ -145,12 +145,6 @@ class performanceView
 </main>
 
 
-<footer id="main-footerPerf">
-    <div class="containerPerf">
-        <p>&copy; 2024 Salle Multi-Sport - Suivi des Performances</p>
-    </div>
-</footer>
-
         <!--Formulaire-->
 <div class="overlayFormPerf" id="formOverlayAddPerf">
     <div class="form-containerPerf">
