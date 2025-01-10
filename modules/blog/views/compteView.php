@@ -1,6 +1,6 @@
 <?php
 namespace blog\views;
-use blog\controllers\compteController;
+use controllers\compteController;
 use blog\views\navebar;
 use index;
 use blog\models\compteModel;
