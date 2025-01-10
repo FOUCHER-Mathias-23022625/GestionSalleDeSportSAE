@@ -24,10 +24,12 @@ class  reservationTerrainController
     public function displayReservationTerrain(): void
     {
         if (!isset($_SESSION['id'])) {
+            $_SESSION['alert'] = "Vous devez etre connecté pour acceder a cette page";
             header('Location: /GestionSalleDeSportSAE/utilisateur/afficheFormConnexion');
             exit();
         }
         if (!$this->abonnementController->checkAbo()) {
+            $_SESSION['alert'] = "Vous devez posseder un abonnement pour acceder a cette page";
             header('Location: /GestionSalleDeSportSAE/abonnement/nosAbonnements');
             exit();
         }
