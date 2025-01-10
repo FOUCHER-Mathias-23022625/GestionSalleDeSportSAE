@@ -1,7 +1,9 @@
 <?php
 namespace controllers;
+use blog\models\abonnementModel;
 use blog\models\performanceModel;
 use blog\views\performanceView;
+
 require_once "modules/blog/views/performanceView.php";
 require_once "modules/blog/models/performanceModel.php";
 require_once "./index.php";
@@ -16,12 +18,14 @@ class performanceController
 {
     private $model;
     private $view;
+    private $abonnementController;
 
     public function __construct()
     {
 
         $this->model = new performanceModel();
         $this->view = new performanceView();
+        $this->abonnementController = new abonnementController();
     }
     public function afficherTableauPerformances($performances): bool
     {
@@ -178,13 +182,12 @@ class performanceController
             header('Location:affichePerf');
             exit();
         }
-        //Vérifie l'abonnement
-        /*if(!estAbonne()){
-            $_SESSION['error_message'] = "Vous devez souscrire à un abonnement pour pouvoir ajouter une performance";
-            echo "Vous devez souscrire à un abonnement pour pouvoir ajouter une performance";
-            header('Location:affichePerf');
+        // Vérifie l'abonnement de l'utilisateur
+        if (!$this->abonnementController->checkAbo()) {
+            $_SESSION['error_message'] = "Vous devez souscrire à un abonnement pour ajouter une performance.";
+            header('Location: affichePerf');
             exit();
-        }*/
+        }
         // Vérifie que toutes les données obligatoires sont présentes
         $id_user = $_SESSION['id'];
         if ($date && $sport && $tempsJeu && $score && $resultat !== null && $id_user) {
@@ -228,6 +231,12 @@ class performanceController
             $date_du_j = date('Y-m-d');
             $id_user = $_SESSION['id']; // Assure que l'utilisateur est connecté
 
+            // Vérifie l'abonnement de l'utilisateur
+            if (!$this->abonnementController->checkAbo()) {
+                $_SESSION['error_message'] = "Vous devez souscrire à un abonnement pour ajouter un indice de masse corporelle.";
+                header('Location: affichePerf');
+                exit();
+            }
             // Vérifier que poids et taille sont positifs et différents de 0
             if ($poids <= 0 || $taille <= 0) {
                 $_SESSION['error_message'] = "Le poids et la taille doivent être des valeurs positives et non nulles.";
