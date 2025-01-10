@@ -11,6 +11,8 @@ require_once 'modules/blog/controllers/abonnementController.php';
 require_once 'modules/blog/controllers/activiteController.php';
 require_once 'modules/blog/controllers/classementController.php';
 require_once 'modules/blog/controllers/sportController.php';
+require __DIR__.'/Autoloader.php';
+
 
 class Index {
     public function url() {
