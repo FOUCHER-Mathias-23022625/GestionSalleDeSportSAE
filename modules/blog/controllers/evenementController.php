@@ -28,7 +28,6 @@ class evenementController{
     }
 
     public function inscrireUtilisateur($idEvenement) {
-        session_start();
 
         if (!isset($_SESSION['id'])) {
             $_SESSION['error'] = "Vous devez être connecté pour vous inscrire à un événement.";
