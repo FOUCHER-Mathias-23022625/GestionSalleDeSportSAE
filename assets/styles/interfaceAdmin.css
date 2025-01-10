@@ -183,14 +183,17 @@
 /* Style pour les boutons */
 .custom-save-btn,
 .custom-cancel-btn {
-    width: 48%;
     padding: 12px;
-    margin: 5px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s;
     border: none;
+    width: 48%;
+    margin: 5px 0;
+}
+.custom-cancel-btn:hover {
+    background-color: #4CAF50;
 }
 
 .custom-save-btn {
@@ -203,9 +206,15 @@
 }
 
 .delete-icon {
-    background-color: #f44336;
-    color: white;
-    text-decoration: none;
+    color: black;
+    width: 48%;
+    padding: 12px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
 }
 
 .delete-icon:hover {
@@ -243,8 +252,7 @@
 
     .custom-save-btn,
     .custom-cancel-btn {
-        width: 100%;
-        margin: 5px 0;
+
     }
 }
 
