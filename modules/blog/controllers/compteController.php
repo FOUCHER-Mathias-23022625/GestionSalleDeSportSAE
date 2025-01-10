@@ -1,5 +1,5 @@
 <?php
-namespace blog\controllers;
+namespace controllers;
 use blog\models\compteModel;
 use blog\views\Layout;
 use blog\views\compteView;
@@ -13,13 +13,13 @@ use index;
 class compteController{
 
     public function afficheCompte(){
-
+        ob_start();
         $model = new compteModel();
         $resultat = $model->utilisateurInformation();
         $model2 = new compteModel();
         $resultat2 = $model2->dateDeb_dateFin();
         $compteView = new compteView();
-        ob_start();
+
         $compteView->afficher($resultat,$resultat2);
         $contenu=ob_get_clean();
         $layout = new Layout("Utilisateur", $contenu);
