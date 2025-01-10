@@ -75,7 +75,13 @@ class utilisateurController
         $prenom = $_SESSION['prenomUtilisateur'];
         $nom = $_SESSION['nomUtilisateur'];
         $model = new utilisateurModel();
-        return $model->ajouteUtilisateur($mail, $mdp, $prenom, $nom);
+        if($model->utilisateurMail($mail)){
+            $_SESSION['alert'] = "Adresse mail déjà exitante !";
+            header('location:afficheFormConnexion');
+            return false;
+        }
+        $model->ajouteUtilisateur($mail, $mdp, $prenom, $nom);
+        header('location:afficheFormConnexion');
     }
 
     public function modification() {
@@ -172,9 +178,12 @@ class utilisateurController
         if (isset($_POST['code'])) {
             $code = implode('', $_POST['code']);
             if ($code == $_SESSION['code']){
-                if($this->inscription()) {
-                    $_SESSION['alert'] = "Vous avez bien été inscrit";
+                $this->inscription();
+                if($this->inscription()==false){
+                    header("location: ../abonnement/afficheAbonnement");
+                    exit();
                 }
+                $_SESSION['alert'] = "Vous avez bien été inscrit";
                 header("location: ../abonnement/afficheAbonnement");
                 exit();
             }
