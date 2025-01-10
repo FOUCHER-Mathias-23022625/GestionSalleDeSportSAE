@@ -1,7 +1,7 @@
 <?php
 namespace blog\views;
-use navebar;
-require_once "Layout.php";
+use blog\views\navebar;
+use blog\views\Layout;
 use controllers\performanceController;
 
 class performanceView

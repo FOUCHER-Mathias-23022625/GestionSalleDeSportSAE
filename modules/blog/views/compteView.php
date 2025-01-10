@@ -1,7 +1,6 @@
 <?php
 namespace blog\views;
 use controllers\compteController;
-use blog\views\navebar;
 use index;
 use blog\models\compteModel;
 
@@ -9,6 +8,10 @@ class compteView{
 
     public function afficher($resultat,$resultat2){
         ob_start();
+        // Démarrer la session
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 
         if (isset($_SESSION['alert'])) {
             echo "<script>alert('" . $_SESSION['alert'] . "');</script>";
