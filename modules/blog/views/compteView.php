@@ -1,17 +1,16 @@
 <?php
 namespace blog\views;
 use controllers\compteController;
+use navebar;
 use index;
-use blog\models\compteModel;
-
+require_once 'navebar.php';
+require_once 'Layout.php';
+require_once  "modules/blog/controllers/compteController.php";
+//t
 class compteView{
 
     public function afficher($resultat,$resultat2){
         ob_start();
-        // Démarrer la session
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
 
         if (isset($_SESSION['alert'])) {
             echo "<script>alert('" . $_SESSION['alert'] . "');</script>";
@@ -82,7 +81,7 @@ class compteView{
 </div>
         <script src="/GestionSalleDeSportSAE/assets/scripts/compte.js"></script>
         <?php
-        (new Layout('compte', ob_get_clean()))->afficher();
+        (new \Blog\Views\Layout('compte', ob_get_clean()))->afficher();
     }
 }
 

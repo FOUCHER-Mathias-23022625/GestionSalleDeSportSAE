@@ -5,7 +5,7 @@ use index;
 require_once 'navebar.php';
 require_once 'Layout.php';
 require_once  "modules/blog/controllers/abonnementController.php";
-
+//t
 class abonnementView{
 
     public function afficher(){

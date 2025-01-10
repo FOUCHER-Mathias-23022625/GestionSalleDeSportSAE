@@ -1,8 +1,9 @@
 <?php
 namespace blog\views;
 use index;
-use blog\views\navebar;
-use controllers\utilisateurController;
+use navebar;
+require_once "navebar.php";
+//t
 //require_once "../../../index.php";
 class utilisateurView
 {

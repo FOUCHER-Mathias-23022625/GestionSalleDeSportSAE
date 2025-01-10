@@ -1,5 +1,5 @@
 <?php
-
+//t
 namespace blog\views;
 use controllers\reservationUtilisateurController;
 require_once "Layout.php";

@@ -2,11 +2,11 @@
 
 namespace controllers;
 use blog\views\sportView;
-use index;
+use Index;
 
-
-
-
+require_once  "modules/blog/views/sportView.php";
+require_once  "./index.php";
+//t
 
 class sportController
 {

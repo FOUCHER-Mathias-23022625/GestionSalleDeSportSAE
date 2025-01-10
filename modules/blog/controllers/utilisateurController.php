@@ -5,7 +5,12 @@ use blog\models\utilisateurModel;
 use blog\views\Layout;
 use blog\views\utilisateurView;
 use blog\views\verifMailView;
-use index;
+use Index;
+//t
+require_once "modules/blog/views/utilisateurView.php";
+require_once "modules/blog/models/utilisateurModel.php";
+require_once "./index.php";
+require_once "modules/blog/views/Layout.php";
 
 class utilisateurController
 {
@@ -59,6 +64,7 @@ class utilisateurController
     }
 
     public function deconnecte() {
+        session_start();
         session_destroy();
         header("Location:afficheFormConnexion");
     }
@@ -89,9 +95,6 @@ class utilisateurController
     {
         $utilisateurView = new utilisateurView();
         ob_start();
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
         $utilisateurView->afficher();
         $contenu=ob_get_clean();
         $layout = new Layout("Utilisateur", $contenu);

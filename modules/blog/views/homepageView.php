@@ -4,7 +4,7 @@ use blog\views\navebar;
 use index;
 require_once 'navebar.php';
 require_once 'Layout.php';
-
+//t
 class homepageView{
 
 

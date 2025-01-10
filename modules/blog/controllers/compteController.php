@@ -3,11 +3,12 @@ namespace controllers;
 use blog\models\compteModel;
 use blog\views\Layout;
 use blog\views\compteView;
-use index;
-
-
-
-
+use Index;
+//t
+require_once  "modules/blog/views/compteView.php";
+require_once  "modules/blog/models/compteModel.php";
+require_once  "./index.php";
+require_once "modules/blog/views/Layout.php";
 
 
 class compteController{
@@ -18,7 +19,6 @@ class compteController{
         $model2 = new compteModel();
         $resultat2 = $model2->dateDeb_dateFin();
         $compteView = new compteView();
-
         $compteView->afficher($resultat,$resultat2);
     }
 

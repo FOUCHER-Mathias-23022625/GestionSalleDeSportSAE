@@ -7,8 +7,9 @@ use blog\views\evenementView;
 use blog\views\performanceView;
 use PDO;
 use index;
-
-
+require_once "modules/blog/models/evenementModel.php";
+require_once "modules/blog/views/evenementView.php";
+//t
 class evenementController{
 
     private $model;
@@ -28,6 +29,7 @@ class evenementController{
     }
 
     public function inscrireUtilisateur($idEvenement) {
+        session_start();
 
         if (!isset($_SESSION['id'])) {
             $_SESSION['error'] = "Vous devez être connecté pour vous inscrire à un événement.";

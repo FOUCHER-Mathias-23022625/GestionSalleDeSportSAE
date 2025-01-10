@@ -1,7 +1,7 @@
 <?php
 namespace blog\models;
-use blog\models\bdModel;
-
+require_once 'modules/blog/views/compteView.php';
+//t
 class compteModel
 {
     private $connexionBD;
