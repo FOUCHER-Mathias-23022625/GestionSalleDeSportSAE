@@ -78,7 +78,9 @@ class utilisateurModel {
         if($requeteMail->execute()){
             return true;
         }
-        return false;
+        else {
+            return false;
+        }
 
     }
 
