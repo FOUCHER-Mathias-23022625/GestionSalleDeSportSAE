@@ -89,6 +89,9 @@ class utilisateurController
     {
         $utilisateurView = new utilisateurView();
         ob_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         $utilisateurView->afficher();
         $contenu=ob_get_clean();
         $layout = new Layout("Utilisateur", $contenu);
