@@ -27,4 +27,10 @@ class testUtilisateur extends TestCase
         $model = new utilisateurModel();
         $this->assertTrue($model->delete_utilisateur(81));
     }
+
+    public function testMailUtilisateur(){
+        $model = new utilisateurModel();
+        $this->assertTrue($model->utilisateurMail("tom.om.barbero@gmail.com"));
+
+}
 }

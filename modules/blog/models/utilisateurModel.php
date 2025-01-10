@@ -17,6 +17,8 @@ class utilisateurModel {
         }
     }
 
+
+
     public function ajouteUtilisateur($mail, $mdp,$prenom,$nom) {
         $requete = $this->connexionBD->pdo->prepare("INSERT INTO utilisateur (EMail, mdp, PrenomU, NomU) VALUES (:mail, :mdp, :prenom, :nom)");
         $hashedMdp = password_hash($mdp, PASSWORD_DEFAULT);
@@ -68,7 +70,9 @@ class utilisateurModel {
     public function utilisateurMail($mail){
         $requeteMail = $this->connexionBD->pdo->prepare("SELECT EMail FROM utilisateur WHERE EMAIL = :mail");
         $requeteMail->bindParam(':mail', $mail);
-        if($requeteMail->execute()){
+        $requeteMail->execute();
+        $_SESSION['testMail']=$requeteMail->fetchAll();
+        if(isset($_SESSION['testMail'])){
             return true;
         }
         else{
