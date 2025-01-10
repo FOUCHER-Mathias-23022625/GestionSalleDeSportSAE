@@ -4,8 +4,7 @@ use blog\models\abonnementModel;
 use blog\models\performanceModel;
 use blog\views\performanceView;
 
-require_once "modules/blog/views/performanceView.php";
-require_once "modules/blog/models/performanceModel.php";
+
 require_once "./index.php";
 
 

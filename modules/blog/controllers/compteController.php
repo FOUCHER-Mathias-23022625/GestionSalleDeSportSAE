@@ -5,10 +5,9 @@ use blog\views\Layout;
 use blog\views\compteView;
 use Index;
 
-require_once  "modules/blog/views/compteView.php";
-require_once  "modules/blog/models/compteModel.php";
+
 require_once  "./index.php";
-require_once "modules/blog/views/Layout.php";
+
 
 
 class compteController{

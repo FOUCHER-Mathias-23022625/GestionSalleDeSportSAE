@@ -7,9 +7,8 @@ use blog\views\Layout;
 use Index;
 use blog\models\activiteModel;
 use blog\views\activiteView;
-require_once  "modules/blog/views/activiteView.php";
-require_once  "modules/blog/models/activiteModel.php";
-require_once "modules/blog/views/Layout.php";
+
+
 
 class activiteController
 {

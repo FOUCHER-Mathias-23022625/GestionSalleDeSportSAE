@@ -5,8 +5,7 @@ namespace controllers;
 use blog\models\reservationUtilisateurModel;
 use blog\views\reservationUtilisateurView;
 require_once  "./index.php";
-require_once 'modules/blog/models/reservationUtilisateurModel.php';
-require_once 'modules/blog/views/reservationUtilisateurView.php';
+
 class reservationUtilisateurController
 {
     private $reservationsUtilisateurModele;
