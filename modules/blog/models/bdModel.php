@@ -1,5 +1,5 @@
 <?php
-
+//t
 namespace blog\models;
 use PDO;
 class bdModel

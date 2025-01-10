@@ -9,7 +9,7 @@ use PDO;
 use index;
 require_once "modules/blog/models/evenementModel.php";
 require_once "modules/blog/views/evenementView.php";
-
+//t
 class evenementController{
 
     private $model;

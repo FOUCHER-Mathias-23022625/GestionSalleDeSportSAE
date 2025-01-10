@@ -3,7 +3,7 @@
 namespace blog\models;
 use PDO;
 use PDOException;
-
+//t
 require_once "www/GestionSalleDeSportSAE/modules/blog/models/bdModel.php";
 
 class verifModel

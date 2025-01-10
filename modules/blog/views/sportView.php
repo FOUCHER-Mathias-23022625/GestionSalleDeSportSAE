@@ -2,6 +2,7 @@
 namespace blog\views;
 use navebar;
 use Index;
+//t
 require_once 'navebar.php';
 require_once 'Layout.php';
 

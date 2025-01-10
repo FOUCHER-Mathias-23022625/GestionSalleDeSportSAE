@@ -8,7 +8,7 @@ use Index;
 require_once 'navebar.php';
 require_once 'Layout.php';
 require_once  "modules/blog/controllers/activiteController.php";
-
+//t
 class activiteView
 {
     public function afficher(){

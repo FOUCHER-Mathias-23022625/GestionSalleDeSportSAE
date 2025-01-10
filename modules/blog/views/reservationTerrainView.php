@@ -1,5 +1,5 @@
 <?php
-
+//t
 namespace blog\views;
 use controllers\reservationTerrainController;
 require_once "Layout.php";

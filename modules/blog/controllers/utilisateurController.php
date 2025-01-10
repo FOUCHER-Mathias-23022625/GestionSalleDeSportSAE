@@ -6,7 +6,7 @@ use blog\views\Layout;
 use blog\views\utilisateurView;
 use blog\views\verifMailView;
 use Index;
-
+//t
 require_once "modules/blog/views/utilisateurView.php";
 require_once "modules/blog/models/utilisateurModel.php";
 require_once "./index.php";

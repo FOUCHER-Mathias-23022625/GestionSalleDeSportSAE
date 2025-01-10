@@ -3,6 +3,7 @@ namespace blog\views;
 use index;
 use navebar;
 require_once "navebar.php";
+//t
 //require_once "../../../index.php";
 class utilisateurView
 {

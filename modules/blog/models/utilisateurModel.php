@@ -4,7 +4,7 @@ namespace blog\models;
 use PDOException;
 
 
-//require_once 'modules/blog/models/bdModel.php';
+require_once 'modules/blog/models/bdModel.php';
 
 class utilisateurModel {
     private $connexionBD;

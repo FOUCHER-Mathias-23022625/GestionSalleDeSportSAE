@@ -7,7 +7,7 @@ require_once "modules/blog/views/classementView.php";
 require_once "modules/blog/models/classementModel.php";
 require_once "./index.php";
 
-
+//t
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
