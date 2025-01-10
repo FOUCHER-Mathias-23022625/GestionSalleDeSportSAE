@@ -75,8 +75,7 @@ class utilisateurController
         $prenom = $_SESSION['prenomUtilisateur'];
         $nom = $_SESSION['nomUtilisateur'];
         $model = new utilisateurModel();
-        $model->ajouteUtilisateur($mail, $mdp, $prenom, $nom);
-        header('location:afficheFormConnexion');
+        return $model->ajouteUtilisateur($mail, $mdp, $prenom, $nom);
     }
 
     public function modification() {
@@ -173,8 +172,9 @@ class utilisateurController
         if (isset($_POST['code'])) {
             $code = implode('', $_POST['code']);
             if ($code == $_SESSION['code']){
-                $this->inscription();
-                $_SESSION['alert'] = "Vous avez bien été inscrit";
+                if($this->inscription()) {
+                    $_SESSION['alert'] = "Vous avez bien été inscrit";
+                }
                 header("location: ../abonnement/afficheAbonnement");
                 exit();
             }

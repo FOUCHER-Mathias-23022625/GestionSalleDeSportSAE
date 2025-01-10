@@ -20,6 +20,12 @@ class utilisateurModel {
 
 
     public function ajouteUtilisateur($mail, $mdp,$prenom,$nom) {
+        if($this->utilisateurMail($mail)){
+            $_SESSION['alert'] = "Adresse mail déjà existante.";
+            header("location: afficheFormConnexion");
+            return false;
+
+        }
         $requete = $this->connexionBD->pdo->prepare("INSERT INTO utilisateur (EMail, mdp, PrenomU, NomU) VALUES (:mail, :mdp, :prenom, :nom)");
         $hashedMdp = password_hash($mdp, PASSWORD_DEFAULT);
         $requete->bindParam(":mail", $mail);
