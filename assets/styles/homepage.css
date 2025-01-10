@@ -1,0 +1,160 @@
+.homepage{
+    text-align: center !important;
+}
+
+.video-section {
+    position: relative;
+    overflow: hidden;
+    height: 75vh;
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.video-section .content {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    justify-content: space-between;
+}
+
+.video-section #jouer {
+    font-size: 4rem;
+    color: white;
+}
+
+.video-section p {
+    font-size: 2rem;
+}
+
+.contacts {
+    position: relative;
+    margin-top: 20px;
+}
+
+.contacts a {
+    position: relative;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.5s;
+}
+
+.contacts a::before,
+.contacts a::after {
+    content: '';
+    position: absolute;
+    width: 0.6em;
+    height: 0.6em;
+    background-color: gainsboro;
+    border-radius: 50%;
+    transition: 0.5s cubic-bezier(0.5, -0.5, 0.25, 1.5);
+    top: calc(50% - 1em/3);
+}
+
+.contacts a::before {
+    left: 0;
+    z-index: -1;
+}
+
+.contacts a::after {
+    right: 0;
+    z-index: -2;
+}
+
+.contacts a:hover::before,
+.contacts a:hover::after {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    background-color: #4CAF50;
+}
+
+.contacts a:hover::before {
+    top: 0;
+}
+
+.contacts a:hover::after {
+    right: -0.4em;
+    filter: brightness(0.8);
+}
+
+.event-section, .reservation-section, .performance-section {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px auto 100px auto ;
+    width: 80%;
+}
+
+.event-section .event-text, .reservation-section .reservation-text, .performance-section .performance-text{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1em;
+}
+
+.event-section .event-img, .reservation-section .reservation-img, .performance-section .performance-img {
+    width: 45%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.button-link {
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s ease;
+    border: 2px solid white;
+}
+
+.button-link:hover {
+    background-color: white;
+    color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.homepage h2{
+    margin-bottom: 10px;
+}
+
+.nostarifs-btn {
+    margin: 40px auto;
+    background-color: #4CAF50;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5em;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    transition: 0.5s ease;
+    padding: 15px 50px;
+    text-decoration: none;
+}
+
+.nostarifs-btn:hover {
+    background-color: #2a872e;
+}
+
+
+
+

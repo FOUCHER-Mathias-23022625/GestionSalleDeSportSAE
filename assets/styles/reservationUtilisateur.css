@@ -1,0 +1,263 @@
+.containerUtilisateurReservation {
+    font-family: Arial, sans-serif;
+    max-width: 1200px; /* Increased max-width to fit two lists side by side */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.containerUtilisateurReservation h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.containerUtilisateurReservation h2 {
+    font-size: 1.5rem;
+    text-align: left;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #333;
+}
+
+/* Flexbox container for lists */
+.lists-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Space between the two lists */
+}
+
+.containerUtilisateurReservation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px; /* Set a fixed height for the list */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 20px 10px 10px;
+    background-color: #f5f5f5;
+    width: 100%; /* Each list takes about half the container's width */
+    overflow-x: hidden;
+}
+
+.containerUtilisateurReservation ul li {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerUtilisateurReservation ul li:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+.containerUtilisateurReservation ul li:hover {
+    background-color: #c8e6c9;
+    transition: background-color 0.3s ease;
+}
+
+/* Align reservation details horizontally */
+.containerUtilisateurReservation ul li, .reservation-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Ensure the elements take full width */
+    font-size: 1rem;
+}
+
+.containerUtilisateurReservation ul li, .reservation-info div {
+    flex-basis: 33%; /* Each part (Sport, Date, Heure) gets one-third of the space */
+    text-align: center; /* Center-align the text inside each section */
+}
+
+.containerUtilisateurReservation p {
+    text-align: center;
+    font-style: italic;
+}
+
+/* For smaller screens, stack the lists vertically */
+@media (max-width: 768px) {
+    .containerUtilisateurReservation .lists-container {
+        flex-direction: column;
+    }
+
+    .containerUtilisateurReservation ul {
+        width: 100%;
+    }
+}
+
+.containerUtilisateurReservation {
+    padding: 20px;
+}
+
+.lists-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.future-reservations, .past-reservations {
+    width: 48%;
+}
+
+.reservation-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.reservation-card:hover {
+    transform: scale(1.02);
+}
+
+.reservation-info {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.action-buttons {
+    text-align: right;
+}
+
+.btn {
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.modify-btn {
+    margin-right: 10px;
+}
+
+.search-filter-container {
+    margin-bottom: 20px;
+}
+
+#search, #filter {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+body.modal-open {
+    overflow: hidden; /* Empêche le scroll quand le modal est ouvert */
+}
+
+/* Centrer le modal */
+#modal-delete-utilisateur {
+    position: fixed; /* Assure que le modal est fixe sur l'écran */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centre le modal */
+    z-index: 1000; /* Plus grand que l'overlay pour qu'il apparaisse au-dessus */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Masquer par défaut */
+}
+
+/* Overlay sombre derrière le modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Arrière-plan sombre */
+    z-index: 999; /* Sous le modal */
+    display: none; /* Masquer par défaut */
+}
+
+.modalDeleteUser {
+    display: none;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* S'assurer que la modal est au premier plan */
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modalDeleteUser h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.modalDeleteUser p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Effet flouté sur l'arrière-plan */
+body.modal-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Couche foncée derrière le formulaire */
+    backdrop-filter: blur(10px); /* Effet de flou */
+    z-index: 999; /* Juste derrière la modal */
+}
+
+/* Bouton rouge avec des effets dynamiques */
+.cancel-btn {
+    background-color: #ff4d4d; /* Rouge vif */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(255, 77, 77, 0.3); /* Ombre rouge */
+}
+
+.cancel-btn:hover {
+    background-color: #e60000; /* Rouge plus foncé au survol */
+    transform: translateY(-3px); /* Légère montée au survol */
+    box-shadow: 0px 6px 12px rgba(255, 77, 77, 0.5); /* Augmente l'ombre */
+}
+
+.cancel-btn:active {
+    transform: scale(0.95); /* Réduction au clic pour un effet de bouton pressé */
+}
+
+/* Animation de l'apparition du formulaire */
+.modalDeleteUser {
+    animation: modalFadeIn 0.5s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}

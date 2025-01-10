@@ -1,7 +1,8 @@
 <?php
-use PDO;
 
- class bdModel
+namespace blog\models;
+use PDO;
+class bdModel
  {
      private $estConnecte;
      private $host;
@@ -13,16 +14,18 @@ use PDO;
 
      public function __construct()
      {
-         $this->host = "";
-         $this->username = "";
-         $this->mdp = "";
-         $this->nomBD = "";
-         $this->connectBD();
+         $this->host= "mysql-gestionsaetest.alwaysdata.net";
+         $this->username = "379076";
+         $this->mdp  = "gestionSae";
+         $this->nomBD = "gestionsaetest_bd";
+         $this->connectBD($this->host, $this->username, $this->mdp, $this->nomBD);
+
      }
 
-     private function connectBD()
+     private function connectBD($host, $username, $mdp, $nomBD)
      {
-         $this->pdo = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->nomBD, $this->username, $this->mdp);
+
+         $this->pdo = new PDO("mysql:host=$host;dbname=$nomBD", $username, $mdp);
          return $this->pdo;
      }
 
@@ -30,7 +33,10 @@ use PDO;
          $resultat = $this->pdo->prepare($sqlRequete);
          return $resultat->execute();
      }
-
+     public function getConnexion(): PDO
+     {
+         return $this->pdo;
+     }
 
  }
 ?>

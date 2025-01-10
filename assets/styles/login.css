@@ -1,0 +1,270 @@
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    text-align: unset !important;
+}
+
+.login-container{
+    margin: 0 auto;
+    width: 700px;
+}
+
+.connexion_box {
+    position: relative;
+    margin: 20px auto;
+    background-color: white;
+    padding: 50px 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border-color: black;
+    text-align: center;
+    transition: height 0.3s ease;
+}
+
+.connexion_box h2 {
+    font-size: 2em;
+    padding: 5px 0 30px 0px;
+    color: black;
+    margin-bottom: 50px;
+    font-weight: bold;
+    border-bottom: 2px solid #4CAF50;
+    font-family: "Poppins", sans-serif;
+}
+
+.connexion_box .input-group {
+    position: relative;
+    margin: 0 auto 25px auto;
+    width: 400px;
+    height: 50px;
+}
+.connexion_box .input-group input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 2px solid #000;
+    outline: none;
+    background: none;
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 1.2em;
+}
+
+.connexion_box label{
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px 110px;
+    font-size: 20px;
+
+}.connexion_box .input-group input::placeholder{
+     font-size: 15px;
+ }
+
+#btn-connexion {
+    width: 400px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    margin: 20px 0 20px 0;
+    padding: 10px;
+
+}
+
+#btn-connexion:hover {
+    background: #4CAF50;
+}
+
+#ancienMail{
+    width: 400px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    margin: 20px 0 20px 0;
+    padding: 10px;
+
+}
+
+#ancienMail:hover {
+    background: #4CAF50;
+}
+
+#oublieMdp-btn{
+    width: 400px;
+    background: none;
+    color: #38444c;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    padding: 10px;
+}
+
+#oublieMdp-btn:hover {
+    background: #cdcdcd;
+
+}
+
+
+#btn-cancel2{
+    width: 400px;
+    background: none;
+    color: #38444c;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    padding: 10px;
+}
+
+#btn-cancel2:hover {
+    background: #cdcdcd;
+
+}
+
+#btn-inscription {
+    width: 400px;
+    background: none;
+    color: #38444c;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    padding: 10px;
+}
+
+#btn-inscription:hover {
+    background: #cdcdcd;
+
+}
+
+#inscription {
+    width: 400px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    margin: 20px 0 20px 0;
+    padding: 10px;
+
+}
+
+#btn-cancel {
+    width: 400px;
+    background: none;
+    color: #38444c;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    padding: 10px;
+}
+
+#btn-cancel:hover {
+    background: #cdcdcd;
+
+}
+
+
+
+
+/* Style général de la pop-up */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 350px; /* Taille standard */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Style pour les champs input */
+.input-container {
+    display: flex;
+    justify-content: space-between; /* Espacement égal entre les inputs */
+    margin: 20px 0;
+}
+
+.input-container input {
+    width: 40px; /* Taille fixe pour chaque champ */
+    height: 50px;
+    text-align: center; /* Centrer les chiffres */
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-container input:focus {
+    border-color: #007bff; /* Bordure bleue lors du focus */
+}
+
+/* Style du bouton */
+.verify-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.verify-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Style pour renvoyer le code */
+.resend {
+    margin-top: 10px;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.resend:hover {
+    text-decoration: underline;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px; /* Distance depuis le haut de la pop-up */
+    right: 10px; /* Distance depuis la droite de la pop-up */
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #000;
+}

@@ -1,102 +1,92 @@
-/* Réinitialisation du style pour tous les éléments */
 
-/* Styles pour le body */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
 
-.container {
+.containerPerf {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
+    text-align: center ;
 }
 
-/* Styles pour le header */
-header {
-    background-color: #282c34;
-    padding: 20px 0;
-    color: #fff;
-    text-align: center;
-}
-
-.header-title {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.section-title {
+.section-titlePerf {
     padding-top: 20px;
     font-size: 1.8rem;
     margin-bottom: 20px;
 }
 
-#performance-overview {
+#performance-overviewPerf {
     margin-bottom: 40px;
 }
 
-.stats {
+.statsPerf {
     display: flex;
     justify-content: space-around;
     margin-bottom: 30px;
 }
 
-.stat-item {
+.stat-itemPerf {
     background-color: #fff;
-    padding: 20px;
+    padding: 0 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 30%;
 }
 
-.stat-title {
+.stat-titlePerf {
     font-size: 1.2rem;
     margin-bottom: 10px;
 }
 
-.stat-value {
+.stat-valuePerf {
     font-size: 1.5rem;
-    color: #007bff;
+    color: #4CAF50;
 }
 
 /* Styles pour le tableau de performance */
-#performance-table {
+#performance-tablePerf {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 40px;
 }
 
-#performance-table th,
-#performance-table td {
+#performance-tablePerf th,
+#performance-tablePerf td {
     padding: 15px;
     text-align: center;
     border: 1px solid #ddd;
 }
 
-#performance-table th {
-    background-color: #007bff;
+#performance-tablePerf th {
+    background-color: #4CAF50;
     color: white;
 }
 
-#performance-table tr:nth-child(even) {
+#performance-tablePerf tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+/* Ligne pour une victoire */
+.victory-cell {
+    color: green; /* Vert foncé pour le texte */
+}
+
+/* Ligne pour un match nul */
+.draw-cell {
+    color: grey; /* gris pour le texte */
+}
+
+/* Ligne pour une défaite */
+.defeat-cell {
+    color: red; /* Rouge foncé pour le texte */
+}
+
 /* Styles pour la section des graphiques */
-#performance-graphe {
+#performance-graphePerf {
     text-align: center;
-}
-
-.chart {
-    max-width: 100%;
-}
-
-.chart canvas {
     align-content: center;
-    max-width: 100%;
-    height: auto;
+}
+.chartPerf canvas {
+    align-content: center;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -104,8 +94,8 @@ header {
 }
 
 /* Styles pour le footer */
-#main-footer {
-    background-color: #282c34;
+#main-footerPerf {
+    background-color: #38444c;
     padding: 10px 0;
     color: #fff;
     text-align: center;
@@ -113,14 +103,14 @@ header {
 }
 
 /* Styles pour le conteneur du bouton */
-.button-container {
+.button-containerPerf {
     text-align: center;
     margin-top: 20px;
 }
 
 /* Styles pour le bouton */
-#add-performance-btn {
-    background-color: #007bff;
+#add-performance-btnPerf {
+    background-color: #4CAF50;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -130,16 +120,16 @@ header {
     transition: background-color 0.3s ease;
 }
 
-#add-performance-btn:hover {
-    background-color: #0056b3;
+#add-performance-btnPerf:hover {
+    background-color: #3D8C40;
 }
 
-#add-performance-btn:focus {
+#add-performance-btnPerf:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 0 3px #4CAF50;
 }
 
-.overlayForm {
+.overlayFormPerf {
     display: none;
     position: fixed;
     top: 0;
@@ -152,7 +142,9 @@ header {
     z-index: 1000;
 }
 
-.form-container {
+.form-containerPerf {
+    width: 30%; /* Ajuster la largeur globale du formulaire */
+    height: auto;
     background-color: #fff;
     padding: 2rem;
     text-align: center;
@@ -161,10 +153,20 @@ header {
     position: relative;
     z-index: 1001;
 }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
-.form-submit {
+input[type="number"] {
+    -moz-appearance: textfield; /* Pour Firefox */
+}
+.form-submitPerf {
     padding: 0.75rem;
-    background-color: #007bff;
+    background-color: #4CAF50;
+    width: 100%;
+    text-align: center;
     color: white;
     border: none;
     border-radius: 5px;
@@ -172,15 +174,74 @@ header {
     transition: background-color 0.3s ease;
 }
 
-.form-input{
+.form-inputPerf,
+.form-selectPerf{
     padding: 0.75rem;
     border: 1px solid #ccc;
+    width: 100%;
     border-radius: 5px;
     color: #333;
     box-sizing: border-box;
 }
 
-.close-btn {
+.form-radio-groupPerf {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form-radioPerf {
+    position: relative;
+    cursor: pointer;
+    padding-left: 30px;
+    font-size: 1rem;
+}
+
+.form-radioPerf input {
+    position: absolute;
+    cursor: pointer;
+    appearance: none;
+}
+
+.custom-radioPerf {
+    position: absolute;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid #4CAF50;
+    transition: background-color 0.3s ease;
+}
+
+
+.form-radioPerf input:checked + .custom-radioPerf {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+
+.form-radioPerf input:checked + .custom-radioPerf::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+
+.form-radioPerf:hover input:not(:checked) + .custom-radioPerf {
+    background-color: #eaeaea;
+}
+
+
+.close-btnPerf {
     position: absolute;
     top: 10px;
     right: 20px;
@@ -190,6 +251,174 @@ header {
     transition: color 0.2s ease;
 }
 
-.close-btn:hover {
-    color: #007bff;
+.close-btnPerf:hover {
+    color: #4CAF50;
+}
+
+.delete-btnPerf {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btnPerf:hover {
+    background-color: #c0392b;
+}
+
+.error-messagePerf {
+    padding: 10px;
+    color: black;
+    background: #e74c3c;
+    text-align: center;
+}
+
+.valid_messagePerf {
+    padding: 10px;
+    color: black;
+    background: #4CAF50;
+    text-align: center;
+}
+.sous-poids {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.normal-poids {
+    background-color: #45a049;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.sur-poids {
+    background-color: orange;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.obesite {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#historique-btn{
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Style pour le bouton Historique */
+#historique-btn {
+    background-color: #38444c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#historique-btn:hover {
+    background-color: #45a049; /* Vert foncé au survol */
+}
+
+/* Style pour le tableau */
+#historique-table {
+    width: 100%;
+    border-collapse: collapse; /* Supprime l'espace entre les bordures */
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden; /* Pour arrondir les bordures du tableau */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Effet de shadow */
+}
+
+/* Style pour l'entête du tableau */
+#historique-table th {
+    background-color: #38444c;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* Style pour les cellules du tableau */
+#historique-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Alternance de couleur pour les lignes */
+#historique-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Effet de survol pour les lignes du tableau */
+#historique-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Style pour les lignes du tableau */
+tr {
+    transition: background-color 0.2s ease;
+}
+
+.placeholder-form {
+    position: relative;
+    display: inline-block;
+    width: 100%; /* Pour occuper toute la largeur du formulaire */
+}
+
+.form-inputPerf {
+    width: 100%;
+    padding-right: 2.5rem; /* Laisser de l'espace pour l'unité */
+    box-sizing: border-box;
+    font-size: 22px;
+}
+
+.unite {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    color: rgb(171, 171, 171);
+    pointer-events: none; /* Empêche l'unité d'être cliquable */
+}
+
+.legend-container {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.legend-color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.legend-label {
+    font-size: 14px;
+    color: #333;
 }

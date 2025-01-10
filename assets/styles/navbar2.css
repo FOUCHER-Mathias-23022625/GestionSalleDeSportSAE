@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.navbar{
+    background-color: #38444c; /* Couleur de fond de l'ancienne navbar */
+    transition: 0.3s background-color;
+    height: 80px;
+    padding: 0.5rem;
+    box-shadow: -1px 3px 8px black; /* Ombre portée similaire à l'ancienne navbar */
+    box-sizing:content-box;
+}
+
+.logo-Site{
+    height: 100px;
+}
+
+.navbar-brand{
+    font-size: 32px;
+    font-weight: 500;
+    color: white !important; /* Texte blanc comme dans l'ancienne navbar */
+    transition: 0.3s color;
+    font-family: 'Poppins', sans-serif; /* Ajout de la police utilisée auparavant */
+    cursor: pointer;
+}
+
+.photoProfil {
+    border-radius: 50%;
+    border: 2px solid #fff;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown-menu{
+    background-color: #38444c; /* Couleur de fond de l'ancien menu déroulant */
+}
+
+.offcanvas.show {
+    background-color: #38444c;
+}
+
+.offcanvas-title {
+    color: white;
+}
+
+#deco{
+    color: red;
+}
+
+.hub{
+    background-color: #4CAF50;
+  margin-left: 3px;
+  border-radius: 5px;
+  color: white;
+  padding: 3px;
+}
+
+.login-button{
+    background-color: #4CAF50; /* Vert similaire à l'ancienne couleur d'accent */
+    color: white; /* Texte blanc pour le bouton de connexion */
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+.login-button:hover{
+    background-color: rgb(76, 175, 80) ; /* Teinte plus claire au survol */
+}
+
+.navbar-toggler {
+    border:none;
+    font-size: 1.25rem;
+    margin-left: 20px;
+}
+
+.navbar-toggler:focus, .btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link{
+    color: white !important; /* Texte blanc pour les liens */
+    font-weight: 500;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase; /* Texte en majuscules comme auparavant */
+}
+
+
+.nav-link:hover, .nav-link:active{
+    color: #4CAF50 !important; /* Vert pour les liens au survol */
+}
+
+.nav-link.dropdown-toggle {
+    position: relative; /* Assure l'alignement avec le menu */
+}
+
+/* Style du sous-menu (disparu par défaut) */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    opacity: 0;  /* Par défaut, il est caché */
+    visibility: hidden;  /* Par défaut, il est invisible */
+    transition: opacity 0.3s ease, visibility 0.3s ease;  /* Animation fluide */
+    z-index: 1050;
+}
+
+.nav-link .dropdown-toggle span {
+    font-size: 18px; /* Taille de la flèche */
+}
+
+/* Lorsque le menu devient visible */
+.dropdown-menu.show {
+    opacity: 1;  /* Le menu devient visible */
+    visibility: visible;  /* Le menu est rendu visible */
+}
+
+.nav-link.dropdown-toggle::after {
+    display: none;
+}
+
+@media (min-width: 992px){
+    .nav-link::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform:translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: white; /* Barre blanche comme dans l'ancienne navbar */
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before, .nav-link:active::before{
+        width: 100%;
+        visibility: visible;
+    }
+}

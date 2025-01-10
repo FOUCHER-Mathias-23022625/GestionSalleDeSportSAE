@@ -4,8 +4,7 @@ use index;
 use navebar;
 require_once "navebar.php";
 //require_once "../../../index.php";
-
-class UtilisateurView
+class utilisateurView
 {
     public function __construct(){
 
@@ -13,42 +12,101 @@ class UtilisateurView
 
     public function afficher()
     {
-        $navebar = new navebar();
-        //$index = new index();
-        echo '<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../assets/styles/reservation.css">
-    <link rel="stylesheet" href="../../../assets/styles/footer.css">
-    <link rel="stylesheet" href="../../../assets/styles/styles.css">
-    <link rel="stylesheet" href="../../../assets/styles/navbar.css">
-    <link rel="stylesheet" href="../../../assets/styles/login.css"> 
-    <title>Réservation de Terrain</title>
-</head>
-<body>
-    <header>
-        ' . $navebar->afficher() .//$index->url(). '
-        '
-    </header>
-  
+        if (isset($_SESSION['alert'])) {
+            echo "<script>alert('" . $_SESSION['alert'] . "');</script>";
+            unset($_SESSION['alert']);
+        }
+        ?>
+
+        <link rel="stylesheet" href="/GestionSalleDeSportSAE/assets/styles/login.css">
+
+
         <div class="login-container">
-            <h2>Connexion</h2>
-            <form action="login.php" method="POST" class="login-form">
-                <div class="input-group">
+            <div class="connexion_box">
+
+                <form method="POST" action="" id="login-form" class="login-form">
+                    <h2>Connectez-vous à votre espace</h2>
                     <label for="email">Adresse email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="input-group">
+                    <div class="input-group">
+                        <input type="email" id="email" name="mail" placeholder="Mon email" required>
+                    </div>
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" required>
+                    <div class="input-group">
+                        <input type="password" id="password" name="mdp" placeholder="Mon mot de passe" required>
+                    </div>
+                    <button type="submit" name="btn-connexion" id="btn-connexion" class="login-btn">Se connecter</button>
+                    <button type="button" name="btn-inscription" id="btn-inscription" class="create-btn">Créer un compte</button>
+                    <input type="button" class="login-btn" id="oublieMdp-btn" name="oublieMdp" value="Mot de passe oublié ?"><br>
+                </form>
+
+                <div id="registration-form"  style="display: none;">
+                    <h2>Créer un compte</h2>
+                    <form method="POST" action="" id="signup-form" class="signup-form">
+                        <label for="new-email">Adresse email</label>
+                        <div class="input-group">
+                            <input type="email" id="new-email" name="mail" placeholder="Mon email" required>
+                        </div>
+                        <label for="new-password">Mot de passe</label>
+                        <div class="input-group">
+                            <input type="password" id="new-password" name="mdp" placeholder="Mon mot de passe" required
+                                   pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\S]{8,}$"
+                                   title="Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule et un chiffre.">
+
+                        </div>
+                        <label>Prenom</label>
+                        <div class="input-group">
+                            <input type="text"  name="prenom" placeholder="Prenom" required>
+                        </div>
+                        <label>Nom</label>
+                        <div class="input-group">
+                            <input type="text"  name="nom" placeholder="Nom" required>
+                        </div>
+                        <button type="submit" name="btn-signup" id="inscription" class="login-btn">S'inscrire</button>
+                        <button type="button" id="btn-cancel" class="create-btn">Annuler</button>
+                    </form>
                 </div>
-                <button type="submit" class="login-btn">Se connecter</button>
-            </form>
+                <?php
+                if (isset($_SESSION['mailUtilisateur'])) {
+                    echo '
+                        <form action="verifCode" method="post">
+                            <!-- Overlay de la pop-up -->
+                            <div class="popup-overlay" id="popupOverlay" style="display: flex">
+                                <div class="popup">
+                                <span class="close-btn" onclick=closePopup()>&times;</span>
+                                    <h2>Vérifiez votre adresse e-mail</h2>
+                                    <p>Entrez le code à 6 chiffres que nous avons envoyé à votre adresse e-mail.</p>
+                                    <div class="input-container">
+                                        <input type="text" name="code[]" maxlength="1" oninput="moveFocus(this, 1)">
+                                        <input type="text" name="code[]" maxlength="1" oninput="moveFocus(this, 2)">
+                                        <input type="text" name="code[]" maxlength="1" oninput="moveFocus(this, 3)">
+                                        <input type="text" name="code[]" maxlength="1" oninput="moveFocus(this, 4)">
+                                        <input type="text" name="code[]" maxlength="1" oninput="moveFocus(this, 5)">
+                                        <input type="text" name="code[]" maxlength="1" oninput="moveFocus(this, 6)">
+                                    </div>
+                                    <button class="verify-btn" type="submit">Vérifier l\'e-mail</button>
+                                </div>
+                            </div>
+                        </form>';
+                }
+                ?>
+                <div id="oublie-mdp-form" style="display: none">
+                    <h2>Renseignez votre mail</h2>
+                    <form method="POST" action="oublieMdp">
+                        <div class="input-group">
+                            <input type="text"  name="AncienMail" placeholder="Mail" required>
+                        </div>
+                        <button type="submit" id="ancienMail" class="login-btn">Valider</button>
+                        <button type="button" id="btn-cancel2" class="create-btn">Annuler</button>
+                    </form>
+                </div>
+            </div>
         </div>
-  
-</body>
-</html>';
+
+
+        <script src="/GestionSalleDeSportSAE/assets/scripts/utilisateur.js"></script>
+        <?php
     }
+
 }
+?>
+

@@ -1,0 +1,176 @@
+.containerClass {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.section-titleClass {
+    padding-top: 20px;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+#victoires,
+#nbPerf,
+#nbTemps {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#victoires h2,
+#nbPerf h2,
+#nbTemps h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+#victoires table,
+#nbPerf table,
+#nbTemps table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+
+#victoires th,
+#nbPerf th,
+#nbTemps th {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#victoires tr:nth-child(even),
+#nbPerf tr:nth-child(even),
+#nbTemps tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#victoires tr:hover,
+#nbPerf tr:hover,
+#nbTemps tr:hover {
+    background-color: #f1f1f1;
+}
+
+.error-messagePerf {
+    color: #e74c3c;
+    background-color: #fce4e4;
+    border: 1px solid #e74c3c;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.valid_messagePerf {
+    color: #2ecc71;
+    background-color: #e9f7ef;
+    border: 1px solid #2ecc71;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#main-footerPerf {
+    background-color: #38444c;
+    padding: 10px 0;
+    color: #fff;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.containerPerf {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Style des cellules de classement */
+#victoires td,
+#nbPerf td,
+#nbTemps td {
+    font-size: 1rem;
+    color: #333;
+    padding: 15px;
+}
+
+#victoires th,
+#nbPerf th,
+#nbTemps th {
+    font-weight: bold;
+}
+
+#victoires tr:first-child th,
+#nbPerf tr:first-child th,
+#nbTemps tr:first-child th {
+    border-top: 2px solid #4CAF50;
+}
+
+#victoires tr:last-child td,
+#nbPerf tr:last-child td,
+#nbTemps tr:last-child td{
+    border-bottom: 2px solid #4CAF50;
+}
+/* Style pour la ligne de l'utilisateur connecté */
+.highlight {
+    background-color: #f0f0f0; /* Couleur grise claire */
+    font-weight: bold; /* Optionnel : rendre le texte plus lisible */
+}
+
+/* --- STYLES DES ONGLETS --- */
+
+/* Conteneur des onglets */
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Boutons des onglets */
+.tab-button {
+    flex: 1;
+    padding: 12px;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.tab-button:hover {
+    background-color: #bbb;
+}
+
+.tab-button.active {
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #4CAF50;
+}
+
+/* Contenu des onglets */
+.tab-content {
+    display: none; /* Masqué par défaut */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active {
+    display: block; /* Afficher uniquement l'onglet actif */
+}
+
+/* Animation pour un effet d'apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
