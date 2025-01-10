@@ -1,6 +1,6 @@
 <?php
 namespace blog\models;
-
+use blog\views\compteView;
 
 class compteModel
 {
