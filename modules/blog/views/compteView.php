@@ -1,9 +1,9 @@
 <?php
 namespace blog\views;
 use controllers\compteController;
-use navebar;
+use blog\views\navebar;
 use index;
-use models\compteModel;
+use blog\models\compteModel;
 
 class compteView{
 
