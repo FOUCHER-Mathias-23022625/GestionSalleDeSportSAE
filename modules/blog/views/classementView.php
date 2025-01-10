@@ -152,16 +152,10 @@ class classementView
             </section>
         </main>
 
-        <footer id="main-footerPerf">
-            <div class="containerPerf">
-                <p>&copy; 2024 Salle Multi-Sport - Suivi des Performances</p>
-            </div>
-        </footer>
+        <script src="/GestionSalleDeSportSAE/assets/scripts/classement.js"></script>
 
         <?php
         (new \blog\views\Layout('Classements',ob_get_clean()))->afficher();
     }
 }
 ?>
-
-<script src="/GestionSalleDeSportSAE/assets/scripts/classement.js"></script>
