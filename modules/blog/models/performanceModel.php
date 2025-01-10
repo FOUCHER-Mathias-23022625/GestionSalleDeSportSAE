@@ -119,21 +119,5 @@ class performanceModel {
         }
     }
 
-    /*public function estAbonne():bool
-    {
-        $id_user = $_SESSION['id'];
-        // Préparer la requête
-        $query = $this->connexionBD->pdo->prepare(
-            "SELECT DateExp FROM abonnement WHERE idUtilisateur = :id_user AND DateExp IS NOT NULL AN DateExp > NOW()"
-        );
 
-        // Lier les paramètres et exécuter la requête
-        $query->bindParam(':id_user', $id_user, PDO::PARAM_INT);
-        $query->execute();
-
-        // Récupérer le résultat
-        $result = $query->fetch(PDO::FETCH_ASSOC);
-
-        // Si un résultat est retourné, alors l'utilisateur est abonné
-        return $result !== false;    }*/
 }

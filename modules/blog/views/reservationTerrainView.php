@@ -7,7 +7,9 @@ class reservationTerrainView
 {
     public function afficher($selected_date,$selected_sport,$reservation_status)
     {
-        ob_start();?>
+
+        ob_start();
+        ?>
         <?php if ($reservation_status === 'success'): ?>
         <script type="text/javascript">
             alert("Votre réservation a été confirmée avec succès !");
