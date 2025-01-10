@@ -2,11 +2,11 @@
 
 namespace controllers;
 use blog\views\homepageView;
-use Index;
+use index;
 
-require_once  "modules/blog/views/homepageView.php";
+
 require_once  "./index.php";
-
+//t
 
 class homepageController
 {

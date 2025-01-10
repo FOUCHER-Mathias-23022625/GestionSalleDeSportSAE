@@ -12,7 +12,10 @@ require_once 'modules/blog/controllers/activiteController.php';
 require_once 'modules/blog/controllers/classementController.php';
 require_once 'modules/blog/controllers/sportController.php';
 
-class Index {
+//t
+
+
+class index {
     public function url() {
         if (isset($_SERVER['REQUEST_URI'])) {
             $url = explode('/', trim($_SERVER['REQUEST_URI'], '/'));

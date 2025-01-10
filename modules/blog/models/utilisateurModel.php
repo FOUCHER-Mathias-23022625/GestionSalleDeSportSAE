@@ -1,10 +1,12 @@
 <?php
+namespace models;
 namespace blog\models;
+use blog\models\bdModel;
 //use PDO;
 use PDOException;
 
 
-//require_once 'modules/blog/models/bdModel.php';
+require_once 'modules/blog/models/bdModel.php';
 
 class utilisateurModel {
     private $connexionBD;

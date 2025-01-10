@@ -1,5 +1,6 @@
 <?php
 namespace blog\views;
+//t
 use controllers\reservationTerrainController;use footer;use navebar;
 require_once "navebar.php";
 require_once "footer.php";

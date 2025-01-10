@@ -4,7 +4,7 @@ use blog\models\compteModel;
 use blog\views\Layout;
 use blog\views\compteView;
 use Index;
-
+//t
 require_once  "modules/blog/views/compteView.php";
 require_once  "modules/blog/models/compteModel.php";
 require_once  "./index.php";

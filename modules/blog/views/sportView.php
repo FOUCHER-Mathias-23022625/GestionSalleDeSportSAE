@@ -2,6 +2,7 @@
 namespace blog\views;
 use navebar;
 use Index;
+//t
 require_once 'navebar.php';
 require_once 'Layout.php';
 
@@ -33,7 +34,7 @@ class sportView {
                     <img src="/GestionSalleDeSportSAE/assets/images/badminton-sport.jpg" alt="Image 5">
                 </div>
             </section>
-            <a type="button" href="../utilisateur/afficheFormConnexion" class="sport-btnInscription">Rejoignez-nous !</a>
+            <a type="button" href="../abonnement/nosAbonnements" class="sport-btnInscription">Rejoignez-nous !</a>
         </main>
         <?php
         (new \Blog\Views\Layout('Sports', ob_get_clean()))->afficher();

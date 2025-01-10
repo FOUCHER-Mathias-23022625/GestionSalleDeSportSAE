@@ -1,15 +1,16 @@
 <?php
 namespace blog\views;
-use navebar;
-require_once "Layout.php";
+use blog\views\navebar;
+use blog\views\Layout;
 use controllers\performanceController;
-
+//t
 class performanceView
 {
 
     public function afficher($performances,$imc)
     {
         ob_start();
+
         // Affichage du message d'erreur, s'il existe
         if (isset($_SESSION['error_message'])) {
             echo '<div class="error-messagePerf">' . $_SESSION['error_message'] . '</div>';

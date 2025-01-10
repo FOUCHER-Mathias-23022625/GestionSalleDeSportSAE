@@ -20,7 +20,7 @@ class testUtilisateur extends TestCase
 
     public function testajouteUtilisateur(){
         $model = new utilisateurModel();
-        $this->assertTrue($model->ajouteUtilisateur("testPhpUnitMail@gmail.com", 'mdp','prenom','nom'));
+        $this->assertTrue($model->ajouteUtilisateur("testPhpUnitMail@gmaill.com", 'mdp','prenom','nom'));
     }
 
     public function testdelete_utilisateur(){
