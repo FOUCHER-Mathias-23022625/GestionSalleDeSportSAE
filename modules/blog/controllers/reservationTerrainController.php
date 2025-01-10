@@ -9,6 +9,12 @@ use JetBrains\PhpStorm\NoReturn;
 use index;
 
 
+require_once "./index.php";
+require_once 'modules/blog/models/reservationTerrainModel.php';
+require_once 'modules/blog/views/reservationTerrainView.php';
+require_once 'modules/blog/models/compteModel.php';
+
+
 class reservationTerrainController
 {
     // Attributs pour gérer les modèles et le contrôleur d'abonnement
@@ -21,7 +27,7 @@ class reservationTerrainController
         $this->abonnementController = new abonnementController();
     }
 
-    // Méthode pour afficher la page de réservation de terrain
+    // Méthode pour afficher la page de réservation de  terrain
     public function displayReservationTerrain(): void
     {
         // Vérifie que l'utilisateur est connecté
