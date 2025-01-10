@@ -1,4 +1,16 @@
 <?php
+require_once 'modules/blog/controllers/utilisateurController.php';
+require_once 'modules/blog/controllers/evenementController.php';
+require_once 'modules/blog/controllers/reservationTerrainController.php';
+require_once 'modules/blog/controllers/performanceController.php';
+require_once 'modules/blog/controllers/homepageController.php';
+require_once 'modules/blog/controllers/reservationUtilisateurController.php';
+require_once 'modules/blog/controllers/compteController.php';
+require_once 'modules/blog/controllers/interfaceAdminController.php';
+require_once 'modules/blog/controllers/abonnementController.php';
+require_once 'modules/blog/controllers/activiteController.php';
+require_once 'modules/blog/controllers/classementController.php';
+require_once 'modules/blog/controllers/sportController.php';
 require __DIR__.'/Autoloader.php';
 
 
