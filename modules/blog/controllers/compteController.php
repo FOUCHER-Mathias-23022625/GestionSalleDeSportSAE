@@ -13,12 +13,17 @@ use index;
 class compteController{
 
     public function afficheCompte(){
+
         $model = new compteModel();
         $resultat = $model->utilisateurInformation();
         $model2 = new compteModel();
         $resultat2 = $model2->dateDeb_dateFin();
         $compteView = new compteView();
+        ob_start();
         $compteView->afficher($resultat,$resultat2);
+        $contenu=ob_get_clean();
+        $layout = new Layout("Utilisateur", $contenu);
+        $layout->afficher();
     }
 
     public function majData(){
