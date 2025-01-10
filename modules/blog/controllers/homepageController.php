@@ -2,7 +2,7 @@
 
 namespace controllers;
 use blog\views\homepageView;
-use Index;
+use index;
 
 
 require_once  "./index.php";

@@ -3,7 +3,7 @@ namespace controllers;
 use blog\models\abonnementModel;
 use blog\models\performanceModel;
 use blog\views\performanceView;
-use Index;
+use index;
 
 require_once "./index.php";
 

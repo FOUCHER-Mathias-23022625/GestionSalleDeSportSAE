@@ -2,9 +2,9 @@
 namespace controllers;
 use blog\models\classementModel;
 use blog\views\classementView;
+use index;
 
 
-require_once "./index.php";
 
 
 

@@ -3,10 +3,10 @@ namespace blog\controllers;
 use blog\models\compteModel;
 use blog\views\Layout;
 use blog\views\compteView;
-use Index;
+use index;
 
 
-require_once  "./index.php";
+
 
 
 

@@ -4,7 +4,7 @@ namespace blog\controllers;
 namespace controllers;
 
 use blog\views\Layout;
-use Index;
+use index;
 use blog\models\activiteModel;
 use blog\views\activiteView;
 
