@@ -6,7 +6,7 @@ namespace controllers;
 use blog\views\interfaceAdminView;
 use blog\models\interfaceAdminModel;
 use blog\models\compteModel;
-use Index;
+use index;
 use blog\views\Layout;
 
 

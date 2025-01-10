@@ -5,7 +5,7 @@ namespace controllers;
 
 use blog\views\Layout;
 use DateTime;
-use Index;
+use index;
 use blog\models\abonnementModel;
 use blog\views\abonnementView;
 

@@ -4,7 +4,7 @@ namespace controllers;
 
 use blog\models\reservationUtilisateurModel;
 use blog\views\reservationUtilisateurView;
-require_once  "./index.php";
+use index;
 
 class reservationUtilisateurController
 {

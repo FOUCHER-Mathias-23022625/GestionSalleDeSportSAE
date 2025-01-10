@@ -6,8 +6,7 @@ use blog\models\compteModel;
 use blog\models\reservationTerrainModel;
 use blog\views\reservationTerrainView;
 use JetBrains\PhpStorm\NoReturn;
-
-require_once "./index.php";
+use index;
 
 
 class reservationTerrainController
