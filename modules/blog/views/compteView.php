@@ -3,7 +3,7 @@ namespace blog\views;
 use controllers\compteController;
 use navebar;
 use index;
-use blog\models\compteModel;
+use models\compteModel;
 
 class compteView{
 
