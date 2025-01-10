@@ -4,7 +4,13 @@ use controllers\reservationTerrainController;use footer;use navebar;
 require_once "navebar.php";
 require_once "footer.php";
 class Layout { // PSR-12: opening brace next line
-    public function __construct(private string $title, private string $content) {}
+    private $title;
+    private $content;
+
+    public function __construct(string $title, string $content) {
+        $this->content = $content;
+        $this->title = $title;
+    }
     public function afficher(): void {?>
         <!DOCTYPE html>
             <html lang="fr">
