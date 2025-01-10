@@ -79,7 +79,7 @@ class compteView{
 </div>
         <script src="/GestionSalleDeSportSAE/assets/scripts/compte.js"></script>
         <?php
-        (new \Blog\Views\Layout('compte', ob_get_clean()))->afficher();
+        (new Layout('compte', ob_get_clean()))->afficher();
     }
 }
 
