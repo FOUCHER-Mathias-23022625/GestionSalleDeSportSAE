@@ -63,7 +63,6 @@ class utilisateurController
     }
 
     public function deconnecte() {
-        session_start();
         session_destroy();
         header("Location:afficheFormConnexion");
     }
