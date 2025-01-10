@@ -1,6 +1,6 @@
 <?php
 namespace blog\views;
-use controllers\reservationTerrainController;use footer;use navebar;
+use controllers\reservationTerrainController;use blog\views\footer;use blog\views\navebar;
 class Layout { // PSR-12: opening brace next line
     private $title;
     private $content;
