@@ -1,6 +1,5 @@
 <?php
-session_start();
-
+namespace blog\views;
 //use controllers\utilisateurController;
 
 //require_once __DIR__ . '/../controllers/utilisateurController.php';

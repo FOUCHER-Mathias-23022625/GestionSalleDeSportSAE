@@ -1,17 +1,20 @@
 <?php
 namespace blog\views;
-use controllers\reservationTerrainController;use footer;use navebar;
-require_once "navebar.php";
-require_once "footer.php";
+use controllers\reservationTerrainController;use blog\views\footer;use blog\views\navebar;
 class Layout { // PSR-12: opening brace next line
     private $title;
     private $content;
+
 
     public function __construct(string $title, string $content) {
         $this->content = $content;
         $this->title = $title;
     }
-    public function afficher(): void {?>
+    public function afficher(): void {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        ?>
         <!DOCTYPE html>
             <html lang="fr">
                 <head>

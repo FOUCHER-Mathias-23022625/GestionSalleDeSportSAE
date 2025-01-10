@@ -6,14 +6,11 @@ namespace controllers;
 use blog\views\interfaceAdminView;
 use blog\models\interfaceAdminModel;
 use blog\models\compteModel;
-use Index;
+use index;
 use blog\views\Layout;
 
 
-require_once "modules/blog/views/interfaceAdminView.php";
-require_once "modules/blog/models/interfaceAdminModel.php";
-require_once "modules/blog/models/compteModel.php";
-require_once "modules/blog/views/Layout.php";
+
 
 class interfaceAdminController
 {
