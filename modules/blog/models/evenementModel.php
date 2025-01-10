@@ -4,7 +4,7 @@ namespace blog\models;
 use blog\models\bdModel;
 use PDOException;
 
-require_once "modules/blog/models/bdModel.php";
+
 
 class evenementModel{
     private \PDO $evenementBD;

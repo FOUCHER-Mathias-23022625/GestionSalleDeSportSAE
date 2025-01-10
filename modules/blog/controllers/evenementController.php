@@ -7,8 +7,7 @@ use blog\views\evenementView;
 use blog\views\performanceView;
 use PDO;
 use index;
-require_once "modules/blog/models/evenementModel.php";
-require_once "modules/blog/views/evenementView.php";
+
 
 class evenementController{
 

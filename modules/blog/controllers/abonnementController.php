@@ -8,9 +8,7 @@ use DateTime;
 use Index;
 use blog\models\abonnementModel;
 use blog\views\abonnementView;
-require_once  "modules/blog/views/abonnementView.php";
-require_once  "modules/blog/models/abonnementModel.php";
-require_once "modules/blog/views/Layout.php";
+
 
 
 class abonnementController

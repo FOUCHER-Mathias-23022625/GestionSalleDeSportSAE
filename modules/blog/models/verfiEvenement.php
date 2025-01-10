@@ -5,7 +5,7 @@ use DateTime;
 use PDO;
 use PDOException;
 
-require_once "www/GestionSalleDeSportSAE/modules/blog/models/bdModel.php";
+
 
 class verfiEvenement
 {

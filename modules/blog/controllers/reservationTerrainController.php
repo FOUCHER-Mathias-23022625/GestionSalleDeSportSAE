@@ -8,9 +8,7 @@ use blog\views\reservationTerrainView;
 use JetBrains\PhpStorm\NoReturn;
 
 require_once "./index.php";
-require_once 'modules/blog/models/reservationTerrainModel.php';
-require_once 'modules/blog/views/reservationTerrainView.php';
-require_once 'modules/blog/models/compteModel.php';
+
 
 class reservationTerrainController
 {

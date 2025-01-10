@@ -3,8 +3,7 @@ namespace controllers;
 use blog\models\classementModel;
 use blog\views\classementView;
 
-require_once "modules/blog/views/classementView.php";
-require_once "modules/blog/models/classementModel.php";
+
 require_once "./index.php";
 
 
