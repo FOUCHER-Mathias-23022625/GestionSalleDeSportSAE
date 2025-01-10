@@ -10,6 +10,10 @@ class performanceView
     public function afficher($performances,$imc)
     {
         ob_start();
+        // Démarrer la session
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         // Affichage du message d'erreur, s'il existe
         if (isset($_SESSION['error_message'])) {
             echo '<div class="error-messagePerf">' . $_SESSION['error_message'] . '</div>';
