@@ -70,7 +70,9 @@ class utilisateurModel {
     public function utilisateurMail($mail){
         $requeteMail = $this->connexionBD->pdo->prepare("SELECT EMail FROM utilisateur WHERE EMAIL = :mail");
         $requeteMail->bindParam(':mail', $mail);
-        if($requeteMail->execute()){
+        $requeteMail->execute();
+        $_SESSION['testMail']=$requeteMail->fetchAll();
+        if(isset($_SESSION['testMail'])){
             return true;
         }
         else{
