@@ -1,6 +1,6 @@
 <?php
 
-//namespace blog\views;
+namespace blog\views;
 
 class footer
 {
