@@ -13,7 +13,6 @@ use index;
 class compteController{
 
     public function afficheCompte(){
-        ob_start();
         $model = new compteModel();
         $resultat = $model->utilisateurInformation();
         $model2 = new compteModel();
@@ -21,9 +20,6 @@ class compteController{
         $compteView = new compteView();
 
         $compteView->afficher($resultat,$resultat2);
-        $contenu=ob_get_clean();
-        $layout = new Layout("Utilisateur", $contenu);
-        $layout->afficher();
     }
 
     public function majData(){
