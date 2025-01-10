@@ -1,5 +1,7 @@
 <?php
+namespace models;
 namespace blog\models;
+use blog\models\bdModel;
 //use PDO;
 use PDOException;
 

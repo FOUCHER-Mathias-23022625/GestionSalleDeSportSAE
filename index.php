@@ -15,7 +15,7 @@ require_once 'modules/blog/controllers/sportController.php';
 //t
 
 
-class Index {
+class index {
     public function url() {
         if (isset($_SERVER['REQUEST_URI'])) {
             $url = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
