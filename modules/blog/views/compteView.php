@@ -3,9 +3,7 @@ namespace blog\views;
 use controllers\compteController;
 use navebar;
 use index;
-require_once 'navebar.php';
-require_once 'Layout.php';
-require_once  "modules/blog/controllers/compteController.php";
+use blog\models\compteModel;
 
 class compteView{
 
