@@ -9,10 +9,6 @@ class reservationTerrainView
     {
 
         ob_start();
-        if (isset($_SESSION['alert'])) {
-            echo "<script>alert('" . $_SESSION['alert'] . "');</script>";
-            unset($_SESSION['alert']);
-        }
         ?>
         <?php if ($reservation_status === 'success'): ?>
         <script type="text/javascript">
