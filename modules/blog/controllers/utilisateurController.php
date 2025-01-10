@@ -7,10 +7,6 @@ use blog\views\utilisateurView;
 use blog\views\verifMailView;
 use index;
 
-
-require_once "./index.php";
-
-
 class utilisateurController
 {
 
