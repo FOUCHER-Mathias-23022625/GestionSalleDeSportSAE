@@ -2,7 +2,7 @@
 namespace blog\views;
 use blog\controllers\compteController;
 use blog\views\navebar;
-use Index;
+use index;
 use blog\models\compteModel;
 
 class compteView{

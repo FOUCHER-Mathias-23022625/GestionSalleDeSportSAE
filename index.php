@@ -14,7 +14,7 @@ require_once 'modules/blog/controllers/sportController.php';
 require __DIR__.'/Autoloader.php';
 
 
-class Index {
+class index {
     public function url() {
         if (isset($_SERVER['REQUEST_URI'])) {
             $url = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
