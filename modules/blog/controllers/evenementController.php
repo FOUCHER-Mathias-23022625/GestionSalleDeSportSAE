@@ -21,12 +21,14 @@ class evenementController{
         $this->view = new evenementView();
     }
 
+    #Affichage la vue de la page évenements
     public function afficheEvenement() {
 
         $evenementView = new evenementView();
         $evenementView->afficher();
     }
 
+    #Appelle du model pour inscrire un utilisateur à un évenement
     public function inscrireUtilisateur($idEvenement) {
         session_start();
 
@@ -51,6 +53,8 @@ class evenementController{
         header("Location: afficheEvenement");
         exit();
     }
+
+    #Apelle du model pour ajouter un évenement à la base de données
     public function ajouteEven(){
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nomEven = $_POST['NomEven'];
@@ -74,6 +78,7 @@ class evenementController{
         }
     }
 
+    #Apelle du model pour supprimer un évenement de la base de données
     public function supprimerEven() {
         $dateEven = $_POST['DateEven'];
         $nomEven = $_POST['NomEven'];
