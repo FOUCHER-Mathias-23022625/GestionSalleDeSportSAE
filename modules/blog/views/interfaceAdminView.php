@@ -5,19 +5,19 @@ use controllers\interfaceAdminController;
 
 require_once "Layout.php";
 require_once  "modules/blog/controllers/interfaceAdminController.php";
+require_once "modules/blog/models/interfaceAdminModel.php";
 //t
 class interfaceAdminView
 {
-    private $interfaceAdminController;
 
     public function __construct()
     {
-        $this->interfaceAdminController = new interfaceAdminController();
     }
 
     public function afficher()
     {
-        ob_start(); ?>
+        ob_start();
+        $interfaceAdminController = new interfaceAdminController();?>
         <main class="admin-container">
             <h1>Bienvenue sur la page admin</h1>
 
@@ -36,7 +36,8 @@ class interfaceAdminView
                         <th>Admin</th>
                         <th>Actions</th>
                     </tr>
-                    <?php foreach ($this->interfaceAdminController->getUsers() as $user): ?>
+                    <?php
+                    foreach ($this->interfaceAdminController->getUsers() as $user): ?>
                         <tr>
                             <td><?= htmlspecialchars($user['IdUtilisateur'] ?? '') ?></td>
                             <td><?= htmlspecialchars($user['NomU'] ?? '') ?></td>
