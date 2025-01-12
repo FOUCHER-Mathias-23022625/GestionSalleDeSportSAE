@@ -1,17 +1,26 @@
 <?php
-
 namespace blog\views;
+
 use controllers\interfaceAdminController;
+
 require_once "Layout.php";
 //t
 class interfaceAdminView
 {
+    private $controller;
+
+    public function __construct($controller)
+    {
+        $this->controller = $controller;
+    }
+
     public function afficher()
     {
         ob_start(); ?>
         <main class="admin-container">
             <h1>Bienvenue sur la page admin</h1>
 
+            <!-- Section Utilisateurs -->
             <section>
                 <h2>Utilisateurs</h2>
                 <div class="search-filter-container">
@@ -21,16 +30,28 @@ class interfaceAdminView
                     <tr>
                         <th>ID</th>
                         <th>Nom</th>
-                        <th>Prenom</th>
+                        <th>Prénom</th>
                         <th>Email</th>
                         <th>Admin</th>
                         <th>Actions</th>
                     </tr>
-                    <?php $afficherUtili = new \controllers\interfaceAdminController();
-                    $afficherUtili->AfficheUsers(); ?>
+                    <?php foreach ($this->controller->getUsers() as $user): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($user['IdUtilisateur'] ?? '') ?></td>
+                            <td><?= htmlspecialchars($user['NomU'] ?? '') ?></td>
+                            <td><?= htmlspecialchars($user['PrenomU'] ?? '') ?></td>
+                            <td><?= htmlspecialchars($user['EMail'] ?? '') ?></td>
+                            <td><?= htmlspecialchars($user['admin'] ?? '') ?></td>
+                            <td class="actions">
+                                <button onclick="openConfirmationBox(<?= urlencode($user['IdUtilisateur']) ?>)">❌</button>
+                                <button onclick="openEditForm(<?= htmlspecialchars(json_encode($user)) ?>)">✏️</button>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </table>
             </section>
 
+            <!-- Section Réservations -->
             <section>
                 <h2>Réservations</h2>
                 <div class="search-filter-container">
@@ -45,11 +66,27 @@ class interfaceAdminView
                         <th>Terrain</th>
                         <th>Actions</th>
                     </tr>
-                    <?php $afficherResa = new \controllers\interfaceAdminController();
-                    $afficherResa->AfficheReservations(); ?>
+                    <?php foreach ($this->controller->getReservations() as $reservation): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($reservation['sport'] ?? '') ?></td>
+                            <td><?= htmlspecialchars($reservation['user_id'] ?? '') ?></td>
+                            <td><?= htmlspecialchars($reservation['date'] ?? '') ?></td>
+                            <td><?= htmlspecialchars($reservation['heure'] ?? '') ?></td>
+                            <td><?= htmlspecialchars($reservation['terrain'] ?? '') ?></td>
+                            <td class="actions">
+                                <button onclick="openConfirmationBoxReserv(
+                                    '<?= htmlspecialchars($reservation['sport'] ?? '', ENT_QUOTES) ?>',
+                                    '<?= htmlspecialchars($reservation['user_id'] ?? '', ENT_QUOTES) ?>',
+                                    '<?= htmlspecialchars($reservation['date'] ?? '', ENT_QUOTES) ?>',
+                                    '<?= htmlspecialchars($reservation['heure'] ?? '', ENT_QUOTES) ?>')">❌</button>
+                                <button onclick='openEditReservationBox(<?= json_encode($reservation, JSON_HEX_TAG) ?>)'>✏️</button>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </table>
             </section>
 
+            <!-- Section Événements -->
             <section>
                 <h2>Événements</h2>
                 <div class="search-filter-container">
@@ -63,8 +100,18 @@ class interfaceAdminView
                         <th>Sport</th>
                         <th>Actions</th>
                     </tr>
-                    <?php $afficherEVE = new \controllers\interfaceAdminController();
-                    $afficherEVE->AfficheEvenements(); ?>
+                    <?php foreach ($this->controller->getEvenements() as $evenement): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($evenement['IdEvenement'] ?? '') ?></td>
+                            <td><?= htmlspecialchars($evenement['NomEven'] ?? '') ?></td>
+                            <td><?= htmlspecialchars($evenement['DateEven'] ?? '') ?></td>
+                            <td><?= htmlspecialchars($evenement['NomSport'] ?? '') ?></td>
+                            <td class="actions">
+                                <button onclick="openConfirmationBoxEvent(<?= isset($evenement['IdEvenement']) ? urlencode($evenement['IdEvenement']) : 'null' ?>)">❌</button>
+                                <button onclick='openEditEvenementBox(<?= json_encode($evenement, JSON_HEX_TAG) ?>)'>✏️</button>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </table>
             </section>
         </main>
