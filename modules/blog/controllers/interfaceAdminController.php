@@ -1,5 +1,6 @@
 <?php
 namespace blog\controllers;
+namespace controllers;
 
 
 use blog\views\interfaceAdminView;
