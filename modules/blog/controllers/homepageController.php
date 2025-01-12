@@ -10,12 +10,12 @@ require_once  "./index.php";
 
 class homepageController
 {
+
+    #Affichage de la vue de la page d'accueil
     public function accueil()
     {
-
         $homepageView = new homepageView();
         $homepageView->afficher();
-
     }
 }
 ?>

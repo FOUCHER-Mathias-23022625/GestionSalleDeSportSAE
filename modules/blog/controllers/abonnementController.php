@@ -23,12 +23,14 @@ class abonnementController
         }
     }
 
+    #Affichage la vue de la page abonnement
     public function nosAbonnements() {
 
         $abonnementView = new abonnementView();
         $abonnementView->afficher();
     }
 
+    #Apelle du model pour vérifier si l'abonnement de l'utilisateur est valable ou non
     public function checkAbo(): bool {
         $model = new abonnementModel();
         $dateFin = $model->infoAbo()['DateExp'];
@@ -37,6 +39,8 @@ class abonnementController
         return $dateFinObj >= $dateActuelle;
     }
 
+
+    #Apelle du model pour appliquer l'abonnement sélectionné à l'utilisateur
     public function appliquerAbo($abo){
         $model = new abonnementModel();
         $dateFin = $model->infoAbo()['DateExp'];
