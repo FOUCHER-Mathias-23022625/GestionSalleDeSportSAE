@@ -21,6 +21,8 @@ class activiteController
         }
     }
 
+
+    #Affichage la vue de la page activités
     public function nosActivites() {
 
         $activiteView = new activiteView();

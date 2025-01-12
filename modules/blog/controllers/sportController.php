@@ -10,12 +10,12 @@ require_once  "./index.php";
 
 class sportController
 {
+
+    #Affichage de la vue de la page des sports.
     public function nosSports()
     {
-
         $sportView = new sportView();
         $sportView->afficher();
-
     }
 }
 ?>
