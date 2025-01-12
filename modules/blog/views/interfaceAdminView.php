@@ -16,8 +16,7 @@ class interfaceAdminView
 
     public function afficher()
     {
-        ob_start();
-        $interfaceAdminController = new interfaceAdminController();?>
+        ob_start();?>
         <main class="admin-container">
             <h1>Bienvenue sur la page admin</h1>
 
@@ -37,6 +36,7 @@ class interfaceAdminView
                         <th>Actions</th>
                     </tr>
                     <?php
+                    $interfaceAdminController = new interfaceAdminController();
                     foreach ($this->$interfaceAdminController->getUsers() as $user): ?>
                         <tr>
                             <td><?= htmlspecialchars($user['IdUtilisateur'] ?? '') ?></td>
@@ -68,7 +68,8 @@ class interfaceAdminView
                         <th>Terrain</th>
                         <th>Actions</th>
                     </tr>
-                    <?php foreach ($this->$interfaceAdminController->getReservations() as $reservation): ?>
+                    <?php $interfaceAdminController = new interfaceAdminController();
+                    foreach ($this->$interfaceAdminController->getReservations() as $reservation): ?>
                         <tr>
                             <td><?= htmlspecialchars($reservation['sport'] ?? '') ?></td>
                             <td><?= htmlspecialchars($reservation['user_id'] ?? '') ?></td>
@@ -102,7 +103,8 @@ class interfaceAdminView
                         <th>Sport</th>
                         <th>Actions</th>
                     </tr>
-                    <?php foreach ($this->$interfaceAdminController->getEvenements() as $evenement): ?>
+                    <?php $interfaceAdminController = new interfaceAdminController();
+                    foreach ($this->$interfaceAdminController->getEvenements() as $evenement): ?>
                         <tr>
                             <td><?= htmlspecialchars($evenement['IdEvenement'] ?? '') ?></td>
                             <td><?= htmlspecialchars($evenement['NomEven'] ?? '') ?></td>
