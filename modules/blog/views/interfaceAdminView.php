@@ -77,11 +77,11 @@ class interfaceAdminView
                             <td><?= htmlspecialchars($reservation['heure'] ?? '') ?></td>
                             <td><?= htmlspecialchars($reservation['terrain'] ?? '') ?></td>
                             <td class="actions">
-                                <button onclick="openConfirmationBoxReserv(
-                                    '<?= htmlspecialchars($reservation['sport'] ?? '', ENT_QUOTES) ?>',
-                                    '<?= htmlspecialchars($reservation['user_id'] ?? '', ENT_QUOTES) ?>',
-                                    '<?= htmlspecialchars($reservation['date'] ?? '', ENT_QUOTES) ?>',
-                                    '<?= htmlspecialchars($reservation['heure'] ?? '', ENT_QUOTES) ?>')">❌</button>
+                                <button data-sport="<?= htmlspecialchars($reservation['sport'] ?? '', ENT_QUOTES) ?>"
+                                        data-user-id="<?= htmlspecialchars($reservation['user_id'] ?? '', ENT_QUOTES) ?>"
+                                        data-date="<?= htmlspecialchars($reservation['date'] ?? '', ENT_QUOTES) ?>"
+                                        data-heure="<?= htmlspecialchars($reservation['heure'] ?? '', ENT_QUOTES) ?>"
+                                        onclick="openConfirmationBoxReserv(this)">❌</button>
                                 <button onclick='openEditReservationBox(<?= json_encode($reservation, JSON_HEX_TAG) ?>)'>✏️</button>
                             </td>
                         </tr>
