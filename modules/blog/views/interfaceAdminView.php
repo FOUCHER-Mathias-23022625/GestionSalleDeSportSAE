@@ -1,10 +1,10 @@
 <?php
 namespace blog\views;
 
-use controllers\interfaceAdminController;
+//use controllers\interfaceAdminController;
 
 require_once "Layout.php";
-require_once  "modules/blog/controllers/compteController.php";
+require_once  "modules/blog/controllers/interfaceAdminController.php";
 //t
 class interfaceAdminView
 {
