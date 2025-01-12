@@ -9,7 +9,7 @@ use blog\models\compteModel;
 use Index;
 use blog\views\Layout;
 
-
+//t
 require_once "modules/blog/views/interfaceAdminView.php";
 require_once "modules/blog/models/interfaceAdminModel.php";
 require_once "modules/blog/models/compteModel.php";

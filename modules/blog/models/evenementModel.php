@@ -3,7 +3,7 @@
 namespace blog\models;
 use blog\models\bdModel;
 use PDOException;
-
+//t
 require_once "modules/blog/models/bdModel.php";
 
 class evenementModel{
@@ -18,6 +18,7 @@ class evenementModel{
         }
     }
 
+    #Récupère les évènements présents dans la base de données pour les afficher dans la vue
     public function getEvenements() {
 
         try {
@@ -34,6 +35,7 @@ class evenementModel{
         }
     }
 
+    #Vérifie si un utilisateur est connecté ou pas
     public function isUserSubscribed($idEvenement, $nom_utilisateur) {
         $query = $this->evenementBD->prepare(("SELECT * FROM participation WHERE \"IdEvenement\" = :idEvenement AND \"nom_utilisateur\" = :nom_utilisateur"));
         $query->execute([
@@ -44,15 +46,17 @@ class evenementModel{
         return $query->rowCount() > 0;
     }
 
+    #Inscris l'utilisateur à un évènement (pas encore fonctionnel)
     public function subscribeUser($idEvenement, $nom_utilisateur): bool
     {
-        $insert = $this->evenementBD->prepare(("INSERT INTO participation (\"IdEvenement\", \"nom_utilisateur\") VALUES (:idEvenement, :nom_utilisateur)"));
+        $insert = $this->evenementBD->prepare(("INSERT INTO inscription (\"IdEvenement\", \"nom_utilisateur\") VALUES (:idEvenement, :nom_utilisateur)"));
         return $insert->execute([
             ':idEvenement' => $idEvenement,
             ':nom_utilisateur' => $nom_utilisateur
         ]);
     }
 
+    #Ajoute un évenement à la base de données.
     public function ajouteEven($nomEven, $dateEven, $nomSport): bool
     {
         $nom = $_POST['NomEven'];
@@ -65,6 +69,7 @@ class evenementModel{
         return $requete->execute();
     }
 
+    #Supprime un évènement de la base de données
     public function supprimerEven($dateEven,$nomEven){
         $sql = "DELETE FROM evenement WHERE DateEven = :dateEven AND NomEven = :nomEven";
         $stmt = $this->evenementBD->prepare($sql);

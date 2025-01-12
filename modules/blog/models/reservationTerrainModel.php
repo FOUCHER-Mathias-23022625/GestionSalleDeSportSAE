@@ -2,7 +2,7 @@
 
 namespace blog\models;
 require_once "modules/blog/models/bdModel.php";
-
+//t
 use PDO;
 class reservationTerrainModel
 {

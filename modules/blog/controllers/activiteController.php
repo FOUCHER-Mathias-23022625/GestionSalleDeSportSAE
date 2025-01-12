@@ -10,7 +10,7 @@ use blog\views\activiteView;
 require_once  "modules/blog/views/activiteView.php";
 require_once  "modules/blog/models/activiteModel.php";
 require_once "modules/blog/views/Layout.php";
-
+//t
 class activiteController
 {
     public function __construct(){
@@ -21,6 +21,8 @@ class activiteController
         }
     }
 
+
+    #Affichage la vue de la page activités
     public function nosActivites() {
 
         $activiteView = new activiteView();

@@ -3,7 +3,7 @@
 namespace blog\views;
 use controllers\interfaceAdminController;
 require_once "Layout.php";
-
+//t
 class interfaceAdminView
 {
     public function afficher()

@@ -5,7 +5,7 @@ use index;
 require_once 'navebar.php';
 require_once 'Layout.php';
 require_once  "modules/blog/controllers/abonnementController.php";
-
+//t
 class abonnementView{
 
     public function afficher(){
@@ -44,7 +44,6 @@ class abonnementView{
                     <ul class="offer-features">
                         <li><span class="icone">✓</span>Accès illimité à tous les terrains</li>
                         <li><span class="icone">✓</span>Accès aux évènements en solo</li>
-                        <li><span class="icone">✓</span>Avantage premium</li>
                     </ul>
                     <button class="choose-offer-btn" onclick="handlePaymentClick(<?= json_encode($isUserConnectedPayment) ?>)">JE CHOISIS CETTE OFFRE</button>
                 </div>
@@ -58,8 +57,7 @@ class abonnementView{
                     <ul class="offer-features">
                         <li><span class="icone">✓</span>Accès illimité à tous les terrains</li>
                         <li><span class="icone">✓</span>Accès aux évènements en solo</li>
-                        <li><span class="icone">✓</span>Possibilité d'inviter jusqu'à 2 personnes à vos activités</li>
-                        <li><span class="icone">✓</span>Avantage premium</li>
+                        <li><span class="icone">✓</span>Avantages premium</li>
                     </ul>
                     <button class="choose-offer-btn" onclick="handlePaymentClick(<?= json_encode($isUserConnectedPayment) ?>)">JE CHOISIS CETTE OFFRE</button>
                 </div>

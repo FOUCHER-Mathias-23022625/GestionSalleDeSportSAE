@@ -4,7 +4,7 @@ namespace blog\models;
 use DateTime;
 use PDO;
 use PDOException;
-
+//t
 require_once "www/GestionSalleDeSportSAE/modules/blog/models/bdModel.php";
 
 class verfiEvenement

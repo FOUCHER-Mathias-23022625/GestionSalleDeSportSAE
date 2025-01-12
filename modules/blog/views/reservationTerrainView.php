@@ -1,5 +1,5 @@
 <?php
-
+//t
 namespace blog\views;
 use controllers\reservationTerrainController;
 require_once "Layout.php";
@@ -63,50 +63,8 @@ class reservationTerrainView
                 </form>
             </div>
         </section>
-        <?php
-        $afficherResDispo = new reservationTerrainController();
-        $reservations = $afficherResDispo->afficheRes($selected_date, $selected_sport);
-
-        $available_time_slots = $reservations['available_time_slots'];
-        $available_time_slotsBis = $reservations['available_time_slotsBis'];
-        ?>
-
-        <?php if ($selected_sport && $selected_date): ?>
-        <h2 class="titreSportSelec"><?php echo htmlspecialchars($selected_sport); ?></h2>
-        <p class="dateSelectionné"><?php echo htmlspecialchars($selected_date); ?></p>
-
-        <section class="Reservation">
-            <div class="colonne1">
-                <h3>Terrain 1</h3>
-                <div class="cardRes">
-                    <?php if (!empty($available_time_slots)): ?>
-                        <?php foreach ($available_time_slots as $time): ?>
-                            <button class="time-slot" onclick="openModal('<?php echo htmlspecialchars($time); ?>', 1)">
-                                <?php echo htmlspecialchars($time); ?>:00 H
-                            </button>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <p>Aucun créneau disponible pour <?php echo htmlspecialchars($selected_sport); ?> sur Terrain 1 ce jour-là.</p>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <div class="colonne1">
-                <h3>Terrain 2</h3>
-                <div class="cardRes">
-                    <?php if (!empty($available_time_slotsBis)): ?>
-                        <?php foreach ($available_time_slotsBis as $time2): ?>
-                            <button class="time-slot" onclick="openModal('<?php echo htmlspecialchars($time2); ?>', 2)">
-                                <?php echo htmlspecialchars($time2); ?>:00 H
-                            </button>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <p>Aucun créneau disponible pour <?php echo htmlspecialchars($selected_sport); ?> sur Terrain 2 ce jour-là.</p>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </section>
-    <?php endif; ?>
-
+        <?php $afficherResDispo = new reservationTerrainController();
+        $afficherResDispo->afficheRes($selected_date,$selected_sport); ?>
 
         <section id="reservationModal" class="modal">
             <form action="/GestionSalleDeSportSAE/reservationTerrain/addReservationTerrain" method="POST">
@@ -130,6 +88,5 @@ class reservationTerrainView
         <?php
         (new \Blog\Views\Layout('Reservation de Terrain', ob_get_clean()))->afficher();
     }
-
 }
 ?>
