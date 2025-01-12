@@ -37,7 +37,7 @@ class interfaceAdminView
                     </tr>
                     <?php
                     $interfaceAdminController = new interfaceAdminController();
-                    foreach ($this->$interfaceAdminController->getUsers() as $user): ?>
+                    foreach ($interfaceAdminController->getUsers() as $user): ?>
                         <tr>
                             <td><?= htmlspecialchars($user['IdUtilisateur'] ?? '') ?></td>
                             <td><?= htmlspecialchars($user['NomU'] ?? '') ?></td>
@@ -69,7 +69,7 @@ class interfaceAdminView
                         <th>Actions</th>
                     </tr>
                     <?php $interfaceAdminController = new interfaceAdminController();
-                    foreach ($this->$interfaceAdminController->getReservations() as $reservation): ?>
+                    foreach ($interfaceAdminController->getReservations() as $reservation): ?>
                         <tr>
                             <td><?= htmlspecialchars($reservation['sport'] ?? '') ?></td>
                             <td><?= htmlspecialchars($reservation['user_id'] ?? '') ?></td>
@@ -104,7 +104,7 @@ class interfaceAdminView
                         <th>Actions</th>
                     </tr>
                     <?php $interfaceAdminController = new interfaceAdminController();
-                    foreach ($this->$interfaceAdminController->getEvenements() as $evenement): ?>
+                    foreach ($interfaceAdminController->getEvenements() as $evenement): ?>
                         <tr>
                             <td><?= htmlspecialchars($evenement['IdEvenement'] ?? '') ?></td>
                             <td><?= htmlspecialchars($evenement['NomEven'] ?? '') ?></td>
