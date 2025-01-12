@@ -63,18 +63,22 @@ function openConfirmationBoxEvent(eventId) {
 
 
 
-function openConfirmationBoxReserv(sport, idUser, date, heure) {
-    // Vérifie si les paramètres sont valides
-    if (!sport || !idUser || !date || !heure) {
-        console.error("Les paramètres sont manquants :", { sport, idUser, date, heure });
+function openConfirmationBoxReserv(button) {
+    // Récupérer les données à partir des attributs data-*
+    const sport = button.getAttribute('data-sport');
+    const userId = button.getAttribute('data-user-id');
+    const date = button.getAttribute('data-date');
+    const heure = button.getAttribute('data-heure');
+
+    // Vérifie si les données sont valides
+    if (!sport || !userId || !date || !heure) {
+        console.error("Les paramètres sont manquants :", { sport, userId, date, heure });
         return;
     }
 
     // Récupère l'élément <a> du bouton "Confirmer"
     const confirmLink = document.getElementById('confirm-link');
-
-    // Met à jour dynamiquement l'attribut href avec les valeurs fournies
-    confirmLink.href = `/GestionSalleDeSportSAE/interfaceAdmin/deleteReservation/${sport}/${idUser}/${date}/${heure}`;
+    confirmLink.href = `/GestionSalleDeSportSAE/interfaceAdmin/deleteReservation/${sport}/${userId}/${date}/${heure}`;
 
     // Affiche la boîte de confirmation
     document.getElementById('confirm-overlay').style.display = 'flex';
