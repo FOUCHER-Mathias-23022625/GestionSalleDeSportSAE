@@ -2,7 +2,7 @@
 
 namespace blog\models;
 use PDO;
- class bdModel
+class bdModel
  {
      private $estConnecte;
      private $host;

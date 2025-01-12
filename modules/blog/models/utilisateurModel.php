@@ -1,9 +1,10 @@
 <?php
 namespace blog\models;
-use PDO;
+//use PDO;
 use PDOException;
 
-require_once "modules/blog/models/bdModel.php";
+
+//require_once 'modules/blog/models/bdModel.php';
 
 class utilisateurModel {
     private $connexionBD;
@@ -15,6 +16,8 @@ class utilisateurModel {
             die("Erreur de connexion à la base de données : " . $e->getMessage());
         }
     }
+
+
 
     public function ajouteUtilisateur($mail, $mdp,$prenom,$nom) {
         $requete = $this->connexionBD->pdo->prepare("INSERT INTO utilisateur (EMail, mdp, PrenomU, NomU) VALUES (:mail, :mdp, :prenom, :nom)");
@@ -34,12 +37,14 @@ class utilisateurModel {
         $abo = $this->connexionBD->pdo->prepare("INSERT INTO abonnement (idUtilisateur, DateDeb, DateExp) VALUES (:idUtilisateur, NULL, NULL)");
         $abo->bindParam(":idUtilisateur", $_SESSION['id']);
         $abo->execute();
+        return true;
     }
 
     public function delete_utilisateur($idUtilisateur) {
         $requete = $this->connexionBD->pdo->prepare("DELETE FROM utilisateur WHERE idUtilisateur = :idUtilisateur");
         $requete->bindParam(":idUtilisateur", $idUtilisateur);
         $requete->execute();
+        return true;
     }
 
     public function connexion($mail, $mdp) {
@@ -65,7 +70,9 @@ class utilisateurModel {
     public function utilisateurMail($mail){
         $requeteMail = $this->connexionBD->pdo->prepare("SELECT EMail FROM utilisateur WHERE EMAIL = :mail");
         $requeteMail->bindParam(':mail', $mail);
-        if($requeteMail->execute()){
+        $requeteMail->execute();
+        $_SESSION['testMail']=$requeteMail->fetchAll();
+        if(isset($_SESSION['testMail'])){
             return true;
         }
         else{
@@ -79,9 +86,7 @@ class utilisateurModel {
         $requete->bindParam(":mail",$mail);
         $requete->bindParam(":mdp",$hashedMdp);
         $requete->execute();
-
-
-
     }
+
 }
 ?>
