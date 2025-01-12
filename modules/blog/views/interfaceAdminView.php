@@ -4,6 +4,7 @@ namespace blog\views;
 use controllers\interfaceAdminController;
 
 require_once "Layout.php";
+require_once  "modules/blog/controllers/compteController.php";
 //t
 class interfaceAdminView
 {
