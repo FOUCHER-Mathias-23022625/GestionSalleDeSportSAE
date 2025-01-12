@@ -13,7 +13,7 @@ require_once "./index.php";
 require_once "modules/blog/views/Layout.php";
 
 class compteController {
-//T
+//Tt
     // Fonction pour afficher les informations du compte utilisateur
     public function afficheCompte() {
         $model = new compteModel();
