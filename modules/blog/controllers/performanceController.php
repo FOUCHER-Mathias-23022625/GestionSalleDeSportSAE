@@ -6,7 +6,7 @@ use blog\views\performanceView;
 use index;
 
 require_once "./index.php";
-//t
+require_once "modules/blog/models/performanceModel.php";
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
