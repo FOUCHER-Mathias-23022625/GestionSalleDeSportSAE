@@ -36,7 +36,7 @@ class interfaceAdminView
                         <th>Admin</th>
                         <th>Actions</th>
                     </tr>
-                    <?php foreach ($this->controller->getUsers() as $user): ?>
+                    <?php foreach ($this->interfaceAdminController->getUsers() as $user): ?>
                         <tr>
                             <td><?= htmlspecialchars($user['IdUtilisateur'] ?? '') ?></td>
                             <td><?= htmlspecialchars($user['NomU'] ?? '') ?></td>
@@ -67,7 +67,7 @@ class interfaceAdminView
                         <th>Terrain</th>
                         <th>Actions</th>
                     </tr>
-                    <?php foreach ($this->controller->getReservations() as $reservation): ?>
+                    <?php foreach ($this->interfaceAdminController->getReservations() as $reservation): ?>
                         <tr>
                             <td><?= htmlspecialchars($reservation['sport'] ?? '') ?></td>
                             <td><?= htmlspecialchars($reservation['user_id'] ?? '') ?></td>
@@ -101,7 +101,7 @@ class interfaceAdminView
                         <th>Sport</th>
                         <th>Actions</th>
                     </tr>
-                    <?php foreach ($this->controller->getEvenements() as $evenement): ?>
+                    <?php foreach ($this->interfaceAdminController->getEvenements() as $evenement): ?>
                         <tr>
                             <td><?= htmlspecialchars($evenement['IdEvenement'] ?? '') ?></td>
                             <td><?= htmlspecialchars($evenement['NomEven'] ?? '') ?></td>
