@@ -6,16 +6,18 @@ use PDO;
 class classementModel {
     private $connexion;
 
+    // Connexion à la base de données
     public function __construct() {
         try {
             $bd = new bdModel();
             $this->connexion = $bd->getConnexion();
         } catch (\PDOException $e) {
-            // En cas d'erreur, afficher le message et arrêter l'exécution
-            echo "Erreur de connexion à la base de données : " . $e->getMessage();
-            exit; // Stoppe l'exécution en cas de problème de connexion
+            echo "Erreur de connexion : " . $e->getMessage();
+            exit;
         }
     }
+
+    // Classement par victoires
     public function getClassementVictoires()
     {
         $sql = "SELECT 
@@ -30,17 +32,17 @@ class classementModel {
                 ON 
                     utilisateur.IdUtilisateur = performances.id_user
                 WHERE 
-                    performances.resultat = 1 -- 1 signifie une victoire
+                    performances.resultat = 1
                 GROUP BY 
                     utilisateur.IdUtilisateur, utilisateur.NomU, utilisateur.PrenomU
                 ORDER BY 
                     nombre_victoires DESC;
-";
+        ";
         $stmt = $this->connexion->prepare($sql);
         $stmt->execute();
-        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-        // Capitaliser les noms et prénoms
+        // Formatage des noms et prénoms
         foreach ($result as &$row) {
             $row['NomU'] = mb_convert_case($row['NomU'], MB_CASE_TITLE, "UTF-8");
             $row['PrenomU'] = mb_convert_case($row['PrenomU'], MB_CASE_TITLE, "UTF-8");
@@ -49,6 +51,7 @@ class classementModel {
         return $result;
     }
 
+    // Classement par nombre de performances
     public function getClassementPerformances()
     {
         $sql = "SELECT 
@@ -68,12 +71,12 @@ class classementModel {
                     utilisateur.IdUtilisateur, utilisateur.NomU, utilisateur.PrenomU
                 ORDER BY 
                     nombre_performances DESC;
-";
+        ";
         $stmt2 = $this->connexion->prepare($sql);
         $stmt2->execute();
-        $result = $stmt2->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif
+        $result = $stmt2->fetchAll(\PDO::FETCH_ASSOC);
 
-        // Capitaliser les noms et prénoms
+        // Formatage des noms et prénoms
         foreach ($result as &$row) {
             $row['NomU'] = mb_convert_case($row['NomU'], MB_CASE_TITLE, "UTF-8");
             $row['PrenomU'] = mb_convert_case($row['PrenomU'], MB_CASE_TITLE, "UTF-8");
@@ -82,6 +85,7 @@ class classementModel {
         return $result;
     }
 
+    // Classement par temps cumulé
     public function getClassementTemps()
     {
         $sql = "SELECT 
@@ -102,12 +106,12 @@ class classementModel {
                     utilisateur.IdUtilisateur, utilisateur.NomU, utilisateur.PrenomU
                 ORDER BY 
                     SUM(temps_de_jeu) DESC;
-";
+        ";
         $stmt3 = $this->connexion->prepare($sql);
         $stmt3->execute();
-        $result = $stmt3->fetchAll(\PDO::FETCH_ASSOC); // Retourne toutes les lignes sous forme de tableau associatif
+        $result = $stmt3->fetchAll(\PDO::FETCH_ASSOC);
 
-        // Capitaliser les noms et prénoms
+        // Formatage des noms et prénoms
         foreach ($result as &$row) {
             $row['NomU'] = mb_convert_case($row['NomU'], MB_CASE_TITLE, "UTF-8");
             $row['PrenomU'] = mb_convert_case($row['PrenomU'], MB_CASE_TITLE, "UTF-8");
@@ -115,5 +119,4 @@ class classementModel {
 
         return $result;
     }
-
 }

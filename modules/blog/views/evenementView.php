@@ -37,6 +37,7 @@ class evenementView{
             <?php foreach ($evenements as $evenement) : ?>
                 <div class="evenement">
                     <?php
+                    #Change l'image d'affichage en fonction du sport de l'évènement
                     switch ($evenement['NomSport']) {
                         case 'futsal':
                             $image = '/GestionSalleDeSportSAE/assets/images/istockphoto-1406854849-612x612.jpg';
@@ -71,6 +72,7 @@ class evenementView{
                     <div class="txt">
                         <h3><?= $evenement['NomEven'] ?></h3>
                         <?php
+                        #Change la description de l'évènement en fonction du sport
                         switch ($evenement['NomSport']) {
                             case 'futsal':
                                 $description = "Le Tournoi de Futsal est l'événement sportif idéal pour les amateurs de football rapide et intense. Le futsal, une version en salle du football, se joue à cinq contre cinq sur un terrain plus petit. Que vous soyez débutant ou expert, ce tournoi est l'occasion parfaite de partager des moments de convivialité, et de montrer vos talents. Formez votre équipe et inscrivez-vous dès maintenant pour vivre une expérience inoubliable sur le terrain !";

@@ -38,7 +38,7 @@
             var(--_g1) var(--_p, 25%) 0   , var(--_g2) 0    var(--_p, 125%),
             var(--_g1) var(--_p, 125%) 100%, var(--_g2) 100% var(--_p, 25%);
     background-size: 200% var(--b), var(--b) 200%;
-    cursor: pointer;
+
     transition: 0.5s ease;
 }
 
