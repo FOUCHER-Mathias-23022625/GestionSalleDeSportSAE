@@ -7,7 +7,7 @@ use index;
 
 require_once "./index.php";
 require_once "modules/blog/models/performanceModel.php";
-require_once "modules/blog/controllers/performanceController.php";
+require_once "modules/blog/views/performanceView.php";
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
