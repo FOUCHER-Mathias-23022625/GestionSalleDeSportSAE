@@ -1,6 +1,5 @@
 <?php
 namespace blog\controllers;
-namespace controllers;
 
 
 use blog\views\interfaceAdminView;
@@ -9,7 +8,7 @@ use blog\models\compteModel;
 use Index;
 use blog\views\Layout;
 
-//t
+//te
 require_once "modules/blog/views/interfaceAdminView.php";
 require_once "modules/blog/models/interfaceAdminModel.php";
 require_once "modules/blog/models/compteModel.php";
@@ -45,213 +44,20 @@ class interfaceAdminController
             }
         }
     }
-    public function AfficheUsers()
+    public function getUsers()
     {
-        $users = $this->interfaceAdminModel->GetAllUsers();
-        foreach ($users as $user): ?>
-            <tr>
-                <td><?= htmlspecialchars($user['IdUtilisateur'] ?? '') ?></td>
-                <td><?= htmlspecialchars($user['NomU'] ?? '') ?></td>
-                <td><?= htmlspecialchars($user['PrenomU'] ?? '') ?></td>
-                <td><?= htmlspecialchars($user['EMail'] ?? '') ?></td>
-                <td><?= htmlspecialchars($user['admin'] ?? '') ?></td>
-                <td class="actions">
-                    <button onclick="openConfirmationBox(<?= urlencode($user['IdUtilisateur']) ?>)">❌</button>
-                    <button onclick="openEditForm(<?= htmlspecialchars(json_encode($user)) ?>)">✏️</button>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-        <!-- Confirmation box qui nous permets de valider la suppression et qui appelle la fonction qui supprime -->
-        <div id="confirmation-container">
-            <div id="confirm-overlay" class="custom-overlay">
-                <div id="confirm-box" class="custom-box">
-                    <p>Êtes-vous sûr de vouloir supprimer l'utilisateur ?</p>
-                    <div class="custom-actions">
-                        <a id="confirm-link" href="#" class="delete-icon" title="Supprimer">Confirmer</a>
-                        <button class="custom-cancel-btn" onclick="closeConfirmationBox()">Annuler</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Edit box qui nous permets de modifier les informations d'un utilisateur -->
-        <div id="edit-container">
-            <div id="edit-overlay-user" class="custom-overlay">
-                <div class="custom-box">
-                    <form class="custom-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateUser" method="POST">
-                        <input type="hidden" name="IdUtilisateur" id="edit-id">
-                        <div class="custom-inputNom">
-                            <label for="edit-nom">Nom :</label>
-                            <input type="text" name="NomU" id="edit-nom" required>
-                        </div>
-                        <br>
-                        <div class="custom-inputPrenom">
-                            <label for="edit-prenom">Prénom :</label>
-                            <input type="text" name="PrenomU" id="edit-prenom" required>
-                        </div>
-                        <br>
-                        <div class="custom-inputMail">
-                            <label for="edit-email">Email :</label>
-                            <input type="email" name="EMail" id="edit-email" required>
-                        </div>
-                        <br>
-                        <div class="custom-inputAdmin">
-                            <label for="edit-admin">Admin :</label>
-                            <select name="admin" id="edit-admin" required>
-                                <option value="0">Non</option>
-                                <option value="1">Oui</option>
-                            </select>
-                        </div>
-                        <br>
-                        <div class="custom-actions">
-                            <button type="submit" class="custom-save-btn">Sauvegarder</button>
-                            <button type="button" class="custom-cancel-btn" onclick="closeEditBoxUser()">Annuler</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <?php
+        return $this->interfaceAdminModel->GetAllUsers();
     }
 
-    public function AfficheReservations()
+    public function getReservations()
     {
-        $reservations = $this->interfaceAdminModel->GetAllReservations();
-        foreach ($reservations as $reservation): ?>
-            <tr>
-                <td><?= htmlspecialchars($reservation['sport'] ?? '') ?></td>
-                <td><?= htmlspecialchars($reservation['user_id'] ?? '') ?></td>
-                <td><?= htmlspecialchars($reservation['date'] ?? '') ?></td>
-                <td><?= htmlspecialchars($reservation['heure'] ?? '') ?></td>
-                <td><?= htmlspecialchars($reservation['terrain'] ?? '') ?></td>
-                <td class="actions">
-                    <button onclick="openConfirmationBoxReserv(
-                            '<?= htmlspecialchars($reservation['sport'] ?? '', ENT_QUOTES) ?>',
-                            '<?= htmlspecialchars($reservation['user_id'] ?? '', ENT_QUOTES) ?>',
-                            '<?= htmlspecialchars($reservation['date'] ?? '', ENT_QUOTES) ?>',
-                            '<?= htmlspecialchars($reservation['heure'] ?? '', ENT_QUOTES) ?>'
-                            )">❌</button>
-                    <button onclick='openEditReservationBox(<?= json_encode($reservation, JSON_HEX_TAG) ?>)'>✏️</button>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-
-            <!-- Confirmation box qui nous permets de valider la suppression et qui appelle la fonction qui supprime -->
-        <div id="confirmation-container">
-            <div id="confirm-overlay" class="custom-overlay">
-                <div id="confirm-box" class="custom-box">
-                    <p>Êtes-vous sûr de vouloir supprimer cette réservation ?</p>
-                    <div class="custom-actions">
-                        <a id="confirm-link" href="#" class="delete-icon" title="Supprimer">Confirmer</a>
-                        <button class="custom-cancel-btn" onclick="closeConfirmationBox()">Annuler</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Edit box qui nous permets de modifier les informations d'une reservation -->
-
-        <div id="edit-container">
-            <div id="edit-overlay-resa" class="custom-overlay">
-                <div class="custom-box">
-                    <form class="custom-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateReservation" method="POST">
-                        <div class="admin-reservationSport">
-                            <label for="edit-sport">Sport choisis :</label>
-                            <input type="text" name="sport" id="edit-sport" required>
-                        </div>
-                        <br>
-                        <div class="admin-reservationIdUser">
-                            <label for="edit-user-id">L'id de l'utilisateur :</label>
-                            <input type="text" name="userId" id="edit-user-id" required>
-                        </div>
-                        <br>
-                        <div class="admin-reservationDate">
-                            <label for="edit-date">Date :</label>
-                            <input type="date" name="date" id="edit-date" required>
-                        </div>
-                        <br>
-                        <div class="admin-reservationHeure">
-                            <label for="edit-heure">Heure :</label>
-                            <input type="time" id="edit-heure" name="heure" required>
-                        </div>
-                        <br>
-                        <div class="admin-reservationTerrain">
-                            <label for="edit-terrain">Terrain :</label>
-                            <select name="terrain" id="edit-terrain" required>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
-                        </div>
-                        <br>
-                        <div class="custom-actions">
-                            <button type="submit" class="custom-save-btn">Sauvegarder</button>
-                            <button type="button" class="custom-cancel-btn" onclick="closeEditBoxResa()">Annuler</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <?php
+        return $this->interfaceAdminModel->GetAllReservations();
     }
 
-    public function AfficheEvenements()
+    public function getEvenements()
     {
-        $evenements = $this->interfaceAdminModel->GetAllEvenements();
-        foreach ($evenements as $evenement): ?>
-            <tr>
-                <td><?= htmlspecialchars($evenement['IdEvenement'] ?? '') ?></td>
-                <td><?= htmlspecialchars($evenement['NomEven'] ?? '') ?></td>
-                <td><?= htmlspecialchars($evenement['DateEven'] ?? '') ?></td>
-                <td><?= htmlspecialchars($evenement['NomSport'] ?? '') ?></td>
-                <td class="actions">
-                    <button onclick="openConfirmationBoxEvent(<?= isset($evenement['IdEvenement']) ? urlencode($evenement['IdEvenement']) : 'null' ?>)">❌</button>
-                    <button onclick='openEditEvenementBox(<?= json_encode($evenement, JSON_HEX_TAG) ?>)'>️️️️✏️</button>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-
-        <div id="confirmation-container">
-            <div id="confirm-overlay" class="custom-overlay">
-                <div id="confirm-box" class="custom-box">
-                    <p>Êtes-vous sûr de vouloir supprimer cette évènement ?</p>
-                    <div class="custom-actions">
-                        <a id="confirm-link" href="#" class="delete-icon" title="Supprimer">Confirmer</a>
-                        <button class="custom-cancel-btn" onclick="closeConfirmationBox()">Annuler</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="edit-container">
-            <div id="edit-overlay-event" class="custom-overlay">
-                <div class="custom-box">
-                    <form class="custom-form" action="/GestionSalleDeSportSAE/interfaceAdmin/updateEvenement" method="POST">
-                        <input type="hidden" name="evenement_id" id="edit-evenement-id">
-                        <div class="admin-evenNom">
-                            <label for="edit-nom-even">Nom de l'événement :</label>
-                            <input type="text" name="nom_even" id="edit-nom-even" required>
-                        </div>
-                        <br>
-                        <div class="admin-evenDate">
-                            <label for="edit-date-even">Date de l'événement :</label>
-                            <input type="date" name="date_even" id="edit-date-even" required>
-                        </div>
-                        <br>
-                        <div class="admin-evenSport">
-                            <label for="edit-nom-sport">Nom du sport :</label>
-                            <input type="text" name="nom_sport" id="edit-nom-sport" required>
-                        </div>
-                        <br>
-                        <div class="custom-actions">
-                            <button type="submit" class="custom-save-btn">Sauvegarder</button>
-                            <button type="button" class="custom-cancel-btn" onclick="closeEditBoxEvent()">Annuler</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-<?php    }
+        return $this->interfaceAdminModel->GetAllEvenements();
+    }
 
 
     public function deleteUser($userId)
