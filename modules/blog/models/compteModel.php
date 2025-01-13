@@ -11,7 +11,7 @@ class compteModel
     {
         $this->connexionBD = new bdModel();
     }
-
+// Récupère les informations de l'utilisateur connecté
     public function utilisateurInformation()
     {
         $requete = $this->connexionBD->pdo->prepare("SELECT NomU, PrenomU, EMail, mdp, pp,admin FROM utilisateur WHERE idUtilisateur=:idUtilisateur");
@@ -20,7 +20,7 @@ class compteModel
         $requete = $requete->fetch();
         return $requete;
     }
-
+// Récupère les dates de début et d'expiration de l'abonnement de l'utilisateur
     public function dateDeb_dateFin()
     {
         $requete = $this->connexionBD->pdo->prepare("SELECT DateDeb, DateExp from abonnement where idUtilisateur =:idUtilisateur");
@@ -30,7 +30,7 @@ class compteModel
         return $requete;
 
     }
-
+// Modifie les informations de l'utilisateur
     public function edit_utilisateur()
     {
 
@@ -41,7 +41,7 @@ class compteModel
                 if(!move_uploaded_file($tmpName, 'assets/images/public/'.basename($image['name']))){
                     die();
                 }
-                $requete1 = $this->connexionBD->pdo->prepare("UPDATE utilisateur set pp=:image where idUtilisateur=:id");
+                $requete1 = $this->connexionBD->pdo->prepare("UPDATE utilisateur set pp=:image where idUtilisateur=:id"); // Mise à jour des autres informations de l'utilisateur
                 $requete1->bindParam(":image",$image['name']);
                 $requete1->bindParam(":id",$_SESSION['id']);
                 $requete1->execute();
@@ -53,7 +53,7 @@ class compteModel
             die();
         }
 
-        $requete = $this->connexionBD->pdo->prepare("UPDATE utilisateur set NomU=:nom, PrenomU=:prenom, EMail=:email where idUtilisateur=:id");
+        $requete = $this->connexionBD->pdo->prepare("UPDATE utilisateur set NomU=:nom, PrenomU=:prenom, EMail=:email where idUtilisateur=:id");// Utilisation des valeurs existantes si aucun champ n'est rempli
         if (!isset($_POST['PrenomCompte'])) {
             $_POST['PrenomCompte'] = $this->utilisateurInformation()['PrenomU'];
         }
@@ -73,8 +73,9 @@ class compteModel
     }
 
 
+    // Change le mot de passe de l'utilisateur
     public function changementMotDePasse($nvMdp){
-        $hashedMdp = password_hash($nvMdp, PASSWORD_DEFAULT);
+        $hashedMdp = password_hash($nvMdp, PASSWORD_DEFAULT); // Hashage du mot de passe
         $requete = $this->connexionBD->pdo->prepare("UPDATE utilisateur SET mdp=:mdp where idUtilisateur =:idUtilisateur");
         $requete->bindParam(":idUtilisateur",$_SESSION['id']);
         $requete->bindParam(":mdp",$hashedMdp);
@@ -83,7 +84,7 @@ class compteModel
 
 
     }
-
+// Supprime l'image de profil de l'utilisateur
     public function delPP(){
         $requete = $this->connexionBD->pdo->prepare("UPDATE utilisateur set pp = null");
         $requete->execute();
