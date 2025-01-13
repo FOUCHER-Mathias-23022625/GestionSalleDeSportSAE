@@ -14,7 +14,7 @@ class interfaceAdminView
     {
     }
 
-    public function afficher($re)
+    public function afficher()
     {
         ob_start();?>
         <main class="admin-container">
