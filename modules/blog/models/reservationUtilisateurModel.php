@@ -32,6 +32,8 @@ class reservationUtilisateurModel
     {
         $stmt = $this->connexion->pdo->prepare("DELETE FROM reservationTerrain WHERE user_id = ? AND sport = ? AND date = ? AND heure = ?");
         $stmt->execute([$userId, $sport, $date, $heure]);
+        // Supprime une reservation
+
     }
 
 }

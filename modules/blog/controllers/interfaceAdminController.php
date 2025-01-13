@@ -49,16 +49,21 @@ class interfaceAdminController
     public function getUsers()
     {
         return $this->interfaceAdminModel->GetAllUsers();
+        // Appeler le modèle pour recuperer tout les utilisateurs
     }
 
     public function getReservations()
     {
         return $this->interfaceAdminModel->GetAllReservations();
+        // Appeler le modèle pour recuperer toutes les reservations
+
     }
 
     public function getEvenements()
     {
         return $this->interfaceAdminModel->GetAllEvenements();
+        // Appeler le modèle pour recuperer tout les évènements
+
     }
 
 
