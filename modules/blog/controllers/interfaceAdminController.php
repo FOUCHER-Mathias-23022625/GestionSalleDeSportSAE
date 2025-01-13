@@ -41,6 +41,7 @@ class interfaceAdminController
                 header('Location: /GestionSalleDeSportSAE/homepage/accueil');
                 exit();
             } else {
+
                 $viewInterfaceAdmin->afficher();
             }
         }
