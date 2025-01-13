@@ -3,6 +3,7 @@
     background-color: #38444c;
     color: #fff;
     text-align: center;
+    z-index: -1;
 }
 
 .containerFooter{

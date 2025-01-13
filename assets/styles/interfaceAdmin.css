@@ -182,7 +182,17 @@
 }
 
 /* Style pour les boutons */
-.custom-save-btn,
+.custom-save-btn {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    margin: 5px 0;
+    text-align: center;
+}
+
 .custom-cancel-btn {
     padding: 12px;
     font-size: 16px;
