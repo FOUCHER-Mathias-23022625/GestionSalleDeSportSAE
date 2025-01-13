@@ -37,6 +37,7 @@ class interfaceAdminView
                     </tr>
                     <?php
                     $interfaceAdminController = new interfaceAdminController();
+                    //sert a afficher toute les utilisateurs de la base de données
                     foreach ($interfaceAdminController->getUsers() as $user): ?>
                         <tr>
                             <td><?= htmlspecialchars($user['IdUtilisateur'] ?? '') ?></td>
@@ -69,6 +70,7 @@ class interfaceAdminView
                         <th>Actions</th>
                     </tr>
                     <?php $interfaceAdminController = new interfaceAdminController();
+                    //sert a afficher toute les reservation de la base de données
                     foreach ($interfaceAdminController->getReservations() as $reservation): ?>
                         <tr>
                             <td><?= htmlspecialchars($reservation['sport'] ?? '') ?></td>
@@ -104,6 +106,8 @@ class interfaceAdminView
                         <th>Actions</th>
                     </tr>
                     <?php $interfaceAdminController = new interfaceAdminController();
+                    //sert a afficher toute les évenements de la base de données
+
                     foreach ($interfaceAdminController->getEvenements() as $evenement): ?>
                         <tr>
                             <td><?= htmlspecialchars($evenement['IdEvenement'] ?? '') ?></td>
@@ -142,7 +146,7 @@ class interfaceAdminView
                             </div>
                             <br>
                             <div class="custom-inputPrenom">
-                                <label for="edit-prenom">PrÃ©nom :</label>
+                                <label for="edit-prenom">Prénom :</label>
                                 <input type="text" name="PrenomU" id="edit-prenom" required>
                             </div>
                             <br>
