@@ -7,6 +7,7 @@ use blog\views\Layout;
 use blog\views\utilisateurView;
 use blog\views\verifMailView;
 use Index;
+use PDOException;
 
 // Inclusion des fichiers nécessaires pour les modèles, vues et l'index
 require_once "modules/blog/views/utilisateurView.php";
@@ -181,7 +182,7 @@ class utilisateurController
             if ($code == $_SESSION['code']){
                 $this->inscription();// Inscrit l'utilisateur
                 $_SESSION['alert'] = "Vous avez bien été inscrit";
-                header("location: ../abonnement/afficheAbonnement");// Redirige vers la page d'abonnemen
+                header("location: ../abonnement/afficheAbonnement");// Redirige vers la page d'abonnement
                 exit();
             }
             // Si le code est incorrect, réinitialise les variables de session
